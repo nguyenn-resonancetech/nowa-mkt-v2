@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nowa — your child's first friend who helps them grow</title>
+<meta name="description" content="Nowa is a screen-free magical pet that grows through your child's care — practicing calm, routines, and big feelings together. Built with the scientists who wrote the science. Pre-order now, ships September 2026.">
+<link rel="stylesheet" href="../design/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---- base ---- */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-noto-sans);color:var(--color-deep-ink);background:var(--surface-warm-parchment);font-size:var(--text-body);line-height:var(--leading-body);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-onest);font-weight:var(--font-weight-bold);line-height:1.15}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--page-max-width);margin:0 auto;padding:0 var(--spacing-24)}
+.narrow{max-width:var(--page-max-width-content)}
+.eyebrow{font-family:var(--font-onest);font-weight:600;font-size:var(--text-caption);letter-spacing:.12em;text-transform:uppercase;color:var(--color-coral-flame)}
+.btn-primary{display:inline-block;background:var(--color-coral-flame);color:#fff;font-weight:600;font-size:var(--text-body);padding:14px 28px;border-radius:var(--radius-buttons);transition:background var(--duration-fast) var(--ease-default)}
+.btn-primary:hover{background:var(--color-ember-deep)}
+.btn-ghost{display:inline-block;color:var(--color-deep-ink);font-weight:600;padding:14px 8px;border-bottom:2px solid transparent}
+.btn-ghost:hover{border-bottom-color:var(--color-coral-flame)}
+section{padding:var(--spacing-96) 0}
+.dark{background:var(--surface-deep-ink);color:var(--color-pure-white)}
+.dark h1,.dark h2,.dark h3{color:var(--color-pure-white)}
+.dark .lead{color:var(--color-chalk-surface)}
+.light{background:var(--surface-warm-parchment)}
+.white{background:var(--surface-pure-white)}
+.lead{font-size:var(--text-subheading);color:var(--color-slate-mid);line-height:1.55}
+
+/* ---- nav ---- */
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);background:rgba(237,234,226,.82);border-bottom:1px solid var(--color-chalk-surface)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--font-onest);font-weight:800;font-size:20px;letter-spacing:-.01em}
+.brand span{color:var(--color-coral-flame)}
+.navlinks{display:flex;gap:28px;align-items:center}
+.navlinks a{font-size:var(--text-body-sm);font-weight:500;color:var(--color-slate-mid)}
+.navlinks a:hover{color:var(--color-deep-ink)}
+.navlinks .btn-primary{padding:10px 20px;font-size:var(--text-body-sm);color:#fff}
+@media(max-width:820px){.navlinks a:not(.btn-primary){display:none}}
+
+/* ---- hero ---- */
+.hero{padding:var(--spacing-96) 0 var(--spacing-64)}
+.hero h1{font-size:var(--text-display);line-height:1.05;font-weight:800;letter-spacing:-.02em;max-width:14ch}
+.hero .lead{margin:var(--spacing-24) 0 var(--spacing-32);max-width:48ch}
+.hero-cta{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.ship{font-size:var(--text-body-sm);color:var(--color-mist-body);margin-top:18px}
+.hero-art{margin-top:var(--spacing-64);aspect-ratio:16/8;border-radius:var(--radius-cards-lg);background:linear-gradient(135deg,var(--color-coral-glow),var(--color-coral-flame));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-onest);font-weight:600}
+@media(max-width:720px){.hero h1{font-size:var(--text-display-alt)}}
+
+/* ---- spine band ---- */
+.spine .quote{font-family:var(--font-onest);font-weight:700;font-size:var(--text-heading-lg);line-height:1.25;max-width:20ch;margin:0 auto;text-align:center}
+.spine .sub{text-align:center;margin-top:var(--spacing-24);color:var(--color-coral-blush)}
+
+/* ---- loop steps ---- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-24);margin-top:var(--spacing-48)}
+.step{background:var(--surface-pure-white);border-radius:var(--radius-cards);padding:var(--card-padding)}
+.step .n{width:36px;height:36px;border-radius:var(--radius-full);background:var(--color-coral-flame);color:#fff;font-family:var(--font-onest);font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.step h3{font-size:var(--text-heading-sm);margin-bottom:6px}
+.step p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+@media(max-width:820px){.steps{grid-template-columns:1fr 1fr}}
+
+/* ---- pillars ---- */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-24);margin-top:var(--spacing-48)}
+.pillar{padding:var(--card-padding);border-left:3px solid var(--color-coral-flame)}
+.pillar h3{font-size:var(--text-heading-sm);margin-bottom:8px}
+.pillar p{font-size:var(--text-body-sm);color:var(--color-chalk-surface)}
+@media(max-width:820px){.pillars{grid-template-columns:1fr}}
+
+/* ---- segments ---- */
+.seg-head{text-align:center;max-width:46ch;margin:0 auto var(--spacing-48)}
+.segs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-16)}
+.seg{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards);padding:var(--card-padding)}
+.seg h3{font-size:var(--text-subheading);margin-bottom:6px}
+.seg p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+@media(max-width:820px){.segs{grid-template-columns:1fr}}
+
+/* ---- science ---- */
+.advisors{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16);margin-top:var(--spacing-32)}
+.adv{background:var(--color-ink-charcoal);border-radius:var(--radius-cards);padding:20px}
+.adv .nm{font-family:var(--font-onest);font-weight:700}
+.adv .role{font-size:var(--text-body-sm);color:var(--color-coral-glow);margin-top:4px}
+@media(max-width:820px){.advisors{grid-template-columns:1fr 1fr}}
+
+/* ---- compare strip ---- */
+.cmp{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16);margin-top:var(--spacing-32);text-align:center}
+.cmp .col{background:var(--surface-pure-white);border-radius:var(--radius-cards);padding:20px;border:1px solid var(--color-chalk-surface)}
+.cmp .col.us{border:2px solid var(--color-coral-flame)}
+.cmp .col h4{font-family:var(--font-onest);font-size:var(--text-body)}
+.cmp .col p{font-size:var(--text-body-sm);color:var(--color-slate-mid);margin-top:8px}
+@media(max-width:820px){.cmp{grid-template-columns:1fr 1fr}}
+
+/* ---- final cta ---- */
+.final{text-align:center}
+.final h2{font-size:var(--text-heading-xl);max-width:18ch;margin:0 auto var(--spacing-24)}
+
+/* ---- footer ---- */
+footer{background:var(--surface-deep-ink);color:var(--color-mist-body);padding:var(--spacing-48) 0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;font-size:var(--text-body-sm)}
+footer a{color:var(--color-chalk-surface)}
+footer a:hover{color:#fff}
+.note{background:var(--color-coral-blush);color:var(--color-ember-darker);font-size:var(--text-caption);text-align:center;padding:8px}
+</style>
+</head>
+<body>
+
+<div class="note">SAMPLE BUILD — content + structure for the new marketing site. Copy is grounded in customer intelligence; imagery is placeholder. For the dev to merge into the production framework.</div>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Nowa<span>.</span></div>
+    <div class="navlinks">
+      <a href="#how">How it works</a>
+      <a href="#science">The science</a>
+      <a href="#compare">Compare</a>
+      <a href="#blog">Guides</a>
+      <a href="#preorder" class="btn-primary">Pre-order</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero light">
+  <div class="wrap">
+    <p class="eyebrow">A magical pet for kids 3–10</p>
+    <h1>Your child's first friend who helps them grow.</h1>
+    <p class="lead">Nowa is a screen-free companion that grows through your child's care. It doesn't lecture, and it doesn't talk like a chatbot — it has feelings to read and needs to meet, so your child practices calm, routines, and kindness without ever being told to.</p>
+    <div class="hero-cta">
+      <a href="#preorder" class="btn-primary">Pre-order Nowa — $99</a>
+      <a href="#how" class="btn-ghost">See how it works →</a>
+    </div>
+    <p class="ship">Ships September 2026 · Built with child-development scientists · No ads, no open internet</p>
+    <div class="hero-art">[ hero: a 7-year-old and their Nowa, mid-morning routine ]</div>
+  </div>
+</header>
+
+<!-- SPINE -->
+<section class="spine dark">
+  <div class="wrap">
+    <p class="quote">"I want to stay calm — and I want my kid to learn how, too."</p>
+    <p class="sub">Every parent we built Nowa for said a version of this. So we started there.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS / CARE LOOP -->
+<section id="how" class="light">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2 style="font-size:var(--text-heading-xl);max-width:18ch">The Care Loop: growth as a side effect of caring.</h2>
+    <p class="lead" style="max-width:54ch;margin-top:16px">Nowa never assigns chores or grades behavior. The pet simply has needs and emotions. Your child responds — and in responding, builds the habits and empathy that last.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>The pet feels</h3><p>Nowa expresses a need or emotion in its own sounds and animation — never human words.</p></div>
+      <div class="step"><div class="n">2</div><h3>Your child cares</h3><p>They interpret what Nowa needs and respond with care and imagination.</p></div>
+      <div class="step"><div class="n">3</div><h3>The pet grows</h3><p>Consistent care helps Nowa thrive and evolve — the visible reward of showing up.</p></div>
+      <div class="step"><div class="n">4</div><h3>Your child grows</h3><p>Habits, emotional skills, and self-regulation form — as a consequence of the relationship.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NON-VERBAL DIFFERENTIATOR -->
+<section class="dark">
+  <div class="wrap narrow">
+    <p class="eyebrow">Why Nowa doesn't talk</p>
+    <h2 style="font-size:var(--text-heading-lg);max-width:22ch">It doesn't talk to your kid. It needs your kid.</h2>
+    <p class="lead" style="margin-top:18px">A pet that chats like an AI gives answers. A pet that communicates in feelings and sounds invites your child to <em>read</em> it — to infer, empathize, and imagine. That's where emotional intelligence is actually built. It's also why Nowa's safety story is simple: no open conversations, no open internet, nothing to say it shouldn't.</p>
+    <div class="pillars">
+      <div class="pillar"><h3>Healthy Habits</h3><p>Routines done <em>with</em> a companion, not enforced by a parent.</p></div>
+      <div class="pillar"><h3>Emotional Intelligence</h3><p>Reading feelings, practicing calm, repairing after a hard moment.</p></div>
+      <div class="pillar"><h3>Executive Function</h3><p>Focus, memory, and flexibility, exercised through play.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEGMENTS / WHO IT'S FOR -->
+<section class="white">
+  <div class="wrap">
+    <div class="seg-head">
+      <p class="eyebrow">Who it's for</p>
+      <h2 style="font-size:var(--text-heading-lg)">Wherever you are in the hard parts.</h2>
+    </div>
+    <div class="segs">
+      <div class="seg"><h3>The morning-battle parent</h3><p>Teeth, clothes, breakfast, the door. Nowa turns the routine into something your child does <em>with</em> a friend — minus the referee.</p></div>
+      <div class="seg"><h3>The big-feelings parent</h3><p>When meltdowns are big and frequent, Nowa is a low-stakes place to practice calming down — before the storm, not during it.</p></div>
+      <div class="seg"><h3>The parent doing their own work</h3><p>On the days your patience is gone, Nowa is a second steady presence in the room — so one hard moment doesn't have to land on you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE SCIENCE -->
+<section id="science" class="dark">
+  <div class="wrap">
+    <p class="eyebrow">The science</p>
+    <h2 style="font-size:var(--text-heading-xl);max-width:20ch">Built with the scientists who wrote the science.</h2>
+    <p class="lead" style="max-width:52ch;margin-top:16px">Nowa's developmental design was shaped by leading researchers in emotional competence, executive function, and parent-child interaction. Not a focus group — the people whose frameworks the field is built on.</p>
+    <div class="advisors">
+      <div class="adv"><div class="nm">Dr. Susanne Denham</div><div class="role">Emotional competence</div></div>
+      <div class="adv"><div class="nm">Dr. Megan McClelland</div><div class="role">Executive function</div></div>
+      <div class="adv"><div class="nm">Dr. Steven Kurtz</div><div class="role">Parent-child interaction</div></div>
+      <div class="adv"><div class="nm">Dr. David Mou</div><div class="role">Strategy & GTM</div></div>
+    </div>
+    <p class="ship" style="color:var(--color-mist-body);margin-top:24px">Shaped by our advisory board. We say "built with" — never "clinically proven."</p>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section id="compare" class="light">
+  <div class="wrap">
+    <p class="eyebrow">How Nowa is different</p>
+    <h2 style="font-size:var(--text-heading-lg);max-width:24ch">Screen-free like Yoto. Developmental like Lovevery. But alive.</h2>
+    <div class="cmp">
+      <div class="col"><h4>Audio players</h4><p>Great stories. But the child listens — they don't form a relationship.</p></div>
+      <div class="col"><h4>Play kits</h4><p>Thoughtful toys. But they don't grow, respond, or build a bond over time.</p></div>
+      <div class="col"><h4>Tablets & apps</h4><p>Endless engagement — designed to keep your child <em>in</em>, not send them back out.</p></div>
+      <div class="col us"><h4>Nowa</h4><p>A companion that grows with your child, sends them back into real life, and was built with scientists.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG TEASER -->
+<section id="blog" class="white">
+  <div class="wrap">
+    <p class="eyebrow">Guides for the hard parts</p>
+    <h2 style="font-size:var(--text-heading-lg);max-width:26ch">Real help, whether or not you ever buy a Nowa.</h2>
+    <p class="lead" style="max-width:52ch;margin-top:12px">Practical, science-grounded guides on the things that actually fill your evenings: yelling less, smoother mornings, big feelings, friendship trouble.</p>
+    <p style="margin-top:24px"><a href="#blog" class="btn-ghost">Read the guides →</a></p>
+  </div>
+</section>
+
+<!-- FINAL CTA / PRE-ORDER -->
+<section id="preorder" class="dark final">
+  <div class="wrap narrow">
+    <p class="eyebrow">Pre-order</p>
+    <h2>Reserve your child's Nowa.</h2>
+    <p class="lead" style="margin:0 auto var(--spacing-32);max-width:40ch">$99 · ships September 2026 · free updates · cancel your reservation anytime before it ships.</p>
+    <a href="#" class="btn-primary">Pre-order Nowa — $99</a>
+    <p class="ship" style="color:var(--color-mist-body);margin-top:20px">You're reserving a spot, not racing a clock. We'll email you well before yours ships.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand" style="color:#fff">Nowa<span>.</span></div>
+      <p style="margin-top:8px">A magical pet that helps kids grow. By Nowa Technologies.</p>
+    </div>
+    <div style="display:flex;gap:40px;flex-wrap:wrap">
+      <div><a href="#how">How it works</a><br><a href="#science">The science</a><br><a href="#compare">Compare</a></div>
+      <div><a href="#blog">Guides</a><br><a href="#preorder">Pre-order</a><br><a href="#">Safety & privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
