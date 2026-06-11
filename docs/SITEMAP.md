@@ -31,6 +31,31 @@ with the hook for the segment most likely to land on it.
 | Blog | Earn search traffic on problem queries | Cold-register entry | Problem-first titles (see CONTENT-PLAN) |
 | /lp/* | Convert paid traffic by segment | Per campaign | Inherits ad angle; one message, one CTA |
 
+## Homepage content balance (parent-outcome vs kid-delight)
+The hero and close are 100% the parent's (spine register). Mid-page, the site must
+answer her second objection — "will my kid actually love it?" — with the fun proof:
+the reward engine (blind egg, a pet that grows through care, the species world) and
+the Library (screen-free audio: story, song, podcast, soundscapes). Roughly **60/40
+parent-outcome to kid-delight** by page area. Rules:
+
+- **All learning runs through missions**, synced to real-world actions (brush teeth,
+  bedtime, calm-down, focus tasks). Fun sections appear *downstream* of the missions
+  story and exist to explain *why the mechanism works* ("children follow through on
+  things they care about") or what the device does between missions.
+- **Variety, never accumulation.** The species world is "who might you meet," not
+  "collect them all." No gacha/FOMO framing — this audience is allergic to it.
+- The Library is framed as **screen-free audio** (enters the Yoto/Toniebox
+  consideration set) and pre-builds the Nowa+ value story.
+- Kid-fun sections double as the Nostalgia Bridge Dad surface (pixel pets, mystery
+  egg = Tamagotchi memory) without switching the page's register.
+- **Pre-pivot cleanup:** the product pivoted from human-voice responses to
+  animation/action/pet-sound responses. Any ported copy implying the pet converses
+  ("responds with warmth," "not generic scripts") must be rewritten to non-verbal
+  framing before it ships.
+- **Advisor quotes:** advisor sections carry full credentials (from the LP repo's
+  advisory data) plus quote slots. Quotes must be real and approved by each advisor —
+  never drafted on their behalf. Placeholders stay clearly marked until then.
+
 ## Section rhythm (storybook chapters)
 Alternate warm-parchment (light) and deep-ink (dark) full-bleed sections down every
 long page. Coral carries every CTA and accent. Hero imagery skews to children 6–8.
