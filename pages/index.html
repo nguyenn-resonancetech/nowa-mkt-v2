@@ -61,12 +61,21 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .step p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
 @media(max-width:820px){.steps{grid-template-columns:1fr 1fr}}
 
-/* ---- pillars ---- */
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-24);margin-top:var(--spacing-48)}
-.pillar{padding:var(--card-padding);border-left:3px solid var(--color-coral-flame)}
-.pillar h3{font-size:var(--text-heading-sm);margin-bottom:8px}
-.pillar p{font-size:var(--text-body-sm);color:var(--color-chalk-surface)}
-@media(max-width:820px){.pillars{grid-template-columns:1fr}}
+/* ---- fun / reward engine ---- */
+.funs{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--spacing-24);margin-top:var(--spacing-48)}
+.fun{padding:var(--card-padding);border-left:3px solid var(--color-coral-flame)}
+.fun h3{font-size:var(--text-heading-sm);margin-bottom:8px}
+.fun p{font-size:var(--text-body-sm);color:var(--color-chalk-surface)}
+.pet-strip{margin-top:var(--spacing-48);aspect-ratio:16/4;border-radius:var(--radius-cards-lg);background:var(--color-ink-charcoal);display:flex;align-items:center;justify-content:center;color:var(--color-mist-body);font-family:var(--font-onest);font-weight:600}
+@media(max-width:820px){.funs{grid-template-columns:1fr}}
+
+/* ---- library ---- */
+.libs{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16);margin-top:var(--spacing-48)}
+.lib{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards);padding:var(--card-padding)}
+.lib h3{font-size:var(--text-subheading);margin-bottom:6px}
+.lib p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+@media(max-width:820px){.libs{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.libs{grid-template-columns:1fr}}
 
 /* ---- segments ---- */
 .seg-head{text-align:center;max-width:46ch;margin:0 auto var(--spacing-48)}
@@ -77,11 +86,15 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 @media(max-width:820px){.segs{grid-template-columns:1fr}}
 
 /* ---- science ---- */
-.advisors{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16);margin-top:var(--spacing-32)}
-.adv{background:var(--color-ink-charcoal);border-radius:var(--radius-cards);padding:20px}
-.adv .nm{font-family:var(--font-onest);font-weight:700}
+.advisors{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--spacing-16);margin-top:var(--spacing-32)}
+.adv{background:var(--color-ink-charcoal);border-radius:var(--radius-cards);padding:var(--card-padding)}
+.adv .nm{font-family:var(--font-onest);font-weight:700;font-size:var(--text-subheading)}
 .adv .role{font-size:var(--text-body-sm);color:var(--color-coral-glow);margin-top:4px}
-@media(max-width:820px){.advisors{grid-template-columns:1fr 1fr}}
+.adv .ttl{font-size:var(--text-body-sm);color:var(--color-mist-body);margin-top:2px}
+.adv .cred{margin:14px 0 0 18px;display:flex;flex-direction:column;gap:6px}
+.adv .cred li{font-size:var(--text-body-sm);color:var(--color-chalk-surface)}
+.adv-quote{margin-top:16px;padding:12px 14px;border-left:3px solid var(--color-coral-flame);font-style:italic;font-size:var(--text-body-sm);color:var(--color-coral-blush);background:rgba(255,255,255,.04);border-radius:0 var(--radius-cards) var(--radius-cards) 0}
+@media(max-width:820px){.advisors{grid-template-columns:1fr}}
 
 /* ---- compare strip ---- */
 .cmp{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16);margin-top:var(--spacing-32);text-align:center}
@@ -163,12 +176,54 @@ footer a:hover{color:#fff}
   <div class="wrap narrow">
     <p class="eyebrow">Why Nowa doesn't talk</p>
     <h2 style="font-size:var(--text-heading-lg);max-width:22ch">It doesn't talk to your kid. It needs your kid.</h2>
-    <p class="lead" style="margin-top:18px">A pet that chats like an AI gives answers. A pet that communicates in feelings and sounds invites your child to <em>read</em> it — to infer, empathize, and imagine. That's where emotional intelligence is actually built. It's also why Nowa's safety story is simple: no open conversations, no open internet, nothing to say it shouldn't.</p>
-    <div class="pillars">
-      <div class="pillar"><h3>Healthy Habits</h3><p>Routines done <em>with</em> a companion, not enforced by a parent.</p></div>
-      <div class="pillar"><h3>Emotional Intelligence</h3><p>Reading feelings, practicing calm, repairing after a hard moment.</p></div>
-      <div class="pillar"><h3>Executive Function</h3><p>Focus, memory, and flexibility, exercised through play.</p></div>
+    <p class="lead" style="margin-top:18px">A pet that chats like an AI gives answers. A pet that communicates in feelings, sounds, and animation invites your child to <em>read</em> it — to infer, empathize, and imagine. That's where emotional intelligence is actually built. It's also why Nowa's safety story is simple: no open conversations, no open internet, nothing to say it shouldn't.</p>
+  </div>
+</section>
+
+<!-- THE MISSIONS -->
+<section id="missions" class="white">
+  <div class="wrap">
+    <p class="eyebrow">The missions</p>
+    <h2 style="font-size:var(--text-heading-xl);max-width:20ch">All the learning runs through missions.</h2>
+    <p class="lead" style="max-width:54ch;margin-top:16px">The pet asks for help. What it asks for is designed by child-development experts — and every mission syncs to a real-world action, so practice happens in your actual morning, your actual bedtime. It never feels like homework, because it isn't presented as one.</p>
+    <div class="segs" style="margin-top:var(--spacing-48)">
+      <div class="seg"><h3>Habit &amp; Routine</h3><p>Brushing teeth, bedtime, homework start, transitions. Not rigid compliance — routines that feel more doable, more consistent, and less emotionally draining.</p></div>
+      <div class="seg"><h3>Emotional Regulation</h3><p>Your child helps their pet notice feelings, calm down, and respond with empathy — gentle, age-appropriate practice in self-awareness, through play.</p></div>
+      <div class="seg"><h3>Executive Function</h3><p>Attention, remembering, listening, staying with a task — woven into age-banded challenges that build working memory, flexibility, and self-control.</p></div>
     </div>
+    <p class="ship" style="margin-top:24px">You choose which mission types run, and when — from the parent app.</p>
+  </div>
+</section>
+
+<!-- WHY KIDS LOVE IT / REWARD ENGINE -->
+<section id="fun" class="dark">
+  <div class="wrap">
+    <p class="eyebrow">Why kids beg to play it</p>
+    <h2 style="font-size:var(--text-heading-xl);max-width:20ch">Missions work because the friendship is real to them.</h2>
+    <p class="lead" style="max-width:54ch;margin-top:16px">Children follow through on things they care about — not things they're told to do. So we made caring the whole game.</p>
+    <div class="funs">
+      <div class="fun"><h3>It starts with an egg</h3><p>Your child won't know who's inside until it hatches. From the first crack, the pet is <em>theirs</em> — and the bond does the motivating.</p></div>
+      <div class="fun"><h3>A friend that knows them</h3><p>The pet reacts to the care it's been given — greeting, moods, and little rituals, all in its own sounds and animations. Never human words.</p></div>
+      <div class="fun"><h3>Grown through care</h3><p>How the pet grows depends on how your child shows up. With steady care the bond deepens and the pet evolves in its own way — no two journeys alike.</p></div>
+      <div class="fun"><h3>A whole world of species</h3><p>Brim, Nori, Ollie, Flori, Miko, Puffin, Taro… every pet has its own look, quirks, and backstory from Nowa Planet. Who might your child meet?</p></div>
+    </div>
+    <div class="pet-strip">[ pet strip: pixel sprites of the species, hatching egg center ]</div>
+  </div>
+</section>
+
+<!-- THE LIBRARY -->
+<section id="library" class="light">
+  <div class="wrap">
+    <p class="eyebrow">Between missions</p>
+    <h2 style="font-size:var(--text-heading-xl);max-width:22ch">Also the storyteller, the singer, and the question-answerer.</h2>
+    <p class="lead" style="max-width:54ch;margin-top:16px">Nowa carries a growing library of screen-free audio — chosen by you, played by the pet. The bedtime story, the morning anthem, the "why do planets spin?" — without handing over a screen.</p>
+    <div class="libs">
+      <div class="lib"><h3>Story</h3><p>Beloved classics retold for every age, plus original tales from the Nowa universe.</p></div>
+      <div class="lib"><h3>Song</h3><p>A morning anthem to start the day, a lullaby to end it — every song built for a moment and a mood.</p></div>
+      <div class="lib"><h3>Podcast</h3><p>A curious host and a real expert, on science, history, nature, culture, and life.</p></div>
+      <div class="lib"><h3>Sound &amp; Fun Facts</h3><p>Soundscapes matched to the mood, with fun facts sprinkled in at just the right moment.</p></div>
+    </div>
+    <p class="ship" style="margin-top:24px">A closed, family-safe library — you decide what's available. No open internet, ever.</p>
   </div>
 </section>
 
@@ -194,10 +249,50 @@ footer a:hover{color:#fff}
     <h2 style="font-size:var(--text-heading-xl);max-width:20ch">Built with the scientists who wrote the science.</h2>
     <p class="lead" style="max-width:52ch;margin-top:16px">Nowa's developmental design was shaped by leading researchers in emotional competence, executive function, and parent-child interaction. Not a focus group — the people whose frameworks the field is built on.</p>
     <div class="advisors">
-      <div class="adv"><div class="nm">Dr. Susanne Denham</div><div class="role">Emotional competence</div></div>
-      <div class="adv"><div class="nm">Dr. Megan McClelland</div><div class="role">Executive function</div></div>
-      <div class="adv"><div class="nm">Dr. Steven Kurtz</div><div class="role">Parent-child interaction</div></div>
-      <div class="adv"><div class="nm">Dr. David Mou</div><div class="role">Strategy & GTM</div></div>
+      <div class="adv">
+        <div class="nm">Dr. Susanne Denham</div>
+        <div class="role">Emotional competence</div>
+        <div class="ttl">Professor Emerita, George Mason University</div>
+        <ul class="cred">
+          <li>40+ years researching how children process and manage emotions for long-term success</li>
+          <li>Creator of CAPSEL and the Affect Knowledge Test — gold-standard measures of early emotional competence</li>
+          <li>Lead researcher on how adults shape a child's emotional resilience in everyday environments</li>
+        </ul>
+        <p class="adv-quote">[ Approved quote from Dr. Denham — on practicing emotions through care, pending sign-off ]</p>
+      </div>
+      <div class="adv">
+        <div class="nm">Dr. Megan McClelland</div>
+        <div class="role">Executive function</div>
+        <div class="ttl">Professor of Healthy Children &amp; Families, Oregon State University</div>
+        <ul class="cred">
+          <li>Leading expert on early-childhood self-regulation and executive function</li>
+          <li>Co-creator of the Head-Toes-Knees-Shoulders task, used in 31 countries</li>
+          <li>116+ peer-reviewed publications, cited over 23,000 times</li>
+        </ul>
+        <p class="adv-quote">[ Approved quote from Dr. McClelland — on self-regulation through play, pending sign-off ]</p>
+      </div>
+      <div class="adv">
+        <div class="nm">Dr. Steven Kurtz</div>
+        <div class="role">Parent-child interaction</div>
+        <div class="ttl">President, Kurtz Psychology Consulting</div>
+        <ul class="cred">
+          <li>ABPP board-certified child psychologist — behavior, anxiety, ADHD, and parent training</li>
+          <li>One of only 21 certified global trainers in Parent-Child Interaction Therapy</li>
+          <li>Founded the Child Mind Institute program; developed PCIT adapted for selective mutism</li>
+        </ul>
+        <p class="adv-quote">[ Approved quote from Dr. Kurtz — on lowering the temperature at home, pending sign-off ]</p>
+      </div>
+      <div class="adv">
+        <div class="nm">Dr. David Mou</div>
+        <div class="role">Mental-health systems</div>
+        <div class="ttl">CEO, Benchmark Health Group</div>
+        <ul class="cred">
+          <li>Harvard-trained physician — MD and MBA, Harvard Medical School and Harvard Business School</li>
+          <li>CEO of Benchmark Health, matching patients to mental-health resources by quality metrics</li>
+          <li>Named "Top 10 Under 35 for Healthcare" by LinkedIn</li>
+        </ul>
+        <p class="adv-quote">[ Approved quote from Dr. Mou — on prevention starting in childhood, pending sign-off ]</p>
+      </div>
     </div>
     <p class="ship" style="color:var(--color-mist-body);margin-top:24px">Shaped by our advisory board. We say "built with" — never "clinically proven."</p>
   </div>
