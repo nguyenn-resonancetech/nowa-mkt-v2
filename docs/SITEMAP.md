@@ -7,17 +7,25 @@ with the hook for the segment most likely to land on it.
 ## Information architecture
 
 ```
-/                      Home — the whole promise in one scroll
-/how-it-works          The Care Loop, the non-verbal pet, a day with Nowa
-/the-science           4 advisors, the 3 pillars, "built with" — the proof page
-/compare               Nowa vs Yoto vs Tonies vs Lovevery (intercepts comparison search)
-/pre-order             Conversion page — $99, ships Sept 2026, what's in the box
-/blog                  SEO content hub (problem-query articles)
-/blog/{article}        Individual articles
-/lp/{campaign}         Ad landing pages (one per segment/angle; share design system)
-/about                 Mission, team, the Era-4 / calm-tech story
-/faq                   Safety, COPPA, age range, subscription, shipping
+/                    Home — the whole promise in one scroll (v2 built)
+/how-it-works        Care Loop, missions, device, a day with Nowa
+/the-world           Pets, species, library — the kid-delight deep dive
+/parent-app          Control, boundaries, warm insights — the trust surface
+/the-science         Advisors, three pillars, mechanism — the proof page
+/safety              Walled AI, COPPA, privacy — own URL (trust + search)
+/compare             Nowa vs Yoto vs Tonies vs Lovevery (intercepts comparison search)
+/pre-order           Conversion — $99, what's in the box, Nowa+, ships Sept 2026
+/faq                 Full FAQ (home carries the top 8; FAQPage schema)
+/about               Mission, team, the Era-4 / calm-tech story
+/gift                Gift framing — Nostalgia Bridge Dad + gift-givers (seasonal)
+/guides              SEO content hub (problem-query articles, cold register)
+/guides/{article}    Individual articles
+/lp/{campaign}       Ad landing pages (one per segment/angle; share design system)
+/privacy · /terms    Legal
 ```
+
+Build order, owners, and per-page task lists live in **docs/ROADMAP.md** — the
+source of truth for completing the site.
 
 ## Page → job → segment → lead hook
 
