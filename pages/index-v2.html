@@ -29,10 +29,10 @@ a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 .wrap{max-width:var(--page-max-width);margin:0 auto;padding:0 var(--spacing-24)}
 section{padding:clamp(72px,9vw,128px) 0;position:relative}
-.dark{background:var(--surface-deep-ink);color:var(--color-pure-white)}
-.dark h2,.dark h3{color:var(--color-pure-white)}
+.dark{background:var(--band,var(--surface-deep-ink));color:var(--band-ink,var(--color-pure-white))}
+.dark h2,.dark h3{color:var(--band-ink,var(--color-pure-white))}
 .lead{font-size:var(--text-subheading);color:var(--color-slate-mid);line-height:1.6;max-width:60ch;text-wrap:pretty}
-.dark .lead{color:var(--color-chalk-surface)}
+.dark .lead{color:var(--band-muted,var(--color-chalk-surface))}
 
 /* pixel-art rendering */
 .px{image-rendering:pixelated}
@@ -40,9 +40,9 @@ section{padding:clamp(72px,9vw,128px) 0;position:relative}
 /* chapter marker — the one deliberate brand cadence (storybook chapters) */
 .chapter{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);margin-bottom:var(--spacing-24)}
 .chapter .cell{width:14px;height:14px;background:var(--color-coral-flame)}
-.dark .chapter .cell{background:var(--color-coral-glow)}
+.dark .chapter .cell{background:var(--band-accent,var(--color-coral-glow))}
 .chapter .cnum{font-family:var(--font-pixel);font-size:18px;letter-spacing:.04em;color:var(--color-coral-flame)}
-.dark .chapter .cnum{color:var(--color-coral-glow)}
+.dark .chapter .cnum{color:var(--band-accent,var(--color-coral-glow))}
 
 /* ---- buttons ---- */
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--color-coral-flame);color:#fff;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body);padding:16px 30px;border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));border:0;cursor:pointer;transition:background 200ms var(--ease-out-strong),transform 160ms var(--ease-out-strong)}
@@ -121,10 +121,10 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 
 /* ---- spine (dark quote) ---- */
 .spine{text-align:center}
-.spine .quote{font-family:var(--font-onest);font-weight:800;font-size:clamp(28px,4vw,52px);line-height:1.18;letter-spacing:-.02em;max-width:22ch;margin:0 auto;color:var(--color-pure-white)}
+.spine .quote{font-family:var(--font-onest);font-weight:800;font-size:clamp(28px,4vw,52px);line-height:1.18;letter-spacing:-.02em;max-width:22ch;margin:0 auto;color:var(--band-ink,var(--color-pure-white))}
 .spine .quote .w{display:inline-block;opacity:.18;transition:opacity 420ms var(--ease-out-strong)}
 .spine .quote .w.on{opacity:1}
-.spine .sub{margin-top:var(--spacing-32);color:var(--color-coral-glow);font-size:var(--text-body)}
+.spine .sub{margin-top:var(--spacing-32);color:var(--band-accent,var(--color-coral-glow));font-size:var(--text-body)}
 
 /* ---- care loop ---- */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16);margin-top:var(--spacing-48);counter-reset:step}
@@ -273,8 +273,8 @@ footer a:hover{color:#fff}
   .step.pxcard:hover,.lib.pxcard:hover,.seg.pxcard:hover,.cmp .col.pxcard:hover,.faq.pxcard:hover,.revcard.pxcard:hover{transform:translateY(-4px);background:var(--color-coral-glow)}
 }
 /* dithered checkerboard section transitions */
-.dither{height:24px;background-color:var(--surface-deep-ink);background-image:linear-gradient(45deg,var(--surface-warm-parchment) 25%,transparent 25%,transparent 75%,var(--surface-warm-parchment) 75%),linear-gradient(45deg,var(--surface-warm-parchment) 25%,transparent 25%,transparent 75%,var(--surface-warm-parchment) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
-.dither.revcard{background-color:var(--surface-warm-parchment);background-image:linear-gradient(45deg,var(--surface-deep-ink) 25%,transparent 25%,transparent 75%,var(--surface-deep-ink) 75%),linear-gradient(45deg,var(--surface-deep-ink) 25%,transparent 25%,transparent 75%,var(--surface-deep-ink) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
+.dither{height:24px;background-color:var(--dith-dark,var(--surface-deep-ink));background-image:linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%),linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
+.dither.rev{background-color:var(--dith-light,var(--surface-warm-parchment));background-image:linear-gradient(45deg,var(--dith-dark,var(--surface-deep-ink)) 25%,transparent 25%,transparent 75%,var(--dith-dark,var(--surface-deep-ink)) 75%),linear-gradient(45deg,var(--dith-dark,var(--surface-deep-ink)) 25%,transparent 25%,transparent 75%,var(--dith-dark,var(--surface-deep-ink)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
 /* pixel plus-sparkles */
 .spark{position:absolute;width:14px;height:14px;background:var(--color-amber-signal);clip-path:polygon(40% 0,60% 0,60% 40%,100% 40%,100% 60%,60% 60%,60% 100%,40% 100%,40% 60%,0 60%,0 40%,40% 40%);animation:twinkle 2.8s ease-in-out infinite}
 .spark.s2{animation-delay:.9s;background:var(--color-coral-glow)}
@@ -409,6 +409,48 @@ footer a:hover{color:#fff}
 .faq[open] .fplus{transform:rotate(45deg)}
 .faq-a{padding:0 20px 18px}
 .faq-a p{font-size:var(--text-body-sm);color:var(--color-slate-mid);max-width:65ch}
+
+/* =========================================================
+   THEME VARIANTS — A daylight / B sunrise / C sky
+   The World chapter + footer stay ink in every theme (night pages).
+   ========================================================= */
+html[data-theme] .dark{--band-ink:var(--color-deep-ink);--band-muted:var(--color-slate-mid);--band-accent:var(--color-coral-flame);--band-note:var(--color-mist-body)}
+html[data-theme] #world{--band:var(--surface-deep-ink);--band-ink:var(--color-pure-white);--band-muted:var(--color-chalk-surface);--band-accent:var(--color-coral-glow);--band-note:var(--color-cloud-border)}
+html[data-theme] .dither:has(+ #world){--dith-dark:var(--surface-deep-ink);--dith-light:var(--surface-warm-parchment)}
+html[data-theme="daylight"]{--dith-dark:#fdf0e7;--dith-light:#edeae2}
+html[data-theme="daylight"] .spine,html[data-theme="daylight"] .whytalk{--band:#fdf0e7}
+html[data-theme="daylight"] #science{--band:#fdf0e7}
+html[data-theme="daylight"] #preorder{--band:#fdf0e7}
+html[data-theme="sunrise"]{--dith-dark:#fececa;--dith-light:#edeae2}
+html[data-theme="sunrise"] .spine{--band:#fececa}
+html[data-theme="sunrise"] .whytalk{--band:#f8d8c4}
+html[data-theme="sunrise"] #science{--band:#fdebd2}
+html[data-theme="sunrise"] #preorder{--band:#fececa}
+html[data-theme="sunrise"] .hard{background:#fff7e0}
+html[data-theme="sky"]{--dith-dark:#dcebf5;--dith-light:#edeae2}
+html[data-theme="sky"] .spine{--band:#dcebf5}
+html[data-theme="sky"] .whytalk{--band:#dff0e2}
+html[data-theme="sky"] #science{--band:#d6e7f2}
+html[data-theme="sky"] #preorder{--band:#fff3d6}
+html[data-theme="sky"] .hard{background:#e7f0f6}
+/* flipped sections: cards go light */
+html[data-theme] #science .adv{--pxbg:var(--surface-pure-white);background:var(--surface-pure-white);border-color:var(--color-chalk-surface)}
+html[data-theme] #science .adv .nm{color:var(--color-deep-ink)}
+html[data-theme] #science .adv .role{color:var(--color-ember-deep)}
+html[data-theme] #science .adv .ttl{color:var(--color-mist-body)}
+html[data-theme] #science .adv li{color:var(--color-slate-mid)}
+html[data-theme] #science .adv-quote{background:var(--surface-ghost-white);color:var(--color-ember-darker)}
+html[data-theme] .whytalk .pullq{--pxbg:var(--surface-pure-white);background:var(--surface-pure-white);border-color:var(--color-chalk-surface)}
+html[data-theme] .whytalk .pullq .qt{color:var(--color-deep-ink)}
+html[data-theme] .whytalk .pullq .who{color:var(--color-deep-ink)}
+html[data-theme] .dark .pxslot{border-color:var(--color-cloud-border);background:repeating-linear-gradient(45deg,rgba(22,28,36,.05) 0 8px,transparent 8px 16px),var(--surface-warm-parchment)}
+html[data-theme] #world .pxslot{border-color:var(--color-slate-mid);background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 8px,transparent 8px 16px),var(--color-ink-charcoal)}
+/* theme picker */
+.theme-picker{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;gap:7px;align-items:center;background:var(--color-deep-ink);padding:9px 11px;border:2px solid var(--color-ink-charcoal)}
+.theme-picker .tp-label{font-family:var(--font-pixel);font-size:12px;color:var(--color-warm-parchment);letter-spacing:.08em;margin-right:2px}
+.theme-picker button{width:24px;height:24px;border:2px solid var(--color-slate-mid);cursor:pointer;padding:0;transition:transform 140ms var(--ease-out-strong)}
+.theme-picker button:active{transform:scale(.92)}
+.theme-picker button.on{border-color:var(--color-coral-flame);transform:scale(1.12)}
 
 /* ---- scroll reveal (JS-gated so no-JS users see everything) ---- */
 .js .reveal{opacity:0;transform:translateY(26px);transition:opacity 700ms var(--ease-expo),transform 700ms var(--ease-expo)}
@@ -773,7 +815,7 @@ footer a:hover{color:#fff}
         <p class="adv-quote">[ Approved quote from Dr. Mou — pending sign-off ]</p>
       </div>
     </div>
-    <p class="reveal" style="margin-top:24px;font-size:var(--text-body-sm);color:var(--color-cloud-border)">Shaped by our advisory board. We say "built with" — never "clinically proven."</p>
+    <p class="reveal" style="margin-top:24px;font-size:var(--text-body-sm);color:var(--band-note,var(--color-cloud-border))">Shaped by our advisory board. We say "built with" — never "clinically proven."</p>
   </div>
 </section>
 
@@ -830,7 +872,7 @@ footer a:hover{color:#fff}
     <h2 class="reveal">Reserve your child's Nowa.</h2>
     <p class="lead reveal" style="max-width:42ch">$99 · ships September 2026 · free updates · cancel your reservation anytime before it ships.</p>
     <a href="#" class="btn reveal">Pre-order Nowa — $99 <span class="arr">→</span></a>
-    <p class="reveal" style="margin-top:20px;font-size:var(--text-body-sm);color:var(--color-cloud-border)">You're reserving a spot, not racing a clock. We'll email you well before yours ships.</p>
+    <p class="reveal" style="margin-top:20px;font-size:var(--text-body-sm);color:var(--band-note,var(--color-cloud-border))">You're reserving a spot, not racing a clock. We'll email you well before yours ships.</p>
     <div class="pets reveal-group" aria-hidden="true">
       <img class="px" src="assets/species/flori.png" alt="" width="64" height="64">
       <img class="px" src="assets/species/puffin.png" alt="" width="64" height="64">
@@ -867,8 +909,35 @@ footer a:hover{color:#fff}
   </div>
 </footer>
 
+<div class="theme-picker" role="group" aria-label="Color scheme preview switcher">
+  <span class="tp-label">THEME</span>
+  <button data-t="" title="Current — dark storybook" aria-label="Current dark storybook theme" style="background:#161c24"></button>
+  <button data-t="daylight" title="A — Daylight storybook" aria-label="Daylight storybook theme" style="background:#fdf0e7"></button>
+  <button data-t="sunrise" title="B — Coral sunrise" aria-label="Coral sunrise theme" style="background:#fececa"></button>
+  <button data-t="sky" title="C — Sky and meadow" aria-label="Sky and meadow theme" style="background:#dcebf5"></button>
+</div>
+
 <script>
 document.documentElement.classList.add('js');
+
+/* theme variants: ?theme= or localStorage or picker */
+(() => {
+  const valid = ['', 'daylight', 'sunrise', 'sky'];
+  const fromUrl = new URLSearchParams(location.search).get('theme');
+  let t = valid.includes(fromUrl) ? fromUrl : (localStorage.getItem('nowa-theme') || '');
+  if (!valid.includes(t)) t = '';
+  const apply = v => {
+    if (v) document.documentElement.dataset.theme = v;
+    else delete document.documentElement.dataset.theme;
+    localStorage.setItem('nowa-theme', v);
+    document.querySelectorAll('.theme-picker button').forEach(b => b.classList.toggle('on', b.dataset.t === v));
+  };
+  addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.theme-picker button').forEach(b => b.addEventListener('click', () => apply(b.dataset.t)));
+    apply(t);
+  });
+  if (t) document.documentElement.dataset.theme = t;
+})();
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* hero entrance */
@@ -1051,7 +1120,9 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
   const rail = document.querySelector('.rail');
   const bgio = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
-    rail.classList.toggle('on-dark', e.target.classList.contains('dark') || e.target.tagName === 'FOOTER');
+    const themed = !!document.documentElement.dataset.theme;
+    const darkHere = e.target.tagName === 'FOOTER' || (e.target.classList.contains('dark') && (!themed || e.target.id === 'world'));
+    rail.classList.toggle('on-dark', darkHere);
   }), {rootMargin: '-50% 0px -50% 0px'});
   document.querySelectorAll('section, header.hero, footer').forEach(el => bgio.observe(el));
 })();
