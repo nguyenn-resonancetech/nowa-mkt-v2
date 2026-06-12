@@ -419,9 +419,13 @@ footer a:hover{color:#fff}
    hero, nav, body and cards all follow. The World chapter + footer
    stay ink in every theme (night pages).
    ========================================================= */
-html[data-theme] .dark{--band-ink:var(--color-deep-ink);--band-muted:var(--color-slate-mid);--band-accent:var(--color-coral-flame);--band-note:var(--color-mist-body)}
-html[data-theme] #world{--band:var(--surface-deep-ink);--band-ink:var(--color-pure-white);--band-muted:var(--color-chalk-surface);--band-accent:var(--color-coral-glow);--band-note:var(--color-cloud-border)}
-html[data-theme] .dither:has(+ #world){--dith-dark:var(--surface-deep-ink);--dith-light:var(--surface-warm-parchment)}
+html[data-theme]:not([data-theme^="paper"]) .dark{--band-ink:var(--color-deep-ink);--band-muted:var(--color-slate-mid);--band-accent:var(--color-coral-flame);--band-note:var(--color-mist-body)}
+html[data-theme]:not([data-theme^="paper"]) #world{--band:var(--surface-deep-ink);--band-ink:var(--color-pure-white);--band-muted:var(--color-chalk-surface);--band-accent:var(--color-coral-glow);--band-note:var(--color-cloud-border)}
+html[data-theme]:not([data-theme^="paper"]) .dither:has(+ #world){--dith-dark:var(--surface-deep-ink);--dith-light:var(--surface-warm-parchment)}
+/* paper2/paper3: brighter takes on the original parchment — keep the
+   dark storybook bands, only lift the page/hero background */
+html[data-theme="paper2"]{--surface-warm-parchment:#f6f0e1;--color-warm-parchment:#f6f0e1}
+html[data-theme="paper3"]{--surface-warm-parchment:#fdf5dd;--color-warm-parchment:#fdf5dd}
 html[data-theme="mint"]{--surface-warm-parchment:#e2efdb;--color-warm-parchment:#e2efdb;--color-deep-ink:#1e3a2c;--color-ink-charcoal:#2a4a39;--color-slate-mid:#4d6b58;--color-mist-body:#5f7d6a;--dith-dark:#d3e7c9;--dith-light:#e2efdb}
 html[data-theme="mint"] .spine{--band:#fbe3d6}
 html[data-theme="mint"] .dither:has(+ #spine),html[data-theme="mint"] #spine + .dither{--dith-dark:#fbe3d6}
@@ -437,17 +441,17 @@ html[data-theme="sky"] #science{--band:#d6e7f2}
 html[data-theme="sky"] #preorder{--band:#fff3d6}
 html[data-theme="sky"] .hard{background:#fbe3d6}
 /* flipped sections: cards go light */
-html[data-theme] #science .adv{--pxbg:var(--surface-pure-white);background:var(--surface-pure-white);border-color:var(--color-chalk-surface)}
-html[data-theme] #science .adv .nm{color:var(--color-deep-ink)}
-html[data-theme] #science .adv .role{color:var(--color-ember-deep)}
-html[data-theme] #science .adv .ttl{color:var(--color-mist-body)}
-html[data-theme] #science .adv li{color:var(--color-slate-mid)}
-html[data-theme] #science .adv-quote{background:var(--surface-ghost-white);color:var(--color-ember-darker)}
-html[data-theme] .whytalk .pullq{--pxbg:var(--surface-pure-white);background:var(--surface-pure-white);border-color:var(--color-chalk-surface)}
-html[data-theme] .whytalk .pullq .qt{color:var(--color-deep-ink)}
-html[data-theme] .whytalk .pullq .who{color:var(--color-deep-ink)}
-html[data-theme] .dark .pxslot{border-color:var(--color-cloud-border);background:repeating-linear-gradient(45deg,rgba(22,28,36,.05) 0 8px,transparent 8px 16px),var(--surface-warm-parchment)}
-html[data-theme] #world .pxslot{border-color:var(--color-slate-mid);background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 8px,transparent 8px 16px),var(--color-ink-charcoal)}
+html[data-theme]:not([data-theme^="paper"]) #science .adv{--pxbg:var(--surface-pure-white);background:var(--surface-pure-white);border-color:var(--color-chalk-surface)}
+html[data-theme]:not([data-theme^="paper"]) #science .adv .nm{color:var(--color-deep-ink)}
+html[data-theme]:not([data-theme^="paper"]) #science .adv .role{color:var(--color-ember-deep)}
+html[data-theme]:not([data-theme^="paper"]) #science .adv .ttl{color:var(--color-mist-body)}
+html[data-theme]:not([data-theme^="paper"]) #science .adv li{color:var(--color-slate-mid)}
+html[data-theme]:not([data-theme^="paper"]) #science .adv-quote{background:var(--surface-ghost-white);color:var(--color-ember-darker)}
+html[data-theme]:not([data-theme^="paper"]) .whytalk .pullq{--pxbg:var(--surface-pure-white);background:var(--surface-pure-white);border-color:var(--color-chalk-surface)}
+html[data-theme]:not([data-theme^="paper"]) .whytalk .pullq .qt{color:var(--color-deep-ink)}
+html[data-theme]:not([data-theme^="paper"]) .whytalk .pullq .who{color:var(--color-deep-ink)}
+html[data-theme]:not([data-theme^="paper"]) .dark .pxslot{border-color:var(--color-cloud-border);background:repeating-linear-gradient(45deg,rgba(22,28,36,.05) 0 8px,transparent 8px 16px),var(--surface-warm-parchment)}
+html[data-theme]:not([data-theme^="paper"]) #world .pxslot{border-color:var(--color-slate-mid);background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 8px,transparent 8px 16px),var(--color-ink-charcoal)}
 /* theme picker */
 .theme-picker{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;gap:7px;align-items:center;background:var(--color-deep-ink);padding:9px 11px;border:2px solid var(--color-ink-charcoal)}
 .theme-picker .tp-label{font-family:var(--font-pixel);font-size:12px;color:var(--color-warm-parchment);letter-spacing:.08em;margin-right:2px}
@@ -970,7 +974,9 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 </div>
 <div class="theme-picker tp-theme" role="group" aria-label="Color scheme preview switcher">
   <span class="tp-label">THEME</span>
-  <button data-t="" title="Original — dark storybook" aria-label="Original dark storybook theme" style="background:#161c24"></button>
+  <button data-t="" title="1a — Original parchment" aria-label="Original parchment theme" style="background:#edeae2"></button>
+  <button data-t="paper2" title="1b — Brighter ivory" aria-label="Brighter ivory theme" style="background:#f6f0e1"></button>
+  <button data-t="paper3" title="1c — Sunlit cream" aria-label="Sunlit cream theme" style="background:#fdf5dd"></button>
   <button data-t="mint" title="A — Mint cartridge" aria-label="Mint cartridge theme" style="background:#e2efdb"></button>
   <button data-t="sky" title="B — Sky day" aria-label="Sky day theme" style="background:#dcebf5"></button>
 </div>
@@ -981,7 +987,7 @@ document.documentElement.classList.add('js');
 /* preview pickers — color theme + hero design: ?theme= / ?hero= or localStorage or picker */
 (() => {
   const pickers = [
-    { attr: 'theme', valid: ['', 'mint', 'sky'], key: 'nowa-theme', sel: '.tp-theme button' },
+    { attr: 'theme', valid: ['', 'paper2', 'paper3', 'mint', 'sky'], key: 'nowa-theme', sel: '.tp-theme button' },
     { attr: 'hero',  valid: ['', 'center', 'billboard'], key: 'nowa-hero',  sel: '.tp-hero button' }
   ];
   const params = new URLSearchParams(location.search);
