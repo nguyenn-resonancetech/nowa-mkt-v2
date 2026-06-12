@@ -45,11 +45,11 @@ section{padding:clamp(72px,9vw,128px) 0;position:relative}
 .dark .chapter .cnum{color:var(--band-accent,var(--color-coral-glow))}
 
 /* ---- buttons ---- */
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--color-coral-flame);color:#fff;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body);padding:16px 30px;border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));border:0;cursor:pointer;transition:background 200ms var(--ease-out-strong),transform 160ms var(--ease-out-strong)}
-.btn:active{transform:scale(.97)}
+.btn{--side:6px;--btn-top:var(--color-coral-flame);--btn-side:var(--color-ember-deep);display:inline-flex;align-items:center;gap:10px;background:linear-gradient(var(--btn-top),var(--btn-top)) no-repeat 0 0/100% calc(100% - var(--side)),var(--btn-side);color:#fff;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body);padding:16px 30px calc(16px + var(--side));border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));border:0;cursor:pointer;transition:transform 70ms steps(2)}
+.btn:active{--side:2px;transform:translateY(4px)}
 .btn .arr{transition:transform 200ms var(--ease-out-strong)}
 @media(hover:hover) and (pointer:fine){
-  .btn:hover{background:var(--color-ember-deep)}
+  .btn:hover{--btn-top:var(--color-ember-deep);--btn-side:var(--color-ember-darker)}
   .btn:hover .arr{transform:translateX(3px)}
 }
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink);padding:16px 6px;border-bottom:2px solid transparent;transition:border-color 200ms var(--ease-out-strong)}
@@ -154,9 +154,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 
 /* ---- missions ---- */
 .mtabs{display:flex;gap:8px;margin-top:var(--spacing-32);flex-wrap:wrap}
-.mtab{font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);padding:11px 20px;border-radius:var(--radius-buttons);border:1px solid var(--color-cloud-border);background:transparent;color:var(--color-slate-mid);cursor:pointer;transition:color 200ms ease,border-color 200ms ease,background 200ms ease,transform 160ms var(--ease-out-strong)}
-.mtab:active{transform:scale(.97)}
-.mtab.on{background:var(--color-deep-ink);border-color:var(--color-deep-ink);color:#fff}
+.mtab{--side:4px;--tab-top:var(--surface-pure-white);--tab-side:var(--color-cloud-border);font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);padding:11px 20px calc(11px + var(--side));border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));border:0;background:linear-gradient(var(--tab-top),var(--tab-top)) no-repeat 0 0/100% calc(100% - var(--side)),var(--tab-side);color:var(--color-slate-mid);cursor:pointer;transition:color 150ms ease,transform 70ms steps(2)}
+.mtab:active{--side:2px;transform:translateY(2px)}
+.mtab.on{--side:2px;--tab-top:var(--color-deep-ink);--tab-side:var(--color-ink-charcoal);transform:translateY(2px);color:#fff}
 .mpanel{margin-top:var(--spacing-32);display:grid;grid-template-columns:1.1fr .9fr;gap:var(--spacing-48);align-items:center;background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards-lg);padding:clamp(28px,4vw,56px)}
 .mpanel h3{font-size:clamp(22px,2.4vw,30px);letter-spacing:-.015em;line-height:1.2}
 .mpanel p{margin-top:14px;color:var(--color-slate-mid)}
@@ -353,9 +353,9 @@ footer a:hover{color:#fff}
 /* library players */
 .tracks{margin-top:14px;display:flex;flex-direction:column;gap:8px}
 .trk{display:flex;align-items:center;gap:10px}
-.pbtn{width:30px;height:30px;flex:none;background:var(--color-deep-ink);border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 150ms ease,transform 120ms var(--ease-out-strong)}
-.pbtn:active{transform:scale(.93)}
-.trk.playing .pbtn{background:var(--color-coral-flame)}
+.pbtn{width:30px;height:30px;flex:none;background:var(--color-deep-ink);border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 rgba(22,28,36,.4);transition:background 150ms ease,transform 70ms steps(2),box-shadow 70ms steps(2)}
+.pbtn:active{transform:translateY(3px);box-shadow:0 0 0 rgba(22,28,36,.4)}
+.trk.playing .pbtn{background:var(--color-coral-flame);transform:translateY(3px);box-shadow:0 0 0 rgba(22,28,36,.4)}
 .pb-ico{width:10px;height:12px;background:#fff;clip-path:polygon(0 0,100% 50%,0 100%)}
 .trk.playing .pb-ico{clip-path:none;background:linear-gradient(90deg,#fff 0 35%,transparent 35% 65%,#fff 65% 100%)}
 .trk .ttl{font-size:var(--text-body-sm);font-weight:600;color:var(--color-deep-ink);flex:1}
@@ -452,6 +452,26 @@ html[data-theme] #world .pxslot{border-color:var(--color-slate-mid);background:r
 .theme-picker button:active{transform:scale(.92)}
 .theme-picker button.on{border-color:var(--color-coral-flame);transform:scale(1.12)}
 
+/* =========================================================
+   GAME JUICE — confetti, plusone, egg tease, readbar, flips
+   ========================================================= */
+::selection{background:var(--color-coral-flame);color:#fff}
+.readbar{position:fixed;left:0;top:0;height:5px;width:0;background:var(--color-coral-flame);z-index:80}
+.conf{position:absolute;left:50%;top:46%;width:9px;height:9px;opacity:0;pointer-events:none}
+.egg-card.hatched .conf{animation:confetti 700ms steps(5) forwards}
+@keyframes confetti{0%{opacity:1;transform:translate(-50%,-50%)}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(90deg)}}
+.plusone{position:absolute;left:50%;top:8%;transform:translateX(-50%);font-family:var(--font-pixel);font-size:19px;letter-spacing:.06em;color:var(--color-amber-signal);opacity:0;pointer-events:none;white-space:nowrap}
+.egg-card.hatched .plusone{animation:plusone 900ms steps(6) forwards}
+@keyframes plusone{0%{opacity:0;transform:translateX(-50%) translateY(14px)}25%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-26px)}}
+@media(hover:hover) and (pointer:fine){
+  .egg-card:not(.hatched):hover .egg{animation:eggtease 1s steps(2) infinite}
+}
+@keyframes eggtease{0%,100%{transform:rotate(0)}50%{transform:rotate(-5deg)}}
+.species-track.walk-rev .sp img{transform:scaleX(-1)}
+@media(hover:hover) and (pointer:fine){.species-track.walk-rev .sp:hover img{transform:scaleX(-1) translateY(-8px) scale(1.06)}}
+.foot-pets img{transition:transform 90ms steps(2)}
+.foot-pets img:hover{transform:translateY(-7px)}
+
 /* ---- scroll reveal (JS-gated so no-JS users see everything) ---- */
 .js .reveal{opacity:0;transform:translateY(26px);transition:opacity 700ms var(--ease-expo),transform 700ms var(--ease-expo)}
 .js .reveal.in{opacity:1;transform:none}
@@ -476,6 +496,7 @@ html[data-theme] #world .pxslot{border-color:var(--color-slate-mid);background:r
 
 <div class="note">SAMPLE BUILD v2 — units.gr-inspired system migrated to the Nowa design tokens. Imagery uses real species sprites; photos still placeholder.</div>
 
+<div class="readbar" aria-hidden="true"></div>
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <div class="marquee-set">
@@ -661,6 +682,15 @@ html[data-theme] #world .pxslot{border-color:var(--color-slate-mid);background:r
           <div class="egg"><span class="spot" style="left:22px;top:38px"></span><span class="spot" style="right:20px;top:62px;width:9px;height:9px"></span><span class="q">?</span></div>
           <span class="spark" style="right:-4px;top:6px"></span><span class="spark s3" style="left:-8px;bottom:18px"></span>
           <img class="hatch px" id="hatchPet" src="assets/species/ollie.png" alt="" width="120" height="120">
+          <span class="conf" style="--dx:-64px;--dy:-78px;background:var(--color-amber-signal)"></span>
+          <span class="conf" style="--dx:58px;--dy:-84px;background:var(--color-coral-glow)"></span>
+          <span class="conf" style="--dx:-86px;--dy:-20px;background:var(--color-leaf-success)"></span>
+          <span class="conf" style="--dx:84px;--dy:-26px;background:var(--color-coral-blush)"></span>
+          <span class="conf" style="--dx:-52px;--dy:48px;background:var(--color-coral-flame)"></span>
+          <span class="conf" style="--dx:56px;--dy:42px;background:var(--color-amber-signal)"></span>
+          <span class="conf" style="--dx:-20px;--dy:-96px;background:var(--color-coral-blush)"></span>
+          <span class="conf" style="--dx:22px;--dy:-60px;background:var(--color-leaf-success)"></span>
+          <span class="plusone" aria-hidden="true">+1 FRIEND!</span>
         </div>
         <span class="ehead" id="eggHead">It starts with an egg</span>
         <span class="esub" id="eggSub">Tap to hatch · your child won't know who's inside either</span>
@@ -977,6 +1007,7 @@ document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el))
     v += dy * 0.4;          /* scroll pushes the line */
     v *= 0.92;              /* friction */
     x += v * 0.18 + 0.35;   /* plus gentle idle drift */
+    track.classList.toggle('walk-rev', v < -0.4);
     x = ((x % setW) + setW) % setW;
     track.style.transform = `translateX(${-x}px)`;
     requestAnimationFrame(tick);
@@ -1101,6 +1132,20 @@ document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el))
     cur.closest('.lib').querySelector('.pbar i').style.width = (audio.currentTime / audio.duration * 100) + '%';
   });
   audio.addEventListener('ended', () => { if (cur) cur.classList.remove('playing'); });
+})();
+
+/* reading progress bar — snaps in 2% pixel steps */
+(() => {
+  const bar = document.querySelector('.readbar');
+  let raf = null;
+  const update = () => {
+    raf = null;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const p = max > 0 ? Math.round((scrollY / max) * 50) / 50 * 100 : 0;
+    bar.style.width = p + '%';
+  };
+  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, {passive: true});
+  update();
 })();
 
 /* marquee: pad each half until it covers any viewport (keeps -50% loop seamless) */
