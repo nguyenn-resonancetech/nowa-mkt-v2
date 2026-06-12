@@ -274,6 +274,7 @@ footer a:hover{color:#fff}
 .cmp .col.us::before{inset:auto;right:auto;bottom:auto;clip-path:none;z-index:2}
 @media(hover:hover) and (pointer:fine){
   .step.pxcard:hover,.lib.pxcard:hover,.seg.pxcard:hover,.cmp .col.pxcard:hover,.faq.pxcard:hover,.revcard.pxcard:hover{transform:translateY(-4px);background:var(--color-coral-glow)}
+  .cmp .col.pxcard:hover h4,.cmp .col.pxcard:hover p{color:#fff}
 }
 /* dithered checkerboard section transitions */
 .dither{height:24px;background-color:var(--dith-dark,var(--surface-deep-ink));background-image:linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%),linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
@@ -392,7 +393,7 @@ footer a:hover{color:#fff}
 @keyframes nudge{0%,100%{transform:translateY(-50%)}50%{transform:translateY(-50%) translateX(3px)}}
 .sample-chip{font-family:var(--font-pixel);font-size:11px;letter-spacing:.06em;background:var(--color-amber-signal);color:var(--color-deep-ink);padding:2px 7px;margin-left:8px;vertical-align:middle;white-space:nowrap}
 /* beta reviews */
-.reviews{background:var(--surface-pure-white)}
+.reviews{background:var(--color-coral-blush)}
 .rev-rows{display:flex;flex-direction:column;gap:var(--spacing-16);margin-top:var(--spacing-48);overflow:hidden}
 .rev-row{overflow:hidden}
 .rev-track{display:flex;gap:var(--spacing-16);width:max-content;will-change:transform;padding:4px 0}
@@ -426,6 +427,10 @@ html[data-theme]:not([data-theme^="paper"]) .dither:has(+ #world){--dith-dark:va
    dark storybook bands, only lift the page/hero background */
 html[data-theme="paper2"]{--surface-warm-parchment:#f6f0e1;--color-warm-parchment:#f6f0e1}
 html[data-theme="paper3"]{--surface-warm-parchment:#fdf5dd;--color-warm-parchment:#fdf5dd}
+/* base family: pre-order chapter goes brand ember so it reads as its own
+   final chapter instead of melting into the ink footer */
+html:not([data-theme]) #preorder,html[data-theme^="paper"] #preorder{--band:var(--surface-ember-darker)}
+html:not([data-theme]) .dither:has(+ #preorder),html[data-theme^="paper"] .dither:has(+ #preorder){--dith-dark:var(--surface-ember-darker)}
 html[data-theme="mint"]{--surface-warm-parchment:#e2efdb;--color-warm-parchment:#e2efdb;--color-deep-ink:#1e3a2c;--color-ink-charcoal:#2a4a39;--color-slate-mid:#4d6b58;--color-mist-body:#5f7d6a;--dith-dark:#d3e7c9;--dith-light:#e2efdb}
 html[data-theme="mint"] .spine{--band:#fbe3d6}
 html[data-theme="mint"] .dither:has(+ #spine),html[data-theme="mint"] #spine + .dither{--dith-dark:#fbe3d6}
