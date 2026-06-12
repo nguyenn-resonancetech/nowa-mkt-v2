@@ -414,28 +414,32 @@ footer a:hover{color:#fff}
 .faq-a p{font-size:var(--text-body-sm);color:var(--color-slate-mid);max-width:65ch}
 
 /* =========================================================
-   THEME VARIANTS — A daylight / B sunrise / C sky
-   The World chapter + footer stay ink in every theme (night pages).
+   THEME VARIANTS — A mint cartridge / B sky day / C cream soda
+   Full-page: each theme re-inks the page bg + ink tokens, so the
+   hero, nav, body and cards all follow. The World chapter + footer
+   stay ink in every theme (night pages).
    ========================================================= */
 html[data-theme] .dark{--band-ink:var(--color-deep-ink);--band-muted:var(--color-slate-mid);--band-accent:var(--color-coral-flame);--band-note:var(--color-mist-body)}
 html[data-theme] #world{--band:var(--surface-deep-ink);--band-ink:var(--color-pure-white);--band-muted:var(--color-chalk-surface);--band-accent:var(--color-coral-glow);--band-note:var(--color-cloud-border)}
 html[data-theme] .dither:has(+ #world){--dith-dark:var(--surface-deep-ink);--dith-light:var(--surface-warm-parchment)}
-html[data-theme="daylight"]{--dith-dark:#fdf0e7;--dith-light:#edeae2}
-html[data-theme="daylight"] .spine,html[data-theme="daylight"] .whytalk{--band:#fdf0e7}
-html[data-theme="daylight"] #science{--band:#fdf0e7}
-html[data-theme="daylight"] #preorder{--band:#fdf0e7}
-html[data-theme="sunrise"]{--dith-dark:#fececa;--dith-light:#edeae2}
-html[data-theme="sunrise"] .spine{--band:#fececa}
-html[data-theme="sunrise"] .whytalk{--band:#f8d8c4}
-html[data-theme="sunrise"] #science{--band:#fdebd2}
-html[data-theme="sunrise"] #preorder{--band:#fececa}
-html[data-theme="sunrise"] .hard{background:#fff7e0}
-html[data-theme="sky"]{--dith-dark:#dcebf5;--dith-light:#edeae2}
+html[data-theme="mint"]{--surface-warm-parchment:#e2efdb;--color-warm-parchment:#e2efdb;--color-deep-ink:#1e3a2c;--color-ink-charcoal:#2a4a39;--color-slate-mid:#4d6b58;--color-mist-body:#5f7d6a;--dith-dark:#d3e7c9;--dith-light:#e2efdb}
+html[data-theme="mint"] .spine{--band:#d3e7c9}
+html[data-theme="mint"] .whytalk{--band:#d9ecd0}
+html[data-theme="mint"] #science{--band:#d6e9cc}
+html[data-theme="mint"] #preorder{--band:#fff3d6}
+html[data-theme="mint"] .hard{background:#eef6e8}
+html[data-theme="sky"]{--surface-warm-parchment:#e4f0f8;--color-warm-parchment:#e4f0f8;--color-deep-ink:#16314a;--color-ink-charcoal:#224260;--color-slate-mid:#44607a;--color-mist-body:#527092;--dith-dark:#dcebf5;--dith-light:#e4f0f8}
 html[data-theme="sky"] .spine{--band:#dcebf5}
 html[data-theme="sky"] .whytalk{--band:#dff0e2}
 html[data-theme="sky"] #science{--band:#d6e7f2}
 html[data-theme="sky"] #preorder{--band:#fff3d6}
 html[data-theme="sky"] .hard{background:#e7f0f6}
+html[data-theme="cream"]{--surface-warm-parchment:#fdf1c9;--color-warm-parchment:#fdf1c9;--color-deep-ink:#42301a;--color-ink-charcoal:#57422a;--color-slate-mid:#6e5a3a;--color-mist-body:#7d6a4b;--dith-dark:#ffe9b0;--dith-light:#fdf1c9}
+html[data-theme="cream"] .spine{--band:#ffe9b0}
+html[data-theme="cream"] .whytalk{--band:#fdebd2}
+html[data-theme="cream"] #science{--band:#fff7e0}
+html[data-theme="cream"] #preorder{--band:#fececa}
+html[data-theme="cream"] .hard{background:#fff7e0}
 /* flipped sections: cards go light */
 html[data-theme] #science .adv{--pxbg:var(--surface-pure-white);background:var(--surface-pure-white);border-color:var(--color-chalk-surface)}
 html[data-theme] #science .adv .nm{color:var(--color-deep-ink)}
@@ -454,6 +458,27 @@ html[data-theme] #world .pxslot{border-color:var(--color-slate-mid);background:r
 .theme-picker button{width:24px;height:24px;border:2px solid var(--color-slate-mid);cursor:pointer;padding:0;transition:transform 140ms var(--ease-out-strong)}
 .theme-picker button:active{transform:scale(.92)}
 .theme-picker button.on{border-color:var(--color-coral-flame);transform:scale(1.12)}
+/* hero design picker (stacked above theme picker) */
+.hero-picker{bottom:62px}
+.hero-picker button{width:auto;min-width:24px;padding:0 7px;background:var(--color-ink-charcoal);color:var(--color-warm-parchment);font-family:var(--font-pixel);font-size:12px;letter-spacing:.05em;line-height:1}
+
+/* =========================================================
+   HERO DESIGN VARIANTS — composable with any color theme
+   ========================================================= */
+html[data-hero="grid"] .hero{background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell)}
+html[data-hero="halo"] .hero-stage::before{content:"";position:absolute;inset:-22px;background:var(--color-coral-blush);transform:translate(16px,18px)}
+html[data-hero="halo"] .stage-inner{box-shadow:none}
+html[data-hero="halo"] .stage-inner,html[data-hero="halo"] .band-note2,html[data-hero="halo"] .hero-stage .spark{position:relative}
+html[data-hero="halo"] .hero-stage .spark{position:absolute;z-index:1}
+html[data-hero="night"] .hero{background:var(--surface-deep-ink)}
+html[data-hero="night"] .hero h1{color:var(--color-pure-white)}
+html[data-hero="night"] .hero .lead{color:var(--color-chalk-surface)}
+html[data-hero="night"] .hero .ship{color:var(--color-cloud-border)}
+html[data-hero="night"] .hero .btn-ghost{color:var(--color-pure-white)}
+html[data-hero="night"] .stage-inner{border-color:var(--color-ink-charcoal)}
+html[data-hero="night"] .hero .pxslot{border-color:var(--color-slate-mid);background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 8px,transparent 8px 16px),var(--color-ink-charcoal)}
+html[data-hero="night"] .hero .pxslot .t{color:var(--color-chalk-surface)}
+html[data-hero="night"] .hero .pxslot .d{color:var(--color-cloud-border)}
 
 /* =========================================================
    GAME JUICE — confetti, plusone, egg tease, readbar, flips
@@ -942,34 +967,47 @@ html[data-theme] #world .pxslot{border-color:var(--color-slate-mid);background:r
   </div>
 </footer>
 
-<div class="theme-picker" role="group" aria-label="Color scheme preview switcher">
+<div class="theme-picker hero-picker tp-hero" role="group" aria-label="Hero design preview switcher">
+  <span class="tp-label">HERO</span>
+  <button data-t="" title="1 — Stage (current)" aria-label="Current stage hero">1</button>
+  <button data-t="grid" title="2 — Graph paper" aria-label="Graph paper hero">2</button>
+  <button data-t="halo" title="3 — Sticker halo behind device" aria-label="Sticker halo hero">3</button>
+  <button data-t="night" title="4 — Night ink hero" aria-label="Night ink hero">4</button>
+</div>
+<div class="theme-picker tp-theme" role="group" aria-label="Color scheme preview switcher">
   <span class="tp-label">THEME</span>
   <button data-t="" title="Current — dark storybook" aria-label="Current dark storybook theme" style="background:#161c24"></button>
-  <button data-t="daylight" title="A — Daylight storybook" aria-label="Daylight storybook theme" style="background:#fdf0e7"></button>
-  <button data-t="sunrise" title="B — Coral sunrise" aria-label="Coral sunrise theme" style="background:#fececa"></button>
-  <button data-t="sky" title="C — Sky and meadow" aria-label="Sky and meadow theme" style="background:#dcebf5"></button>
+  <button data-t="mint" title="A — Mint cartridge" aria-label="Mint cartridge theme" style="background:#e2efdb"></button>
+  <button data-t="sky" title="B — Sky day" aria-label="Sky day theme" style="background:#dcebf5"></button>
+  <button data-t="cream" title="C — Cream soda" aria-label="Cream soda theme" style="background:#fdf1c9"></button>
 </div>
 
 <script>
 document.documentElement.classList.add('js');
 
-/* theme variants: ?theme= or localStorage or picker */
+/* preview pickers — color theme + hero design: ?theme= / ?hero= or localStorage or picker */
 (() => {
-  const valid = ['', 'daylight', 'sunrise', 'sky'];
-  const fromUrl = new URLSearchParams(location.search).get('theme');
-  let t = valid.includes(fromUrl) ? fromUrl : (localStorage.getItem('nowa-theme') || '');
-  if (!valid.includes(t)) t = '';
-  const apply = v => {
-    if (v) document.documentElement.dataset.theme = v;
-    else delete document.documentElement.dataset.theme;
-    localStorage.setItem('nowa-theme', v);
-    document.querySelectorAll('.theme-picker button').forEach(b => b.classList.toggle('on', b.dataset.t === v));
-  };
-  addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.theme-picker button').forEach(b => b.addEventListener('click', () => apply(b.dataset.t)));
-    apply(t);
+  const pickers = [
+    { attr: 'theme', valid: ['', 'mint', 'sky', 'cream'], key: 'nowa-theme', sel: '.tp-theme button' },
+    { attr: 'hero',  valid: ['', 'grid', 'halo', 'night'], key: 'nowa-hero',  sel: '.tp-hero button' }
+  ];
+  const params = new URLSearchParams(location.search);
+  pickers.forEach(p => {
+    const fromUrl = params.get(p.attr);
+    let t = p.valid.includes(fromUrl) ? fromUrl : (localStorage.getItem(p.key) || '');
+    if (!p.valid.includes(t)) t = '';
+    const apply = v => {
+      if (v) document.documentElement.dataset[p.attr] = v;
+      else delete document.documentElement.dataset[p.attr];
+      localStorage.setItem(p.key, v);
+      document.querySelectorAll(p.sel).forEach(b => b.classList.toggle('on', b.dataset.t === v));
+    };
+    addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll(p.sel).forEach(b => b.addEventListener('click', () => apply(b.dataset.t)));
+      apply(t);
+    });
+    if (t) document.documentElement.dataset[p.attr] = t;
   });
-  if (t) document.documentElement.dataset.theme = t;
 })();
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
