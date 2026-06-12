@@ -96,7 +96,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .graph-dark{background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell)}
 
 /* ---- hero ---- */
-.hero{padding:clamp(56px,7vw,96px) 0 0;overflow:clip}
+.hero{padding:clamp(56px,7vw,96px) 0 0;overflow:clip;background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell)}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--spacing-48);align-items:center}
 .hero h1{font-size:clamp(38px,6.2vw,84px);font-weight:800}
 .hero h1 .line{display:block;overflow:hidden}
@@ -423,23 +423,19 @@ html[data-theme] .dark{--band-ink:var(--color-deep-ink);--band-muted:var(--color
 html[data-theme] #world{--band:var(--surface-deep-ink);--band-ink:var(--color-pure-white);--band-muted:var(--color-chalk-surface);--band-accent:var(--color-coral-glow);--band-note:var(--color-cloud-border)}
 html[data-theme] .dither:has(+ #world){--dith-dark:var(--surface-deep-ink);--dith-light:var(--surface-warm-parchment)}
 html[data-theme="mint"]{--surface-warm-parchment:#e2efdb;--color-warm-parchment:#e2efdb;--color-deep-ink:#1e3a2c;--color-ink-charcoal:#2a4a39;--color-slate-mid:#4d6b58;--color-mist-body:#5f7d6a;--dith-dark:#d3e7c9;--dith-light:#e2efdb}
-html[data-theme="mint"] .spine{--band:#d3e7c9}
+html[data-theme="mint"] .spine{--band:#fbe3d6}
+html[data-theme="mint"] .dither:has(+ #spine),html[data-theme="mint"] #spine + .dither{--dith-dark:#fbe3d6}
 html[data-theme="mint"] .whytalk{--band:#d9ecd0}
 html[data-theme="mint"] #science{--band:#d6e9cc}
 html[data-theme="mint"] #preorder{--band:#fff3d6}
-html[data-theme="mint"] .hard{background:#eef6e8}
+html[data-theme="mint"] .hard{background:#fff3d6}
 html[data-theme="sky"]{--surface-warm-parchment:#e4f0f8;--color-warm-parchment:#e4f0f8;--color-deep-ink:#16314a;--color-ink-charcoal:#224260;--color-slate-mid:#44607a;--color-mist-body:#527092;--dith-dark:#dcebf5;--dith-light:#e4f0f8}
-html[data-theme="sky"] .spine{--band:#dcebf5}
+html[data-theme="sky"] .spine{--band:#fdebd2}
+html[data-theme="sky"] .dither:has(+ #spine),html[data-theme="sky"] #spine + .dither{--dith-dark:#fdebd2}
 html[data-theme="sky"] .whytalk{--band:#dff0e2}
 html[data-theme="sky"] #science{--band:#d6e7f2}
 html[data-theme="sky"] #preorder{--band:#fff3d6}
-html[data-theme="sky"] .hard{background:#e7f0f6}
-html[data-theme="cream"]{--surface-warm-parchment:#fdf1c9;--color-warm-parchment:#fdf1c9;--color-deep-ink:#42301a;--color-ink-charcoal:#57422a;--color-slate-mid:#6e5a3a;--color-mist-body:#7d6a4b;--dith-dark:#ffe9b0;--dith-light:#fdf1c9}
-html[data-theme="cream"] .spine{--band:#ffe9b0}
-html[data-theme="cream"] .whytalk{--band:#fdebd2}
-html[data-theme="cream"] #science{--band:#fff7e0}
-html[data-theme="cream"] #preorder{--band:#fececa}
-html[data-theme="cream"] .hard{background:#fff7e0}
+html[data-theme="sky"] .hard{background:#fbe3d6}
 /* flipped sections: cards go light */
 html[data-theme] #science .adv{--pxbg:var(--surface-pure-white);background:var(--surface-pure-white);border-color:var(--color-chalk-surface)}
 html[data-theme] #science .adv .nm{color:var(--color-deep-ink)}
@@ -463,22 +459,29 @@ html[data-theme] #world .pxslot{border-color:var(--color-slate-mid);background:r
 .hero-picker button{width:auto;min-width:24px;padding:0 7px;background:var(--color-ink-charcoal);color:var(--color-warm-parchment);font-family:var(--font-pixel);font-size:12px;letter-spacing:.05em;line-height:1}
 
 /* =========================================================
-   HERO DESIGN VARIANTS — composable with any color theme
+   HERO DESIGN VARIANTS — structural experiments, all on graph paper
+   1 stage (default) / 2 centered storybook / 3 billboard device / 4 cinematic
    ========================================================= */
-html[data-hero="grid"] .hero{background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell)}
-html[data-hero="halo"] .hero-stage::before{content:"";position:absolute;inset:-22px;background:var(--color-coral-blush);transform:translate(16px,18px)}
-html[data-hero="halo"] .stage-inner{box-shadow:none}
-html[data-hero="halo"] .stage-inner,html[data-hero="halo"] .band-note2,html[data-hero="halo"] .hero-stage .spark{position:relative}
-html[data-hero="halo"] .hero-stage .spark{position:absolute;z-index:1}
-html[data-hero="night"] .hero{background:var(--surface-deep-ink)}
-html[data-hero="night"] .hero h1{color:var(--color-pure-white)}
-html[data-hero="night"] .hero .lead{color:var(--color-chalk-surface)}
-html[data-hero="night"] .hero .ship{color:var(--color-cloud-border)}
-html[data-hero="night"] .hero .btn-ghost{color:var(--color-pure-white)}
-html[data-hero="night"] .stage-inner{border-color:var(--color-ink-charcoal)}
-html[data-hero="night"] .hero .pxslot{border-color:var(--color-slate-mid);background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 8px,transparent 8px 16px),var(--color-ink-charcoal)}
-html[data-hero="night"] .hero .pxslot .t{color:var(--color-chalk-surface)}
-html[data-hero="night"] .hero .pxslot .d{color:var(--color-cloud-border)}
+html[data-hero="center"] .hero-grid{grid-template-columns:1fr;text-align:center;gap:var(--spacing-32)}
+html[data-hero="center"] .hero-grid>div:first-child{max-width:780px;margin:0 auto}
+html[data-hero="center"] .hero .lead{margin-left:auto;margin-right:auto;max-width:58ch}
+html[data-hero="center"] .hero-cta{justify-content:center}
+html[data-hero="center"] .hero-stage{max-width:560px;width:100%;margin:0 auto}
+html[data-hero="center"] .loaded .hero-stage{transform:rotate(0deg)}
+html[data-hero="center"] .band-note2{margin-left:auto;margin-right:auto}
+html[data-hero="billboard"] .hero-grid{grid-template-columns:.8fr 1.2fr;gap:var(--spacing-32)}
+html[data-hero="billboard"] .hero h1{font-size:clamp(34px,4.8vw,64px)}
+html[data-hero="billboard"] .hero-stage{max-width:none}
+html[data-hero="poster"] .hero{padding-top:clamp(24px,3vw,40px)}
+html[data-hero="poster"] .hero-grid{grid-template-columns:1fr;position:relative;min-height:min(72vh,680px);align-items:center;text-align:center}
+html[data-hero="poster"] .hero-grid>div:first-child{position:relative;z-index:2;max-width:740px;margin:0 auto}
+html[data-hero="poster"] .hero .lead{margin-left:auto;margin-right:auto;max-width:56ch}
+html[data-hero="poster"] .hero-cta{justify-content:center}
+html[data-hero="poster"] .hero-stage{position:absolute;inset:0;max-width:none}
+html[data-hero="poster"] .loaded .hero-stage{transform:none}
+html[data-hero="poster"] .stage-inner{position:absolute;inset:0;aspect-ratio:auto;border:none;box-shadow:none}
+html[data-hero="poster"] .stage-inner::after{content:"";position:absolute;inset:0;background:color-mix(in srgb,var(--surface-warm-parchment) 74%,transparent)}
+html[data-hero="poster"] .hero-tag,html[data-hero="poster"] .meter,html[data-hero="poster"] .band-note2,html[data-hero="poster"] .spark{display:none}
 
 /* =========================================================
    GAME JUICE — confetti, plusone, egg tease, readbar, flips
@@ -969,17 +972,16 @@ html[data-hero="night"] .hero .pxslot .d{color:var(--color-cloud-border)}
 
 <div class="theme-picker hero-picker tp-hero" role="group" aria-label="Hero design preview switcher">
   <span class="tp-label">HERO</span>
-  <button data-t="" title="1 — Stage (current)" aria-label="Current stage hero">1</button>
-  <button data-t="grid" title="2 — Graph paper" aria-label="Graph paper hero">2</button>
-  <button data-t="halo" title="3 — Sticker halo behind device" aria-label="Sticker halo hero">3</button>
-  <button data-t="night" title="4 — Night ink hero" aria-label="Night ink hero">4</button>
+  <button data-t="" title="1 — Stage on graph paper" aria-label="Stage hero on graph paper">1</button>
+  <button data-t="center" title="2 — Centered storybook" aria-label="Centered storybook hero">2</button>
+  <button data-t="billboard" title="3 — Billboard device" aria-label="Billboard device hero">3</button>
+  <button data-t="poster" title="4 — Cinematic full-bleed" aria-label="Cinematic full-bleed hero">4</button>
 </div>
 <div class="theme-picker tp-theme" role="group" aria-label="Color scheme preview switcher">
   <span class="tp-label">THEME</span>
-  <button data-t="" title="Current — dark storybook" aria-label="Current dark storybook theme" style="background:#161c24"></button>
+  <button data-t="" title="Original — dark storybook" aria-label="Original dark storybook theme" style="background:#161c24"></button>
   <button data-t="mint" title="A — Mint cartridge" aria-label="Mint cartridge theme" style="background:#e2efdb"></button>
   <button data-t="sky" title="B — Sky day" aria-label="Sky day theme" style="background:#dcebf5"></button>
-  <button data-t="cream" title="C — Cream soda" aria-label="Cream soda theme" style="background:#fdf1c9"></button>
 </div>
 
 <script>
@@ -988,8 +990,8 @@ document.documentElement.classList.add('js');
 /* preview pickers — color theme + hero design: ?theme= / ?hero= or localStorage or picker */
 (() => {
   const pickers = [
-    { attr: 'theme', valid: ['', 'mint', 'sky', 'cream'], key: 'nowa-theme', sel: '.tp-theme button' },
-    { attr: 'hero',  valid: ['', 'grid', 'halo', 'night'], key: 'nowa-hero',  sel: '.tp-hero button' }
+    { attr: 'theme', valid: ['', 'mint', 'sky'], key: 'nowa-theme', sel: '.tp-theme button' },
+    { attr: 'hero',  valid: ['', 'center', 'billboard', 'poster'], key: 'nowa-hero',  sel: '.tp-hero button' }
   ];
   const params = new URLSearchParams(location.search);
   pickers.forEach(p => {
