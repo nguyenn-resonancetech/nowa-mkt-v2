@@ -8,6 +8,10 @@
 <link rel="stylesheet" href="../design/tokens.css">
 <link rel="icon" type="image/png" href="assets/brand/logo-app-64.png">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
+<style>@font-face{font-family:"Departure Mono";src:url("../fonts/DepartureMono-Regular.woff2") format("woff2"),url("../fonts/DepartureMono-Regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}</style>
+<!-- Lenis smooth scroll (momentum / inertia) -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<style>html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:hidden}.lenis.lenis-smooth iframe{pointer-events:none}</style>
 <style>
 /* =========================================================
    Nowa v2 — storybook warmth + pixel playfulness
@@ -132,7 +136,6 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 /* ---- care loop ---- */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16);margin-top:var(--spacing-48);counter-reset:step}
 .step{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards);padding:var(--card-padding);position:relative;transition:transform 350ms var(--ease-out-strong),box-shadow 350ms var(--ease-out-strong)}
-@media(hover:hover) and (pointer:fine){.step:hover{transform:translateY(-4px);box-shadow:0 14px 28px -18px rgba(22,28,36,.35)}}
 .step .n{font-family:var(--font-pixel);font-size:26px;color:var(--color-coral-flame);margin-bottom:12px}
 .step h3{font-size:var(--text-heading-sm);margin-bottom:8px}
 .step p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
@@ -160,7 +163,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .mtab{--side:4px;--tab-top:var(--surface-pure-white);--tab-side:var(--color-cloud-border);font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);padding:11px 20px 15px;border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));border:0;background:linear-gradient(var(--tab-top),var(--tab-top)) no-repeat 0 0/100% calc(100% - var(--side)),var(--tab-side);color:var(--color-slate-mid);cursor:pointer;transition:color 150ms ease,transform 70ms steps(2)}
 .mtab:active{--side:2px;transform:translateY(2px)}
 .mtab.on{--side:2px;--tab-top:var(--color-deep-ink);--tab-side:var(--color-ink-charcoal);transform:translateY(2px);color:#fff}
-.mpanel{margin-top:var(--spacing-32);display:grid;grid-template-columns:1.1fr .9fr;gap:var(--spacing-48);align-items:center;background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards-lg);padding:clamp(28px,4vw,56px)}
+.mpanel{margin-top:var(--spacing-32);display:grid;grid-template-columns:1fr 1.15fr;gap:var(--spacing-48);align-items:center;background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards-lg);padding:clamp(28px,4vw,56px)}
 .mpanel h3{font-size:clamp(22px,2.4vw,30px);letter-spacing:-.015em;line-height:1.2}
 .mpanel p{margin-top:14px;color:var(--color-slate-mid)}
 .mpanel .mreal{margin-top:22px;font-size:var(--text-body-sm);font-weight:600;color:var(--color-deep-ink);display:flex;align-items:center;gap:10px}
@@ -198,9 +201,12 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .species-strip{margin-top:var(--spacing-48);overflow:hidden;padding:26px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
 .species-track{display:flex;gap:clamp(28px,4vw,64px);width:max-content;will-change:transform}
 .sp{display:flex;flex-direction:column;align-items:center;gap:10px}
-.sp img{width:clamp(84px,9vw,128px);height:auto;transition:transform 300ms var(--ease-out-strong)}
-@media(hover:hover) and (pointer:fine){.sp:hover img{transform:translateY(-8px) scale(1.06)}}
+.sp img{width:clamp(84px,9vw,128px);height:auto;transition:transform 420ms var(--ease-expo);will-change:transform}
 .sp .spname{font-family:var(--font-pixel);font-size:17px;color:var(--color-warm-parchment);letter-spacing:.06em}
+@media(hover:hover) and (pointer:fine){
+  .sp:hover img{transform:translateY(-8px) scale(1.08)}
+  .species-track.walk-rev .sp:hover img{transform:scaleX(-1) translateY(-8px) scale(1.08)}
+}
 .world .who{margin-top:var(--spacing-24);color:var(--color-cloud-border);font-size:var(--text-body-sm)}
 
 /* ---- library ---- */
@@ -209,7 +215,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .libs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--spacing-16);margin-top:var(--spacing-48)}
 .lib{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards);padding:var(--card-padding);transition:transform 350ms var(--ease-out-strong),box-shadow 350ms var(--ease-out-strong)}
 @media(hover:hover) and (pointer:fine){.lib:hover{transform:translateY(-4px);box-shadow:0 14px 28px -18px rgba(22,28,36,.35)}}
-.lib .licon{width:44px;height:44px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:22px;margin-bottom:16px}
+.lib .licon{width:44px;height:44px;border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:22px;margin-bottom:16px}
 .lib h3{font-size:var(--text-subheading);margin-bottom:6px}
 .lib p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
 .lib-note{margin-top:var(--spacing-24);font-size:var(--text-body-sm);color:var(--color-mist-body)}
@@ -222,21 +228,24 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 
 /* ---- science ---- */
 .advisors{display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-16);margin-top:var(--spacing-48)}
-.adv{background:var(--color-ink-charcoal);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-cards-lg);padding:var(--card-padding);display:grid;grid-template-columns:112px 1fr;gap:var(--spacing-16)}
+.adv{background:var(--surface-pure-white);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-cards-lg);padding:var(--card-padding);display:grid;grid-template-columns:112px 1fr;gap:var(--spacing-16)}
 .adv img{width:112px;height:112px;border-radius:0;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));background:var(--surface-warm-parchment);object-fit:cover;image-rendering:auto}
-.adv .nm{font-family:var(--font-onest);font-weight:800;font-size:var(--text-subheading);color:#fff}
-.adv .role{font-size:var(--text-body-sm);color:var(--color-coral-glow);margin-top:2px}
+.hard-photos .ph{border-radius:0 !important;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));filter:drop-shadow(3px 3px 0 rgba(22,28,36,.12))}
+.adv .nm{font-family:var(--font-onest);font-weight:800;font-size:var(--text-subheading);color:var(--color-deep-ink)}
+.adv .role{font-size:var(--text-body-sm);color:var(--color-ember-deep);margin-top:2px;font-weight:700}
 .adv .ttl{font-size:var(--text-body-sm);color:var(--color-mist-body)}
 .adv ul{margin:12px 0 0 16px;display:flex;flex-direction:column;gap:5px}
-.adv li{font-size:var(--text-body-sm);color:var(--color-chalk-surface)}
-.adv-quote{grid-column:1/-1;font-style:italic;font-size:var(--text-body-sm);color:var(--color-coral-blush);background:rgba(255,255,255,.04);padding:12px 16px;border-radius:var(--radius-md)}
+.adv li{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
 @media(max-width:860px){.advisors{grid-template-columns:1fr}.adv{grid-template-columns:72px 1fr}.adv img{width:72px;height:72px}}
 
 /* ---- compare ---- */
-.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--spacing-16);margin-top:var(--spacing-48)}
+.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-16);margin-top:var(--spacing-48)}
+@media(max-width:780px){.cmp{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.cmp{grid-template-columns:1fr}}
 .cmp .col{background:var(--surface-pure-white);border-radius:var(--radius-cards);padding:var(--card-padding);border:1px solid var(--color-chalk-surface)}
-.cmp .col.us{border:2px solid var(--color-coral-flame);position:relative;clip-path:none !important;overflow:visible}
-.cmp .col.us::before{content:"NOWA";font-family:var(--font-pixel);font-size:15px;letter-spacing:.1em;color:#fff;background:var(--color-coral-flame);position:absolute;top:-12px;left:20px;padding:2px 10px}
+.cmp .col.us{position:relative;clip-path:none !important;overflow:visible;grid-column:1/-1;justify-self:center;width:100%;max-width:420px;margin-top:var(--spacing-16);text-align:center}
+.cmp .col.us.pxcard{filter:none}
+.cmp .col.us::before{content:"NOWA";font-family:var(--font-pixel);font-size:15px;letter-spacing:.1em;color:#fff;background:var(--color-coral-flame);position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:2px 10px}
 .cmp h4{font-family:var(--font-onest);font-size:var(--text-body);font-weight:800}
 .cmp p{font-size:var(--text-body-sm);color:var(--color-slate-mid);margin-top:8px}
 
@@ -256,24 +265,34 @@ footer a:hover{color:#fff}
 .foot-word{font-family:var(--font-onest);font-weight:900;font-size:clamp(90px,17vw,250px);letter-spacing:-.04em;line-height:.85;color:var(--color-warm-parchment);user-select:none}
 .foot-word span{color:var(--color-coral-flame)}
 .foot-pets{position:absolute;right:4%;bottom:12%;display:flex;gap:10px;align-items:flex-end}
-.foot-pets img{width:clamp(40px,5vw,72px);height:auto}
+.foot-pets img{width:clamp(40px,5vw,72px);height:auto;transition:transform 420ms var(--ease-expo);will-change:transform}
+@media(hover:hover) and (pointer:fine){.foot-pets img:hover{transform:translateY(-7px) scale(1.1)}}
 .legal{margin-top:24px;font-size:var(--text-caption);color:var(--color-slate-mid)}
 
 /* =========================================================
    PIXEL SYSTEM — pixels illustrate, type stays warm
    ========================================================= */
 /* stepped pixel corners (replaces rounded corners on drawn surfaces) */
-.pxcard{border-radius:0 !important;position:relative;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));--pxbg:var(--surface-pure-white)}
-.pxcard::before{content:"";position:absolute;inset:3px;background:var(--pxbg);clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));z-index:0}
+.pxcard{border-radius:0 !important;position:relative;background:transparent !important;border:0 !important;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface)}
+.pxcard::before{content:"";position:absolute;inset:0;background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder);clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));z-index:0}
 .pxcard>*{position:relative;z-index:1}
 .revcard{--pxbg:var(--surface-warm-parchment)}
-.adv.pxcard,.talk-demo.pxcard,.egg-card{--pxbg:var(--color-ink-charcoal)}
-.dark .pullq{--pxbg:var(--color-ink-charcoal)}
+.talk-demo.pxcard,.egg-card,.fun.pxcard{--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.06)}
+.adv.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface)}
+.dark .pullq{--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.08)}
 .blueprint{--pxbg:var(--surface-ghost-white)}
-.cmp .col.us::before{inset:auto;right:auto;bottom:auto;clip-path:none;z-index:2}
+.cmp .col.us::before{right:auto;bottom:auto;clip-path:none;z-index:2}
+.step.pxcard,.mpanel.pxcard,.lib.pxcard,.seg.pxcard,.pullq.pxcard,.talk-demo.pxcard,.adv.pxcard,.cmp .col.pxcard,.revcard.pxcard,.faq.pxcard{filter:drop-shadow(3px 3px 0 rgba(22,28,36,.12))}
+.dark .step.pxcard,.dark .mpanel.pxcard,.dark .lib.pxcard,.dark .seg.pxcard,.dark .pullq.pxcard,.dark .talk-demo.pxcard,.dark .cmp .col.pxcard,.dark .revcard.pxcard,.dark .faq.pxcard,.dark .fun.pxcard{filter:drop-shadow(3px 3px 0 rgba(0,0,0,.18))}
+.dark .adv.pxcard{filter:drop-shadow(4px 4px 0 rgba(0,0,0,.45))}
+/* Give containers room so right+bottom shadow isn't clipped */
+.steps,.libs,.segs,.advisors,.cmp,.faqs{padding-right:10px;padding-bottom:10px}
+.rev-row{padding:0 10px 10px 0}
 @media(hover:hover) and (pointer:fine){
-  .step.pxcard:hover,.lib.pxcard:hover,.seg.pxcard:hover,.faq.pxcard:hover,.revcard.pxcard:hover{transform:translateY(-4px);background:var(--color-coral-glow)}
-  .cmp .col.pxcard:hover{transform:translateY(-4px)}
+  .lib.pxcard:hover,.faq.pxcard:hover{transform:translateY(-4px);--pxbg:var(--color-coral-glow);color:#fff}
+  .lib.pxcard:hover *,.faq.pxcard:hover *{color:#fff}
+  .lib.pxcard:hover{filter:drop-shadow(8px 8px 0 rgba(22,28,36,.6))}
+  .lib.pxcard:hover .lvlchip{background:#fff;color:var(--color-deep-ink)}
 }
 /* dithered checkerboard section transitions */
 .dither{height:24px;background-color:var(--dith-dark,var(--surface-deep-ink));background-image:linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%),linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
@@ -298,9 +317,10 @@ footer a:hover{color:#fff}
 .egg{width:96px;height:114px;background:var(--color-warm-parchment);border-radius:0;position:relative;display:flex;align-items:center;justify-content:center;transition:transform 200ms var(--ease-out-strong);clip-path:polygon(36px 0,60px 0,60px 8px,72px 8px,72px 16px,80px 16px,80px 24px,88px 24px,88px 40px,96px 40px,96px 80px,88px 80px,88px 96px,80px 96px,80px 106px,64px 106px,64px 114px,32px 114px,32px 106px,16px 106px,16px 96px,8px 96px,8px 80px,0 80px,0 40px,8px 40px,8px 24px,16px 24px,16px 16px,24px 16px,24px 8px,36px 8px)}
 .egg .spot{position:absolute;width:12px;height:12px;background:var(--color-coral-blush)}
 /* pixel scene illustrations */
-.scene{image-rendering:pixelated;border:1px solid var(--color-chalk-surface)}
-.loop-intro{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start}
-@media(max-width:640px){.loop-intro{grid-template-columns:1fr}.loop-intro .scene{justify-self:center}}
+.scene{image-rendering:pixelated}
+.loop-intro{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.loop-intro .scene{margin-top:-80px}
+@media(max-width:640px){.loop-intro{grid-template-columns:1fr}.loop-intro .scene{justify-self:center;margin-top:0}}
 
 /* =========================================================
    FEEDBACK ROUND — hero band, device, placeholders, players
@@ -318,8 +338,8 @@ footer a:hover{color:#fff}
 .pxslot .t{font-family:var(--font-pixel);font-size:14px;letter-spacing:.06em;color:var(--color-slate-mid)}
 .pxslot .d{font-family:var(--font-noto-sans);font-size:11px;line-height:1.4;color:var(--color-mist-body)}
 .dark .pxslot{background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 8px,transparent 8px 16px),var(--color-ink-charcoal);border-color:var(--color-slate-mid)}
-.sicon{height:80px;margin-bottom:12px}
-.cicon{height:84px;margin-bottom:14px}
+.sicon{height:80px;margin-bottom:12px;border:1px solid var(--color-chalk-surface);border-radius:4px}
+.cicon{width:74px;height:74px;object-fit:contain;object-position:left center;margin-bottom:14px;display:block}
 .ficon{height:70px;margin-bottom:12px}
 .ticon{width:13px;height:13px;border:2px dashed currentColor;display:inline-block;margin-right:8px;vertical-align:-2px;opacity:.55}
 /* marching pixels + care loopback */
@@ -346,8 +366,8 @@ footer a:hover{color:#fff}
 .specs .cell{width:10px;height:10px;background:var(--color-coral-flame);flex:none}
 @media(max-width:860px){.device-grid{grid-template-columns:1fr}}
 /* pixel device frame for mission videos */
-.mission-art{position:relative;padding:26px;background:var(--surface-warm-parchment)}
-.device-frame{position:relative;margin:0 auto;max-width:380px;background:var(--surface-pure-white);border:3px solid var(--color-deep-ink);padding:10px 10px 0}
+.mission-art{position:relative;padding:18px;background:var(--surface-warm-parchment)}
+.device-frame{position:relative;margin:0 auto;max-width:none;background:var(--surface-pure-white);border:3px solid var(--color-deep-ink);padding:10px 10px 0}
 .device-frame video{width:100%;display:block;border:2px solid var(--color-ink-charcoal);background:var(--color-deep-ink)}
 .df-buttons{display:flex;justify-content:center;gap:16px;padding:12px}
 .db{width:20px;height:20px;border-radius:50%}
@@ -377,7 +397,7 @@ footer a:hover{color:#fff}
 @media(max-width:860px){.hard-head{grid-template-columns:1fr}}
 /* compare showdown */
 .cmp .col{position:relative}
-.cmp-pet{margin:0 auto 10px;animation:pbob 1.6s steps(2) infinite}
+.cmp-pet{width:144px;height:auto;margin:0 auto 10px;animation:pbob 1.6s steps(2) infinite}
 @keyframes pbob{0%,100%{transform:none}50%{transform:translateY(-6px)}}
 .cmp-meter{display:flex;gap:4px;justify-content:center;margin-top:12px}
 .cmp-meter .mc{width:12px;height:12px;background:var(--color-chalk-surface)}
@@ -447,19 +467,13 @@ html[data-theme="sky"] #science{--band:#d6e7f2}
 html[data-theme="sky"] #preorder{--band:#fff3d6}
 html[data-theme="sky"] .hard{background:#fbe3d6}
 /* flipped sections: cards go light */
-html[data-theme]:not([data-theme^="paper"]) #science .adv{--pxbg:var(--surface-pure-white);background:var(--surface-pure-white);border-color:var(--color-chalk-surface)}
-html[data-theme]:not([data-theme^="paper"]) #science .adv .nm{color:var(--color-deep-ink)}
-html[data-theme]:not([data-theme^="paper"]) #science .adv .role{color:var(--color-ember-deep)}
-html[data-theme]:not([data-theme^="paper"]) #science .adv .ttl{color:var(--color-mist-body)}
-html[data-theme]:not([data-theme^="paper"]) #science .adv li{color:var(--color-slate-mid)}
-html[data-theme]:not([data-theme^="paper"]) #science .adv-quote{background:var(--surface-ghost-white);color:var(--color-ember-darker)}
 html[data-theme]:not([data-theme^="paper"]) .whytalk .pullq{--pxbg:var(--surface-pure-white);background:var(--surface-pure-white);border-color:var(--color-chalk-surface)}
 html[data-theme]:not([data-theme^="paper"]) .whytalk .pullq .qt{color:var(--color-deep-ink)}
 html[data-theme]:not([data-theme^="paper"]) .whytalk .pullq .who{color:var(--color-deep-ink)}
 html[data-theme]:not([data-theme^="paper"]) .dark .pxslot{border-color:var(--color-cloud-border);background:repeating-linear-gradient(45deg,rgba(22,28,36,.05) 0 8px,transparent 8px 16px),var(--surface-warm-parchment)}
 html[data-theme]:not([data-theme^="paper"]) #world .pxslot{border-color:var(--color-slate-mid);background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 8px,transparent 8px 16px),var(--color-ink-charcoal)}
 /* theme picker */
-.theme-picker{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;gap:7px;align-items:center;background:var(--color-deep-ink);padding:9px 11px;border:2px solid var(--color-ink-charcoal)}
+.theme-picker{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;gap:7px;align-items:center;background:var(--color-deep-ink);padding:9px 11px;border:2px solid var(--color-ink-charcoal)}
 .theme-picker .tp-label{font-family:var(--font-pixel);font-size:12px;color:var(--color-warm-parchment);letter-spacing:.08em;margin-right:2px}
 .theme-picker button{width:24px;height:24px;border:2px solid var(--color-slate-mid);cursor:pointer;padding:0;transition:transform 140ms var(--ease-out-strong)}
 .theme-picker button:active{transform:scale(.92)}
@@ -501,9 +515,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 }
 @keyframes eggtease{0%,100%{transform:rotate(0)}50%{transform:rotate(-5deg)}}
 .species-track.walk-rev .sp img{transform:scaleX(-1)}
-@media(hover:hover) and (pointer:fine){.species-track.walk-rev .sp:hover img{transform:scaleX(-1) translateY(-8px) scale(1.06)}}
-.foot-pets img{transition:transform 90ms steps(2)}
-.foot-pets img:hover{transform:translateY(-7px)}
 
 /* ---- scroll reveal (JS-gated so no-JS users see everything) ---- */
 .js .reveal{opacity:0;transform:translateY(26px);transition:opacity 700ms var(--ease-expo),transform 700ms var(--ease-expo)}
@@ -582,12 +593,9 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     </div>
     <div class="hero-stage">
       <div class="stage-inner">
-        <video class="stage-video" src="assets/videos/hero-01.mp4" poster="assets/visuals/hero-poster.jpg" autoplay muted loop playsinline aria-label="The Nowa device revealed among colorful clouds"></video>
-        <span class="hero-tag">LVL 3 · CARED FOR</span>
-        <div class="meter" aria-label="Care meter, four of five"><span class="mlabel">CARE</span><span class="mcells"><span class="mc full"></span><span class="mc full"></span><span class="mc full"></span><span class="mc full"></span><span class="mc"></span></span></div>
+        <video class="stage-video" src="assets/videos/hero-main.mp4" poster="assets/visuals/hero-poster.jpg" autoplay muted loop playsinline aria-label="The Nowa device revealed among colorful clouds"></video>
       </div>
       <span class="spark" style="right:-8px;top:-9px"></span><span class="spark s2" style="left:-10px;bottom:26%"></span><span class="spark s3" style="right:18%;bottom:-10px"></span>
-      <div class="band-note2 pxslot"><span class="t">PX-GFX · HERO-DEVICE-LOOP</span><span class="d">graphic team: pixel-style re-render of this reveal · 1:1 seamless loop</span></div>
     </div>
   </div>
 </header>
@@ -609,13 +617,13 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:18ch">Growth as a side effect of caring.</h2>
     <div class="loop-intro">
       <p class="lead reveal" style="margin-top:16px">Nowa never assigns chores or grades behavior. The pet simply has needs and emotions. Your child responds — and in responding, builds the habits and empathy that last.</p>
-      <img class="px scene reveal" src="assets/scenes/scene-10.png" alt="Pixel-art scene: a child watering a sprout" width="160" height="160" style="margin-bottom:4px" loading="lazy" decoding="async">
+      <img class="px scene reveal" src="assets/scenes/scene-care-loop.png" alt="Pixel-art scene: a child watering a sprout" width="200" height="200" loading="lazy" decoding="async">
     </div>
     <div class="steps reveal-group">
-      <div class="step pxcard"><div class="n">01</div><div class="sicon pxslot"><span class="t">PX-ICON</span><span class="d">pet + emotion bubble (sound waves)</span></div><h3>The pet feels</h3><p>Nowa expresses a need or emotion in its own sounds and animation — never human words.</p></div>
-      <div class="step pxcard"><div class="n">02</div><div class="sicon pxslot"><span class="t">PX-ICON</span><span class="d">watering can / feeding hand</span></div><h3>Your child cares</h3><p>They interpret what Nowa needs and respond with care and imagination.</p></div>
-      <div class="step pxcard"><div class="n">03</div><div class="sicon pxslot"><span class="t">PX-ICON</span><span class="d">small sprite → big sprite, evolution sparkle</span></div><h3>The pet grows</h3><p>Consistent care helps Nowa thrive and evolve — the visible reward of showing up.</p></div>
-      <div class="step pxcard"><div class="n">04</div><div class="sicon pxslot"><span class="t">PX-ICON</span><span class="d">pixel kid with star badge</span></div><h3>Your child grows</h3><p>Habits, emotional skills, and self-regulation form — as a consequence of the relationship.</p></div>
+      <div class="step pxcard"><div class="n">01</div><img class="px sicon" src="assets/pixels/miko_msg_anim.gif" alt="Nowa pet expressing an emotion" loading="lazy" decoding="async"><h3>The pet feels</h3><p>Nowa expresses a need or emotion in its own sounds and animation — never human words.</p></div>
+      <div class="step pxcard"><div class="n">02</div><img class="px sicon" src="assets/pixels/watering_can_anim_80px.gif" alt="Watering can caring for the pet" loading="lazy" decoding="async"><h3>Your child cares</h3><p>They interpret what Nowa needs and respond with care and imagination.</p></div>
+      <div class="step pxcard"><div class="n">03</div><img class="px sicon" src="assets/pixels/miko_evolution_loop_80px.gif" alt="Nowa pet evolving from small to big" loading="lazy" decoding="async"><h3>The pet grows</h3><p>Consistent care helps Nowa thrive and evolve — the visible reward of showing up.</p></div>
+      <div class="step pxcard"><div class="n">04</div><img class="px sicon" src="assets/pixels/kid_wave_anim_80px.gif" alt="Pixel child waving" loading="lazy" decoding="async"><h3>Your child grows</h3><p>Habits, emotional skills, and self-regulation form — as a consequence of the relationship.</p></div>
     </div>
     <div class="loopback reveal" aria-hidden="true"><span class="lb-line"></span><span class="lb-txt">AND AROUND AGAIN ↻</span><span class="lb-line r"></span></div>
     <figure class="pullq pxcard reveal">
@@ -628,7 +636,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <!-- THE DEVICE -->
 <section class="device-sec">
   <div class="wrap device-grid">
-    <div class="blueprint pxcard reveal"><img src="assets/visuals/visual_14.png" alt="Technical blueprint of the Nowa device, 6.76 by 7.52 centimeters, with three buttons" loading="lazy" decoding="async"></div>
+    <div class="blueprint pxcard reveal"><video src="assets/videos/device-blueprint.mp4" autoplay muted loop playsinline aria-label="Technical blueprint of the Nowa device" style="width:100%;display:block"></video></div>
     <div>
       <p class="chapter"><span class="cell"></span><span class="cnum">THE DEVICE</span></p>
       <h2 class="reveal" style="font-size:clamp(28px,3.2vw,42px);max-width:18ch">One small device. A whole friend inside it.</h2>
@@ -691,7 +699,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
           <video id="mVid" src="assets/videos/the-mission-engine-02.mp4" autoplay muted loop playsinline aria-label="Mission on the Nowa device screen"></video>
           <div class="df-buttons" aria-hidden="true"><span class="db y"></span><span class="db r"></span><span class="db b"></span></div>
         </div>
-        <div class="pxslot vid-note"><span class="t">PX-GFX · MISSION LOOPS ×3</span><span class="d">graphic team: pixel-style re-renders of these mission videos · 16:9 loops</span></div>
       </div>
     </div>
     <p class="mnote reveal">You choose which mission types run, and when — from the parent app.</p>
@@ -729,10 +736,10 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <span class="esub" id="eggSub">Tap to hatch · your child won't know who's inside either</span>
       </button>
       <div class="fun-grid reveal-group">
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 66%,var(--color-coral-glow))"><div class="ficon pxslot"><span class="t">PX-ICON</span><span class="d">pet + heart bubble</span></div><h3>A friend that knows them</h3><p>The pet reacts to the care it's been given — greeting, moods, and little rituals, all in its own sounds and animations. Never human words.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 72%,var(--color-amber-signal))"><div class="ficon pxslot"><span class="t">PX-ICON</span><span class="d">watering can + sprouting creature</span></div><h3>Grown through care</h3><p>How the pet grows depends on how your child shows up. With steady care the bond deepens and the pet evolves in its own way — no two journeys alike.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 74%,var(--color-leaf-success))"><div class="ficon pxslot"><span class="t">PX-ICON</span><span class="d">open storybook + sparkle</span></div><h3>Its own quirks and story</h3><p>Every pet arrives with a look, a personality, and a backstory from Nowa Planet — the bond is theirs, not a checklist.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 62%,var(--color-coral-blush))"><div class="ficon pxslot"><span class="t">PX-ICON</span><span class="d">cracked egg + glow</span></div><h3>From the first crack</h3><p>The hatch is the hook: surprise, delight, and an instant reason to care. The motivation never has to be assigned.</p></div>
+        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 66%,var(--color-coral-glow))"><img class="px ficon" src="assets/pixels/miko_heart_58x42.png" alt="Pet with a heart bubble" loading="lazy" decoding="async"><h3>A friend that knows them</h3><p>The pet reacts to the care it's been given — greeting, moods, and little rituals, all in its own sounds and animations. Never human words.</p></div>
+        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 72%,var(--color-amber-signal))"><img class="px ficon" src="assets/pixels/miko_watered_x2.png" alt="Pet sprouting after being watered" loading="lazy" decoding="async"><h3>Grown through care</h3><p>How the pet grows depends on how your child shows up. With steady care the bond deepens and the pet evolves in its own way — no two journeys alike.</p></div>
+        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 74%,var(--color-leaf-success))"><img class="px ficon" src="assets/pixels/miko_read_x3.png" alt="Pet reading an open storybook" loading="lazy" decoding="async"><h3>Its own quirks and story</h3><p>Every pet arrives with a look, a personality, and a backstory from Nowa Planet — the bond is theirs, not a checklist.</p></div>
+        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 62%,var(--color-coral-blush))"><img class="px ficon" src="assets/pixels/egg_hatch_x2.png" alt="Cracked egg with a glow" loading="lazy" decoding="async"><h3>From the first crack</h3><p>The hatch is the hook: surprise, delight, and an instant reason to care. The motivation never has to be assigned.</p></div>
       </div>
     </div>
   </div>
@@ -836,7 +843,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
             <li>Creator of CAPSEL and the Affect Knowledge Test</li>
           </ul>
         </div>
-        <p class="adv-quote">[ Approved quote from Dr. Denham — pending sign-off ]</p>
       </div>
       <div class="adv pxcard">
         <img class="px" src="assets/avatars/dr-megan-mcclelland.png" alt="Portrait of Dr. Megan McClelland" width="88" height="88" loading="lazy" decoding="async">
@@ -849,7 +855,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
             <li>116+ peer-reviewed publications, cited 23,000+ times</li>
           </ul>
         </div>
-        <p class="adv-quote">[ Approved quote from Dr. McClelland — pending sign-off ]</p>
       </div>
       <div class="adv pxcard">
         <img class="px" src="assets/avatars/dr-steven-kurtz.png" alt="Portrait of Dr. Steven Kurtz" width="88" height="88" loading="lazy" decoding="async">
@@ -862,7 +867,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
             <li>One of only 21 certified global PCIT trainers worldwide</li>
           </ul>
         </div>
-        <p class="adv-quote">[ Approved quote from Dr. Kurtz — pending sign-off ]</p>
       </div>
       <div class="adv pxcard">
         <img class="px" src="assets/avatars/dr-david-mou.png" alt="Portrait of Dr. David Mou" width="88" height="88" loading="lazy" decoding="async">
@@ -875,10 +879,9 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
             <li>Named "Top 10 Under 35 for Healthcare" by LinkedIn</li>
           </ul>
         </div>
-        <p class="adv-quote">[ Approved quote from Dr. Mou — pending sign-off ]</p>
       </div>
     </div>
-    <p class="reveal" style="margin-top:24px;font-size:var(--text-body-sm);color:var(--band-note,var(--color-cloud-border))">Shaped by our advisory board. We say "built with" — never "clinically proven."</p>
+    <p class="reveal" style="margin-top:24px;font-size:var(--text-body-sm);color:var(--band-note,var(--color-cloud-border))">Their frameworks shaped every mission, mechanic, and routine in Nowa.</p>
   </div>
 </section>
 
@@ -888,10 +891,10 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   <div class="wrap">
     <h2 class="reveal" style="font-size:clamp(26px,3vw,40px);max-width:26ch">Screen-free like Yoto. Developmental like Lovevery. But alive.</h2>
     <div class="cmp reveal-group">
-      <div class="col pxcard"><div class="cicon pxslot"><span class="t">PX-ICON</span><span class="d">cassette audio player</span></div><h4>Audio players</h4><p>Great stories. But the child listens — they don't form a relationship.</p></div>
-      <div class="col pxcard"><div class="cicon pxslot"><span class="t">PX-ICON</span><span class="d">building blocks</span></div><h4>Play kits</h4><p>Thoughtful toys. But they don't grow, respond, or build a bond over time.</p></div>
-      <div class="col pxcard"><div class="cicon pxslot"><span class="t">PX-ICON</span><span class="d">tablet + warning sparkle</span></div><h4>Tablets &amp; apps</h4><p>Endless engagement — designed to keep your child <em>in</em>, not send them back out.</p></div>
-      <div class="col us pxcard"><span class="spark" style="right:12px;top:14px"></span><img class="px cmp-pet" src="assets/species/brim.png" alt="" width="72" height="72" loading="lazy" decoding="async"><h4>A living companion</h4><p>Grows with your child, sends them back into real life, and was built with scientists.</p><div class="mcells cmp-meter" aria-hidden="true"><span class="mc full"></span><span class="mc full"></span><span class="mc full"></span><span class="mc full"></span><span class="mc"></span></div></div>
+      <div class="col pxcard"><img class="px cicon" src="assets/compare/cmp-audio.png" alt="A cassette audio player" loading="lazy" decoding="async"><h4>Audio players</h4><p>Great stories. But the child listens — they don't form a relationship.</p></div>
+      <div class="col pxcard"><img class="px cicon" src="assets/compare/cmp-play.png" alt="A play-kit board game" loading="lazy" decoding="async"><h4>Play kits</h4><p>Thoughtful toys. But they don't grow, respond, or build a bond over time.</p></div>
+      <div class="col pxcard"><img class="px cicon" src="assets/compare/cmp-tablet.png" alt="A tablet / handheld device" loading="lazy" decoding="async"><h4>Tablets &amp; apps</h4><p>Endless engagement — designed to keep your child <em>in</em>, not send them back out.</p></div>
+      <div class="col us pxcard"><span class="spark" style="left:50%;margin-left:22px;top:6px;right:auto;z-index:3"></span><img class="px cmp-pet" src="assets/species/brim.png" alt="" width="72" height="72" loading="lazy" decoding="async"><h4>A living companion</h4><p>Grows with your child, sends them back into real life, and was built with scientists.</p><div class="mcells cmp-meter" aria-hidden="true"><span class="mc full"></span><span class="mc full"></span><span class="mc full"></span><span class="mc full"></span><span class="mc"></span></div></div>
     </div>
   </div>
 </section>
@@ -1218,6 +1221,25 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
     links.forEach(l => l.classList.toggle('active', l.dataset.ch === e.target.id));
   }), {rootMargin: '-40% 0px -50% 0px'});
   Object.keys(map).forEach(id => { const s = document.getElementById(id); if (s) sio.observe(s); });
+})();
+
+/* smooth momentum scroll (Lenis) — skipped under reduced-motion for accessibility */
+(() => {
+  if (reduced || typeof Lenis === 'undefined') return;
+  const lenis = new Lenis({ lerp: 0.13, wheelMultiplier: 1, smoothWheel: true });
+  function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+  /* route same-page anchors through Lenis for smooth glide */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -20, duration: 0.8 });
+    });
+  });
 })();
 </script>
 </body>
