@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nowa — the pet that turns routines into play (Permill version)</title>
+<meta name="description" content="Nowa is a magical pet that grows through your child's care — practicing calm, routines, and big feelings together. Built with the scientists who wrote the science. Pre-order now, ships September 2026.">
+<link rel="stylesheet" href="../design/tokens.css">
+<link rel="icon" type="image/png" href="assets/brand/logo-app-64.png">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
+<style>@font-face{font-family:"Departure Mono";src:url("../fonts/DepartureMono-Regular.woff2") format("woff2"),url("../fonts/DepartureMono-Regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}</style>
+<!-- Lenis smooth scroll (momentum / inertia) -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<style>html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:hidden}.lenis.lenis-smooth iframe{pointer-events:none}</style>
+<style>
+/* =========================================================
+   Nowa v2 — storybook warmth + pixel playfulness
+   Migrated from the units.gr system onto Nowa tokens.
+   Motion: expo-out, sub-700ms, reduced-motion safe.
+   ========================================================= */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --grid-line: rgba(22,28,36,.08);
+  --grid-cell: 28px;
+  --z-rail: 30; --z-nav: 40;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-noto-sans);color:var(--color-deep-ink);background-color:var(--surface-warm-parchment);background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell);background-attachment:fixed;background-position:0 16px;font-size:var(--text-body);line-height:var(--leading-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3,h4{font-family:var(--font-onest);line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--page-max-width);margin:0 auto;padding:0 var(--spacing-24)}
+section{padding:clamp(72px,9vw,128px) 0;position:relative}
+.dark{background:var(--band,var(--surface-deep-ink));color:var(--band-ink,var(--color-pure-white))}
+.dark h2,.dark h3{color:var(--band-ink,var(--color-pure-white))}
+.lead{font-size:var(--text-subheading);color:var(--color-slate-mid);line-height:1.6;max-width:60ch;text-wrap:pretty}
+.dark .lead{color:var(--band-muted,var(--color-chalk-surface))}
+
+/* pixel-art rendering */
+.px{image-rendering:pixelated}
+
+/* chapter marker — the one deliberate brand cadence (storybook chapters) */
+.chapter{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);margin-bottom:var(--spacing-24)}
+.chapter .cell{width:14px;height:14px;background:var(--color-coral-flame)}
+.dark .chapter .cell{background:var(--band-accent,var(--color-coral-glow))}
+.chapter .cnum{font-family:var(--font-pixel);font-size:18px;letter-spacing:.04em;color:var(--color-coral-flame)}
+.dark .chapter .cnum{color:var(--band-accent,var(--color-coral-glow))}
+
+/* ---- buttons ---- */
+.btn{--side:6px;--btn-top:var(--color-coral-flame);--btn-side:var(--color-ember-deep);display:inline-flex;align-items:center;gap:10px;background:linear-gradient(var(--btn-top),var(--btn-top)) no-repeat 0 0/100% calc(100% - var(--side)),var(--btn-side);color:#fff;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body);padding:16px 30px 22px;border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));border:0;cursor:pointer;transition:transform 70ms steps(2)}
+.btn:active{--side:2px;transform:translateY(4px)}
+.btn .arr{transition:transform 200ms var(--ease-out-strong)}
+@media(hover:hover) and (pointer:fine){
+  .btn:hover{--side:9px;transform:translateY(-3px)}
+  .btn:hover .arr{transform:translateX(3px)}
+  .mtab:not(.on):hover{--side:6px;transform:translateY(-2px)}
+  .pbtn:not(:active):hover{transform:translateY(-2px);box-shadow:0 5px 0 rgba(22,28,36,.4)}
+  .trk.playing .pbtn:hover{transform:translateY(3px);box-shadow:0 0 0 rgba(22,28,36,.4)}
+}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink);padding:16px 6px;border-bottom:2px solid transparent;transition:border-color 200ms var(--ease-out-strong)}
+.btn-ghost:hover{border-bottom-color:var(--color-coral-flame)}
+
+/* ---- marquee ---- */
+.marquee{background:var(--surface-deep-ink);color:var(--color-warm-parchment);overflow:hidden;padding:12px 0;border-bottom:1px solid var(--color-ink-charcoal)}
+.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 36s linear infinite}
+.marquee-set{display:flex;align-items:center;gap:40px;padding-right:40px;font-family:var(--font-onest);font-weight:600;font-size:var(--text-body-sm);white-space:nowrap}
+.marquee-set .dot{width:8px;height:8px;background:var(--color-coral-flame);flex:none}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---- nav ---- */
+nav{position:sticky;top:0;z-index:var(--z-nav);backdrop-filter:blur(12px);background:color-mix(in srgb,var(--color-warm-parchment) 85%,transparent);border-bottom:1px solid rgba(22,28,36,.07)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.brand{font-family:var(--font-onest);font-weight:800;font-size:22px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.brand .bcell{width:12px;height:12px;background:var(--color-coral-flame);transition:transform 300ms var(--ease-expo)}
+.brand:hover .bcell{transform:rotate(90deg)}
+.navlinks{display:flex;gap:30px;align-items:center}
+.navlinks a{font-family:var(--font-onest);font-size:var(--text-body-sm);font-weight:600;color:var(--color-slate-mid);transition:color 150ms ease}
+.navlinks a:hover{color:var(--color-deep-ink)}
+.navlinks .btn{padding:11px 22px;font-size:var(--text-body-sm)}
+.navlinks a.btn{color:#fff}
+.navlinks a.btn:hover{color:#fff}
+@media(max-width:860px){.navlinks a:not(.btn){display:none}}
+
+/* ---- chapter rail ---- */
+.rail{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:var(--z-rail);display:flex;flex-direction:column;gap:8px}
+.rail a{display:flex;align-items:center;gap:10px;text-decoration:none}
+.rail .rcell{width:12px;height:12px;background:var(--color-cloud-border);transition:background 250ms var(--ease-out-strong),transform 250ms var(--ease-out-strong)}
+.rail .rname{font-family:var(--font-onest);font-size:12px;font-weight:700;color:var(--color-slate-mid);opacity:0;transform:translateX(-6px);transition:opacity 250ms var(--ease-out-strong),transform 250ms var(--ease-out-strong);white-space:nowrap}
+.rail a:hover .rname,.rail a.active .rname{opacity:1;transform:none}
+.rail a.active .rcell{background:var(--color-coral-flame);transform:scale(1.25)}
+.rail.on-dark .rname{color:var(--color-chalk-surface)}
+.rail.on-dark .rcell{background:var(--color-slate-mid)}
+.rail.on-dark a.active .rcell{background:var(--color-coral-glow)}
+@media(max-width:1280px){.rail{display:none}}
+
+/* ---- graph paper utility ---- */
+.graph{background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell)}
+.graph-dark{background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell)}
+
+/* ---- hero ---- */
+.hero{padding:clamp(56px,7vw,96px) 0 0;overflow:clip}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--spacing-48);align-items:center}
+.hero h1{font-size:clamp(38px,6.2vw,84px);font-weight:800}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line>span{display:block;transform:translateY(110%);}
+.loaded .hero h1 .line>span{transform:none;transition:transform 900ms var(--ease-expo)}
+.loaded .hero h1 .line:nth-child(2)>span{transition-delay:70ms}
+.loaded .hero h1 .line:nth-child(3)>span{transition-delay:140ms}
+.hero .lead{margin:var(--spacing-24) 0 var(--spacing-32)}
+.hero .lead,.hero-cta,.hero .ship{opacity:0;transform:translateY(16px)}
+.loaded .hero .lead,.loaded .hero-cta,.loaded .hero .ship{opacity:1;transform:none;transition:opacity 700ms var(--ease-expo),transform 700ms var(--ease-expo)}
+.loaded .hero .lead{transition-delay:220ms}
+.loaded .hero-cta{transition-delay:300ms}
+.loaded .hero .ship{transition-delay:380ms}
+.hero-cta{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-stage{max-width:420px}}
+.ship{font-size:var(--text-body-sm);color:var(--color-mist-body);margin-top:18px}
+.hero-stage{position:relative;opacity:0;transform:translateY(20px) rotate(-1.2deg)}
+.loaded .hero-stage{opacity:1;transform:rotate(-1.2deg);transition:opacity 800ms var(--ease-expo) 250ms,transform 800ms var(--ease-expo) 250ms}
+.hero-stage .stage-grid{position:absolute;inset:0}
+.hero-pet{position:absolute;left:50%;top:54%;width:56%;transform:translate(-50%,-50%);animation:float 5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,calc(-50% - 12px))}}
+.hero-tag{position:absolute;left:24px;top:22px;font-family:var(--font-pixel);font-size:20px;color:var(--color-coral-flame);letter-spacing:.05em}
+.stage-cell{position:absolute;width:var(--grid-cell);height:var(--grid-cell)}
+.hero-foot{margin-top:clamp(48px,6vw,80px)}
+
+/* ---- spine (dark quote) ---- */
+.spine{text-align:center}
+.spine .quote{font-family:var(--font-onest);font-weight:800;font-size:clamp(28px,4vw,52px);line-height:1.18;letter-spacing:-.02em;max-width:22ch;margin:0 auto;color:var(--band-ink,var(--color-pure-white))}
+.spine .quote .w{display:inline-block;opacity:.18;transition:opacity 420ms var(--ease-out-strong)}
+.spine .quote .w.on{opacity:1}
+.spine .sub{margin-top:var(--spacing-32);color:var(--band-accent,var(--color-coral-glow));font-size:var(--text-body)}
+
+/* ---- care loop ---- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16);margin-top:var(--spacing-48);counter-reset:step}
+.step{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards);padding:var(--card-padding);position:relative;transition:transform 350ms var(--ease-out-strong),box-shadow 350ms var(--ease-out-strong)}
+.step .n{font-family:var(--font-pixel);font-size:26px;color:var(--color-coral-flame);margin-bottom:12px}
+.step h3{font-size:var(--text-heading-sm);margin-bottom:8px}
+.step p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+.step::after{content:"";position:absolute;right:10px;top:50%;width:14px;height:14px;transform:translateY(-50%);background:var(--color-coral-glow);clip-path:polygon(0 32%,44% 32%,44% 8%,100% 50%,44% 92%,44% 68%,0 68%);animation:nudge 1.2s steps(2) infinite;z-index:2}
+.step:last-child::after{display:none}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr}.step::after{display:none}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* ---- why it doesn't talk ---- */
+.whytalk .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:center}
+.whytalk h2{font-size:clamp(30px,3.4vw,44px)}
+.talk-demo{position:relative;border-radius:var(--radius-cards-lg);background:var(--color-ink-charcoal);padding:36px;overflow:hidden}
+.talk-demo .bubble{font-family:var(--font-pixel);font-size:clamp(22px,2.4vw,30px);color:var(--color-amber-signal);letter-spacing:.06em}
+.talk-demo .label{margin-top:14px;font-size:var(--text-body-sm);color:var(--color-cloud-border)}
+.talk-demo .pet-row{display:flex;align-items:flex-end;justify-content:space-between;margin-top:34px}
+.talk-demo img{width:120px}
+.eq{display:flex;gap:5px;align-items:flex-end;height:46px}
+.eq i{width:7px;background:var(--color-coral-glow);animation:eq 1.1s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.15s}.eq i:nth-child(3){animation-delay:.3s}.eq i:nth-child(4){animation-delay:.45s}.eq i:nth-child(5){animation-delay:.6s}
+@keyframes eq{0%,100%{height:12px}50%{height:46px}}
+@media(max-width:860px){.whytalk .wrap{grid-template-columns:1fr}}
+/* SAFETY BY DESIGN */
+.safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);margin-top:var(--spacing-48);align-items:start}
+.safe-col h3{font-size:clamp(22px,2.4vw,30px);color:var(--band-ink,var(--color-pure-white));max-width:20ch}
+.safe-col>p{margin-top:14px;color:var(--band-note,var(--color-cloud-border));max-width:52ch}
+.safe-list{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:11px}
+.safe-list li{position:relative;padding-left:24px;color:var(--band-muted,var(--color-chalk-surface));font-size:var(--text-body-sm);line-height:1.45}
+.safe-list .cell{position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--band-accent,var(--color-coral-glow))}
+.safe-col .talk-demo{margin-top:24px}
+/* Concept 1 — "a day in check-ins" anti-engagement visual */
+.day-rhythm{position:relative;margin-top:24px;background:var(--color-ink-charcoal);border-radius:var(--radius-cards-lg);padding:30px 30px 24px;overflow:hidden;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.18))}
+.dr-label{font-family:var(--font-pixel);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-cloud-border)}
+.dr-track{position:relative;height:168px;margin-top:18px}
+.dr-line{position:absolute;left:8px;right:8px;top:50%;height:6px;transform:translateY(-50%);border-radius:3px;background:linear-gradient(90deg,#5a4420 0%,#2c3a5c 55%,#10141b 100%)}
+.dr-sun{position:absolute;left:0;top:50%;width:20px;height:20px;transform:translate(-3px,-50%);border-radius:50%;background:var(--color-amber-signal);box-shadow:0 0 0 4px rgba(255,193,7,.15)}
+.dr-moon{position:absolute;right:0;top:50%;width:16px;height:16px;transform:translate(3px,-50%);border-radius:50%;background:#cdd6df;box-shadow:inset -6px 0 0 #2c3a5c}
+.dr-checkin{position:absolute;top:50%}
+.dr-dot{display:block;width:14px;height:14px;transform:translate(-50%,-50%);background:var(--color-coral-glow);box-shadow:0 0 0 4px rgba(248,122,113,.14);animation:drPulse 2.6s ease-in-out infinite}
+.dr-time{position:absolute;bottom:24px;left:0;transform:translateX(-50%);font-family:var(--font-pixel);font-size:11px;letter-spacing:.04em;color:var(--color-coral-glow);white-space:nowrap}
+.dr-part{position:absolute;top:26px;left:0;transform:translateX(-50%);font-size:11px;color:var(--color-cloud-border);white-space:nowrap;opacity:.75}
+.dr-caption{margin-top:18px;color:var(--color-cloud-border);font-size:var(--text-body-sm)}
+@keyframes drPulse{0%,100%{transform:translate(-50%,-50%) scale(1);box-shadow:0 0 0 4px rgba(248,122,113,.12)}50%{transform:translate(-50%,-50%) scale(1.18);box-shadow:0 0 0 8px rgba(248,122,113,.22)}}
+@media(prefers-reduced-motion:reduce){.dr-dot{animation:none}}
+.safe-trust{margin-top:var(--spacing-32);color:var(--band-note,var(--color-cloud-border));font-size:var(--text-body-sm)}
+.safe-trust a{color:var(--band-accent,var(--color-coral-flame));text-decoration:none;white-space:nowrap}
+.safe-trust a:hover{text-decoration:underline}
+/* SAFETY — sage band (locked) */
+.safety{background:#e2efdb;--band-ink:#1e3a2c;--band-note:#4d6b58;--band-muted:#4d6b58;--band-accent:var(--color-coral-flame)}
+.safety h2{color:var(--band-ink)}
+.safety .lead{color:var(--band-note)}
+.dith-sfty{--dith-dark:#e2efdb}
+@media(max-width:860px){.safety-grid{grid-template-columns:1fr}}
+/* THE PARENT APP — deep-ink "night" band, white pixel-shadow cards */
+.parent-app{background:transparent}
+.parent-app .chapter{color:var(--color-deep-ink)}
+.parent-app .chapter .cnum{color:var(--color-coral-flame)}
+.parent-app .chapter .cell{background:var(--color-coral-flame)}
+.parent-app h2{color:var(--color-deep-ink)}
+.parent-app .lead{color:var(--color-slate-mid)}
+.papp-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,56px);margin-top:var(--spacing-48);align-items:start}
+.papp-shot{min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:2px dashed var(--color-slate-mid);border-radius:16px;color:var(--color-cloud-border);font-family:var(--font-pixel);letter-spacing:.1em;background:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
+.papp-shot small{letter-spacing:.02em;opacity:.7;font-size:12px}
+.papp-feats{display:grid;gap:var(--spacing-16)}
+.papp-feat{position:relative;background:transparent;border:0;border-radius:0;padding:var(--card-padding);cursor:pointer;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);filter:drop-shadow(3px 3px 0 rgba(22,28,36,.14));transition:filter 200ms var(--ease-out-strong),transform 200ms var(--ease-out-strong)}
+.papp-feat::before{content:"";position:absolute;inset:0;z-index:0;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
+.papp-feat>*{position:relative;z-index:1}
+.papp-feat h3{color:var(--color-deep-ink);font-size:var(--text-subheading)}
+.papp-feat p{color:var(--color-slate-mid);margin-top:8px;font-size:var(--text-body-sm);line-height:1.5}
+.papp-trust{margin-top:var(--spacing-32);color:var(--color-mist-body);font-size:var(--text-body-sm)}
+.papp-trust a{color:var(--color-coral-flame);text-decoration:none;white-space:nowrap}
+.papp-trust a:hover{text-decoration:underline}
+/* ── parent-app showcase carousel ─────────────────────────── */
+.papp-stage{display:flex;flex-direction:column;align-items:center;gap:18px}
+.pf-phone{position:relative;margin:0 auto;width:max-content;background:linear-gradient(150deg,#3a3f47,#0b0e13 62%);border-radius:50px;padding:13px;
+  box-shadow:0 26px 52px -18px rgba(22,28,36,.45),0 0 0 1px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.06)}
+.pf-btn{position:absolute;width:3px;background:#15181e;border-radius:2px}
+.pf-btn.r{right:-3px;top:172px;height:80px}
+.pf-btn.u{left:-3px;top:150px;height:48px}
+.pf-btn.d{left:-3px;top:210px;height:48px}
+.pf-screen{position:relative;width:300px;height:690px;overflow:hidden;background:var(--surface-warm-parchment);border-radius:37px}
+.pf-island{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:84px;height:25px;background:#05070a;border-radius:14px;z-index:6;pointer-events:none}
+.pf-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-y}
+.pf-track::-webkit-scrollbar{display:none}
+.pf-track:active{cursor:grabbing}
+.pf-slide{flex:0 0 300px;height:100%;scroll-snap-align:start;overflow:hidden;position:relative}
+.pf-slide.pf-hide{display:none}
+.pf-slide iframe{width:393px;height:904px;border:0;transform:scale(.76336);transform-origin:top left;display:block;pointer-events:none;background:var(--surface-warm-parchment)}
+.pf-load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:12px;color:var(--color-mist-body);letter-spacing:.08em}
+.pf-nav{display:flex;align-items:center;gap:16px}
+.pf-arrow{width:40px;height:40px;background:var(--color-ink-charcoal);border:2px solid var(--color-slate-mid);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));
+  transition:border-color 150ms ease,transform 70ms steps(2)}
+@media(hover:hover) and (pointer:fine){.pf-arrow:hover{border-color:var(--color-coral-glow)}}
+.pf-arrow:active{transform:translateY(2px)}
+.pf-arrow svg{width:18px;height:18px}
+.pf-dots{display:flex;gap:7px;align-items:center}
+.pf-dot{width:9px;height:9px;background:var(--color-slate-mid);border:0;padding:0;cursor:pointer;transition:background 150ms ease,transform 150ms ease}
+.pf-dot.on{background:var(--color-coral-flame);transform:scale(1.25)}
+.papp-feat .papp-go{font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);color:var(--color-coral-flame);opacity:0;display:inline-block;margin-top:8px;transition:opacity 200ms ease}
+@media(hover:hover) and (pointer:fine){.papp-feat:hover{transform:translateY(-3px);filter:drop-shadow(6px 6px 0 rgba(22,28,36,.16))}}
+.papp-feat.on{--pxbg:#fdecea;--pxborder:var(--color-coral-flame);filter:drop-shadow(5px 5px 0 rgba(239,73,61,.32))}
+.papp-feat.on .papp-go{opacity:1}
+.papp-feat:focus-visible{outline:2px solid var(--color-coral-glow);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.pf-track{scroll-behavior:auto}.papp-feat,.pf-arrow,.pf-dot,.papp-go{transition:none}}
+.dith-papp{--dith-dark:var(--surface-warm-parchment);--dith-light:#e2efdb}
+.dith-papp-out{--dith-dark:var(--surface-warm-parchment);--dith-light:var(--color-pure-white)}
+@media(max-width:860px){.papp-grid{grid-template-columns:1fr}.papp-shot{min-height:220px}}
+
+/* ---- missions ---- */
+.mtabs{display:flex;gap:8px;margin-top:var(--spacing-32);flex-wrap:wrap}
+.mtab{--side:4px;--tab-top:var(--surface-pure-white);--tab-side:var(--color-cloud-border);font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);padding:11px 20px 15px;border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));border:0;background:linear-gradient(var(--tab-top),var(--tab-top)) no-repeat 0 0/100% calc(100% - var(--side)),var(--tab-side);color:var(--color-slate-mid);cursor:pointer;transition:color 150ms ease,transform 70ms steps(2)}
+.mtab:active{--side:2px;transform:translateY(2px)}
+.mtab.on{--side:2px;--tab-top:var(--color-deep-ink);--tab-side:var(--color-ink-charcoal);transform:translateY(2px);color:#fff}
+.mpanel{margin-top:var(--spacing-32);display:grid;grid-template-columns:1fr 1.15fr;gap:var(--spacing-48);align-items:center;background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards-lg);padding:clamp(28px,4vw,56px)}
+.mpanel h3{font-size:clamp(22px,2.4vw,30px);letter-spacing:-.015em;line-height:1.2}
+.mpanel p{margin-top:14px;color:var(--color-slate-mid)}
+.mpanel .mreal{margin-top:22px;font-size:var(--text-body-sm);font-weight:600;color:var(--color-deep-ink);display:flex;align-items:center;gap:10px}
+.mpanel .mreal .cell{width:10px;height:10px;background:var(--color-coral-flame);flex:none}
+.mfade{transition:opacity 250ms var(--ease-out-strong),transform 250ms var(--ease-out-strong)}
+.mfade.out{opacity:0;transform:translateY(8px)}
+.mission-art{aspect-ratio:4/3;border-radius:var(--radius-cards);background:var(--surface-warm-parchment);position:relative;overflow:hidden}
+.mission-art .pxgrid{position:absolute;inset:0}
+.mission-art img{position:absolute;width:58%;left:50%;top:50%;transform:translate(-50%,-50%)}
+@media(max-width:860px){.mpanel{grid-template-columns:1fr}}
+.mnote{margin-top:var(--spacing-24);font-size:var(--text-body-sm);color:var(--color-mist-body)}
+
+/* ---- world (dark, species + egg) ---- */
+.world h2{font-size:clamp(30px,3.6vw,48px);max-width:18ch}
+.world .lead{margin-top:16px}
+.world-row{display:grid;grid-template-columns:340px 1fr;gap:var(--spacing-32);margin-top:var(--spacing-48);align-items:stretch}
+.egg-card{background:var(--color-ink-charcoal);border-radius:var(--radius-cards-lg);padding:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;border:1px solid rgba(255,255,255,.06);transition:transform 160ms var(--ease-out-strong)}
+.egg-card:active{transform:scale(.98)}
+.egg-wrap{width:130px;height:150px;position:relative;display:flex;align-items:center;justify-content:center}
+.egg .q{font-family:var(--font-pixel);font-size:34px;color:var(--color-coral-flame)}
+.egg-card.shaking .egg{animation:shake .5s ease-in-out}
+@keyframes shake{0%,100%{transform:rotate(0)}20%{transform:rotate(-7deg)}40%{transform:rotate(6deg)}60%{transform:rotate(-5deg)}80%{transform:rotate(3deg)}}
+.hatch{position:absolute;width:120px;opacity:0;transform:translateY(14px) scale(.92)}
+.egg-card.hatched .egg{opacity:0;transform:scale(.9);transition:opacity 200ms ease,transform 200ms ease}
+.egg-card.hatched .hatch{opacity:1;transform:none;transition:opacity 450ms var(--ease-expo) 120ms,transform 450ms var(--ease-expo) 120ms}
+.egg-card .ehead{font-family:var(--font-onest);font-weight:800;font-size:var(--text-heading-sm);color:#fff;margin-top:22px}
+.egg-card .esub{font-size:var(--text-body-sm);color:var(--color-cloud-border);margin-top:6px}
+.fun-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-16)}
+.fun{background:var(--color-ink-charcoal);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-cards);padding:var(--card-padding)}
+.fun h3{font-size:var(--text-heading-sm);margin-bottom:8px}
+.fun p{font-size:var(--text-body-sm);color:var(--color-chalk-surface)}
+@media(max-width:980px){.world-row{grid-template-columns:1fr}.fun-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.fun-grid{grid-template-columns:1fr}}
+/* species strip — scrubbed sideways on scroll */
+.species-strip{margin-top:var(--spacing-48);overflow:hidden;padding:26px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.species-track{display:flex;gap:clamp(28px,4vw,64px);width:max-content;will-change:transform}
+.sp{display:flex;flex-direction:column;align-items:center;gap:10px}
+.sp img{width:clamp(84px,9vw,128px);height:auto;transition:transform 420ms var(--ease-expo);will-change:transform}
+.sp .spname{font-family:var(--font-pixel);font-size:17px;color:var(--color-warm-parchment);letter-spacing:.06em}
+@media(hover:hover) and (pointer:fine){
+  .sp:hover img{transform:translateY(-8px) scale(1.08)}
+  .species-track.walk-rev .sp:hover img{transform:scaleX(-1) translateY(-8px) scale(1.08)}
+}
+.world .who{margin-top:var(--spacing-24);color:var(--color-cloud-border);font-size:var(--text-body-sm)}
+
+/* ---- library ---- */
+.lib-head{display:grid;grid-template-columns:1fr auto;gap:var(--spacing-24);align-items:end}
+.lib-head h2{font-size:clamp(30px,3.4vw,46px);max-width:20ch}
+.libs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--spacing-16);margin-top:var(--spacing-48)}
+.lib{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards);padding:var(--card-padding);transition:transform 350ms var(--ease-out-strong),box-shadow 350ms var(--ease-out-strong)}
+@media(hover:hover) and (pointer:fine){.lib:hover{transform:translateY(-4px);box-shadow:0 14px 28px -18px rgba(22,28,36,.35)}}
+.lib .licon{width:44px;height:44px;border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:22px;margin-bottom:16px}
+.lib h3{font-size:var(--text-subheading);margin-bottom:6px}
+.lib p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+.lib-note{margin-top:var(--spacing-24);font-size:var(--text-body-sm);color:var(--color-mist-body)}
+
+/* ---- segments ---- */
+.segs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--spacing-16);margin-top:var(--spacing-48)}
+.seg{border-radius:var(--radius-cards);padding:var(--card-padding);background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface)}
+.seg h3{font-size:var(--text-subheading);margin-bottom:8px}
+.seg p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+
+/* ---- science ---- */
+.advisors{display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-16);margin-top:var(--spacing-48)}
+.adv{background:var(--surface-pure-white);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-cards-lg);padding:var(--card-padding);display:grid;grid-template-columns:112px 1fr;gap:var(--spacing-16)}
+.adv img{width:112px;height:112px;border-radius:0;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));background:var(--surface-warm-parchment);object-fit:cover;image-rendering:auto}
+.hard-photos .ph{border-radius:0 !important;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));filter:drop-shadow(3px 3px 0 rgba(22,28,36,.12))}
+.adv .nm{font-family:var(--font-onest);font-weight:800;font-size:var(--text-subheading);color:var(--color-deep-ink)}
+.adv .role{font-size:var(--text-body-sm);color:var(--color-ember-deep);margin-top:2px;font-weight:700}
+.adv .ttl{font-size:var(--text-body-sm);color:var(--color-mist-body)}
+.adv ul{margin:12px 0 0 16px;display:flex;flex-direction:column;gap:5px}
+.adv li{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+@media(max-width:860px){.advisors{grid-template-columns:1fr}.adv{grid-template-columns:72px 1fr}.adv img{width:72px;height:72px}}
+
+/* ---- compare ---- */
+.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-16);margin-top:var(--spacing-48)}
+@media(max-width:780px){.cmp{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.cmp{grid-template-columns:1fr}}
+.cmp .col{background:var(--surface-pure-white);border-radius:var(--radius-cards);padding:var(--card-padding);border:1px solid var(--color-chalk-surface)}
+.cmp .col.us{position:relative;clip-path:none !important;overflow:visible;grid-column:1/-1;justify-self:center;width:100%;max-width:420px;margin-top:var(--spacing-16);text-align:center}
+.cmp .col.us.pxcard{filter:none}
+.cmp .col.us::before{content:"NOWA";font-family:var(--font-pixel);font-size:15px;letter-spacing:.1em;color:#fff;background:var(--color-coral-flame);position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:2px 10px}
+.cmp h4{font-family:var(--font-onest);font-size:var(--text-body);font-weight:800}
+.cmp p{font-size:var(--text-body-sm);color:var(--color-slate-mid);margin-top:8px}
+
+/* ---- preorder ---- */
+.final{text-align:center;overflow:clip}
+.final h2{font-size:clamp(34px,4.4vw,60px);max-width:16ch;margin:0 auto var(--spacing-24)}
+.final .lead{margin:0 auto var(--spacing-32)}
+.final .pets{display:flex;justify-content:center;gap:18px;margin-top:var(--spacing-48)}
+.final .pets img{width:64px}
+
+/* ---- footer ---- */
+footer{background:var(--surface-deep-ink);color:var(--color-cloud-border);padding:var(--spacing-64) 0 var(--spacing-32);overflow:clip}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;font-size:var(--text-body-sm);padding-bottom:var(--spacing-48)}
+footer a{color:var(--color-chalk-surface);transition:color 150ms ease}
+footer a:hover{color:#fff}
+.foot-mark{position:relative;border-top:1px solid rgba(255,255,255,.08);padding-top:30px}
+.foot-word{font-family:var(--font-onest);font-weight:900;font-size:clamp(90px,17vw,250px);letter-spacing:-.04em;line-height:.85;color:var(--color-warm-parchment);user-select:none}
+.foot-word span{color:var(--color-coral-flame)}
+.foot-pets{position:absolute;right:4%;bottom:12%;display:flex;gap:10px;align-items:flex-end}
+.foot-pets img{width:clamp(40px,5vw,72px);height:auto;transition:transform 420ms var(--ease-expo);will-change:transform}
+@media(hover:hover) and (pointer:fine){.foot-pets img:hover{transform:translateY(-7px) scale(1.1)}}
+.legal{margin-top:24px;font-size:var(--text-caption);color:var(--color-slate-mid)}
+
+/* =========================================================
+   PIXEL SYSTEM — pixels illustrate, type stays warm
+   ========================================================= */
+/* stepped pixel corners (replaces rounded corners on drawn surfaces) */
+.pxcard{border-radius:0 !important;position:relative;background:transparent !important;border:0 !important;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface)}
+.pxcard::before{content:"";position:absolute;inset:0;background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder);clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));z-index:0}
+.pxcard>*{position:relative;z-index:1}
+.revcard{--pxbg:var(--surface-warm-parchment)}
+.talk-demo.pxcard,.egg-card,.fun.pxcard{--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.06)}
+.adv.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface)}
+.dark .pullq{--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.08)}
+.blueprint{--pxbg:var(--surface-ghost-white)}
+.cmp .col.us::before{right:auto;bottom:auto;clip-path:none;z-index:2}
+.step.pxcard,.mpanel.pxcard,.lib.pxcard,.seg.pxcard,.pullq.pxcard,.talk-demo.pxcard,.adv.pxcard,.cmp .col.pxcard,.revcard.pxcard,.faq.pxcard{filter:drop-shadow(3px 3px 0 rgba(22,28,36,.12))}
+.dark .step.pxcard,.dark .mpanel.pxcard,.dark .lib.pxcard,.dark .seg.pxcard,.dark .pullq.pxcard,.dark .talk-demo.pxcard,.dark .cmp .col.pxcard,.dark .revcard.pxcard,.dark .faq.pxcard,.dark .fun.pxcard{filter:drop-shadow(3px 3px 0 rgba(0,0,0,.18))}
+.dark .adv.pxcard{filter:drop-shadow(4px 4px 0 rgba(0,0,0,.45))}
+/* Give containers room so right+bottom shadow isn't clipped */
+.steps,.libs,.segs,.advisors,.cmp,.faqs{padding-right:10px;padding-bottom:10px}
+.rev-row{padding:0 10px 10px 0}
+@media(hover:hover) and (pointer:fine){
+  .lib.pxcard:hover,.faq.pxcard:hover{transform:translateY(-4px);--pxbg:var(--color-coral-glow);color:#fff}
+  .lib.pxcard:hover *,.faq.pxcard:hover *{color:#fff}
+  .lib.pxcard:hover{filter:drop-shadow(8px 8px 0 rgba(22,28,36,.6))}
+  .lib.pxcard:hover .lvlchip{background:#fff;color:var(--color-deep-ink)}
+}
+/* dithered checkerboard section transitions */
+.dither{height:24px;background-color:var(--dith-dark,var(--surface-deep-ink));background-image:linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%),linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
+.dither.rev{background-color:var(--dith-light,var(--surface-warm-parchment));background-image:linear-gradient(45deg,var(--dith-dark,var(--surface-deep-ink)) 25%,transparent 25%,transparent 75%,var(--dith-dark,var(--surface-deep-ink)) 75%),linear-gradient(45deg,var(--dith-dark,var(--surface-deep-ink)) 25%,transparent 25%,transparent 75%,var(--dith-dark,var(--surface-deep-ink)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
+/* pixel plus-sparkles */
+.spark{position:absolute;width:14px;height:14px;background:var(--color-amber-signal);clip-path:polygon(40% 0,60% 0,60% 40%,100% 40%,100% 60%,60% 60%,60% 100%,40% 100%,40% 60%,0 60%,0 40%,40% 40%);animation:twinkle 2.8s ease-in-out infinite}
+.spark.s2{animation-delay:.9s;background:var(--color-coral-glow)}
+.spark.s3{animation-delay:1.7s;width:10px;height:10px}
+@keyframes twinkle{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1)}}
+/* 8-bit care meter */
+.meter{position:absolute;left:24px;bottom:20px;display:flex;align-items:center;gap:8px}
+.meter .mlabel{font-family:var(--font-pixel);font-size:16px;color:var(--color-slate-mid);letter-spacing:.08em}
+.meter .mcells{display:flex;gap:4px}
+.meter .mc{width:14px;height:14px;background:var(--color-chalk-surface)}
+.meter .mc.full{background:var(--color-coral-flame)}
+.loaded .meter .mc.full{animation:mfill 400ms var(--ease-out-strong) backwards}
+.loaded .meter .mc.full:nth-child(2){animation-delay:120ms}
+.loaded .meter .mc.full:nth-child(3){animation-delay:240ms}
+.loaded .meter .mc.full:nth-child(4){animation-delay:360ms}
+@keyframes mfill{from{transform:scale(.5);background:var(--color-chalk-surface)}to{transform:scale(1)}}
+/* pixel egg (stepped silhouette) */
+.egg{width:96px;height:114px;background:var(--color-warm-parchment);border-radius:0;position:relative;display:flex;align-items:center;justify-content:center;transition:transform 200ms var(--ease-out-strong);clip-path:polygon(36px 0,60px 0,60px 8px,72px 8px,72px 16px,80px 16px,80px 24px,88px 24px,88px 40px,96px 40px,96px 80px,88px 80px,88px 96px,80px 96px,80px 106px,64px 106px,64px 114px,32px 114px,32px 106px,16px 106px,16px 96px,8px 96px,8px 80px,0 80px,0 40px,8px 40px,8px 24px,16px 24px,16px 16px,24px 16px,24px 8px,36px 8px)}
+.egg .spot{position:absolute;width:12px;height:12px;background:var(--color-coral-blush)}
+/* pixel scene illustrations */
+.scene{image-rendering:pixelated}
+.loop-intro{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.loop-intro .scene{margin-top:-80px}
+@media(max-width:640px){.loop-intro{grid-template-columns:1fr}.loop-intro .scene{justify-self:center;margin-top:0}}
+
+/* =========================================================
+   FEEDBACK ROUND — hero band, device, placeholders, players
+   ========================================================= */
+.hero .wrap{padding-bottom:clamp(48px,6vw,80px)}
+.hero-band{position:relative;height:min(76vh,720px);overflow:hidden;background:var(--color-warm-parchment)}
+.hero-video{width:100%;height:100%;object-fit:cover;display:block}
+.hero-band .hero-tag{position:absolute;left:24px;top:20px;background:rgba(22,28,36,.65);padding:6px 12px}
+.hero-band .meter{position:absolute;left:24px;bottom:24px;background:rgba(22,28,36,.65);padding:10px 14px}
+.hero-band .mlabel{color:var(--color-warm-parchment)}
+.band-note{position:absolute;right:18px;bottom:18px;max-width:300px}
+@media(max-width:860px){.hero-band{height:46vh}.band-note{display:none}}
+/* placeholder slots for the graphic team */
+.pxslot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:repeating-linear-gradient(45deg,rgba(22,28,36,.05) 0 8px,transparent 8px 16px),var(--surface-warm-parchment);border:2px dashed var(--color-cloud-border);text-align:center;padding:10px}
+.pxslot .t{font-family:var(--font-pixel);font-size:14px;letter-spacing:.06em;color:var(--color-slate-mid)}
+.pxslot .d{font-family:var(--font-noto-sans);font-size:11px;line-height:1.4;color:var(--color-mist-body)}
+.dark .pxslot{background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 8px,transparent 8px 16px),var(--color-ink-charcoal);border-color:var(--color-slate-mid)}
+.sicon{height:80px;margin-bottom:12px;border:1px solid var(--color-chalk-surface);border-radius:4px}
+.cicon{width:74px;height:74px;object-fit:contain;object-position:left center;margin-bottom:14px;display:block}
+.ficon{height:70px;margin-bottom:12px}
+.ticon{width:13px;height:13px;border:2px dashed currentColor;display:inline-block;margin-right:8px;vertical-align:-2px;opacity:.55}
+/* marching pixels + care loopback */
+@keyframes march{to{background-position:12px 0}}
+.loopback{display:flex;align-items:center;gap:16px;margin-top:30px}
+.lb-line{flex:1;height:6px;background:repeating-linear-gradient(90deg,var(--color-coral-flame) 0 6px,transparent 6px 12px);background-size:12px 6px;animation:march 700ms linear infinite}
+.lb-line.r{animation-direction:reverse}
+.lb-txt{font-family:var(--font-pixel);font-size:16px;color:var(--color-coral-flame);letter-spacing:.08em;white-space:nowrap}
+/* advisor pull-quotes */
+.pullq{display:flex;gap:14px;align-items:flex-start;max-width:680px;margin-top:var(--spacing-48);padding:18px 20px;background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface)}
+.pullq img{width:52px;height:52px;border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));object-fit:cover;flex:none}
+.pullq .qt{font-family:var(--font-onest);font-weight:700;font-size:var(--text-subheading);line-height:1.45;color:var(--color-deep-ink)}
+.pullq .who{margin-top:6px;font-family:var(--font-onest);font-weight:700;font-size:var(--text-caption);color:var(--color-deep-ink)}
+.dark .pullq{background:var(--color-ink-charcoal);border-color:rgba(255,255,255,.08)}
+.dark .pullq .qt{color:var(--color-pure-white)}
+.dark .pullq .who{color:#fff}
+/* device section */
+.device-sec{background:var(--surface-pure-white)}
+.device-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.blueprint{background:var(--surface-ghost-white);padding:20px}
+.blueprint img{width:100%}
+.specs{list-style:none;margin-top:var(--spacing-24);display:flex;flex-direction:column;gap:12px}
+.specs li{display:flex;gap:12px;align-items:baseline;font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+.specs .cell{width:10px;height:10px;background:var(--color-coral-flame);flex:none}
+@media(max-width:860px){.device-grid{grid-template-columns:1fr}}
+/* pixel device frame for mission videos */
+.mission-art{position:relative;padding:18px;background:var(--surface-warm-parchment)}
+.device-frame{position:relative;margin:0 auto;max-width:none;background:var(--surface-pure-white);border:3px solid var(--color-deep-ink);padding:10px 10px 0}
+.device-frame video{width:100%;display:block;border:2px solid var(--color-ink-charcoal);background:var(--color-deep-ink)}
+.df-buttons{display:flex;justify-content:center;gap:16px;padding:12px}
+.db{width:20px;height:20px;border-radius:50%}
+.db.y{background:var(--color-amber-signal)}
+.db.r{background:var(--color-coral-flame);width:34px;border-radius:10px}
+.db.b{background:#6c9bd2}
+.vid-note{margin-top:14px}
+/* library players */
+.tracks{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.trk{display:flex;align-items:center;gap:10px}
+.pbtn{width:30px;height:30px;flex:none;background:var(--color-deep-ink);border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 rgba(22,28,36,.4);transition:background 150ms ease,transform 70ms steps(2),box-shadow 70ms steps(2)}
+.pbtn:active{transform:translateY(3px);box-shadow:0 0 0 rgba(22,28,36,.4)}
+.trk.playing .pbtn{background:var(--color-coral-flame);transform:translateY(3px);box-shadow:0 0 0 rgba(22,28,36,.4)}
+.pb-ico{width:10px;height:12px;background:#fff;clip-path:polygon(0 0,100% 50%,0 100%)}
+.trk.playing .pb-ico{clip-path:none;background:linear-gradient(90deg,#fff 0 35%,transparent 35% 65%,#fff 65% 100%)}
+.trk .ttl{font-size:var(--text-body-sm);font-weight:600;color:var(--color-deep-ink);flex:1}
+.trk .dur{font-family:var(--font-pixel);font-size:14px;color:var(--color-mist-body)}
+.pbar{margin-top:12px;height:6px;background:var(--color-chalk-surface);display:none}
+.lib.active .pbar{display:block}
+.pbar i{display:block;height:100%;width:0;background:var(--color-coral-flame)}
+/* hard parts interlude */
+.hard{background:var(--surface-chalk-surface)}
+.hard-head{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.hard-photos{display:flex;gap:14px}
+.hard-photos .ph{width:clamp(130px,14vw,180px);transform:rotate(2deg)}
+.hard-photos .ph:first-child{transform:rotate(-2deg)}
+@media(max-width:860px){.hard-head{grid-template-columns:1fr}}
+/* compare showdown */
+.cmp .col{position:relative}
+.cmp-pet{width:144px;height:auto;margin:0 auto 10px;animation:pbob 1.6s steps(2) infinite}
+@keyframes pbob{0%,100%{transform:none}50%{transform:translateY(-6px)}}
+.cmp-meter{display:flex;gap:4px;justify-content:center;margin-top:12px}
+.cmp-meter .mc{width:12px;height:12px;background:var(--color-chalk-surface)}
+.cmp-meter .mc.full{background:var(--color-coral-flame)}
+.brand img{display:inline-block}
+
+/* hero stage v3 — standout video card */
+.stage-inner{position:relative;aspect-ratio:1/1;overflow:hidden;border:3px solid var(--color-deep-ink);background:var(--color-deep-ink);box-shadow:14px 14px 0 var(--color-coral-blush)}
+.stage-video{width:100%;height:100%;object-fit:cover;display:block}
+.stage-inner .hero-tag{position:absolute;left:18px;top:16px;background:rgba(22,28,36,.7);padding:6px 12px}
+.stage-inner .meter{position:absolute;left:18px;bottom:18px;background:rgba(22,28,36,.7);padding:9px 13px}
+.stage-inner .mlabel{color:var(--color-warm-parchment)}
+.band-note2{margin-top:26px;max-width:340px}
+@keyframes nudge{0%,100%{transform:translateY(-50%)}50%{transform:translateY(-50%) translateX(3px)}}
+.sample-chip{font-family:var(--font-pixel);font-size:11px;letter-spacing:.06em;background:var(--color-amber-signal);color:var(--color-deep-ink);padding:2px 7px;margin-left:8px;vertical-align:middle;white-space:nowrap}
+/* beta reviews */
+.reviews{background:var(--surface-pure-white)}
+.rev-rows{display:flex;flex-direction:column;gap:var(--spacing-16);margin-top:var(--spacing-48);overflow:hidden}
+.rev-row{overflow:hidden}
+.rev-track{display:flex;gap:var(--spacing-16);width:max-content;will-change:transform;padding:4px 0}
+.revcard{background:var(--surface-warm-parchment);border:1px solid var(--color-chalk-surface);padding:var(--card-padding);position:relative;width:360px;flex:none;white-space:normal}
+@media(max-width:600px){.revcard{width:300px}}
+.revcard .mark{font-family:var(--font-pixel);font-size:44px;line-height:.5;color:var(--color-coral-flame);display:block;margin:10px 0 2px}
+.rq{font-family:var(--font-onest);font-weight:600;font-size:var(--text-subheading);line-height:1.45;margin-top:10px}
+.rwho{margin-top:14px;font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+.beta-chip{font-family:var(--font-pixel);font-size:11px;letter-spacing:.06em;background:var(--color-leaf-success);color:var(--color-deep-ink);padding:2px 7px;margin-left:6px;white-space:nowrap}
+.lvlchip{font-family:var(--font-pixel);font-size:10px;letter-spacing:.06em;background:var(--color-chalk-surface);color:var(--color-slate-mid);padding:1px 5px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+/* faq */
+.faqs{max-width:var(--page-max-width-content);margin-top:var(--spacing-48);display:flex;flex-direction:column;gap:10px}
+.faq{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;font-family:var(--font-onest);font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.fplus{font-family:var(--font-pixel);font-size:20px;color:var(--color-coral-flame);transition:transform 200ms var(--ease-out-strong);flex:none}
+.faq[open] .fplus{transform:rotate(45deg)}
+.faq-a{padding:0 20px 18px}
+.faq-a p{font-size:var(--text-body-sm);color:var(--color-slate-mid);max-width:65ch}
+
+/* =========================================================
+   THEME VARIANTS — A mint cartridge / B sky day / C cream soda
+   Full-page: each theme re-inks the page bg + ink tokens, so the
+   hero, nav, body and cards all follow. The World chapter + footer
+   stay ink in every theme (night pages).
+   ========================================================= */
+html[data-theme]:not([data-theme^="paper"]) .dark{--band-ink:var(--color-deep-ink);--band-muted:var(--color-slate-mid);--band-accent:var(--color-coral-flame);--band-note:var(--color-mist-body)}
+html[data-theme]:not([data-theme^="paper"]) #world{--band:var(--surface-deep-ink);--band-ink:var(--color-pure-white);--band-muted:var(--color-chalk-surface);--band-accent:var(--color-coral-glow);--band-note:var(--color-cloud-border)}
+html[data-theme]:not([data-theme^="paper"]) .dither:has(+ #world){--dith-dark:var(--surface-deep-ink);--dith-light:var(--surface-warm-parchment)}
+/* paper2/paper3: brighter takes on the original parchment — keep the
+   dark storybook bands, only lift the page/hero background */
+html[data-theme="paper2"]{--surface-warm-parchment:#f6f0e1;--color-warm-parchment:#f6f0e1}
+html[data-theme="paper3"]{--surface-warm-parchment:#fdf5dd;--color-warm-parchment:#fdf5dd}
+/* base family: pre-order flips to a calm warm-sand band (like mint/sky) so
+   the conversion moment feels trusting and distinct from the ink footer */
+html:not([data-theme]) #preorder,html[data-theme^="paper"] #preorder{--band:#fff3d6;--band-ink:var(--color-deep-ink);--band-muted:var(--color-slate-mid);--band-accent:var(--color-coral-flame);--band-note:var(--color-mist-body)}
+html:not([data-theme]) .dither:has(+ #preorder),html[data-theme^="paper"] .dither:has(+ #preorder){--dith-dark:#fff3d6}
+html[data-theme="mint"]{--grid-line:rgba(30,58,44,.09);--surface-warm-parchment:#e2efdb;--color-warm-parchment:#e2efdb;--color-deep-ink:#1e3a2c;--color-ink-charcoal:#2a4a39;--color-slate-mid:#4d6b58;--color-mist-body:#5f7d6a;--dith-dark:#d3e7c9;--dith-light:#e2efdb}
+html[data-theme="mint"] .spine{--band:#fbe3d6}
+html[data-theme="mint"] .dither:has(+ #spine),html[data-theme="mint"] #spine + .dither{--dith-dark:#fbe3d6}
+html[data-theme="mint"] .whytalk{--band:#d9ecd0}
+html[data-theme="mint"] #science{--band:#d6e9cc}
+html[data-theme="mint"] #preorder{--band:#fff3d6}
+html[data-theme="mint"] .hard{background:#fff3d6}
+html[data-theme="sky"]{--grid-line:rgba(22,49,74,.09);--surface-warm-parchment:#e4f0f8;--color-warm-parchment:#e4f0f8;--color-deep-ink:#16314a;--color-ink-charcoal:#224260;--color-slate-mid:#44607a;--color-mist-body:#527092;--dith-dark:#dcebf5;--dith-light:#e4f0f8}
+html[data-theme="sky"] .spine{--band:#fdebd2}
+html[data-theme="sky"] .dither:has(+ #spine),html[data-theme="sky"] #spine + .dither{--dith-dark:#fdebd2}
+html[data-theme="sky"] .whytalk{--band:#dff0e2}
+html[data-theme="sky"] #science{--band:#d6e7f2}
+html[data-theme="sky"] #preorder{--band:#fff3d6}
+html[data-theme="sky"] .hard{background:#fbe3d6}
+/* flipped sections: cards go light */
+html[data-theme]:not([data-theme^="paper"]) .whytalk .pullq{--pxbg:var(--surface-pure-white);background:var(--surface-pure-white);border-color:var(--color-chalk-surface)}
+html[data-theme]:not([data-theme^="paper"]) .whytalk .pullq .qt{color:var(--color-deep-ink)}
+html[data-theme]:not([data-theme^="paper"]) .whytalk .pullq .who{color:var(--color-deep-ink)}
+html[data-theme]:not([data-theme^="paper"]) .dark .pxslot{border-color:var(--color-cloud-border);background:repeating-linear-gradient(45deg,rgba(22,28,36,.05) 0 8px,transparent 8px 16px),var(--surface-warm-parchment)}
+html[data-theme]:not([data-theme^="paper"]) #world .pxslot{border-color:var(--color-slate-mid);background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 8px,transparent 8px 16px),var(--color-ink-charcoal)}
+/* theme picker */
+.theme-picker{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;gap:7px;align-items:center;background:var(--color-deep-ink);padding:9px 11px;border:2px solid var(--color-ink-charcoal)}
+.theme-picker .tp-label{font-family:var(--font-pixel);font-size:12px;color:var(--color-warm-parchment);letter-spacing:.08em;margin-right:2px}
+.theme-picker button{width:24px;height:24px;border:2px solid var(--color-slate-mid);cursor:pointer;padding:0;transition:transform 140ms var(--ease-out-strong)}
+.theme-picker button:active{transform:scale(.92)}
+.theme-picker button.on{border-color:var(--color-coral-flame);transform:scale(1.12)}
+/* hero design picker (stacked above theme picker) */
+.hero-picker{bottom:62px}
+.hero-picker button{width:auto;min-width:24px;padding:0 7px;background:var(--color-ink-charcoal);color:var(--color-warm-parchment);font-family:var(--font-pixel);font-size:12px;letter-spacing:.05em;line-height:1}
+
+/* =========================================================
+   HERO DESIGN VARIANTS — structural experiments, all on graph paper
+   1 stage (default) / 2 centered storybook / 3 billboard device
+   ========================================================= */
+html[data-hero="center"] .hero-grid{grid-template-columns:1fr;text-align:center;gap:var(--spacing-32)}
+html[data-hero="center"] .hero-grid>div:first-child{max-width:780px;margin:0 auto}
+html[data-hero="center"] .hero .lead{margin-left:auto;margin-right:auto;max-width:58ch}
+html[data-hero="center"] .hero-cta{justify-content:center}
+html[data-hero="center"] .hero-stage{max-width:720px;width:100%;margin:0 auto}
+html[data-hero="center"] .stage-inner{aspect-ratio:16/9}
+html[data-hero="center"] .hero-tag,html[data-hero="center"] .hero .meter{display:none}
+html[data-hero="center"] .loaded .hero-stage{transform:rotate(0deg)}
+html[data-hero="center"] .band-note2{margin-left:auto;margin-right:auto}
+html[data-hero="billboard"] .hero-grid{grid-template-columns:.8fr 1.2fr;gap:var(--spacing-32)}
+html[data-hero="billboard"] .hero h1{font-size:clamp(34px,4.8vw,64px)}
+html[data-hero="billboard"] .hero-stage{max-width:none}
+
+/* =========================================================
+   GAME JUICE — confetti, plusone, egg tease, readbar, flips
+   ========================================================= */
+::selection{background:var(--color-coral-flame);color:#fff}
+.readbar{position:fixed;left:0;top:0;height:5px;width:0;background:var(--color-coral-flame);z-index:80}
+.conf{position:absolute;left:50%;top:46%;width:9px;height:9px;opacity:0;pointer-events:none}
+.egg-card.hatched .conf{animation:confetti 700ms steps(5) forwards}
+@keyframes confetti{0%{opacity:1;transform:translate(-50%,-50%)}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(90deg)}}
+.plusone{position:absolute;left:50%;top:8%;transform:translateX(-50%);font-family:var(--font-pixel);font-size:19px;letter-spacing:.06em;color:var(--color-amber-signal);opacity:0;pointer-events:none;white-space:nowrap}
+.egg-card.hatched .plusone{animation:plusone 900ms steps(6) forwards}
+@keyframes plusone{0%{opacity:0;transform:translateX(-50%) translateY(14px)}25%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-26px)}}
+@media(hover:hover) and (pointer:fine){
+  .egg-card:not(.hatched):hover .egg{animation:eggtease 1s steps(2) infinite}
+}
+@keyframes eggtease{0%,100%{transform:rotate(0)}50%{transform:rotate(-5deg)}}
+.species-track.walk-rev .sp img{transform:scaleX(-1)}
+
+/* ---- scroll reveal (JS-gated so no-JS users see everything) ---- */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity 700ms var(--ease-expo),transform 700ms var(--ease-expo)}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal-group>*{opacity:0;transform:translateY(22px);transition:opacity 600ms var(--ease-expo),transform 600ms var(--ease-expo)}
+.js .reveal-group.in>*{opacity:1;transform:none}
+.js .reveal-group.in>*:nth-child(2){transition-delay:60ms}
+.js .reveal-group.in>*:nth-child(3){transition-delay:120ms}
+.js .reveal-group.in>*:nth-child(4){transition-delay:180ms}
+.js .reveal-group.in>*:nth-child(5){transition-delay:240ms}
+
+.note{background:var(--color-coral-blush);color:var(--color-ember-darker);font-size:var(--text-caption);text-align:center;padding:8px}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .hero h1 .line>span{transform:none}
+  .js .reveal,.js .reveal-group>*{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="note">SAMPLE BUILD v2 — units.gr-inspired system migrated to the Nowa design tokens. Imagery uses real species sprites; photos still placeholder.</div>
+
+<div class="readbar" aria-hidden="true"></div>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-set">
+      <span>A pet, not an app</span><span class="dot"></span><span>No ads, no open internet</span><span class="dot"></span><span>Built with child-development scientists</span><span class="dot"></span><span>Ages 3–10</span><span class="dot"></span><span>$99 · ships September 2026</span><span class="dot"></span>
+    </div>
+    <div class="marquee-set">
+      <span>A pet, not an app</span><span class="dot"></span><span>No ads, no open internet</span><span class="dot"></span><span>Built with child-development scientists</span><span class="dot"></span><span>Ages 3–10</span><span class="dot"></span><span>$99 · ships September 2026</span><span class="dot"></span>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/brand/logo-app-64.png" alt="Nowa logo" width="28" height="28" style="border-radius:7px">Nowa</a>
+    <div class="navlinks">
+      <a href="#how">How it works</a>
+      <a href="#science">The science</a>
+      <a href="#world">The world</a>
+      <a href="#compare">Compare</a>
+      <a href="#preorder" class="btn">Pre-order</a>
+    </div>
+  </div>
+</nav>
+
+<!-- chapter rail -->
+<div class="rail" aria-label="Chapters">
+  <a href="#missions" data-ch="missions"><span class="rcell"></span><span class="rname">The Missions</span></a>
+  <a href="#science" data-ch="science"><span class="rcell"></span><span class="rname">The Science</span></a>
+  <a href="#how" data-ch="how"><span class="rcell"></span><span class="rname">The Care Loop</span></a>
+  <a href="#world" data-ch="world"><span class="rcell"></span><span class="rname">The World</span></a>
+  <a href="#library" data-ch="library"><span class="rcell"></span><span class="rname">The Library</span></a>
+  <a href="#safety" data-ch="safety"><span class="rcell"></span><span class="rname">Safety</span></a>
+  <a href="#parent-app" data-ch="parent-app"><span class="rcell"></span><span class="rname">Parent App</span></a>
+  <a href="#preorder" data-ch="preorder"><span class="rcell"></span><span class="rname">Pre-order</span></a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>
+        <span class="line"><span>The pet that turns</span></span>
+        <span class="line"><span>routines into play.</span></span>
+      </h1>
+      <p class="lead">Nowa is a virtual pet that grows through your child's care. It doesn't lecture and it doesn't talk — it has feelings to read and needs to meet, so your child practices calm, routines, and kindness without ever being told to.</p>
+      <div class="hero-cta">
+        <a href="#preorder" class="btn">Pre-order Nowa — $99 <span class="arr">→</span></a>
+        <a href="#how" class="btn-ghost">See how it works →</a>
+      </div>
+      <p class="ship">Ships September 2026 · A magical pet for kids 3–10</p>
+    </div>
+    <div class="hero-stage">
+      <div class="stage-inner">
+        <video class="stage-video" src="assets/videos/hero-main.mp4" preload="auto" autoplay muted loop playsinline aria-label="The Nowa device, alive on screen"></video>
+      </div>
+      <span class="spark" style="right:-8px;top:-9px"></span><span class="spark s2" style="left:-10px;bottom:26%"></span><span class="spark s3" style="right:18%;bottom:-10px"></span>
+    </div>
+  </div>
+</header>
+
+<div class="dither" aria-hidden="true"></div>
+<!-- SPINE -->
+<section class="spine dark" id="spine">
+  <div class="wrap">
+    <p class="quote" id="spineQuote">"I want to stay calm — and I want my kid to learn how, too."</p>
+    <p class="sub reveal">Every parent we built Nowa for said a version of this. So we started there.</p>
+  </div>
+</section>
+
+<div class="dither rev" aria-hidden="true"></div>
+<!-- CH 01 — MISSIONS -->
+<section id="missions">
+  <div class="wrap">
+    <p class="chapter"><span class="cell"></span><span class="cnum">CH. 01</span> The Missions</p>
+    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">All the learning runs through missions.</h2>
+    <p class="lead reveal" style="margin-top:16px">The pet asks for help. What it asks for is designed by child-development experts — and every mission syncs to a real-world action, so practice happens in your actual morning, your actual bedtime. It never feels like homework, because it isn't presented as one.</p>
+    <div class="mtabs reveal" role="tablist" aria-label="Mission types">
+      <button class="mtab on" role="tab" aria-selected="true" data-m="0"><span class="ticon" title="PX-ICON: pixel toothbrush"></span>Habit &amp; Routine</button>
+      <button class="mtab" role="tab" aria-selected="false" data-m="1"><span class="ticon" title="PX-ICON: pixel heart"></span>Emotional Regulation</button>
+      <button class="mtab" role="tab" aria-selected="false" data-m="2"><span class="ticon" title="PX-ICON: pixel brain/puzzle"></span>Executive Function</button>
+    </div>
+    <div class="mpanel reveal pxcard">
+      <div class="mfade" id="mText">
+        <h3 id="mHead">Brushing teeth, bedtime, homework start, transitions.</h3>
+        <p id="mBody">Not rigid compliance — routines that feel more doable, more consistent, and less emotionally draining.</p>
+        <p class="mreal"><span class="cell"></span><span id="mReal">Synced to the real world: tonight's actual toothbrush.</span></p>
+      </div>
+      <div class="mission-art">
+        <div class="pxgrid graph"></div>
+        <div class="device-frame mfade" id="mVidWrap">
+          <video id="mVid" src="assets/videos/the-mission-engine-02.mp4" autoplay muted loop playsinline aria-label="Mission on the Nowa device screen"></video>
+          <div class="df-buttons" aria-hidden="true"><span class="db y"></span><span class="db r"></span><span class="db b"></span></div>
+        </div>
+      </div>
+    </div>
+    <p class="mnote reveal">You choose which mission types run, and when — from the parent app.</p>
+    <figure class="pullq pxcard reveal">
+      <img src="assets/avatars/dr-megan-mcclelland.png" alt="Dr. Megan McClelland" loading="lazy" decoding="async">
+      <figcaption><p class="qt">“Self-regulation works like a muscle. It grows through small, repeated practice — and play is where children practice the hardest.”</p><p class="who">Dr. Megan McClelland · Executive function · HTKS, used in 31 countries <span class="sample-chip">SAMPLE · PENDING APPROVAL</span></p></figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="dither" aria-hidden="true"></div>
+<!-- CH 02 — SCIENCE -->
+<section class="dark" id="science">
+  <div class="wrap">
+    <p class="chapter"><span class="cell"></span><span class="cnum">CH. 02</span> The Science</p>
+    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">Built with the scientists who wrote the science.</h2>
+    <p class="lead reveal" style="margin-top:16px;max-width:52ch">Nowa's developmental design was shaped by leading researchers in emotional competence, executive function, and parent-child interaction. Not a focus group — the people whose frameworks the field is built on.</p>
+    <div class="advisors reveal-group">
+      <div class="adv pxcard">
+        <img class="px" src="assets/avatars/dr-susanne-denham.png" alt="Portrait of Dr. Susanne Denham" width="88" height="88" loading="lazy" decoding="async">
+        <div>
+          <div class="nm">Dr. Susanne Denham</div>
+          <div class="role">Emotional competence</div>
+          <div class="ttl">Professor Emerita, George Mason University</div>
+          <ul>
+            <li>40+ years researching how children process and manage emotions</li>
+            <li>Creator of CAPSEL and the Affect Knowledge Test</li>
+          </ul>
+        </div>
+      </div>
+      <div class="adv pxcard">
+        <img class="px" src="assets/avatars/dr-megan-mcclelland.png" alt="Portrait of Dr. Megan McClelland" width="88" height="88" loading="lazy" decoding="async">
+        <div>
+          <div class="nm">Dr. Megan McClelland</div>
+          <div class="role">Executive function</div>
+          <div class="ttl">Professor, Oregon State University</div>
+          <ul>
+            <li>Co-creator of the HTKS task, used in 31 countries</li>
+            <li>116+ peer-reviewed publications, cited 23,000+ times</li>
+          </ul>
+        </div>
+      </div>
+      <div class="adv pxcard">
+        <img class="px" src="assets/avatars/dr-steven-kurtz.png" alt="Portrait of Dr. Steven Kurtz" width="88" height="88" loading="lazy" decoding="async">
+        <div>
+          <div class="nm">Dr. Steven Kurtz</div>
+          <div class="role">Parent-child interaction</div>
+          <div class="ttl">President, Kurtz Psychology Consulting</div>
+          <ul>
+            <li>ABPP board-certified child psychologist</li>
+            <li>One of only 21 certified global PCIT trainers worldwide</li>
+          </ul>
+        </div>
+      </div>
+      <div class="adv pxcard">
+        <img class="px" src="assets/avatars/dr-david-mou.png" alt="Portrait of Dr. David Mou" width="88" height="88" loading="lazy" decoding="async">
+        <div>
+          <div class="nm">Dr. David Mou</div>
+          <div class="role">Mental-health systems</div>
+          <div class="ttl">CEO, Benchmark Health Group</div>
+          <ul>
+            <li>Harvard-trained physician — MD and MBA</li>
+            <li>Named "Top 10 Under 35 for Healthcare" by LinkedIn</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:24px;font-size:var(--text-body-sm);color:var(--band-note,var(--color-cloud-border))">Their frameworks shaped every mission, mechanic, and routine in Nowa.</p>
+  </div>
+</section>
+
+<div class="dither rev" aria-hidden="true"></div>
+<!-- CH 03 — CARE LOOP -->
+<section id="how">
+  <div class="wrap">
+    <p class="chapter"><span class="cell"></span><span class="cnum">CH. 03</span> The Care Loop</p>
+    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:18ch">Growth as a side effect of caring.</h2>
+    <div class="loop-intro">
+      <p class="lead reveal" style="margin-top:16px">Nowa never assigns chores or grades behavior. The pet simply has needs and emotions. Your child responds — and in responding, builds the habits and empathy that last.</p>
+      <img class="px scene reveal" src="assets/scenes/scene-care-loop.png" alt="Pixel-art scene: a child watering a sprout" width="200" height="200" loading="lazy" decoding="async">
+    </div>
+    <div class="steps reveal-group">
+      <div class="step pxcard"><div class="n">01</div><img class="px sicon" src="assets/pixels/miko_msg_anim.gif" alt="Nowa pet expressing an emotion" loading="lazy" decoding="async"><h3>The pet feels</h3><p>Nowa expresses a need or emotion in its own sounds and animation — never human words.</p></div>
+      <div class="step pxcard"><div class="n">02</div><img class="px sicon" src="assets/pixels/watering_can_anim_80px.gif" alt="Watering can caring for the pet" loading="lazy" decoding="async"><h3>Your child cares</h3><p>They interpret what Nowa needs and respond with care and imagination.</p></div>
+      <div class="step pxcard"><div class="n">03</div><img class="px sicon" src="assets/pixels/miko_evolution_loop_80px.gif" alt="Nowa pet evolving from small to big" loading="lazy" decoding="async"><h3>The pet grows</h3><p>Consistent care helps Nowa thrive and evolve — the visible reward of showing up.</p></div>
+      <div class="step pxcard"><div class="n">04</div><img class="px sicon" src="assets/pixels/kid_wave_anim_80px.gif" alt="Pixel child waving" loading="lazy" decoding="async"><h3>Your child grows</h3><p>Habits, emotional skills, and self-regulation form — as a consequence of the relationship.</p></div>
+    </div>
+    <div class="loopback reveal" aria-hidden="true"><span class="lb-line"></span><span class="lb-txt">AND AROUND AGAIN ↻</span><span class="lb-line r"></span></div>
+    <figure class="pullq pxcard reveal">
+      <img src="assets/avatars/dr-susanne-denham.png" alt="Dr. Susanne Denham" loading="lazy" decoding="async">
+      <figcaption><p class="qt">“Children don’t learn feelings from being told about them. They learn by reading them, naming them, and caring for someone who has them.”</p><p class="who">Dr. Susanne Denham · Emotional competence · 40+ years of research <span class="sample-chip">SAMPLE · PENDING APPROVAL</span></p></figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="dither" aria-hidden="true"></div>
+<!-- CH 04 — THE WORLD -->
+<section class="dark world" id="world">
+  <div class="wrap">
+    <p class="chapter"><span class="cell"></span><span class="cnum">CH. 04</span> Why kids beg to play it</p>
+    <h2 class="reveal">Missions work because the friendship is real to them.</h2>
+    <p class="lead reveal">Children follow through on things they care about — not things they're told to do. So we made caring the whole game.</p>
+    <div class="world-row">
+      <button class="egg-card reveal pxcard" id="eggCard" type="button" aria-label="Tap the egg to hatch a surprise Nowa pet">
+        <div class="egg-wrap">
+          <div class="egg"><span class="spot" style="left:22px;top:38px"></span><span class="spot" style="right:20px;top:62px;width:9px;height:9px"></span><span class="q">?</span></div>
+          <span class="spark" style="right:-4px;top:6px"></span><span class="spark s3" style="left:-8px;bottom:18px"></span>
+          <img class="hatch px" id="hatchPet" src="assets/species/ollie.png" alt="" width="120" height="120" loading="lazy" decoding="async">
+          <span class="conf" style="--dx:-64px;--dy:-78px;background:var(--color-amber-signal)"></span>
+          <span class="conf" style="--dx:58px;--dy:-84px;background:var(--color-coral-glow)"></span>
+          <span class="conf" style="--dx:-86px;--dy:-20px;background:var(--color-leaf-success)"></span>
+          <span class="conf" style="--dx:84px;--dy:-26px;background:var(--color-coral-blush)"></span>
+          <span class="conf" style="--dx:-52px;--dy:48px;background:var(--color-coral-flame)"></span>
+          <span class="conf" style="--dx:56px;--dy:42px;background:var(--color-amber-signal)"></span>
+          <span class="conf" style="--dx:-20px;--dy:-96px;background:var(--color-coral-blush)"></span>
+          <span class="conf" style="--dx:22px;--dy:-60px;background:var(--color-leaf-success)"></span>
+          <span class="plusone" aria-hidden="true">+1 FRIEND!</span>
+        </div>
+        <span class="ehead" id="eggHead">It starts with an egg</span>
+        <span class="esub" id="eggSub">Tap to hatch · your child won't know who's inside either</span>
+      </button>
+      <div class="fun-grid reveal-group">
+        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 66%,var(--color-coral-glow))"><img class="px ficon" src="assets/pixels/miko_heart_58x42.png" alt="Pet with a heart bubble" loading="lazy" decoding="async"><h3>A friend that knows them</h3><p>The pet reacts to the care it's been given — greeting, moods, and little rituals, all in its own sounds and animations. Never human words.</p></div>
+        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 72%,var(--color-amber-signal))"><img class="px ficon" src="assets/pixels/miko_watered_x2.png" alt="Pet sprouting after being watered" loading="lazy" decoding="async"><h3>Grown through care</h3><p>How the pet grows depends on how your child shows up. With steady care the bond deepens and the pet evolves in its own way — no two journeys alike.</p></div>
+        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 74%,var(--color-leaf-success))"><img class="px ficon" src="assets/pixels/miko_read_x3.png" alt="Pet reading an open storybook" loading="lazy" decoding="async"><h3>Its own quirks and story</h3><p>Every pet arrives with a look, a personality, and a backstory from Nowa Planet — the bond is theirs, not a checklist.</p></div>
+        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 62%,var(--color-coral-blush))"><img class="px ficon" src="assets/pixels/egg_hatch_x2.png" alt="Cracked egg with a glow" loading="lazy" decoding="async"><h3>From the first crack</h3><p>The hatch is the hook: surprise, delight, and an instant reason to care. The motivation never has to be assigned.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="species-strip">
+    <div class="species-track" id="speciesTrack">
+      <div class="sp"><img class="px" src="assets/species/brim.png" alt="Brim" width="128" height="128" loading="lazy" decoding="async"><span class="spname">BRIM</span></div>
+      <div class="sp"><img class="px" src="assets/species/nori.png" alt="Nori" width="128" height="128" loading="lazy" decoding="async"><span class="spname">NORI</span></div>
+      <div class="sp"><img class="px" src="assets/species/ollie.png" alt="Ollie" width="128" height="128" loading="lazy" decoding="async"><span class="spname">OLLIE</span></div>
+      <div class="sp"><img class="px" src="assets/species/flori.png" alt="Flori" width="128" height="128" loading="lazy" decoding="async"><span class="spname">FLORI</span></div>
+      <div class="sp"><img class="px" src="assets/species/miko.png" alt="Miko" width="128" height="128" loading="lazy" decoding="async"><span class="spname">MIKO</span></div>
+      <div class="sp"><img class="px" src="assets/species/puffin.png" alt="Puffin" width="128" height="128" loading="lazy" decoding="async"><span class="spname">PUFFIN</span></div>
+      <div class="sp"><img class="px" src="assets/species/taro.png" alt="Taro" width="128" height="128" loading="lazy" decoding="async"><span class="spname">TARO</span></div>
+      <div class="sp"><img class="px" src="assets/species/nori-2.png" alt="Nori, crystal form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">NORI · CRYSTAL</span></div>
+      <div class="sp"><img class="px" src="assets/species/miko-1.png" alt="Miko, scholar form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">MIKO · SCHOLAR</span></div>
+      <div class="sp"><img class="px" src="assets/species/taro-1.png" alt="Taro, pilot form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">TARO · PILOT</span></div>
+      <div class="sp"><img class="px" src="assets/species/brim-1.png" alt="Brim, viking form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">BRIM · VIKING</span></div>
+      <div class="sp"><img class="px" src="assets/species/nori-1.png" alt="Nori, coral form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">NORI · CORAL</span></div>
+    </div>
+  </div>
+  <div class="wrap"><p class="who reveal">Who might your child meet? Every journey is its own story — never a set to complete.</p></div>
+</section>
+
+<div class="dither rev" aria-hidden="true"></div>
+<!-- CH 05 — LIBRARY -->
+<section id="library">
+  <div class="wrap">
+    <p class="chapter"><span class="cell"></span><span class="cnum">CH. 05</span> Between missions</p>
+    <div class="lib-head">
+      <h2 class="reveal">Also the storyteller, the singer, and the question-answerer.</h2>
+    </div>
+    <p class="lead reveal" style="margin-top:16px">The library is part of the game. As your child raises their pet, they unlock more of it — songs, stories, podcasts, and soundscapes earned through care. The bedtime story, the morning anthem, the "why do planets spin?" — without handing over a screen.</p>
+    <div class="libs reveal-group">
+      <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)">St</div><h3>Story</h3><p>Beloved classics retold for every age, plus original tales from the Nowa universe.</p>
+        <div class="tracks">
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/027-the-lion-and-the-mouse-69yo-female.mp3"><button class="pbtn" aria-label="Play The Lion and the Mouse"><span class="pb-ico"></span></button><span class="ttl">The Lion and the Mouse</span><span class="dur">2:16</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/050-the-bunny-and-the-secret-tunnel-69yo-female.mp3"><button class="pbtn" aria-label="Play The Bunny and the Secret Tunnel"><span class="pb-ico"></span></button><span class="ttl">The Bunny and the Secret Tunnel <span class="lvlchip">LVL 2</span></span><span class="dur">6:09</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/048-the-fairy-who-collected-lost-giggles-69yo-female.mp3"><button class="pbtn" aria-label="Play The Fairy Who Collected Lost Giggles"><span class="pb-ico"></span></button><span class="ttl">The Fairy Who Collected Lost Giggles <span class="lvlchip">LVL 5</span></span><span class="dur">4:28</span></div>
+        </div><div class="pbar"><i></i></div></div>
+      <div class="lib pxcard"><div class="licon" style="background:var(--color-chalk-surface);color:var(--color-deep-ink)">So</div><h3>Song</h3><p>A morning anthem to start the day, a lullaby to end it — every song built for a moment and a mood.</p>
+        <div class="tracks">
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/015-yellow-duck.mp3"><button class="pbtn" aria-label="Play Yellow Duck"><span class="pb-ico"></span></button><span class="ttl">Yellow Duck</span><span class="dur">1:27</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/020-whispering-dreams.mp3"><button class="pbtn" aria-label="Play Whispering Dreams"><span class="pb-ico"></span></button><span class="ttl">Whispering Dreams <span class="lvlchip">LVL 3</span></span><span class="dur">4:01</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/021-spin-around-the-sun.mp3"><button class="pbtn" aria-label="Play Spin Around the Sun"><span class="pb-ico"></span></button><span class="ttl">Spin Around the Sun <span class="lvlchip">LVL 6</span></span><span class="dur">4:02</span></div>
+        </div><div class="pbar"><i></i></div></div>
+      <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)">Po</div><h3>Podcast</h3><p>A curious host and a real expert, on science, history, nature, culture, and life.</p>
+        <div class="tracks">
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/001-why-do-planets-spin.mp3"><button class="pbtn" aria-label="Play Why Do Planets Spin?"><span class="pb-ico"></span></button><span class="ttl">Why Do Planets Spin?</span><span class="dur">10:57</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/009-kick-it-like-a-pro.mp3"><button class="pbtn" aria-label="Play Kick It Like a Pro"><span class="pb-ico"></span></button><span class="ttl">Kick It Like a Pro <span class="lvlchip">LVL 4</span></span><span class="dur">6:47</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/013-inside-a-raindrop.mp3"><button class="pbtn" aria-label="Play Inside a Raindrop"><span class="pb-ico"></span></button><span class="ttl">Inside a Raindrop <span class="lvlchip">LVL 7</span></span><span class="dur">12:40</span></div>
+        </div><div class="pbar"><i></i></div></div>
+      <div class="lib pxcard"><div class="licon" style="background:var(--color-chalk-surface);color:var(--color-deep-ink)">Fx</div><h3>Sound &amp; Fun Facts</h3><p>Soundscapes matched to the mood, with fun facts sprinkled in at just the right moment.</p>
+        <div class="tracks">
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/sounds/006-soft-wind-chimes.mp3"><button class="pbtn" aria-label="Play Soft Wind Chimes"><span class="pb-ico"></span></button><span class="ttl">Soft Wind Chimes</span><span class="dur">15:06</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/sounds/001-amazing-animal-hearts.mp3"><button class="pbtn" aria-label="Play Amazing Animal Hearts"><span class="pb-ico"></span></button><span class="ttl">Amazing Animal Hearts <span class="lvlchip">LVL 2</span></span><span class="dur">2:15</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/sounds/007-space-planets-fun.mp3"><button class="pbtn" aria-label="Play Space & Planets Fun"><span class="pb-ico"></span></button><span class="ttl">Space & Planets Fun <span class="lvlchip">LVL 5</span></span><span class="dur">2:04</span></div>
+        </div><div class="pbar"><i></i></div></div>
+    </div>
+    <p class="lib-note reveal">Unlocks are part of the game; you decide what's available, always. A closed, family-safe library — no open internet, ever. Tap play to preview real samples.</p>
+  </div>
+</section>
+
+<div class="dither dith-sfty" aria-hidden="true"></div>
+<!-- CH 06 — SAFETY BY DESIGN -->
+<section class="safety" id="safety">
+  <div class="wrap">
+    <p class="chapter"><span class="cell"></span><span class="cnum">CH. 06</span> Safety by Design</p>
+    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">The safety isn't a setting. It's the design.</h2>
+    <p class="lead reveal" style="margin-top:16px;max-width:60ch">Most apps for kids are built to hold their attention. Nowa is built for the opposite — short, purposeful play that hands your child back to the real world, and an AI that can't say anything you didn't choose.</p>
+    <div class="safety-grid reveal-group">
+      <div class="safe-col">
+        <h3>A natural part of the day — never the center of it.</h3>
+        <p>Like a real pet, Nowa blends into your child's day — checked on here and there, never one long sitting.</p>
+        <ul class="safe-list">
+          <li><span class="cell"></span>Short check-ins of about 10–15 minutes, a few times through the day</li>
+          <li><span class="cell"></span>No infinite scroll, autoplay, or notifications pulling them back</li>
+          <li><span class="cell"></span>Every check-in points back out — to real routines, real people, real play</li>
+        </ul>
+        <div class="day-rhythm reveal" role="img" aria-label="A day with Nowa — three short check-ins of about 10 to 15 minutes spread across the day, with the rest of the day free for real life">
+          <p class="dr-label">A day with Nowa</p>
+          <div class="dr-track" aria-hidden="true">
+            <span class="dr-line"></span>
+            <span class="dr-sun"></span>
+            <span class="dr-moon"></span>
+            <span class="dr-checkin" style="left:20%"><span class="dr-time">~12 min</span><span class="dr-dot" style="animation-delay:0s"></span><span class="dr-part">morning</span></span>
+            <span class="dr-checkin" style="left:52%"><span class="dr-time">~15 min</span><span class="dr-dot" style="animation-delay:.6s"></span><span class="dr-part">afternoon</span></span>
+            <span class="dr-checkin" style="left:82%"><span class="dr-time">~10 min</span><span class="dr-dot" style="animation-delay:1.2s"></span><span class="dr-part">evening</span></span>
+          </div>
+          <p class="dr-caption">A few small moments. The rest of the day stays theirs.</p>
+        </div>
+      </div>
+      <div class="safe-col">
+        <h3>A pet, not an AI friend.</h3>
+        <p>Other AI companions are built to be talked to — and needed. Nowa is a pet, nothing more.</p>
+        <ul class="safe-list">
+          <li><span class="cell"></span>Speaks only in sound, motion, and feeling — never human words</li>
+          <li><span class="cell"></span>No open internet — nothing it can say that you didn't choose</li>
+          <li><span class="cell"></span>Its walled AI only reads progress and brings the pet to life — building attachment to the real world, not a screen</li>
+        </ul>
+        <div class="talk-demo reveal pxcard">
+          <p class="bubble" id="petSound">♪ prrr… blip!</p>
+          <p class="label">Nowa speaks in sound, motion, and feeling — your child does the understanding.</p>
+          <div class="pet-row">
+            <img class="px" src="assets/species/miko.png" alt="Miko, a pixel-art Nowa pet, listening" width="120" height="120" loading="lazy" decoding="async">
+            <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figure class="pullq pxcard reveal">
+      <img src="assets/avatars/dr-david-mou.png" alt="Dr. David Mou" loading="lazy" decoding="async">
+      <figcaption><p class="qt">“The safest AI for a child is one with nothing to say, and everything to feel.”</p><p class="who">Dr. David Mou · Harvard-trained physician · CEO, Benchmark Health <span class="sample-chip">SAMPLE · PENDING APPROVAL</span></p></figcaption>
+    </figure>
+    <p class="safe-trust reveal">No open internet · COPPA · ASTM F963 · No ads, ever · <a href="safety.html">How we built Nowa safe →</a></p>
+  </div>
+</section>
+
+<div class="dither dith-papp" aria-hidden="true"></div>
+<!-- THE PARENT APP -->
+<section class="parent-app" id="parent-app">
+  <div class="wrap">
+    <p class="chapter"><span class="cell"></span><span class="cnum">THE PARENT APP</span></p>
+    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:18ch">You hold every dial.</h2>
+    <p class="lead reveal" style="margin-top:16px;max-width:56ch">The app is where your role lives. You shape the routines, you set the limits — and what you get back isn't a score, it's a warm picture of how your child is growing.</p>
+    <div class="papp-grid reveal-group">
+      <div class="papp-stage">
+        <div class="pf-phone">
+          <span class="pf-btn r"></span><span class="pf-btn u"></span><span class="pf-btn d"></span>
+          <div class="pf-screen">
+            <div class="pf-island"></div>
+            <div class="pf-track" id="pfTrack">
+              <div class="pf-slide" data-feature="mission"><div class="pf-load">loading…</div><iframe title="Mission Control" data-src="../app-ui/new/mission-control.html"></iframe></div>
+              <div class="pf-slide" data-feature="mission"><div class="pf-load">loading…</div><iframe title="Add mission" data-src="../app-ui/new/mission-edit.html"></iframe></div>
+              <div class="pf-slide" data-feature="mission"><div class="pf-load">loading…</div><iframe title="No missions yet" data-src="../app-ui/new/mission-empty.html"></iframe></div>
+              <div class="pf-slide" data-feature="growth"><div class="pf-load">loading…</div><iframe title="Growth insights" data-src="../app-ui/new/growth-insights.html"></iframe></div>
+              <div class="pf-slide" data-feature="growth"><div class="pf-load">loading…</div><iframe title="Growth detail" data-src="../app-ui/new/growth-domain.html"></iframe></div>
+              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Activity" data-src="../app-ui/new/activity.html"></iframe></div>
+              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Bedtime" data-src="../app-ui/new/bedtime.html"></iframe></div>
+              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Data & privacy" data-src="../app-ui/new/data-privacy.html"></iframe></div>
+              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Safety alerts" data-src="../app-ui/new/safety-alerts.html"></iframe></div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-nav">
+          <button class="pf-arrow pf-prev" aria-label="Previous screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <div class="pf-dots" id="pfDots" aria-label="App screens"></div>
+          <button class="pf-arrow pf-next" aria-label="Next screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="papp-feats">
+        <div class="papp-feat" role="button" tabindex="0" data-feature="mission"><h3>Mission Control</h3><p>Set up the habit routines that fit your family's schedule — mornings, homework, bedtime. The app turns each one into a mission your child's pet needs their help to complete.</p><span class="papp-go">See it →</span></div>
+        <div class="papp-feat" role="button" tabindex="0" data-feature="growth"><h3>Growth insights</h3><p>Progress and developmental insights drawn from frameworks <strong>shaped by our advisory board</strong> — not metrics we invented. You see only what genuinely reflects your child's journey, never noise.</p><span class="papp-go">See it →</span></div>
+        <div class="papp-feat" role="button" tabindex="0" data-feature="loop"><h3>Stay in the loop</h3><p>See every mission and how your child did it, and set the pet's bedtime to match your child's. Every byte the game collects is yours — view it, and delete it from our servers anytime. We keep nothing for any other purpose.</p><span class="papp-go">See it →</span></div>
+      </div>
+    </div>
+    <p class="papp-trust reveal">Closed and family-safe — no open internet, no ads, ever. <a href="parent-app.html">Explore the parent app →</a></p>
+  </div>
+</section>
+
+<div class="dither rev dith-papp-out" aria-hidden="true"></div>
+<!-- THE DEVICE -->
+<section class="device-sec">
+  <div class="wrap device-grid">
+    <div class="blueprint pxcard reveal"><video src="assets/videos/device-blueprint.mp4" autoplay muted loop playsinline aria-label="Technical blueprint of the Nowa device" style="width:100%;display:block"></video></div>
+    <div>
+      <p class="chapter"><span class="cell"></span><span class="cnum">THE DEVICE</span></p>
+      <h2 class="reveal" style="font-size:clamp(28px,3.2vw,42px);max-width:18ch">One small device. A whole personality inside it.</h2>
+      <p class="lead reveal" style="margin-top:16px">No tablet, no app for the kid, no open internet. The pet lives in a pocket-sized device built for small hands — three chunky buttons and a screen just big enough for the pet it holds.</p>
+      <ul class="specs reveal-group">
+        <li><span class="cell"></span>6.76 × 7.52 cm — fits a coat pocket or a backpack side pouch</li>
+        <li><span class="cell"></span>Three physical buttons — simple enough for age 3</li>
+        <li><span class="cell"></span>Closed, family-safe system — you set the boundaries from the parent app</li>
+        <li><span class="cell"></span>$99 · ships September 2026</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- INTERLUDE — THE HARD PARTS -->
+<section class="hard">
+  <div class="wrap">
+    <p class="chapter"><span class="cell"></span><span class="cnum">INTERLUDE</span> For the hard parts</p>
+    <div class="hard-head">
+      <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:18ch">Wherever you are in the hard parts.</h2>
+      <div class="hard-photos reveal-group" aria-hidden="false">
+        <img class="ph pxcard" src="assets/visuals/visual_18.png" alt="A boy by the front door, backpack on, holding his Nowa device" loading="lazy" decoding="async">
+        <img class="ph pxcard" src="assets/visuals/visual_20.png" alt="A boy on the sofa, smiling at his Nowa device" loading="lazy" decoding="async">
+      </div>
+    </div>
+    <div class="segs reveal-group">
+      <div class="seg pxcard"><h3>The morning-battle parent</h3><p>Teeth, clothes, breakfast, the door. Nowa turns the routine into something your child does <em>with</em> a friend — minus the referee.</p></div>
+      <div class="seg pxcard"><h3>The big-feelings parent</h3><p>When meltdowns are big and frequent, Nowa is a low-stakes place to practice calming down — before the storm, not during it.</p></div>
+      <div class="seg pxcard"><h3>The parent doing their own work</h3><p>On the days your patience is gone, Nowa is a second steady presence in the room — so one hard moment doesn't have to land on you.</p></div>
+    </div>
+    <figure class="pullq pxcard reveal">
+      <img src="assets/avatars/dr-steven-kurtz.png" alt="Dr. Steven Kurtz" loading="lazy" decoding="async">
+      <figcaption><p class="qt">“When the practice happens before the meltdown — not during it — the whole temperature of a home comes down.”</p><p class="who">Dr. Steven Kurtz · Parent-child interaction · One of 21 certified PCIT trainers worldwide <span class="sample-chip">SAMPLE · PENDING APPROVAL</span></p></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section id="compare">
+  <div class="wrap">
+    <h2 class="reveal" style="font-size:clamp(26px,3vw,40px);max-width:26ch">Calm like Yoto. Developmental like Lovevery. But alive.</h2>
+    <div class="cmp reveal-group">
+      <div class="col pxcard"><img class="px cicon" src="assets/compare/cmp-audio.png" alt="A cassette audio player" loading="lazy" decoding="async"><h4>Audio players</h4><p>Great stories. But the child listens — they don't form a relationship.</p></div>
+      <div class="col pxcard"><img class="px cicon" src="assets/compare/cmp-play.png" alt="A play-kit board game" loading="lazy" decoding="async"><h4>Play kits</h4><p>Thoughtful toys. But they don't grow, respond, or build a bond over time.</p></div>
+      <div class="col pxcard"><img class="px cicon" src="assets/compare/cmp-tablet.png" alt="A tablet / handheld device" loading="lazy" decoding="async"><h4>Tablets &amp; apps</h4><p>Endless engagement — designed to keep your child <em>in</em>, not send them back out.</p></div>
+      <div class="col us pxcard"><span class="spark" style="left:50%;margin-left:22px;top:6px;right:auto;z-index:3"></span><img class="px cmp-pet" src="assets/species/brim.png" alt="" width="72" height="72" loading="lazy" decoding="async"><h4>A pet that's actually alive</h4><p>Grows with your child, sends them back into real life, and was built with scientists.</p><div class="mcells cmp-meter" aria-hidden="true"><span class="mc full"></span><span class="mc full"></span><span class="mc full"></span><span class="mc full"></span><span class="mc"></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BETA FAMILIES -->
+<section class="reviews">
+  <div class="wrap">
+    <p class="chapter"><span class="cell"></span><span class="cnum">CH. 07</span> Beta families</p>
+    <h2 class="reveal" style="font-size:clamp(30px,3.4vw,46px);max-width:22ch">From the families who tested it first.</h2>
+    <p class="lead reveal" style="margin-top:16px">Real households, real mornings — words from the beta program.</p>
+  </div>
+  <div class="rev-rows" aria-label="Beta family reviews">
+    <div class="rev-row"><div class="rev-track" data-dir="1"><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">My son used to fight me for 20 minutes every morning about his shoes. Now he's racing to get them on because he wants to tell his Nowa pet he's ready for the School Mission.</p><p class="rwho"><strong>Mark J.</strong> · Dad of a 6-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">The dashboard actually showed me my daughter was feeling anxious about her math homework before she even told me. It gave us a bridge to talk.</p><p class="rwho"><strong>Kate</strong> · Mom of an 8-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">She came downstairs and said 'I did turtle time so my pet could calm down.' Then she did it herself at dinner. Unprompted.</p><p class="rwho"><strong>Dana</strong> · Mom of a 5-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">Bedtime went from negotiation to ritual. The pet gets sleepy, so somehow my daughter does too.</p><p class="rwho"><strong>Tom R.</strong> · Dad of a 4-year-old <span class="beta-chip">BETA FAMILY</span></p></div></div></div>
+    <div class="rev-row"><div class="rev-track" data-dir="-1"><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">He was proud of the pet's growth in a way that felt surprisingly personal. He really felt like his care mattered, and that made the progress feel meaningful.</p><p class="rwho"><strong>Elena J.</strong> · Mom of a 7-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">It's the first screen I don't feel guilty about. Ten minutes, then he's off building a fort because his pet 'needed' one.</p><p class="rwho"><strong>Priya</strong> · Mom of a 6-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">My two trade care tips like little coworkers. Each pet is different, so nobody's comparing scores.</p><p class="rwho"><strong>Steph</strong> · Mom of a 7- and a 9-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">I expected another abandoned gadget. Six weeks in, the pet is still fed and my mornings are still quiet.</p><p class="rwho"><strong>Alex M.</strong> · Dad of an 8-year-old <span class="beta-chip">BETA FAMILY</span></p></div></div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faqsec" id="faq">
+  <div class="wrap">
+    <p class="chapter"><span class="cell"></span><span class="cnum">FAQ</span> Before you ask</p>
+    <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:20ch">The questions every parent asks.</h2>
+    <div class="faqs reveal-group">
+      <details class="faq pxcard"><summary>What age is Nowa designed for?<span class="fplus">+</span></summary><div class="faq-a"><p>Kids ages 3–10 — the stage when routines, independence, and emotional habits develop fastest. The experience is age-scaffolded so it grows with your child.</p></div></details>
+      <details class="faq pxcard"><summary>How does Nowa build habits without nagging?<span class="fplus">+</span></summary><div class="faq-a"><p>Instead of you repeating instructions, daily routines become missions your child does to help their pet grow. The pet celebrates wins and encourages them through struggles — habit-building feels like play, not punishment.</p></div></details>
+      <details class="faq pxcard"><summary>Is there AI in Nowa? Is it safe for young children?<span class="fplus">+</span></summary><div class="faq-a"><p>Yes — a closed, walled AI shapes how the pet feels, remembers care, and chooses missions. It never speaks to your child in human language, has no access to the open internet, and collects nothing beyond what personalizes the experience. It was built with our child-development researchers to support growth, not maximize engagement.</p></div></details>
+      <details class="faq pxcard"><summary>Is my child's experience safe and private?<span class="fplus">+</span></summary><div class="faq-a"><p>The pet doesn't converse, so there's nothing to monitor and nothing to leak. No open internet, content age-scaffolded for 3–10, built to meet COPPA and ASTM F963 standards. You stay in control through topic boundaries, bedtime modes, and usage limits in the parent app.</p></div></details>
+      <details class="faq pxcard"><summary>How much screen time does Nowa involve?<span class="fplus">+</span></summary><div class="faq-a"><p>Nowa is designed to be put down, not stayed on. Check-ins run about 10–15 minutes each, a few times through the day — short and active, with no infinite scroll, no autoplay, no engagement mechanics. The goal is always to send your child back into the real world.</p></div></details>
+      <details class="faq pxcard"><summary>What happens if my child misses a day?<span class="fplus">+</span></summary><div class="faq-a"><p>Real life happens. Missing a day doesn't erase progress or create punishment — and the pet never dies. Left alone for a long time it may get sad or gently return to its home world, but it can always come back.</p></div></details>
+      <details class="faq pxcard"><summary>How does the parent app work?<span class="fplus">+</span></summary><div class="faq-a"><p>Set routines, see progress, and get warm, narrative insights without more mental load. Basic setup and routine tracking come with the device; full insights, advanced missions, and expert guidance are part of the optional Nowa+ subscription.</p></div></details>
+      <details class="faq pxcard"><summary>When will Nowa be available?<span class="fplus">+</span></summary><div class="faq-a"><p>Pre-orders are open now at $99, shipping September 2026. You can cancel your reservation anytime before it ships.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<div class="dither" aria-hidden="true"></div>
+<!-- PRE-ORDER -->
+<section class="dark final" id="preorder">
+  <div class="wrap">
+    <p class="chapter" style="justify-content:center;display:flex"><span class="cell"></span><span class="cnum">CH. 08</span> The beginning</p>
+    <h2 class="reveal">Reserve your child's Nowa.</h2>
+    <p class="lead reveal" style="max-width:42ch">$99 · ships September 2026 · free updates · cancel your reservation anytime before it ships.</p>
+    <a href="#" class="btn reveal">Pre-order Nowa — $99 <span class="arr">→</span></a>
+    <p class="reveal" style="margin-top:20px;font-size:var(--text-body-sm);color:var(--band-note,var(--color-cloud-border))">You're reserving a spot, not racing a clock. We'll email you well before yours ships.</p>
+    <div class="pets reveal-group" aria-hidden="true">
+      <img class="px" src="assets/species/flori.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+      <img class="px" src="assets/species/puffin.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+      <img class="px" src="assets/species/ollie.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-top">
+    <div>
+      <div class="brand" style="color:#fff"><img src="assets/brand/logo-app.png" alt="" width="28" height="28" style="border-radius:7px" loading="lazy" decoding="async">Nowa</div>
+      <p style="margin-top:10px;max-width:32ch">A magical pet that helps kids grow.<br>By Nowa Technologies.</p>
+    </div>
+    <div style="display:flex;gap:48px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:8px"><a href="#how">How it works</a><a href="#science">The science</a><a href="#compare">Compare</a></div>
+      <div style="display:flex;flex-direction:column;gap:8px"><a href="#library">The library</a><a href="#preorder">Pre-order</a><a href="#">Safety &amp; privacy</a></div>
+    </div>
+  </div>
+  <div class="wrap foot-mark graph-dark">
+    <div class="foot-word">Nowa<span>.</span></div>
+    <div class="foot-pets" aria-hidden="true">
+      <img class="px" src="assets/species/brim.png" alt="" width="72" height="72" loading="lazy" decoding="async">
+      <img class="px" src="assets/species/nori.png" alt="" width="72" height="72" loading="lazy" decoding="async">
+    </div>
+    <p class="legal">© 2026 Nowa Technologies · hello@nowaplanet.com</p>
+  </div>
+</footer>
+
+<div class="theme-picker hero-picker tp-hero" role="group" aria-label="Hero design preview switcher">
+  <span class="tp-label">HERO</span>
+  <button data-t="" title="1 — Stage on graph paper" aria-label="Stage hero on graph paper">1</button>
+  <button data-t="center" title="2 — Centered storybook" aria-label="Centered storybook hero">2</button>
+  <button data-t="billboard" title="3 — Billboard device" aria-label="Billboard device hero">3</button>
+</div>
+<div class="theme-picker tp-theme" role="group" aria-label="Color scheme preview switcher">
+  <span class="tp-label">THEME</span>
+  <button data-t="" title="1a — Original parchment" aria-label="Original parchment theme" style="background:#edeae2"></button>
+  <button data-t="paper2" title="1b — Brighter ivory" aria-label="Brighter ivory theme" style="background:#f6f0e1"></button>
+  <button data-t="paper3" title="1c — Sunlit cream" aria-label="Sunlit cream theme" style="background:#fdf5dd"></button>
+  <button data-t="mint" title="A — Mint cartridge" aria-label="Mint cartridge theme" style="background:#e2efdb"></button>
+  <button data-t="sky" title="B — Sky day" aria-label="Sky day theme" style="background:#dcebf5"></button>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+
+/* preview pickers — color theme + hero design: ?theme= / ?hero= or localStorage or picker */
+(() => {
+  const pickers = [
+    { attr: 'theme', valid: ['', 'paper2', 'paper3', 'mint', 'sky'], key: 'nowa-theme', sel: '.tp-theme button' },
+    { attr: 'hero',  valid: ['', 'center', 'billboard'], key: 'nowa-hero',  sel: '.tp-hero button' }
+  ];
+  const params = new URLSearchParams(location.search);
+  pickers.forEach(p => {
+    const fromUrl = params.get(p.attr);
+    let t = p.valid.includes(fromUrl) ? fromUrl : (localStorage.getItem(p.key) || '');
+    if (!p.valid.includes(t)) t = '';
+    const apply = v => {
+      if (v) document.documentElement.dataset[p.attr] = v;
+      else delete document.documentElement.dataset[p.attr];
+      localStorage.setItem(p.key, v);
+      document.querySelectorAll(p.sel).forEach(b => b.classList.toggle('on', b.dataset.t === v));
+    };
+    addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll(p.sel).forEach(b => b.addEventListener('click', () => apply(b.dataset.t)));
+      apply(t);
+    });
+    if (t) document.documentElement.dataset[p.attr] = t;
+  });
+})();
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* hero entrance */
+addEventListener('load', () => document.body.classList.add('loaded'));
+setTimeout(() => document.body.classList.add('loaded'), 600); /* safety: never gate hero on slow assets */
+
+/* scroll reveals (transitions, interruptible; content visible without JS) */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), {rootMargin: '0px 0px -80px 0px', threshold: 0.05});
+document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el));
+
+/* spine quote: words brighten as it enters */
+(() => {
+  const q = document.getElementById('spineQuote');
+  const words = q.textContent.split(' ');
+  q.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
+  const ws = [...q.querySelectorAll('.w')];
+  const qio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    ws.forEach((w, i) => setTimeout(() => w.classList.add('on'), reduced ? 0 : 80 * i));
+    qio.disconnect();
+  }), {threshold: 0.5});
+  qio.observe(q);
+})();
+
+/* species strip: scroll-reactive drift — follows scroll direction, never freezes */
+(() => {
+  const track = document.getElementById('speciesTrack');
+  if (!track) return;
+  const setHTML = track.innerHTML, setW = track.scrollWidth;
+  while (track.scrollWidth < innerWidth * 2 + setW) track.insertAdjacentHTML('beforeend', setHTML);
+  if (reduced) return;
+  let x = 0, v = 0, ly = scrollY;
+  const tick = () => {
+    const dy = scrollY - ly; ly = scrollY;
+    v += dy * 0.4;          /* scroll pushes the line */
+    v *= 0.92;              /* friction */
+    x += v * 0.18 + 0.35;   /* plus gentle idle drift */
+    track.classList.toggle('walk-rev', v < -0.4);
+    x = ((x % setW) + setW) % setW;
+    track.style.transform = `translateX(${-x}px)`;
+    requestAnimationFrame(tick);
+  };
+  tick();
+})();
+
+/* mission tabs */
+(() => {
+  const data = [
+    {h: 'Brushing teeth, bedtime, homework start, transitions.',
+     b: 'Not rigid compliance — routines that feel more doable, more consistent, and less emotionally draining.',
+     r: "Synced to the real world: tonight's actual toothbrush.", vid: 'assets/videos/the-mission-engine-02.mp4'},
+    {h: 'Notice the feeling, name it, calm it down.',
+     b: 'Your child helps their pet notice feelings, calm down, and respond with empathy — gentle, age-appropriate practice in self-awareness, through play.',
+     r: 'Synced to the real world: the calm-down that travels to recess.', vid: 'assets/videos/the-mission-engine-04.mp4'},
+    {h: 'Attention, remembering, listening, staying with a task.',
+     b: 'Woven into age-banded challenges that build working memory, flexibility, and self-control.',
+     r: "Synced to the real world: homework that actually starts.", vid: 'assets/videos/the-mission-engine-03.mp4'}
+  ];
+  const tabs = [...document.querySelectorAll('.mtab')];
+  const txt = document.getElementById('mText'), wrap = document.getElementById('mVidWrap'), vid = document.getElementById('mVid');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    if (t.classList.contains('on')) return;
+    tabs.forEach(x => { x.classList.remove('on'); x.setAttribute('aria-selected', 'false'); });
+    t.classList.add('on'); t.setAttribute('aria-selected', 'true');
+    const d = data[+t.dataset.m];
+    txt.classList.add('out'); wrap.classList.add('out');
+    setTimeout(() => {
+      document.getElementById('mHead').textContent = d.h;
+      document.getElementById('mBody').textContent = d.b;
+      document.getElementById('mReal').textContent = d.r;
+      vid.src = d.vid; if (!reduced) vid.play();
+      txt.classList.remove('out'); wrap.classList.remove('out');
+    }, reduced ? 0 : 250);
+  }));
+})();
+
+/* egg hatch — rare-moment delight */
+(() => {
+  const card = document.getElementById('eggCard');
+  const pets = ['ollie','flori','puffin','nori-2','miko-1','taro-1','brim-1','nori-1'];
+  const names = {'ollie':'Ollie','flori':'Flori','puffin':'Puffin','nori-2':'Nori — Crystal','miko-1':'Miko — Scholar','taro-1':'Taro — Pilot','brim-1':'Brim — Viking','nori-1':'Nori — Coral'};
+  let busy = false;
+  card.addEventListener('click', () => {
+    if (busy) return; busy = true;
+    if (card.classList.contains('hatched')) {
+      card.classList.remove('hatched');
+      document.getElementById('eggHead').textContent = 'It starts with an egg';
+      document.getElementById('eggSub').textContent = "Tap to hatch · your child won't know who's inside either";
+      setTimeout(() => busy = false, 350);
+      return;
+    }
+    const pick = pets[Math.floor(Math.random() * pets.length)];
+    document.getElementById('hatchPet').src = `assets/species/${pick}.png`;
+    card.classList.add('shaking');
+    setTimeout(() => {
+      card.classList.remove('shaking');
+      card.classList.add('hatched');
+      document.getElementById('eggHead').textContent = `It's ${names[pick]}!`;
+      document.getElementById('eggSub').textContent = 'Tap again to try another egg';
+      busy = false;
+    }, reduced ? 0 : 500);
+  });
+})();
+
+/* pet sound rotation in talk demo */
+(() => {
+  const sounds = ['♪ prrr… blip!', '~ wrrble?', '♪ pip pip !', '… mmrr ♥', '♪ boing~'];
+  const el = document.getElementById('petSound');
+  let i = 0;
+  setInterval(() => {
+    if (reduced) { el.textContent = sounds[++i % sounds.length]; return; }
+    el.style.opacity = '0'; el.style.transition = 'opacity 250ms ease';
+    setTimeout(() => { el.textContent = sounds[++i % sounds.length]; el.style.opacity = '1'; }, 260);
+  }, 3400);
+})();
+
+/* beta review rows: opposing scroll-reactive drift */
+(() => {
+  document.querySelectorAll('.rev-track').forEach(track => {
+    const setHTML = track.innerHTML;
+    const setW = track.scrollWidth;
+    while (track.scrollWidth < innerWidth * 2 + setW) track.insertAdjacentHTML('beforeend', setHTML);
+    if (reduced) return;
+    const dir = +track.dataset.dir || 1;
+    let x = 0, v = 0, ly = scrollY;
+    const tick = () => {
+      const dy = scrollY - ly; ly = scrollY;
+      v += dy * 0.4; v *= 0.92;
+      x += (v * 0.18 + 0.3) * dir;
+      x = ((x % setW) + setW) % setW;
+      track.style.transform = `translateX(${-x}px)`;
+      requestAnimationFrame(tick);
+    };
+    tick();
+  });
+})();
+
+/* library sample players — one at a time */
+(() => {
+  const audio = new Audio();
+  let cur = null;
+  document.querySelectorAll('.trk').forEach(t => {
+    t.querySelector('.pbtn').addEventListener('click', () => {
+      if (cur === t) {
+        if (audio.paused) { audio.play(); t.classList.add('playing'); }
+        else { audio.pause(); t.classList.remove('playing'); }
+        return;
+      }
+      document.querySelectorAll('.trk.playing').forEach(x => x.classList.remove('playing'));
+      document.querySelectorAll('.lib.active').forEach(x => x.classList.remove('active'));
+      cur = t;
+      audio.src = t.dataset.src;
+      audio.play();
+      t.classList.add('playing');
+      t.closest('.lib').classList.add('active');
+    });
+  });
+  audio.addEventListener('timeupdate', () => {
+    if (!cur || !audio.duration) return;
+    cur.closest('.lib').querySelector('.pbar i').style.width = (audio.currentTime / audio.duration * 100) + '%';
+  });
+  audio.addEventListener('ended', () => { if (cur) cur.classList.remove('playing'); });
+})();
+
+/* reading progress bar — snaps in 2% pixel steps */
+(() => {
+  const bar = document.querySelector('.readbar');
+  let raf = null;
+  const update = () => {
+    raf = null;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const p = max > 0 ? Math.round((scrollY / max) * 50) / 50 * 100 : 0;
+    bar.style.width = p + '%';
+  };
+  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, {passive: true});
+  update();
+})();
+
+/* marquee: pad each half until it covers any viewport (keeps -50% loop seamless) */
+(() => {
+  const track = document.querySelector('.marquee-track');
+  if (!track || track.children.length < 2) return;
+  const [a, b] = track.children;
+  const base = a.innerHTML;
+  while (a.scrollWidth < innerWidth) { a.innerHTML += base; b.innerHTML += base; }
+})();
+
+/* respect reduced motion for ambient video */
+if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+
+/* chapter rail: active state + light-on-dark contrast */
+(() => {
+  const rail = document.querySelector('.rail');
+  const bgio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const themed = !!document.documentElement.dataset.theme;
+    const darkHere = e.target.tagName === 'FOOTER' || (e.target.classList.contains('dark') && (!themed || e.target.id === 'world'));
+    rail.classList.toggle('on-dark', darkHere);
+  }), {rootMargin: '-50% 0px -50% 0px'});
+  document.querySelectorAll('section, header.hero, footer').forEach(el => bgio.observe(el));
+})();
+(() => {
+  const map = {how: 'how', missions: 'missions', world: 'world', library: 'library', science: 'science', preorder: 'preorder'};
+  const links = [...document.querySelectorAll('.rail a')];
+  const sio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(l => l.classList.toggle('active', l.dataset.ch === e.target.id));
+  }), {rootMargin: '-40% 0px -50% 0px'});
+  Object.keys(map).forEach(id => { const s = document.getElementById(id); if (s) sio.observe(s); });
+})();
+
+/* smooth momentum scroll (Lenis) — skipped under reduced-motion for accessibility */
+(() => {
+  if (reduced || typeof Lenis === 'undefined') return;
+  const lenis = new Lenis({ lerp: 0.13, wheelMultiplier: 1, smoothWheel: true });
+  function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+  /* route same-page anchors through Lenis for smooth glide */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -20, duration: 0.8 });
+    });
+  });
+})();
+</script>
+<script>
+/* parent-app showcase carousel — one feature's screens at a time */
+(function(){
+  var stage=document.querySelector('#parent-app .papp-stage'); if(!stage) return;
+  var track=stage.querySelector('#pfTrack');
+  var all=[].slice.call(track.querySelectorAll('.pf-slide'));
+  var dotsWrap=stage.querySelector('#pfDots');
+  var feats=[].slice.call(document.querySelectorAll('#parent-app .papp-feat'));
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dots=[];
+
+  function vis(){return all.filter(function(s){return !s.classList.contains('pf-hide');});}
+
+  function ready(slide){var f=slide.querySelector('iframe');var l=slide.querySelector('.pf-load');
+    try{var d=f.contentDocument;if(d){var st=d.createElement('style');
+      st.textContent='html,body{background:transparent!important;height:auto!important}body{display:block!important;margin:0!important;padding:52px 0 0!important;min-height:0!important}.phone{box-shadow:none!important;border-radius:0!important;margin:0!important}';
+      d.head.appendChild(st);}}catch(e){}
+    if(l)l.style.display='none';}
+  all.forEach(function(s){s.querySelector('iframe').addEventListener('load',function(){ready(s);});});
+
+  var PFV='?v='+Date.now(); /* showcase dev: always load the freshest screen (bypass local-server cache). Remove for production. */
+  function load(s){var f=s.querySelector('iframe');if(f&&!f.src)f.src=f.getAttribute('data-src')+PFV;}
+
+  function buildDots(){dotsWrap.innerHTML='';vis().forEach(function(s,i){var b=document.createElement('button');b.className='pf-dot';b.setAttribute('aria-label','Screen '+(i+1));b.addEventListener('click',function(){go(i);});dotsWrap.appendChild(b);});dots=[].slice.call(dotsWrap.children);}
+
+  function curIndex(){var v=vis(),idx=0,min=1e9;v.forEach(function(s,i){var d=Math.abs(s.offsetLeft-track.scrollLeft);if(d<min){min=d;idx=i;}});return idx;}
+  function go(i){var v=vis();i=Math.max(0,Math.min(v.length-1,i));track.scrollTo({left:v[i].offsetLeft,behavior:reduce?'auto':'smooth'});}
+  function syncDots(){var c=curIndex();dots.forEach(function(d,i){d.classList.toggle('on',i===c);});}
+
+  function setFeature(f){
+    all.forEach(function(s){s.classList.toggle('pf-hide',s.getAttribute('data-feature')!==f);});
+    feats.forEach(function(c){c.classList.toggle('on',c.getAttribute('data-feature')===f);});
+    buildDots();
+    track.scrollLeft=0;
+    vis().forEach(load);
+    syncDots();
+  }
+
+  stage.querySelector('.pf-prev').addEventListener('click',function(){go(curIndex()-1);});
+  stage.querySelector('.pf-next').addEventListener('click',function(){go(curIndex()+1);});
+
+  var raf;
+  track.addEventListener('scroll',function(){if(raf)cancelAnimationFrame(raf);raf=requestAnimationFrame(syncDots);});
+
+  feats.forEach(function(f){
+    function act(){setFeature(f.getAttribute('data-feature'));}
+    f.addEventListener('click',act);
+    f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
+  });
+
+  var down=false,sx=0,sl=0,moved=false;
+  track.addEventListener('pointerdown',function(e){down=true;moved=false;sx=e.clientX;sl=track.scrollLeft;track.style.scrollSnapType='none';try{track.setPointerCapture(e.pointerId);}catch(_){}});
+  track.addEventListener('pointermove',function(e){if(down){var dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;track.scrollLeft=sl-dx;}});
+  function up(){if(down){down=false;track.style.scrollSnapType='';if(moved)go(curIndex());}}
+  track.addEventListener('pointerup',up);
+  track.addEventListener('pointercancel',up);
+
+  setFeature('mission');
+})();
+</script>
+</body>
+</html>

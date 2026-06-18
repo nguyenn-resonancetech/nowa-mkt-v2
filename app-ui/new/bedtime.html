@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nowa · Bedtime</title>
+<link rel="stylesheet" href="../../design-system/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --step8:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));
+  --step12:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));
+}
+html,body{height:100%}
+body{font-family:var(--font-noto-sans);color:var(--color-deep-ink);background:var(--color-slate-mid);display:flex;align-items:center;justify-content:center;padding:20px;-webkit-font-smoothing:antialiased}
+.phone{width:393px;height:852px;position:relative;overflow:hidden;background-color:var(--surface-warm-parchment);display:flex;flex-direction:column;box-shadow:0 24px 60px -20px rgba(0,0,0,.5)}
+.scroll{flex:1;overflow-y:auto;padding:0 18px 40px}
+h1,h2,h3,h4{font-family:var(--font-onest);letter-spacing:-.02em;line-height:1.12}
+.appbar{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--color-warm-parchment) 84%,transparent);border-bottom:1px solid rgba(22,28,36,.07);padding:14px 18px;display:flex;align-items:center;gap:12px}
+.backbtn{width:38px;height:38px;background:var(--surface-pure-white);clip-path:var(--step8);display:flex;align-items:center;justify-content:center;filter:drop-shadow(var(--px-shadow));cursor:pointer}
+.backbtn svg{width:18px;height:18px}
+.appbar .crumb{font-size:11px;color:var(--color-mist-body);font-weight:600;letter-spacing:.06em}
+.appbar h1{font-size:20px;font-weight:800}
+
+/* big time setter card */
+.setter{position:relative;margin:18px 8px 4px 0;padding:24px 18px;text-align:center;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);filter:drop-shadow(var(--px-shadow))}
+.setter::before{content:"";position:absolute;inset:0;z-index:0;clip-path:var(--step12);background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
+.setter>*{position:relative;z-index:1}
+.setter .moon{font-size:26px;margin-bottom:6px}
+.setter .lab{font-family:var(--font-onest);font-weight:700;font-size:13px;color:var(--color-slate-mid)}
+.timeset{display:flex;align-items:center;justify-content:center;gap:16px;margin:12px 0 8px}
+.st{width:46px;height:46px;flex:none;background:transparent;border:0;cursor:pointer;position:relative;font-family:var(--font-onest);font-weight:800;font-size:24px;color:var(--color-deep-ink);transition:transform 70ms steps(2)}
+.st::before{content:"";position:absolute;inset:0;z-index:0;clip-path:var(--step8);background:linear-gradient(var(--surface-warm-parchment),var(--surface-warm-parchment)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--color-slate-mid)}
+.st span{position:relative;z-index:1}
+.st:active{transform:translateY(2px)}
+.bigtime{font-family:var(--font-pixel);font-size:42px;color:var(--color-deep-ink);min-width:130px;letter-spacing:.02em}
+.setter .hint{font-size:13px;color:var(--color-mist-body);line-height:1.5;max-width:36ch;margin:6px auto 0}
+
+.glabel{font-family:var(--font-onest);font-weight:700;font-size:11px;letter-spacing:.12em;color:var(--color-mist-body);text-transform:uppercase;margin:24px 0 12px 2px}
+.row{position:relative;display:flex;align-items:center;gap:14px;margin:0 8px 12px 0;padding:16px 18px;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);filter:drop-shadow(var(--px-shadow))}
+.row::before{content:"";position:absolute;inset:0;z-index:0;clip-path:var(--step12);background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
+.row>*{position:relative;z-index:1}
+.row .rmeta{flex:1}
+.row h3{font-size:15px;font-family:var(--font-onest);font-weight:700}
+.row p{font-size:12px;color:var(--color-mist-body);margin-top:3px;line-height:1.4}
+.row .when{font-family:var(--font-pixel);font-size:15px;color:var(--color-deep-ink);flex:none}
+/* native toggle */
+.toggle{width:51px;height:31px;flex:none;position:relative;cursor:pointer;border:0;padding:0;background:transparent}
+.toggle .track{position:absolute;inset:0;border-radius:999px;background:var(--color-chalk-surface);transition:background .2s var(--ease-out-strong)}
+.toggle .knob{position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s var(--ease-out-strong)}
+.toggle[aria-pressed="true"] .track{background:var(--color-coral-flame)}
+.toggle[aria-pressed="true"] .knob{transform:translateX(20px)}
+::selection{background:var(--color-coral-flame);color:#fff}
+</style>
+</head>
+<body>
+<div class="phone">
+  <header class="appbar">
+    <div class="backbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+    <div><div class="crumb">SETTINGS</div><h1>Bedtime</h1></div>
+  </header>
+
+  <div class="scroll">
+    <div class="setter">
+      <div class="moon">🌙</div>
+      <div class="lab">PET BEDTIME · SCHOOL NIGHTS</div>
+      <div class="timeset">
+        <button class="st" id="dec"><span>−</span></button>
+        <div class="bigtime" id="time">7:30p</div>
+        <button class="st" id="inc"><span>+</span></button>
+      </div>
+      <p class="hint">The pet winds down and sleeps when your child does — no late-night play.</p>
+    </div>
+
+    <div class="glabel">Weekends</div>
+    <div class="row">
+      <div class="rmeta"><h3>Different bedtime on weekends</h3><p>Give Fri &amp; Sat a later wind-down</p></div>
+      <button class="toggle" aria-pressed="true"><span class="track"></span><span class="knob"></span></button>
+    </div>
+    <div class="row">
+      <div class="rmeta"><h3>Weekend bedtime</h3><p>Fri &amp; Sat nights</p></div>
+      <span class="when">8:30p</span>
+    </div>
+
+    <div class="glabel">Quiet hours</div>
+    <div class="row">
+      <div class="rmeta"><h3>School-hours quiet</h3><p>Pet rests 8:30a–3:00p on weekdays</p></div>
+      <button class="toggle" aria-pressed="true"><span class="track"></span><span class="knob"></span></button>
+    </div>
+    <div class="row">
+      <div class="rmeta"><h3>Morning wake</h3><p>Pet wakes with your child</p></div>
+      <span class="when">7:00a</span>
+    </div>
+  </div>
+</div>
+<script>
+let h=7,m=30;const t=document.getElementById('time');
+function fmt(){const mm=m<10?'0'+m:m;return h+':'+mm+'p'}
+document.getElementById('inc').onclick=()=>{m+=15;if(m>=60){m=0;h++}if(h>9)h=9;t.textContent=fmt()};
+document.getElementById('dec').onclick=()=>{m-=15;if(m<0){m=45;h--}if(h<6)h=6;t.textContent=fmt()};
+</script>
+</body>
+</html>

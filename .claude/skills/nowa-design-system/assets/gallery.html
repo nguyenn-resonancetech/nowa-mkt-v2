@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nowa Design System — Component Library</title>
+<link rel="stylesheet" href="tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--step8:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));
+  --step12:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px))}
+body{font-family:var(--font-noto-sans);color:var(--color-deep-ink);background-color:var(--surface-warm-parchment);
+  background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:var(--grid-cell) var(--grid-cell);line-height:var(--leading-body);-webkit-font-smoothing:antialiased;padding-bottom:80px}
+h1,h2,h3,h4{font-family:var(--font-onest);letter-spacing:-.025em;line-height:1.08}
+.wrap{max-width:var(--page-max-width);margin:0 auto;padding:0 var(--spacing-24)}
+header.top{background:var(--surface-deep-ink);color:#fff;padding:var(--spacing-48) 0 var(--spacing-32);margin-bottom:var(--spacing-48)}
+header.top .pill{font-family:var(--font-pixel);font-size:13px;letter-spacing:.08em;color:var(--color-coral-glow)}
+header.top h1{font-size:clamp(34px,5vw,56px);font-weight:900;margin:10px 0}
+header.top p{color:var(--color-chalk-surface);max-width:60ch}
+section.demo{padding:var(--spacing-48) 0;border-bottom:1px dashed var(--color-cloud-border)}
+.eyebrow{font-family:var(--font-pixel);font-size:14px;color:var(--color-coral-flame);letter-spacing:.06em;margin-bottom:6px}
+section.demo>.wrap>h2{font-size:var(--text-heading-lg);font-weight:800;margin-bottom:var(--spacing-24)}
+.note{font-size:var(--text-body-sm);color:var(--color-mist-body);margin-top:14px;max-width:70ch}
+.row{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+/* swatches */
+.sw{border:1px solid var(--color-chalk-surface);background:var(--surface-pure-white);overflow:hidden}
+.sw .chip{height:64px}
+.sw .meta{padding:8px 10px;font-size:12px}
+.sw .meta b{display:block;font-family:var(--font-onest);font-size:13px}
+.sw .meta code{color:var(--color-mist-body);font-size:11px}
+/* type specimens */
+.spec{margin-bottom:14px}
+.spec small{font-family:var(--font-pixel);font-size:11px;color:var(--color-mist-body);letter-spacing:.05em}
+/* ---- components copied from source ---- */
+.btn{--side:6px;--btn-top:var(--color-coral-flame);--btn-side:var(--color-ember-deep);display:inline-flex;align-items:center;gap:10px;background:linear-gradient(var(--btn-top),var(--btn-top)) no-repeat 0 0/100% calc(100% - var(--side)),var(--btn-side);color:#fff;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body);padding:16px 30px 22px;border:0;cursor:pointer;clip-path:var(--step8);transition:transform 70ms steps(2)}
+.btn:active{--side:2px;transform:translateY(4px)}
+.btn .arr{transition:transform 200ms var(--ease-out-strong)}
+@media(hover:hover) and (pointer:fine){.btn:hover{--side:9px;transform:translateY(-3px)}.btn:hover .arr{transform:translateX(3px)}}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink);padding:16px 6px;border-bottom:2px solid transparent;transition:border-color 200ms var(--ease-out-strong);background:none}
+.btn-ghost:hover{border-bottom-color:var(--color-coral-flame)}
+.mtab{--side:4px;--tab-top:var(--surface-pure-white);--tab-side:var(--color-cloud-border);font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);padding:11px 20px 15px;border:0;clip-path:var(--step8);background:linear-gradient(var(--tab-top),var(--tab-top)) no-repeat 0 0/100% calc(100% - var(--side)),var(--tab-side);color:var(--color-slate-mid);cursor:pointer;transition:color 150ms ease,transform 70ms steps(2)}
+.mtab.on{--side:2px;--tab-top:var(--color-deep-ink);--tab-side:var(--color-ink-charcoal);transform:translateY(2px);color:#fff}
+/* pixel card */
+.pxcard{position:relative;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);padding:var(--card-padding);filter:drop-shadow(var(--px-shadow))}
+.pxcard::before{content:"";position:absolute;inset:0;background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder);clip-path:var(--step12);z-index:0}
+.pxcard>*{position:relative;z-index:1}
+.pxcard h3{font-size:var(--text-subheading);margin-bottom:6px}
+.pxcard p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+.pxcard .n{font-family:var(--font-pixel);font-size:26px;color:var(--color-coral-flame);margin-bottom:10px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:6px 10px 12px 0}
+/* chips */
+.lvlchip{font-family:var(--font-pixel);font-size:10px;letter-spacing:.06em;background:var(--color-chalk-surface);color:var(--color-slate-mid);padding:2px 6px}
+.beta-chip{font-family:var(--font-pixel);font-size:11px;letter-spacing:.06em;background:var(--color-leaf-success);color:var(--color-deep-ink);padding:2px 7px}
+.sample-chip{font-family:var(--font-pixel);font-size:11px;letter-spacing:.06em;background:var(--color-amber-signal);color:var(--color-deep-ink);padding:2px 7px}
+/* chapter */
+.chapter{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm)}
+.chapter .cell{width:14px;height:14px;background:var(--color-coral-flame)}
+.chapter .cnum{font-family:var(--font-pixel);font-size:18px;color:var(--color-coral-flame)}
+/* meter */
+.meter{display:inline-flex;align-items:center;gap:8px}
+.meter .mlabel{font-family:var(--font-pixel);font-size:16px;color:var(--color-slate-mid);letter-spacing:.08em}
+.meter .mcells{display:flex;gap:4px}
+.meter .mc{width:14px;height:14px;background:var(--color-chalk-surface)}
+.meter .mc.full{background:var(--color-coral-flame)}
+/* eq */
+.eq{display:flex;gap:5px;align-items:flex-end;height:46px}
+.eq i{width:7px;background:var(--color-coral-glow);animation:eq 1.1s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.15s}.eq i:nth-child(3){animation-delay:.3s}.eq i:nth-child(4){animation-delay:.45s}.eq i:nth-child(5){animation-delay:.6s}
+@keyframes eq{0%,100%{height:12px}50%{height:46px}}
+/* sound bubble (on ink) */
+.demo-ink{background:var(--surface-deep-ink);padding:28px;display:inline-flex;flex-direction:column;gap:14px}
+.bubble{font-family:var(--font-pixel);font-size:26px;color:var(--color-amber-signal);letter-spacing:.06em}
+/* egg */
+.egg{width:96px;height:114px;background:var(--color-warm-parchment);position:relative;clip-path:polygon(36px 0,60px 0,60px 8px,72px 8px,72px 16px,80px 16px,80px 24px,88px 24px,88px 40px,96px 40px,96px 80px,88px 80px,88px 96px,80px 96px,80px 106px,64px 106px,64px 114px,32px 114px,32px 106px,16px 106px,16px 96px,8px 96px,8px 80px,0 80px,0 40px,8px 40px,8px 24px,16px 24px,16px 16px,24px 16px,24px 8px,36px 8px);display:flex;align-items:center;justify-content:center}
+.egg .q{font-family:var(--font-pixel);font-size:34px;color:var(--color-coral-flame)}
+.egg .spot{position:absolute;width:12px;height:12px;background:var(--color-coral-blush);top:30px;left:24px}
+/* device frame */
+.device-frame{display:inline-block;background:var(--surface-pure-white);border:3px solid var(--color-deep-ink);padding:10px 10px 0}
+.device-frame .screen{width:240px;height:150px;border:2px solid var(--color-ink-charcoal);background:var(--color-ink-charcoal);display:flex;align-items:center;justify-content:center;color:var(--color-cloud-border);font-family:var(--font-pixel);font-size:13px;background-image:linear-gradient(var(--grid-line-dark) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line-dark) 1px,transparent 1px);background-size:20px 20px}
+.df-buttons{display:flex;justify-content:center;gap:16px;padding:12px}
+.db{width:20px;height:20px;border-radius:50%}.db.y{background:var(--color-amber-signal)}.db.r{background:var(--color-coral-flame);width:34px;border-radius:10px}.db.b{background:#6c9bd2}
+/* dither */
+.dither{height:24px;background-color:var(--surface-deep-ink);background-image:linear-gradient(45deg,var(--surface-warm-parchment) 25%,transparent 25%,transparent 75%,var(--surface-warm-parchment) 75%),linear-gradient(45deg,var(--surface-warm-parchment) 25%,transparent 25%,transparent 75%,var(--surface-warm-parchment) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
+/* sparkle */
+.spark{width:18px;height:18px;background:var(--color-amber-signal);clip-path:polygon(40% 0,60% 0,60% 40%,100% 40%,100% 60%,60% 60%,60% 100%,40% 100%,40% 60%,0 60%,0 40%,40% 40%)}
+.spark.c{background:var(--color-coral-glow)}
+/* avatar (stepped) */
+.avatar{width:80px;height:80px;background:var(--color-chalk-surface);clip-path:var(--step12);display:flex;align-items:center;justify-content:center;font-family:var(--font-onest);font-weight:800;color:var(--color-slate-mid)}
+.app-map{width:100%;border-collapse:collapse;margin-top:8px;font-size:var(--text-body-sm)}
+.app-map td,.app-map th{border:1px solid var(--color-chalk-surface);padding:8px 10px;text-align:left;background:var(--surface-pure-white)}
+.app-map th{font-family:var(--font-onest);background:var(--surface-ghost-white)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="pill">NOWA DESIGN SYSTEM</div>
+    <h1>Component Library</h1>
+    <p>Storybook warmth + pixel playfulness. Canvas locked to <b style="color:#fff">Sunlit cream #fdf5dd</b>, hero = Stage. Everything below is driven by <code style="color:var(--color-coral-glow)">tokens.css</code>.</p>
+  </div>
+</header>
+
+<!-- COLOR -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">01</div><h2>Color</h2>
+  <div class="grid" id="swatches"></div>
+  <p class="note">Coral Flame is the only action color. Amber & leaf are signal-only (chips, sparkles).</p>
+</div></section>
+
+<!-- TYPE -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">02</div><h2>Typography</h2>
+  <div class="spec"><small>Onest 900 · display</small><div style="font-family:var(--font-onest);font-weight:900;font-size:56px;line-height:1.05">A friend who feels.</div></div>
+  <div class="spec"><small>Onest 800 · heading-xl</small><div style="font-family:var(--font-onest);font-weight:800;font-size:36px">Built with child-development scientists</div></div>
+  <div class="spec"><small>Onest 700 · subheading / labels</small><div style="font-family:var(--font-onest);font-weight:700;font-size:18px">Set routines, see progress</div></div>
+  <div class="spec"><small>Noto Sans · body</small><div style="font-size:16px;max-width:60ch;color:var(--color-slate-mid)">The pet doesn't speak human language — it responds in sounds, emotion, and animation. Warm, screen-free, and shaped by experts.</div></div>
+  <div class="spec"><small>Tiny5 · pet-world only</small><div style="font-family:var(--font-pixel);font-size:28px;color:var(--color-coral-flame)">LVL 3 · CARED FOR ♥</div></div>
+</div></section>
+
+<!-- BUTTONS -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">03</div><h2>Buttons & tabs</h2>
+  <div class="row">
+    <button class="btn">Pre-order $99 <span class="arr">→</span></button>
+    <a class="btn-ghost">How it works <span>→</span></a>
+  </div>
+  <div class="row" style="margin-top:22px">
+    <button class="mtab on">Routines</button>
+    <button class="mtab">Feelings</button>
+    <button class="mtab">Focus</button>
+  </div>
+  <p class="note">Primary = extruded pixel button (press me — chunky steps(2) feel). Tabs share the shape; active goes ink.</p>
+</div></section>
+
+<!-- CHIPS -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">04</div><h2>Chips & markers (Tiny5)</h2>
+  <div class="row">
+    <span class="lvlchip">LVL 3</span>
+    <span class="beta-chip">BETA</span>
+    <span class="sample-chip">SAMPLE</span>
+    <span class="chapter"><span class="cell"></span><span class="cnum">02</span> The care loop</span>
+  </div>
+</div></section>
+
+<!-- CARDS -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">05</div><h2>Pixel cards <code style="font-size:13px;color:var(--color-mist-body)">.pxcard</code></h2>
+  <div class="cards">
+    <div class="pxcard"><div class="n">01</div><h3>Adopt</h3><p>Hatch a blind-box species — each one's a little different.</p></div>
+    <div class="pxcard"><div class="n">02</div><h3>Care</h3><p>Daily routines feed real-world habits, not screen time.</p></div>
+    <div class="pxcard"><div class="n">03</div><h3>Grow</h3><p>The pet evolves as your child shows up for it.</p></div>
+  </div>
+  <p class="note">Stepped corners + 1px drawn border + hard 3px offset shadow. The universal surface — becomes list rows / sheets in app UI.</p>
+</div></section>
+
+<!-- PIXEL HUD -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">06</div><h2>Pixel HUD <span style="font-size:14px;color:var(--color-mist-body)">— reuse directly in app</span></h2>
+  <div class="row" style="gap:40px;align-items:flex-start">
+    <div>
+      <span class="meter"><span class="mlabel">CARE</span><span class="mcells"><i class="mc full"></i><i class="mc full"></i><i class="mc full"></i><i class="mc"></i></span></span>
+      <div style="margin-top:8px"><small style="font-family:var(--font-pixel);font-size:11px;color:var(--color-mist-body)">8-bit care meter</small></div>
+    </div>
+    <div class="demo-ink">
+      <div class="bubble">♪ prrr… blip!</div>
+      <div class="eq"><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div style="text-align:center">
+      <div class="egg"><span class="q">?</span><span class="spot"></span></div>
+      <div style="margin-top:8px"><small style="font-family:var(--font-pixel);font-size:11px;color:var(--color-mist-body)">blind egg</small></div>
+    </div>
+    <div class="row" style="gap:12px">
+      <span class="spark"></span><span class="spark c"></span>
+    </div>
+  </div>
+</div></section>
+
+<!-- MEDIA -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">07</div><h2>Media & avatars</h2>
+  <div class="row" style="gap:32px;align-items:flex-start">
+    <div>
+      <div class="device-frame">
+        <div class="screen">app screen →</div>
+        <div class="df-buttons"><span class="db y"></span><span class="db r"></span><span class="db b"></span></div>
+      </div>
+      <div style="margin-top:8px"><small style="font-family:var(--font-pixel);font-size:11px;color:var(--color-mist-body)">.device-frame — showcase shell</small></div>
+    </div>
+    <div>
+      <div class="avatar">SD</div>
+      <div style="margin-top:8px"><small style="font-family:var(--font-pixel);font-size:11px;color:var(--color-mist-body)">stepped avatar</small></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- TRANSITIONS -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">08</div><h2>Section transition (dither)</h2>
+</div>
+<div class="dither" style="margin-top:16px"></div>
+<div style="background:var(--surface-deep-ink);color:#fff;padding:32px 0"><div class="wrap"><h3 style="font-size:24px">Night chapter — deep ink band</h3><p style="color:var(--color-chalk-surface);font-size:14px;margin-top:6px">Day↔night storybook rhythm, bridged by the checkerboard dither.</p></div></div>
+</section>
+
+<!-- APP MAP -->
+<section class="demo" style="border-bottom:0"><div class="wrap">
+  <div class="eyebrow">09</div><h2>Component → app-UI map</h2>
+  <table class="app-map">
+    <tr><th>Web component</th><th>App-UI role</th></tr>
+    <tr><td>.btn / .btn-ghost</td><td>primary / secondary actions</td></tr>
+    <tr><td>.mtab</td><td>tab bar items, segmented controls</td></tr>
+    <tr><td>nav (blur + coral cell)</td><td>top app bar</td></tr>
+    <tr><td>.pxcard</td><td>list rows, content cards, sheets</td></tr>
+    <tr><td>.lvlchip / .beta-chip</td><td>XP/level badges, status pills</td></tr>
+    <tr><td>.meter / .egg / .eq / bubble</td><td>pet care HUD, hatch flow, sound feedback</td></tr>
+    <tr><td>.device-frame</td><td>in-showcase screen mockup</td></tr>
+  </table>
+  <p class="note">Build new for app: tab bar, list rows, nav header, modals/sheets, form fields, empty/loading/error states — on these same tokens & the stepped-corner + hard-shadow language.</p>
+</div></section>
+
+<script>
+const swatches = [
+  ['Coral Flame','#ef493d','action — CTAs only'],
+  ['Coral Glow','#f87a71','coral on dark'],
+  ['Coral Blush','#fececa','pixel offset'],
+  ['Ember Deep','#b9271c','button side'],
+  ['Deep Ink','#161c24','text / night canvas'],
+  ['Ink Charcoal','#212b36','dark faces'],
+  ['Slate Mid','#454f5b','secondary text'],
+  ['Mist Body','#637381','muted text'],
+  ['Sunlit Cream','#fdf5dd','CANVAS ★'],
+  ['Chalk','#dfe3e8','alt band'],
+  ['Pure White','#ffffff','cards'],
+  ['Amber Signal','#ffc107','sparkle/sample'],
+  ['Leaf Success','#54d62c','beta/success'],
+];
+document.getElementById('swatches').innerHTML = swatches.map(([n,h,u])=>
+  `<div class="sw"><div class="chip" style="background:${h}"></div><div class="meta"><b>${n}</b><code>${h}</code><div style="color:var(--color-mist-body);margin-top:2px">${u}</div></div></div>`
+).join('');
+</script>
+</body>
+</html>
