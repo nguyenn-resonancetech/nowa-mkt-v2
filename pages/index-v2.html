@@ -213,8 +213,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .lib-head{display:grid;grid-template-columns:1fr auto;gap:var(--spacing-24);align-items:end}
 .lib-head h2{font-size:clamp(30px,3.4vw,46px);max-width:20ch}
 .libs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--spacing-16);margin-top:var(--spacing-48)}
-.lib{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards);padding:var(--card-padding);transition:transform 350ms var(--ease-out-strong),box-shadow 350ms var(--ease-out-strong)}
-@media(hover:hover) and (pointer:fine){.lib:hover{transform:translateY(-4px);box-shadow:0 14px 28px -18px rgba(22,28,36,.35)}}
+.lib{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards);padding:var(--card-padding)}
 .lib .licon{width:44px;height:44px;border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:22px;margin-bottom:16px}
 .lib h3{font-size:var(--text-subheading);margin-bottom:6px}
 .lib p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
@@ -288,12 +287,28 @@ footer a:hover{color:#fff}
 /* Give containers room so right+bottom shadow isn't clipped */
 .steps,.libs,.segs,.advisors,.cmp,.faqs{padding-right:10px;padding-bottom:10px}
 .rev-row{padding:0 10px 10px 0}
+/* ── official card hover ─────────────────────────────────────
+   Default: lift + coral line traced around the stepped card.
+   Pet-world cards (.lib creature library) keep the bold coral fill. */
+/* ── card hover hierarchy ────────────────────────────────────
+   Affordance follows interactivity. Static content cards get a
+   quiet "whisper"; only clickable cards (links / buttons /
+   <details> / role=button) get the signature lift + coral line. */
 @media(hover:hover) and (pointer:fine){
-  .lib.pxcard:hover,.faq.pxcard:hover{transform:translateY(-4px);--pxbg:var(--color-coral-glow);color:#fff}
-  .lib.pxcard:hover *,.faq.pxcard:hover *{color:#fff}
-  .lib.pxcard:hover{filter:drop-shadow(8px 8px 0 rgba(22,28,36,.6))}
-  .lib.pxcard:hover .lvlchip{background:#fff;color:var(--color-deep-ink)}
+  /* all cards react quickly — outrank the .reveal 600-700ms entrance transition; opacity kept so fade-in survives */
+  .pxcard,.reveal.in.pxcard,.reveal-group.in>.pxcard{transition:transform 150ms var(--ease-out-strong),filter 150ms var(--ease-out-strong),opacity 400ms var(--ease-expo)}
+  /* Tier 2 reacts faster still — old console-button snap */
+  .reveal-group.in>:is(a,button,details,[role="button"]).pxcard,.reveal.in:is(a,button,details,[role="button"]).pxcard,:is(a,button,details,[role="button"]).pxcard{transition:transform 110ms var(--ease-out-strong),filter 110ms var(--ease-out-strong),opacity 400ms var(--ease-expo)}
+  /* Tier 4 — static cards: a clear lift, no coral line */
+  .reveal.in.pxcard:hover,.reveal-group.in>.pxcard:hover,.pxcard:hover{transform:translateY(-3px)}
+  /* Tier 2 — clickable cards: lift + thick coral line traced all around (incl. stepped corners) */
+  a.pxcard:hover,button.pxcard:hover,details.pxcard:hover,.pxcard[role="button"]:hover{--pxborder:var(--color-coral-flame);filter:drop-shadow(6px 6px 0 var(--color-coral-blush))}
+  /* coral fills the whole stepped shape (::before); an inset stepped layer (::after) punches the fill back in → uniform 4px coral ring on sides AND corners */
+  a.pxcard:hover::before,button.pxcard:hover::before,details.pxcard:hover::before,.pxcard[role="button"]:hover::before{background:var(--pxborder)}
+  a.pxcard:hover::after,button.pxcard:hover::after,details.pxcard:hover::after,.pxcard[role="button"]:hover::after{content:"";position:absolute;inset:0;width:auto;height:auto;z-index:0;background:var(--pxbg);clip-path:polygon(4px 16px,10px 16px,10px 10px,16px 10px,16px 4px,calc(100% - 16px) 4px,calc(100% - 16px) 10px,calc(100% - 10px) 10px,calc(100% - 10px) 16px,calc(100% - 4px) 16px,calc(100% - 4px) calc(100% - 16px),calc(100% - 10px) calc(100% - 16px),calc(100% - 10px) calc(100% - 10px),calc(100% - 16px) calc(100% - 10px),calc(100% - 16px) calc(100% - 4px),16px calc(100% - 4px),16px calc(100% - 10px),10px calc(100% - 10px),10px calc(100% - 16px),4px calc(100% - 16px))}
+  .reveal.in :is(a,button,details,[role="button"]).pxcard:hover,.reveal-group.in>:is(a,button,details,[role="button"]).pxcard:hover,:is(a,button,details,[role="button"]).pxcard:hover{transform:translateY(-5px)}
 }
+@media(prefers-reduced-motion:reduce){.pxcard{transition:none}.pxcard:hover{transform:none!important}}
 /* dithered checkerboard section transitions */
 .dither{height:24px;background-color:var(--dith-dark,var(--surface-deep-ink));background-image:linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%),linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
 .dither.rev{background-color:var(--dith-light,var(--surface-warm-parchment));background-image:linear-gradient(45deg,var(--dith-dark,var(--surface-deep-ink)) 25%,transparent 25%,transparent 75%,var(--dith-dark,var(--surface-deep-ink)) 75%),linear-gradient(45deg,var(--dith-dark,var(--surface-deep-ink)) 25%,transparent 25%,transparent 75%,var(--dith-dark,var(--surface-deep-ink)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
@@ -428,6 +443,11 @@ footer a:hover{color:#fff}
 /* faq */
 .faqs{max-width:var(--page-max-width-content);margin-top:var(--spacing-48);display:flex;flex-direction:column;gap:10px}
 .faq{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface)}
+/* opened: coral background + lifted, NO coral line (the click "commits") */
+.faq.pxcard[open]{--pxbg:#fdecea;--pxborder:var(--color-coral-blush);filter:drop-shadow(5px 5px 0 rgba(239,73,61,.32))}
+.reveal-group.in>.faq.pxcard[open],.faq.pxcard[open]{transform:translateY(-3px)}
+.faq.pxcard[open]::after{display:none}
+.faq.pxcard[open]::before{background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
 .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;font-family:var(--font-onest);font-weight:700}
 .faq summary::-webkit-details-marker{display:none}
 .fplus{font-family:var(--font-pixel);font-size:20px;color:var(--color-coral-flame);transition:transform 200ms var(--ease-out-strong);flex:none}

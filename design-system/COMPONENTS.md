@@ -83,8 +83,11 @@ panels, library cards, advisor cards, FAQ, compare columns, reviews.
 - **Theming vars:** `--pxbg` (fill), `--pxborder` (border color).
 - **Dark variant:** `.dark .pxcard` uses ink fill + translucent white border +
   darker shadow.
-- **Hover (where enabled):** lifts and flips to coral fill with white text
-  (library + FAQ cards).
+- **Hover & interaction:** governed by the tiered affordance system — **see §2b.**
+  In short: a static `.pxcard` lifts only; a *clickable* `.pxcard`
+  (`<a>`/`<button>`/`<details>`/`[role="button"]`) gets the coral-line lift; a
+  *committed* card (`.on` / `[open]`) takes a coral fill. Never give a static
+  `.pxcard` a "clickable" hover.
 
 ```css
 .pxcard{border-radius:0!important;position:relative;background:transparent!important;border:0!important;
@@ -99,6 +102,110 @@ panels, library cards, advisor cards, FAQ, compare columns, reviews.
 ```
 > Containers holding `.pxcard`s need `padding-right/bottom:10px` so the offset
 > shadow isn't clipped.
+
+---
+
+## §2b. Hover & interaction system (the affordance law)
+
+**The rule that lets this scale: _hover strength follows interactivity._** A
+surface reacts to the pointer only in proportion to what it does. When everything
+lifts and glows, nothing reads as clickable — so the page feels noisy and every
+new component drifts. Wire interactivity with **real semantics** (`<a>`,
+`<button>`, `<details>`, `[role="button"]`) and the correct tier applies
+**automatically**; never bolt a "clickable" hover onto a static `<div>`.
+
+### The five tiers
+
+| Tier | What | Hover treatment | Lift | Speed |
+|---|---|---|---|---|
+| **1 — Primary controls** | `.btn`, `.pbtn`, `.mtab`, `.pf-arrow`, `.pf-dot` | extruded press — side-face grows, stays coral | `-3px` (btn) | `70ms steps(2)` |
+| **2 — Clickable cards** | a `.pxcard` that is `<a>/<button>/<details>/[role="button"]` (today: `.faq`, `.egg-card`, `.papp-feat`) | **4px coral line traced all around** (incl. stepped corners) + coral-blush offset shadow | `-5px` | `110ms` |
+| **3 — Links** | nav links, `.btn-ghost`, footer/trust links, `.rail` | coral color / coral underline (no lift) | — | `150–200ms` |
+| **4 — Static cards** | a `.pxcard` that is a plain `<div>/<figure>` (`.step`, `.seg`, `.adv`, `.lib`, `.fun`, `.cmp .col`, `.revcard`, `.mpanel`, `.talk-demo`, `.pullq`, `.day-rhythm`) | **clear lift only — no coral line** | `-3px` | `150ms` |
+| **5 — Pet delight** | `.sp` species sprites, `.foot-pets` | playful lift + scale (whimsy, *not* affordance) | `-7/-8px` + scale | reveal-default |
+
+### Committed state — hover invites, the click commits
+When a Tier-2 card becomes **selected / active / open** (`.papp-feat.on`,
+`.faq[open]`, and any future toggled card), drop the coral line and switch to a
+**coral-tinted fill + settled lift**:
+`--pxbg:#fdecea` (light coral) · `--pxborder:var(--color-coral-blush)` (soft edge,
+**not** the flame line) · `transform:translateY(-3px)` · coral-tinted offset
+shadow. Suppress the hover ring with `::after{display:none}` and restore the base
+`::before` fill. End-to-end: **rest → hover (snappy lift + coral line) → commit
+(coral fill, settled, no line).**
+
+### The coral outline must be corner-accurate
+The Tier-2 line wraps the **whole stepped silhouette, corners included.** A simple
+inset *rectangle* leaves the corner staircase filled with card color (looks
+broken), so use **two stepped polygons**: `::before` floods the outer `‹STEP 12›`
+shape with `--pxborder` (coral); a hover `::after` clipped to an **inner** polygon
+punches the fill back in, leaving a uniform 4px ring. The inner polygon is `‹STEP
+12›` **inset 4px** — every `0→4px`, `6px→10px`, `12px→16px` (and each `100% - n`
+mirrored to `100% - (n+4)`). `width:auto;height:auto` on the `::after` is
+**required** so a card with a pre-existing `::after` (e.g. `.step`'s connector
+arrow) can't shrink it.
+
+```css
+@media(hover:hover) and (pointer:fine){
+  /* speed — snappy, and it must OUTRANK the 600–700ms .reveal entrance transition;
+     keep an opacity entry or the scroll-in fade dies */
+  .pxcard,.reveal.in.pxcard,.reveal-group.in>.pxcard{
+    transition:transform 150ms var(--ease-out-strong),filter 150ms var(--ease-out-strong),opacity 400ms var(--ease-expo)}
+  .reveal-group.in>:is(a,button,details,[role="button"]).pxcard,
+  .reveal.in:is(a,button,details,[role="button"]).pxcard,
+  :is(a,button,details,[role="button"]).pxcard{
+    transition:transform 110ms var(--ease-out-strong),filter 110ms var(--ease-out-strong),opacity 400ms var(--ease-expo)}
+
+  /* Tier 4 — static: lift only */
+  .reveal.in.pxcard:hover,.reveal-group.in>.pxcard:hover,.pxcard:hover{transform:translateY(-3px)}
+
+  /* Tier 2 — clickable: lift + coral ring (sides AND corners) */
+  a.pxcard:hover,button.pxcard:hover,details.pxcard:hover,.pxcard[role="button"]:hover{
+    --pxborder:var(--color-coral-flame);filter:drop-shadow(6px 6px 0 var(--color-coral-blush))}
+  a.pxcard:hover::before,button.pxcard:hover::before,details.pxcard:hover::before,.pxcard[role="button"]:hover::before{
+    background:var(--pxborder)}
+  a.pxcard:hover::after,button.pxcard:hover::after,details.pxcard:hover::after,.pxcard[role="button"]:hover::after{
+    content:"";position:absolute;inset:0;width:auto;height:auto;z-index:0;background:var(--pxbg);
+    clip-path:polygon(/* ‹STEP 12› inset 4px → 4/10/16 … */)}
+  .reveal.in :is(a,button,details,[role="button"]).pxcard:hover,
+  .reveal-group.in>:is(a,button,details,[role="button"]).pxcard:hover,
+  :is(a,button,details,[role="button"]).pxcard:hover{transform:translateY(-5px)}
+}
+/* committed state (selected / open) */
+.papp-feat.on,.faq.pxcard[open]{
+  --pxbg:#fdecea;--pxborder:var(--color-coral-blush);transform:translateY(-3px);
+  filter:drop-shadow(5px 5px 0 rgba(239,73,61,.32))}
+.papp-feat.on::after,.faq.pxcard[open]::after{display:none}
+@media(prefers-reduced-motion:reduce){.pxcard:hover{transform:none!important}}
+```
+
+### Maintainer notes — specificity traps (don't trip on these)
+1. **Reveal transitions own timing.** Scroll-in elements carry
+   `.js .reveal-group>*{transition:…600ms}` / `.js .reveal{…700ms}` (specificity
+   `0,2,0`). A faster card transition **must** outrank that with a reveal-aware
+   selector (above) or hover silently runs at 600ms. Always keep an `opacity`
+   entry in the override so the entrance fade survives.
+2. **Reveal pins transform.** `.js .reveal.in{transform:none}` and
+   `.reveal-group.in>*{transform:none}` (`0,3,0`) cancel a plain
+   `.pxcard:hover{transform}` lift. The lift/commit selectors are written
+   reveal-aware (`:is(...)` inflates specificity) so they win.
+3. **Dark `--pxbg` needs a double class.** Set it via `.x.pxcard`
+   (e.g. `.day-rhythm.pxcard{--pxbg:var(--color-ink-charcoal)}`) — the generic
+   `.pxcard{--pxbg:white}` is declared later and otherwise wins.
+4. **Label text + `::before`/`::after` overlays:** keep the §0 GOTCHA — wrap
+   button label text in a `<span>` so `.pxcard>*{z-index:1}` lifts it above the
+   pseudo-element layers.
+
+### Adding a new card (the workflow that keeps us consistent)
+- **Static info card** → plain `<div class="pxcard">`. It gets the Tier-4 lift for
+  free. Done.
+- **Clickable card** → make it a real `<a>`/`<button>`/`<details>` or add
+  `role="button"`. It gets the Tier-2 coral-line lift **automatically** — add
+  nothing.
+- **Toggleable/selected card** → add `.on` when active (or use `[open]` for
+  `<details>`). It gets the committed coral-fill state.
+- Never style a static `<div>` to *look* clickable, and never hard-code a
+  one-off hover — extend a tier instead.
 
 ---
 
@@ -189,12 +296,14 @@ optional Tiny5 number/icon.
   marching between steps. Grid of 4 → 2 → 1.
 - **`.mpanel`** — two-column mission panel (copy + `.mission-art` media), crossfades
   via `.mfade`/`.mfade.out`.
-- **`.lib`** — library card; `.licon` stepped pixel icon, hover flips to coral.
+- **`.lib`** — library card; `.licon` stepped pixel icon. Static `<div>` → Tier-4
+  lift only (see §2b); it is *not* clickable, so no coral line.
 - **`.seg`** — segment card (plain).
 - **`.adv`** — advisor card; stepped avatar (`‹STEP 12›`), name (Onest 800), role
   (ember), credentials list.
 - **`.fun`** — dark feature card (ink fill).
-- **`.faq`** — `<details>` accordion; Tiny5 `.fplus` rotates 45° when `[open]`.
+- **`.faq`** — `<details>` accordion → Tier-2 clickable card: coral-line lift on
+  hover, coral fill when `[open]` (see §2b). Tiny5 `.fplus` rotates 45° when open.
 - **`.pullq`** — advisor pull-quote (stepped avatar + Onest quote).
 - **`.revcard`** — review card on a horizontal `.rev-track` marquee; Tiny5 quote
   mark, `.beta-chip`.

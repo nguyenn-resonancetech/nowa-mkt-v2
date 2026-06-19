@@ -43,6 +43,14 @@ guardrails (carried from `CLAUDE.md`).
 9. **Pixel art renders crisp.** `image-rendering: pixelated` on sprites/scenes;
    advisor/product photos render normally (`image-rendering: auto`).
 
+10. **Hover strength follows interactivity.** A surface reacts to the pointer only
+    in proportion to what it does — clickable things get a clear, coral
+    affordance; static content stays quiet. Never make a non-interactive element
+    *look* clickable. Use real semantics (`<a>`/`<button>`/`<details>`/
+    `[role="button"]`) so the right tier applies automatically, and the committed
+    state (selected/open) reads differently from hover. The full tiered spec lives
+    in `COMPONENTS.md → §2b` — extend a tier, don't invent a one-off hover.
+
 ---
 
 ## Product facts (keep current — as of June 2026)

@@ -169,3 +169,20 @@ Rules (from `docs/DESIGN-V2.md`):
 - Hover effects gated to `(hover:hover) and (pointer:fine)` only.
 - Stagger 60–70ms inside groups; reveals are interruptible transitions.
 - Full `prefers-reduced-motion` fallback: instant states, no movement.
+
+### Interaction timing & lift (per hover tier)
+
+Hover strength follows interactivity (see `COMPONENTS.md → §2b` for the full
+system, CSS, and specificity gotchas). The "old console button" feel = a quick
+snap, not a float.
+
+| Tier | Card hover speed | Lift |
+|---|---|---|
+| Tier 1 — primary controls (`.btn`/`.mtab`/`.pbtn`) | `70ms steps(2)` press | `-3px` (active `+4px`) |
+| Tier 2 — clickable cards | **110ms** | hover `-5px`, committed `-3px` |
+| Tier 4 — static cards | **150ms** | `-3px` |
+
+> **Critical:** scroll-in `.reveal` transitions are 600–700ms and *outrank* a bare
+> `.pxcard` transition — so any snappy hover speed must be set with a reveal-aware
+> selector and must keep an `opacity` entry, or the hover runs slow / the fade-in
+> dies. Lifts must likewise be reveal-aware to beat `.reveal.in{transform:none}`.

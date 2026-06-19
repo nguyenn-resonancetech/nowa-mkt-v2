@@ -166,8 +166,8 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .safe-list .cell{position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--band-accent,var(--color-coral-glow))}
 .safe-col .talk-demo{margin-top:24px}
 /* Concept 1 — "a day in check-ins" anti-engagement visual */
-.day-rhythm{position:relative;margin-top:24px;background:var(--color-ink-charcoal);border-radius:var(--radius-cards-lg);padding:30px 30px 24px;overflow:hidden;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.18))}
-.dr-label{font-family:var(--font-pixel);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-cloud-border)}
+.day-rhythm.pxcard{position:relative;margin-top:24px;padding:30px 30px 24px;overflow:hidden;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.18));--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.06)}
+.dr-label{font-family:var(--font-onest);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-cloud-border)}
 .dr-track{position:relative;height:168px;margin-top:18px}
 .dr-line{position:absolute;left:8px;right:8px;top:50%;height:6px;transform:translateY(-50%);border-radius:3px;background:linear-gradient(90deg,#5a4420 0%,#2c3a5c 55%,#10141b 100%)}
 .dr-sun{position:absolute;left:0;top:50%;width:20px;height:20px;transform:translate(-3px,-50%);border-radius:50%;background:var(--color-amber-signal);box-shadow:0 0 0 4px rgba(255,193,7,.15)}
@@ -199,7 +199,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .papp-shot{min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:2px dashed var(--color-slate-mid);border-radius:16px;color:var(--color-cloud-border);font-family:var(--font-pixel);letter-spacing:.1em;background:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
 .papp-shot small{letter-spacing:.02em;opacity:.7;font-size:12px}
 .papp-feats{display:grid;gap:var(--spacing-16)}
-.papp-feat{position:relative;background:transparent;border:0;border-radius:0;padding:var(--card-padding);cursor:pointer;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);filter:drop-shadow(3px 3px 0 rgba(22,28,36,.14));transition:filter 200ms var(--ease-out-strong),transform 200ms var(--ease-out-strong)}
+.papp-feat{position:relative;background:transparent;border:0;border-radius:0;padding:var(--card-padding);cursor:pointer;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);filter:drop-shadow(3px 3px 0 rgba(22,28,36,.14));transition:filter 110ms var(--ease-out-strong),transform 110ms var(--ease-out-strong)}
 .papp-feat::before{content:"";position:absolute;inset:0;z-index:0;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
 .papp-feat>*{position:relative;z-index:1}
 .papp-feat h3{color:var(--color-deep-ink);font-size:var(--text-subheading)}
@@ -223,7 +223,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .pf-slide{flex:0 0 300px;height:100%;scroll-snap-align:start;overflow:hidden;position:relative}
 .pf-slide.pf-hide{display:none}
 .pf-slide iframe{width:393px;height:904px;border:0;transform:scale(.76336);transform-origin:top left;display:block;pointer-events:none;background:var(--surface-warm-parchment)}
-.pf-load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:12px;color:var(--color-mist-body);letter-spacing:.08em}
+.pf-load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-onest);font-weight:600;font-size:12px;color:var(--color-mist-body);letter-spacing:.08em}
 .pf-nav{display:flex;align-items:center;gap:16px}
 .pf-arrow{width:40px;height:40px;background:var(--color-ink-charcoal);border:2px solid var(--color-slate-mid);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
   clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));
@@ -235,8 +235,14 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .pf-dot{width:9px;height:9px;background:var(--color-slate-mid);border:0;padding:0;cursor:pointer;transition:background 150ms ease,transform 150ms ease}
 .pf-dot.on{background:var(--color-coral-flame);transform:scale(1.25)}
 .papp-feat .papp-go{font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);color:var(--color-coral-flame);opacity:0;display:inline-block;margin-top:8px;transition:opacity 200ms ease}
-@media(hover:hover) and (pointer:fine){.papp-feat:hover{transform:translateY(-3px);filter:drop-shadow(6px 6px 0 rgba(22,28,36,.16))}}
-.papp-feat.on{--pxbg:#fdecea;--pxborder:var(--color-coral-flame);filter:drop-shadow(5px 5px 0 rgba(239,73,61,.32))}
+@media(hover:hover) and (pointer:fine){
+  .papp-feat:hover{transform:translateY(-5px);--pxborder:var(--color-coral-flame);filter:drop-shadow(6px 6px 0 var(--color-coral-blush))}
+  .papp-feat:hover::before{background:var(--pxborder)}
+  .papp-feat:hover::after{content:"";position:absolute;inset:0;width:auto;height:auto;z-index:0;background:var(--pxbg);clip-path:polygon(4px 16px,10px 16px,10px 10px,16px 10px,16px 4px,calc(100% - 16px) 4px,calc(100% - 16px) 10px,calc(100% - 10px) 10px,calc(100% - 10px) 16px,calc(100% - 4px) 16px,calc(100% - 4px) calc(100% - 16px),calc(100% - 10px) calc(100% - 16px),calc(100% - 10px) calc(100% - 10px),calc(100% - 16px) calc(100% - 10px),calc(100% - 16px) calc(100% - 4px),16px calc(100% - 4px),16px calc(100% - 10px),10px calc(100% - 10px),10px calc(100% - 16px),4px calc(100% - 16px))}}
+/* selected: coral background + lifted, NO coral line (the click "commits") */
+.papp-feat.on{--pxbg:#fdecea;--pxborder:var(--color-coral-blush);transform:translateY(-3px);filter:drop-shadow(5px 5px 0 rgba(239,73,61,.32))}
+.papp-feat.on::after{display:none}
+.papp-feat.on::before{background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
 .papp-feat.on .papp-go{opacity:1}
 .papp-feat:focus-visible{outline:2px solid var(--color-coral-glow);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.pf-track{scroll-behavior:auto}.papp-feat,.pf-arrow,.pf-dot,.papp-go{transition:none}}
@@ -299,8 +305,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .lib-head{display:grid;grid-template-columns:1fr auto;gap:var(--spacing-24);align-items:end}
 .lib-head h2{font-size:clamp(30px,3.4vw,46px);max-width:20ch}
 .libs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--spacing-16);margin-top:var(--spacing-48)}
-.lib{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards);padding:var(--card-padding);transition:transform 350ms var(--ease-out-strong),box-shadow 350ms var(--ease-out-strong)}
-@media(hover:hover) and (pointer:fine){.lib:hover{transform:translateY(-4px);box-shadow:0 14px 28px -18px rgba(22,28,36,.35)}}
+.lib{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards);padding:var(--card-padding)}
 .lib .licon{width:44px;height:44px;border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:22px;margin-bottom:16px}
 .lib h3{font-size:var(--text-subheading);margin-bottom:6px}
 .lib p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
@@ -374,12 +379,28 @@ footer a:hover{color:#fff}
 /* Give containers room so right+bottom shadow isn't clipped */
 .steps,.libs,.segs,.advisors,.cmp,.faqs{padding-right:10px;padding-bottom:10px}
 .rev-row{padding:0 10px 10px 0}
+/* ── official card hover ─────────────────────────────────────
+   Default: lift + coral line traced around the stepped card.
+   Pet-world cards (.lib creature library) keep the bold coral fill. */
+/* ── card hover hierarchy ────────────────────────────────────
+   Affordance follows interactivity. Static content cards get a
+   quiet "whisper"; only clickable cards (links / buttons /
+   <details> / role=button) get the signature lift + coral line. */
 @media(hover:hover) and (pointer:fine){
-  .lib.pxcard:hover,.faq.pxcard:hover{transform:translateY(-4px);--pxbg:var(--color-coral-glow);color:#fff}
-  .lib.pxcard:hover *,.faq.pxcard:hover *{color:#fff}
-  .lib.pxcard:hover{filter:drop-shadow(8px 8px 0 rgba(22,28,36,.6))}
-  .lib.pxcard:hover .lvlchip{background:#fff;color:var(--color-deep-ink)}
+  /* all cards react quickly — outrank the .reveal 600-700ms entrance transition; opacity kept so fade-in survives */
+  .pxcard,.reveal.in.pxcard,.reveal-group.in>.pxcard{transition:transform 150ms var(--ease-out-strong),filter 150ms var(--ease-out-strong),opacity 400ms var(--ease-expo)}
+  /* Tier 2 reacts faster still — old console-button snap */
+  .reveal-group.in>:is(a,button,details,[role="button"]).pxcard,.reveal.in:is(a,button,details,[role="button"]).pxcard,:is(a,button,details,[role="button"]).pxcard{transition:transform 110ms var(--ease-out-strong),filter 110ms var(--ease-out-strong),opacity 400ms var(--ease-expo)}
+  /* Tier 4 — static cards: a clear lift, no coral line */
+  .reveal.in.pxcard:hover,.reveal-group.in>.pxcard:hover,.pxcard:hover{transform:translateY(-3px)}
+  /* Tier 2 — clickable cards: lift + thick coral line traced all around (incl. stepped corners) */
+  a.pxcard:hover,button.pxcard:hover,details.pxcard:hover,.pxcard[role="button"]:hover{--pxborder:var(--color-coral-flame);filter:drop-shadow(6px 6px 0 var(--color-coral-blush))}
+  /* coral fills the whole stepped shape (::before); an inset stepped layer (::after) punches the fill back in → uniform 4px coral ring on sides AND corners */
+  a.pxcard:hover::before,button.pxcard:hover::before,details.pxcard:hover::before,.pxcard[role="button"]:hover::before{background:var(--pxborder)}
+  a.pxcard:hover::after,button.pxcard:hover::after,details.pxcard:hover::after,.pxcard[role="button"]:hover::after{content:"";position:absolute;inset:0;width:auto;height:auto;z-index:0;background:var(--pxbg);clip-path:polygon(4px 16px,10px 16px,10px 10px,16px 10px,16px 4px,calc(100% - 16px) 4px,calc(100% - 16px) 10px,calc(100% - 10px) 10px,calc(100% - 10px) 16px,calc(100% - 4px) 16px,calc(100% - 4px) calc(100% - 16px),calc(100% - 10px) calc(100% - 16px),calc(100% - 10px) calc(100% - 10px),calc(100% - 16px) calc(100% - 10px),calc(100% - 16px) calc(100% - 4px),16px calc(100% - 4px),16px calc(100% - 10px),10px calc(100% - 10px),10px calc(100% - 16px),4px calc(100% - 16px))}
+  .reveal.in :is(a,button,details,[role="button"]).pxcard:hover,.reveal-group.in>:is(a,button,details,[role="button"]).pxcard:hover,:is(a,button,details,[role="button"]).pxcard:hover{transform:translateY(-5px)}
 }
+@media(prefers-reduced-motion:reduce){.pxcard{transition:none}.pxcard:hover{transform:none!important}}
 /* dithered checkerboard section transitions */
 .dither{height:24px;background-color:var(--dith-dark,var(--surface-deep-ink));background-image:linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%),linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
 .dither.rev{background-color:var(--dith-light,var(--surface-warm-parchment));background-image:linear-gradient(45deg,var(--dith-dark,var(--surface-deep-ink)) 25%,transparent 25%,transparent 75%,var(--dith-dark,var(--surface-deep-ink)) 75%),linear-gradient(45deg,var(--dith-dark,var(--surface-deep-ink)) 25%,transparent 25%,transparent 75%,var(--dith-dark,var(--surface-deep-ink)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
@@ -514,6 +535,11 @@ footer a:hover{color:#fff}
 /* faq */
 .faqs{max-width:var(--page-max-width-content);margin-top:var(--spacing-48);display:flex;flex-direction:column;gap:10px}
 .faq{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface)}
+/* opened: coral background + lifted, NO coral line (the click "commits") */
+.faq.pxcard[open]{--pxbg:#fdecea;--pxborder:var(--color-coral-blush);filter:drop-shadow(5px 5px 0 rgba(239,73,61,.32))}
+.reveal-group.in>.faq.pxcard[open],.faq.pxcard[open]{transform:translateY(-3px)}
+.faq.pxcard[open]::after{display:none}
+.faq.pxcard[open]::before{background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
 .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;font-family:var(--font-onest);font-weight:700}
 .faq summary::-webkit-details-marker{display:none}
 .fplus{font-family:var(--font-pixel);font-size:20px;color:var(--color-coral-flame);transition:transform 200ms var(--ease-out-strong);flex:none}
@@ -923,7 +949,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
           <li><span class="cell"></span>No infinite scroll, autoplay, or notifications pulling them back</li>
           <li><span class="cell"></span>Every check-in points back out — to real routines, real people, real play</li>
         </ul>
-        <div class="day-rhythm reveal" role="img" aria-label="A day with Nowa — three short check-ins of about 10 to 15 minutes spread across the day, with the rest of the day free for real life">
+        <div class="day-rhythm pxcard reveal" role="img" aria-label="A day with Nowa — three short check-ins of about 10 to 15 minutes spread across the day, with the rest of the day free for real life">
           <p class="dr-label">A day with Nowa</p>
           <div class="dr-track" aria-hidden="true">
             <span class="dr-line"></span>

@@ -9,7 +9,8 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--step8:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));
-  --step12:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px))}
+  --step12:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));
+  --step12-in:polygon(4px 16px,10px 16px,10px 10px,16px 10px,16px 4px,calc(100% - 16px) 4px,calc(100% - 16px) 10px,calc(100% - 10px) 10px,calc(100% - 10px) 16px,calc(100% - 4px) 16px,calc(100% - 4px) calc(100% - 16px),calc(100% - 10px) calc(100% - 16px),calc(100% - 10px) calc(100% - 10px),calc(100% - 16px) calc(100% - 10px),calc(100% - 16px) calc(100% - 4px),16px calc(100% - 4px),16px calc(100% - 10px),10px calc(100% - 10px),10px calc(100% - 16px),4px calc(100% - 16px))}
 body{font-family:var(--font-noto-sans);color:var(--color-deep-ink);background-color:var(--surface-warm-parchment);
   background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
   background-size:var(--grid-cell) var(--grid-cell);line-height:var(--leading-body);-webkit-font-smoothing:antialiased;padding-bottom:80px}
@@ -50,6 +51,22 @@ section.demo>.wrap>h2{font-size:var(--text-heading-lg);font-weight:800;margin-bo
 .pxcard h3{font-size:var(--text-subheading);margin-bottom:6px}
 .pxcard p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
 .pxcard .n{font-family:var(--font-pixel);font-size:26px;color:var(--color-coral-flame);margin-bottom:10px}
+/* hover & interaction tiers — affordance follows interactivity (see COMPONENTS.md §2b) */
+@media(hover:hover) and (pointer:fine){
+  .pxcard{transition:transform 150ms var(--ease-out-strong),filter 150ms var(--ease-out-strong)}
+  a.pxcard,button.pxcard,details.pxcard,.pxcard[role="button"]{transition:transform 110ms var(--ease-out-strong),filter 110ms var(--ease-out-strong)}
+  /* Tier 4 static: clear lift only, no coral line */
+  .pxcard:hover{transform:translateY(-3px)}
+  /* Tier 2 clickable: lift + coral line traced all around (incl. stepped corners) */
+  a.pxcard:hover,button.pxcard:hover,details.pxcard:hover,.pxcard[role="button"]:hover{transform:translateY(-5px);--pxborder:var(--color-coral-flame);filter:drop-shadow(6px 6px 0 var(--color-coral-blush))}
+  a.pxcard:hover::before,button.pxcard:hover::before,details.pxcard:hover::before,.pxcard[role="button"]:hover::before{background:var(--pxborder)}
+  a.pxcard:hover::after,button.pxcard:hover::after,details.pxcard:hover::after,.pxcard[role="button"]:hover::after{content:"";position:absolute;inset:0;width:auto;height:auto;z-index:0;background:var(--pxbg);clip-path:var(--step12-in)}
+}
+/* committed state (selected / open): coral fill + settled lift, no line — the click commits */
+.pxcard.on,.pxcard[open]{--pxbg:#fdecea;--pxborder:var(--color-coral-blush);transform:translateY(-3px);filter:drop-shadow(5px 5px 0 rgba(239,73,61,.32))}
+.pxcard.on::after,.pxcard[open]::after,.pxcard.on:hover::after,.pxcard[open]:hover::after{display:none}
+.pxcard.on:hover::before,.pxcard[open]:hover::before{background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
+@media(prefers-reduced-motion:reduce){.pxcard:hover{transform:none!important}}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:6px 10px 12px 0}
 /* chips */
 .lvlchip{font-family:var(--font-pixel);font-size:10px;letter-spacing:.06em;background:var(--color-chalk-surface);color:var(--color-slate-mid);padding:2px 6px}
@@ -155,6 +172,17 @@ section.demo>.wrap>h2{font-size:var(--text-heading-lg);font-weight:800;margin-bo
     <div class="pxcard"><div class="n">03</div><h3>Grow</h3><p>The pet evolves as your child shows up for it.</p></div>
   </div>
   <p class="note">Stepped corners + 1px drawn border + hard 3px offset shadow. The universal surface — becomes list rows / sheets in app UI.</p>
+</div></section>
+
+<!-- INTERACTION STATES -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">05b</div><h2>Hover &amp; interaction <span style="font-size:14px;color:var(--color-mist-body)">— affordance follows interactivity</span></h2>
+  <div class="cards">
+    <div class="pxcard"><div class="n">01</div><h3>Static card</h3><p>Plain <code>&lt;div&gt;</code>. Hover = a clear lift only — no coral line. <strong>Tier 4.</strong></p></div>
+    <button class="pxcard" style="display:block;width:100%;text-align:left;font:inherit;color:inherit;background:transparent;border:0;cursor:pointer"><div class="n">02</div><h3>Clickable card</h3><p>A real <code>&lt;button&gt;/&lt;a&gt;/&lt;details&gt;</code>. Hover = lift + coral line traced all around. <strong>Tier 2.</strong></p></button>
+    <div class="pxcard on"><div class="n">03</div><h3>Selected / open</h3><p>The committed state — coral fill, settled lift, <em>no</em> line. Hover invites; the click commits.</p></div>
+  </div>
+  <p class="note">Hover strength follows interactivity — clickable things earn the coral affordance, static content stays quiet. Add a card: static→plain <code>&lt;div&gt;</code>; clickable→real <code>&lt;button&gt;/&lt;a&gt;/&lt;details&gt;</code> (Tier 2 is automatic); selected→add <code>.on</code>. Full spec: COMPONENTS.md §2b.</p>
 </div></section>
 
 <!-- PIXEL HUD -->

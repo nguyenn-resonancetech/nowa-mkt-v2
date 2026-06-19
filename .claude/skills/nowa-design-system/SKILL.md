@@ -75,6 +75,27 @@ These are non-negotiable. Why they matter is in `references/BRAND-RULES.md`.
   pixel presses use chunky `steps(2)`; hover only on fine pointers; always a
   `prefers-reduced-motion` instant fallback.
 - **Pixel art renders crisp** (`image-rendering: pixelated`); photos render normal.
+- **Hover strength follows interactivity.** Only clickable things get a strong
+  hover; static content stays quiet. Never make a non-interactive element look
+  clickable. Wire real semantics so the right tier applies automatically.
+
+## Hover & interaction hierarchy
+
+The page stays calm because hover ≠ decoration; hover = affordance. Full spec +
+CSS + specificity traps in `references/COMPONENTS.md §2b`. The short version:
+
+| Tier | What | Hover | Lift / speed |
+|---|---|---|---|
+| 1 | primary controls (`.btn`, `.mtab`, `.pbtn`) | extruded coral press | `-3px` / `70ms steps(2)` |
+| 2 | **clickable** cards (`<a>/<button>/<details>/[role=button]` `.pxcard`) | 4px coral line traced all around (corners incl.) | `-5px` / `110ms` |
+| 3 | links | coral color / underline | — |
+| 4 | **static** cards (plain `<div>` `.pxcard`) | clear lift, **no** coral line | `-3px` / `150ms` |
+| 5 | pet sprites | playful lift + scale | delight |
+
+Committed state (selected `.on` / open `[open]`): **coral fill + settled lift, no
+line** — hover invites, the click commits. To add a card: static → plain `<div>`;
+clickable → real `<a>/<button>/<details>`/`role=button` (Tier 2 is automatic);
+selected → add `.on`. Never hand-roll a one-off hover — extend a tier.
 
 ## Token quick reference
 
