@@ -1,2 +1,4 @@
 .wrangler/
 .DS_Store
+design-system-workspace/
+.claude/worktrees/

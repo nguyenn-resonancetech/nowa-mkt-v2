@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nowa · Emotional regulation</title>
+<link rel="stylesheet" href="../../design-system/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --step8:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));
+  --step12:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));
+}
+html,body{height:100%}
+body{font-family:var(--font-noto-sans);color:var(--color-deep-ink);background:var(--color-slate-mid);display:flex;align-items:center;justify-content:center;padding:20px;-webkit-font-smoothing:antialiased}
+.phone{width:393px;height:852px;position:relative;overflow:hidden;background-color:var(--surface-warm-parchment);display:flex;flex-direction:column;box-shadow:0 24px 60px -20px rgba(0,0,0,.5)}
+.scroll{flex:1;overflow-y:auto;padding:0 18px 40px}
+h1,h2,h3,h4{font-family:var(--font-onest);letter-spacing:-.02em;line-height:1.12}
+.appbar{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--color-warm-parchment) 84%,transparent);border-bottom:1px solid rgba(22,28,36,.07);padding:14px 18px;display:flex;align-items:center;gap:12px}
+.backbtn{width:38px;height:38px;background:var(--surface-pure-white);clip-path:var(--step8);display:flex;align-items:center;justify-content:center;filter:drop-shadow(var(--px-shadow));cursor:pointer}
+.backbtn svg{width:18px;height:18px}
+.appbar .crumb{font-size:11px;color:var(--color-mist-body);font-weight:600;letter-spacing:.06em}
+.appbar h1{font-size:20px;font-weight:800}
+
+.hero{padding:18px 4px 6px}
+.hero .adv{display:flex;align-items:center;gap:10px;margin-top:12px;padding:10px 12px;background:#fdecea;clip-path:var(--step8)}
+.hero .adv img{width:34px;height:34px;clip-path:var(--step8);object-fit:cover;flex:none;background:var(--color-chalk-surface)}
+.hero .adv .at{font-size:12px;color:var(--color-slate-mid);line-height:1.35}
+.hero .adv .at b{color:var(--color-deep-ink)}
+
+/* big trend — weekly columns of cells */
+.bigtrend{position:relative;margin:18px 8px 0 0;padding:18px;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);filter:drop-shadow(var(--px-shadow))}
+.bigtrend::before{content:"";position:absolute;inset:0;z-index:0;clip-path:var(--step12);background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
+.bigtrend>*{position:relative;z-index:1}
+.bigtrend .bk{font-family:var(--font-onest);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-mist-body);margin-bottom:14px}
+.cols{display:flex;align-items:flex-end;justify-content:space-around;height:128px}
+.col{display:flex;flex-direction:column-reverse;gap:4px;align-items:center}
+.col .c{width:22px;height:18px;background:var(--color-chalk-surface)}
+.col .c.on{background:var(--color-coral-flame)}
+.col.cur .c.on{background:var(--color-coral-flame)}
+.col .wl{font-family:var(--font-pixel);font-size:10px;color:var(--color-mist-body);margin-top:8px}
+.col.cur .wl{color:var(--color-coral-flame)}
+
+.body{padding:20px 4px 0}
+.body h2{font-size:18px;font-weight:800;margin-bottom:8px}
+.body p{font-size:14px;color:var(--color-slate-mid);line-height:1.6;margin-bottom:12px}
+.body p b{color:var(--color-deep-ink);font-weight:700}
+
+.glabel{font-family:var(--font-onest);font-weight:700;font-size:11px;letter-spacing:.12em;color:var(--color-mist-body);text-transform:uppercase;margin:22px 0 12px 2px}
+.moment{position:relative;display:flex;gap:12px;align-items:flex-start;margin:0 8px 10px 0;padding:14px 16px;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);filter:drop-shadow(var(--px-shadow))}
+.moment::before{content:"";position:absolute;inset:0;z-index:0;clip-path:var(--step12);background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
+.moment>*{position:relative;z-index:1}
+.moment .md{width:12px;height:12px;background:var(--color-coral-flame);flex:none;margin-top:4px}
+.moment p{font-size:14px;color:var(--color-slate-mid);line-height:1.45}
+.moment p b{color:var(--color-deep-ink)}
+::selection{background:var(--color-coral-flame);color:#fff}
+</style>
+</head>
+<body>
+<div class="phone">
+  <header class="appbar">
+    <div class="backbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+    <div><div class="crumb">GROWTH</div><h1>Emotional regulation</h1></div>
+  </header>
+
+  <div class="scroll">
+    <div class="hero">
+      <div class="adv"><img src="../../pages/assets/avatars/dr-susanne-denham.png" alt="Dr. Susanne Denham"><div class="at">Shaped by <b>Dr. Susanne Denham's</b> emotional-competence framework</div></div>
+    </div>
+
+    <div class="bigtrend">
+      <div class="bk">Naming feelings · last 4 weeks</div>
+      <div class="cols">
+        <div class="col"><span class="c on"></span><span class="wl">w1</span></div>
+        <div class="col"><span class="c on"></span><span class="c on"></span><span class="wl">w2</span></div>
+        <div class="col"><span class="c on"></span><span class="c on"></span><span class="wl">w3</span></div>
+        <div class="col cur"><span class="c on"></span><span class="c on"></span><span class="c on"></span><span class="c on"></span><span class="wl">now</span></div>
+      </div>
+    </div>
+
+    <div class="body">
+      <h2>What we're seeing</h2>
+      <p>Mira <b>named her feelings 4 times</b> this week — up from 1 last week. She's starting to reach for words when big feelings arrive, instead of only acting them out.</p>
+      <p>Denham's work shows that <b>naming a feeling is the first step to managing it</b>. Small, repeated moments like these matter more than any single big one.</p>
+    </div>
+
+    <div class="glabel">Moments this week</div>
+    <div class="moment"><span class="md"></span><p>Told her pet she felt <b>"frustrated"</b> when a tower fell — then tried again.</p></div>
+    <div class="moment"><span class="md"></span><p>Used the word <b>"nervous"</b> before show-and-tell on Tuesday.</p></div>
+    <div class="moment"><span class="md"></span><p>Named feeling <b>"proud"</b> after finishing a hard puzzle.</p></div>
+  </div>
+</div>
+</body>
+</html>

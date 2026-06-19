@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nowa · Controls</title>
+<link rel="stylesheet" href="../../design-system/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --step8:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));
+  --step12:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));
+}
+html,body{height:100%}
+body{font-family:var(--font-noto-sans);color:var(--color-deep-ink);background:var(--color-slate-mid);
+  display:flex;align-items:center;justify-content:center;padding:20px;-webkit-font-smoothing:antialiased}
+.phone{width:393px;height:852px;position:relative;overflow:hidden;background-color:var(--surface-warm-parchment);
+  display:flex;flex-direction:column;box-shadow:0 24px 60px -20px rgba(0,0,0,.5)}
+.scroll{flex:1;overflow-y:auto;padding:0 18px 96px}
+h1,h2,h3,h4{font-family:var(--font-onest);letter-spacing:-.02em;line-height:1.1}
+
+/* app bar */
+.appbar{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);
+  background:color-mix(in srgb,var(--color-warm-parchment) 84%,transparent);
+  border-bottom:1px solid rgba(22,28,36,.07);padding:14px 18px}
+.appbar .top{display:flex;align-items:center;gap:12px}
+.backbtn{width:38px;height:38px;background:var(--surface-pure-white);clip-path:var(--step8);
+  display:flex;align-items:center;justify-content:center;filter:drop-shadow(var(--px-shadow));cursor:pointer}
+.backbtn svg{width:18px;height:18px}
+.appbar h1{font-size:24px;font-weight:800}
+.appbar .brand-cell{width:11px;height:11px;background:var(--color-coral-flame);margin-left:auto}
+
+/* control framing banner — light, warm, compact (brand identity layer) */
+.frame-banner{position:relative;margin:16px 8px 4px 0;padding:16px 18px;--pxbg:#fdecea;--pxborder:var(--color-coral-blush);filter:drop-shadow(var(--px-shadow))}
+.frame-banner::before{content:"";position:absolute;inset:0;z-index:0;clip-path:var(--step12);
+  background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
+.frame-banner>*{position:relative;z-index:1}
+.frame-banner .lock{font-family:var(--font-onest);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-ember-deep);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.frame-banner .lock .sq{width:10px;height:10px;background:var(--color-coral-flame)}
+.frame-banner h2{font-size:19px;font-weight:800;margin-bottom:6px;color:var(--color-deep-ink)}
+.frame-banner p{font-size:13px;color:var(--color-slate-mid);line-height:1.5;max-width:48ch}
+
+/* group label */
+.glabel{font-family:var(--font-onest);font-weight:700;font-size:11px;letter-spacing:.12em;
+  color:var(--color-mist-body);text-transform:uppercase;margin:26px 0 12px 2px}
+
+/* accordion group (pxcard + details) */
+.grp{position:relative;margin:0 8px 14px 0;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);filter:drop-shadow(var(--px-shadow))}
+.grp::before{content:"";position:absolute;inset:0;z-index:0;clip-path:var(--step12);
+  background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
+.grp>*{position:relative;z-index:1}
+.grp summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px}
+.grp summary::-webkit-details-marker{display:none}
+.grp summary .gi{width:34px;height:34px;flex:none;clip-path:var(--step8);background:var(--surface-warm-parchment);
+  display:flex;align-items:center;justify-content:center;font-size:17px}
+.grp summary .gt{flex:1}
+.grp summary h3{font-size:var(--text-subheading);font-weight:800}
+.grp summary .gs{font-size:12px;color:var(--color-mist-body);margin-top:1px}
+.grp .fplus{font-family:var(--font-pixel);font-size:20px;color:var(--color-coral-flame);transition:transform 200ms var(--ease-out-strong);flex:none}
+.grp[open] .fplus{transform:rotate(45deg)}
+.grp .gbody{padding:0 18px 8px}
+.grp .gbody>.sep{height:1px;background:var(--color-chalk-surface);margin:0 0 4px}
+
+/* control row */
+.ctrl{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #eef0f2}
+.ctrl:last-child{border-bottom:0}
+.ctrl .cmeta{flex:1}
+.ctrl .cmeta .ct{font-family:var(--font-onest);font-weight:700;font-size:15px}
+.ctrl .cmeta .cd{font-size:12px;color:var(--color-mist-body);margin-top:2px;line-height:1.4}
+.ctrl .manage{font-family:var(--font-onest);font-weight:700;font-size:13px;color:var(--color-coral-flame);
+  border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
+.ctrl .manage:hover{border-bottom-color:var(--color-coral-flame)}
+
+/* toggle — native iOS-style (control layer); coral = on keeps it Nowa */
+.toggle{width:51px;height:31px;flex:none;position:relative;cursor:pointer;border:0;padding:0;background:transparent}
+.toggle .track{position:absolute;inset:0;border-radius:999px;background:var(--color-chalk-surface);transition:background 200ms var(--ease-out-strong)}
+.toggle .knob{position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform 200ms var(--ease-out-strong)}
+.toggle[aria-pressed="true"] .track{background:var(--color-coral-flame)}
+.toggle[aria-pressed="true"] .knob{transform:translateX(20px)}
+
+/* lvlchip */
+.lvlchip{font-family:var(--font-pixel);font-size:10px;letter-spacing:.06em;background:var(--color-chalk-surface);color:var(--color-slate-mid);padding:2px 6px;white-space:nowrap}
+
+/* time stepper */
+.stepper{display:flex;align-items:stretch;gap:10px;margin-top:6px}
+.st{width:44px;height:44px;flex:none;background:transparent;border:0;cursor:pointer;position:relative;
+  font-family:var(--font-onest);font-weight:800;font-size:22px;color:var(--color-deep-ink);transition:transform 70ms steps(2)}
+.st::before{content:"";position:absolute;inset:0;z-index:0;clip-path:var(--step8);
+  background:linear-gradient(var(--surface-warm-parchment),var(--surface-warm-parchment)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--color-slate-mid)}
+.st span{position:relative;z-index:1}
+.st:active{transform:translateY(2px)}
+.stval{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--surface-warm-parchment);clip-path:var(--step8)}
+.stval b{font-family:var(--font-onest);font-weight:900;font-size:24px}
+.stval span{font-size:11px;color:var(--color-mist-body)}
+
+/* data actions */
+.databtn{position:relative;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-onest);font-weight:700;font-size:15px;padding:14px;border:0;cursor:pointer;
+  background:transparent;clip-path:var(--step8);margin-top:12px;transition:transform 70ms steps(2)}
+.databtn>*{position:relative;z-index:1}
+.databtn:active{transform:translateY(2px)}
+/* primary positive = coral */
+.databtn.primary{--side:6px;background:linear-gradient(var(--color-coral-flame),var(--color-coral-flame)) no-repeat 0 0/100% calc(100% - 6px),var(--color-ember-deep);color:#fff;padding:14px 14px 18px}
+.databtn.primary:active{background-position:0 0;background-size:100% calc(100% - 2px);transform:translateY(4px)}
+/* secondary = white stepped */
+.databtn.secondary{color:var(--color-deep-ink)}
+.databtn.secondary::before{content:"";position:absolute;inset:0;z-index:0;clip-path:var(--step8);
+  background:linear-gradient(var(--surface-warm-parchment),var(--surface-warm-parchment)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--color-slate-mid)}
+/* quiet destructive = no coral, low-key */
+.quiet{display:block;width:100%;text-align:center;background:none;border:0;cursor:pointer;margin-top:14px;padding:8px;
+  font-family:var(--font-onest);font-weight:600;font-size:13px;color:var(--color-mist-body);
+  text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--color-cloud-border)}
+.quiet:hover{color:var(--color-ember-deep)}
+.dataline{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13px;color:var(--color-slate-mid);line-height:1.45}
+.dataline .sq{width:10px;height:10px;background:var(--color-leaf-success);flex:none;margin-top:3px}
+
+/* tab bar */
+.tabbar{position:absolute;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:space-around;align-items:center;
+  padding:12px 8px 16px;background:color-mix(in srgb,var(--color-warm-parchment) 90%,transparent);
+  backdrop-filter:blur(12px);border-top:1px solid rgba(22,28,36,.08)}
+.tab{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--color-mist-body);cursor:pointer;flex:1}
+.tab svg{width:24px;height:24px}
+.tab .lab{font-family:var(--font-onest);font-weight:700;font-size:10px}
+.tab.on{color:var(--color-coral-flame)}
+.tab.on .dot{width:14px;height:3px;background:var(--color-coral-flame);margin-top:1px}
+
+::selection{background:var(--color-coral-flame);color:#fff}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="phone">
+  <header class="appbar">
+    <div class="top">
+      <div class="backbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+      <h1>Controls</h1>
+      <span class="brand-cell"></span>
+    </div>
+  </header>
+
+  <div class="scroll">
+    <!-- control framing -->
+    <div class="frame-banner">
+      <div class="lock"><span class="sq"></span>YOU'RE IN CONTROL</div>
+      <h2>You decide everything the device can do.</h2>
+      <p>Nowa is closed and family-safe — no open internet. Turn things on and off, set the hours, and your data stays yours.</p>
+    </div>
+
+    <!-- CONTENT LIBRARY -->
+    <div class="glabel">Content library</div>
+    <details class="grp" open>
+      <summary>
+        <span class="gi">📚</span>
+        <span class="gt"><h3>What NOA can play</h3><div class="gs">4 categories · you choose</div></span>
+        <span class="fplus">+</span>
+      </summary>
+      <div class="gbody">
+        <div class="sep"></div>
+        <div class="ctrl"><div class="cmeta"><div class="ct">Story</div><div class="cd">Fables & gentle tales</div></div><span class="manage">Manage</span><button class="toggle" aria-pressed="true"><span class="track"></span><span class="knob"></span></button></div>
+        <div class="ctrl"><div class="cmeta"><div class="ct">Song</div><div class="cd">Sing-along & lullabies</div></div><span class="manage">Manage</span><button class="toggle" aria-pressed="true"><span class="track"></span><span class="knob"></span></button></div>
+        <div class="ctrl"><div class="cmeta"><div class="ct">Podcast</div><div class="cd">Short curious episodes</div></div><span class="manage">Manage</span><button class="toggle" aria-pressed="true"><span class="track"></span><span class="knob"></span></button></div>
+        <div class="ctrl"><div class="cmeta"><div class="ct">Sound &amp; Fun Facts</div><div class="cd">Ambient sounds & snippets</div></div><span class="manage">Manage</span><button class="toggle" aria-pressed="false"><span class="track"></span><span class="knob"></span></button></div>
+      </div>
+    </details>
+
+    <!-- TIME LIMITS -->
+    <div class="glabel">Time limits</div>
+    <details class="grp" open>
+      <summary>
+        <span class="gi">⏳</span>
+        <span class="gt"><h3>Daily play limit</h3><div class="gs">15 min/day</div></span>
+        <span class="fplus">+</span>
+      </summary>
+      <div class="gbody">
+        <div class="sep"></div>
+        <div class="ctrl" style="border-bottom:0;display:block">
+          <div class="cmeta"><div class="ct">How long NOA can play each day</div></div>
+          <div class="stepper">
+            <button class="st" id="dec"><span>−</span></button>
+            <div class="stval"><b id="mins">15</b><span>min / day</span></div>
+            <button class="st" id="inc"><span>+</span></button>
+          </div>
+        </div>
+        <div class="ctrl"><div class="cmeta"><div class="ct">Gentle session reminders</div><div class="cd">A soft chime as time runs low</div></div><button class="toggle" aria-pressed="true"><span class="track"></span><span class="knob"></span></button></div>
+      </div>
+    </details>
+
+    <!-- AVAILABILITY -->
+    <div class="glabel">Availability</div>
+    <details class="grp">
+      <summary>
+        <span class="gi">🌙</span>
+        <span class="gt"><h3>When NOA is active</h3><div class="gs">Bedtime mode · off after 7:30p</div></span>
+        <span class="fplus">+</span>
+      </summary>
+      <div class="gbody">
+        <div class="sep"></div>
+        <div class="ctrl"><div class="cmeta"><div class="ct">School-hours off</div><div class="cd">Quiet 8:30a – 3:00p on weekdays</div></div><button class="toggle" aria-pressed="true"><span class="track"></span><span class="knob"></span></button></div>
+        <div class="ctrl"><div class="cmeta"><div class="ct">Bedtime mode</div><div class="cd">Off after 7:30p</div></div><span class="lvlchip">7:30p</span><button class="toggle" aria-pressed="true"><span class="track"></span><span class="knob"></span></button></div>
+      </div>
+    </details>
+
+    <!-- CONTENT BOUNDARIES -->
+    <div class="glabel">Content boundaries</div>
+    <details class="grp">
+      <summary>
+        <span class="gi">🛡️</span>
+        <span class="gt"><h3>What the pet can present</h3><div class="gs">You set the topics</div></span>
+        <span class="fplus">+</span>
+      </summary>
+      <div class="gbody">
+        <div class="sep"></div>
+        <div class="ctrl"><div class="cmeta"><div class="ct">Feelings &amp; friendship</div></div><button class="toggle" aria-pressed="true"><span class="track"></span><span class="knob"></span></button></div>
+        <div class="ctrl"><div class="cmeta"><div class="ct">Nature &amp; animals</div></div><button class="toggle" aria-pressed="true"><span class="track"></span><span class="knob"></span></button></div>
+        <div class="ctrl"><div class="cmeta"><div class="ct">How things work</div></div><button class="toggle" aria-pressed="true"><span class="track"></span><span class="knob"></span></button></div>
+        <div class="ctrl"><div class="cmeta"><div class="ct">Holidays &amp; traditions</div></div><button class="toggle" aria-pressed="false"><span class="track"></span><span class="knob"></span></button></div>
+      </div>
+    </details>
+
+    <!-- DATA & PRIVACY -->
+    <div class="glabel">Data &amp; privacy</div>
+    <details class="grp" open>
+      <summary>
+        <span class="gi">🔒</span>
+        <span class="gt"><h3>Your family's data</h3><div class="gs">Yours to see, export, or delete</div></span>
+        <span class="fplus">+</span>
+      </summary>
+      <div class="gbody">
+        <div class="sep"></div>
+        <div class="dataline"><span class="sq"></span>Your data stays yours — never sold, never advertised against.</div>
+        <button class="databtn primary">View your family's data</button>
+        <button class="databtn secondary"><span>Export data</span></button>
+        <button class="quiet">Delete data</button>
+      </div>
+    </details>
+  </div>
+
+  <nav class="tabbar">
+    <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="2"/><path d="M6 16c0-2 6-2 6 0M15 9h4M15 13h4"/></svg><span class="lab">Profile</span></div>
+    <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 14c1.2 1.5 6.8 1.5 8 0M9 9.5h.01M15 9.5h.01"/></svg><span class="lab">Pet</span></div>
+    <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v10H9l-4 4V5z"/></svg><span class="lab">Chat</span></div>
+    <div class="tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg><span class="lab">Controls</span><span class="dot"></span></div>
+  </nav>
+</div>
+
+<script>
+document.querySelectorAll('.toggle').forEach(t=>t.addEventListener('click',()=>t.setAttribute('aria-pressed', t.getAttribute('aria-pressed')==='true'?'false':'true')));
+let mins=15;const minsEl=document.getElementById('mins');
+document.getElementById('inc').addEventListener('click',()=>{mins=Math.min(120,mins+5);minsEl.textContent=mins});
+document.getElementById('dec').addEventListener('click',()=>{mins=Math.max(5,mins-5);minsEl.textContent=mins});
+</script>
+</body>
+</html>

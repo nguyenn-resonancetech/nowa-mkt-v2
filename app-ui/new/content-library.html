@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nowa · Content Library</title>
+<link rel="stylesheet" href="../../design-system/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --step8:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));
+  --step12:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));
+}
+html,body{height:100%}
+body{font-family:var(--font-noto-sans);color:var(--color-deep-ink);background:var(--color-slate-mid);
+  display:flex;align-items:center;justify-content:center;padding:20px;-webkit-font-smoothing:antialiased}
+.phone{width:393px;height:852px;position:relative;overflow:hidden;background-color:var(--surface-warm-parchment);
+  display:flex;flex-direction:column;box-shadow:0 24px 60px -20px rgba(0,0,0,.5)}
+.scroll{flex:1;overflow-y:auto;padding:0 18px 40px}
+h1,h2,h3,h4{font-family:var(--font-onest);letter-spacing:-.02em;line-height:1.1}
+
+.appbar{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);
+  background:color-mix(in srgb,var(--color-warm-parchment) 84%,transparent);
+  border-bottom:1px solid rgba(22,28,36,.07);padding:14px 18px}
+.appbar .top{display:flex;align-items:center;gap:12px}
+.backbtn{width:38px;height:38px;background:var(--surface-pure-white);clip-path:var(--step8);
+  display:flex;align-items:center;justify-content:center;filter:drop-shadow(var(--px-shadow));cursor:pointer}
+.backbtn svg{width:18px;height:18px}
+.appbar h1{font-size:22px;font-weight:800}
+.appbar .crumb{font-size:11px;color:var(--color-mist-body);font-weight:600}
+
+.intro{padding:18px 6px 6px}
+.intro p{font-size:var(--text-body-sm);color:var(--color-slate-mid);line-height:1.5}
+.intro .key{display:flex;gap:16px;margin-top:12px;font-size:12px;color:var(--color-mist-body)}
+.intro .key b{color:var(--color-deep-ink)}
+
+.cat{position:relative;margin:16px 8px 0 0;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);filter:drop-shadow(var(--px-shadow))}
+.cat::before{content:"";position:absolute;inset:0;z-index:0;clip-path:var(--step12);
+  background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
+.cat>*{position:relative;z-index:1}
+.cat .chead{display:flex;align-items:center;gap:12px;padding:16px 18px 12px}
+.cat .chead .ci{width:36px;height:36px;flex:none;clip-path:var(--step8);background:var(--surface-warm-parchment);display:flex;align-items:center;justify-content:center;font-size:18px}
+.cat .chead .ct{flex:1}
+.cat .chead h3{font-size:var(--text-subheading);font-weight:800}
+.cat .chead .cn{font-size:12px;color:var(--color-mist-body);margin-top:1px}
+.cat .tracks{padding:0 18px 10px}
+.track{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid #eef0f2}
+.track .pic{width:34px;height:34px;flex:none;clip-path:var(--step8);background:var(--color-coral-blush);display:flex;align-items:center;justify-content:center}
+.track .pic svg{width:15px;height:15px;color:var(--color-ember-deep)}
+.track .tmeta{flex:1;min-width:0}
+.track .tt{font-family:var(--font-onest);font-weight:700;font-size:14px;line-height:1.25;text-wrap:balance}
+.track .td{font-size:11px;color:var(--color-mist-body);margin-top:1px}
+.lvlchip{font-family:var(--font-pixel);font-size:10px;letter-spacing:.06em;background:var(--color-chalk-surface);color:var(--color-slate-mid);padding:2px 6px;white-space:nowrap;flex:none}
+.lvlchip.locked{background:var(--color-amber-signal);color:var(--color-deep-ink)}
+
+/* toggle — native iOS-style (control layer); coral = on keeps it Nowa */
+.toggle{width:46px;height:28px;flex:none;position:relative;cursor:pointer;border:0;padding:0;background:transparent}
+.toggle .track-t{position:absolute;inset:0;border-radius:999px;background:var(--color-chalk-surface);transition:background 200ms var(--ease-out-strong)}
+.toggle .knob{position:absolute;top:2px;left:2px;width:24px;height:24px;border-radius:50%;background:#fff;transition:transform 200ms var(--ease-out-strong);box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.toggle[aria-pressed="true"] .track-t{background:var(--color-coral-flame)}
+.toggle[aria-pressed="true"] .knob{transform:translateX(18px)}
+
+/* category master toggle in head — slightly larger, same native style */
+.cat .chead .toggle{width:51px;height:31px}
+.cat .chead .toggle .knob{width:27px;height:27px}
+.cat .chead .toggle[aria-pressed="true"] .knob{transform:translateX(20px)}
+
+/* level lock control footer */
+.lockrow{display:flex;align-items:center;gap:10px;padding:12px 0 2px;border-top:1px solid #eef0f2;font-size:12px;color:var(--color-slate-mid)}
+.lockrow .lk{display:flex;align-items:center;gap:6px;margin-left:auto}
+.lockrow .lk button{width:26px;height:26px;border:0;background:var(--surface-warm-parchment);clip-path:var(--step8);cursor:pointer;font-family:var(--font-onest);font-weight:800;color:var(--color-deep-ink)}
+
+::selection{background:var(--color-coral-flame);color:#fff}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="phone">
+  <header class="appbar">
+    <div class="top">
+      <div class="backbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+      <div><div class="crumb">CONTROLS</div><h1>Content Library</h1></div>
+    </div>
+  </header>
+
+  <div class="scroll">
+    <div class="intro">
+      <p>Switch off anything you'd rather NOA not play. Level locks keep content matched to your child's stage — nothing above the lock can play.</p>
+      <div class="key"><span><b>Toggle</b> = on / off</span><span><b>LVL</b> = locked to stage</span></div>
+    </div>
+
+    <!-- STORY -->
+    <div class="cat">
+      <div class="chead">
+        <span class="ci">📖</span>
+        <span class="ct"><h3>Story</h3><div class="cn">Fables &amp; gentle tales · 12 tracks</div></span>
+        <button class="toggle" aria-pressed="true"><span class="track-t"></span><span class="knob"></span></button>
+      </div>
+      <div class="tracks">
+        <div class="track">
+          <span class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h7v15H4zM20 5h-7v15h7z"/></svg></span>
+          <span class="tmeta"><div class="tt">The Lion and the Mouse</div><div class="td">Aesop · 4 min</div></span>
+          <span class="lvlchip">LVL 2</span>
+          <button class="toggle" aria-pressed="true"><span class="track-t"></span><span class="knob"></span></button>
+        </div>
+        <div class="lockrow">Locked to <span class="lvlchip locked">LVL 2</span> &amp; below
+          <span class="lk"><button>−</button><span class="lvlchip">LVL 2</span><button>+</button></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SONG -->
+    <div class="cat">
+      <div class="chead">
+        <span class="ci">🎵</span>
+        <span class="ct"><h3>Song</h3><div class="cn">Sing-along &amp; lullabies · 18 tracks</div></span>
+        <button class="toggle" aria-pressed="true"><span class="track-t"></span><span class="knob"></span></button>
+      </div>
+      <div class="tracks">
+        <div class="track">
+          <span class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg></span>
+          <span class="tmeta"><div class="tt">Yellow Duck</div><div class="td">Sing-along · 2 min</div></span>
+          <span class="lvlchip">LVL 1</span>
+          <button class="toggle" aria-pressed="true"><span class="track-t"></span><span class="knob"></span></button>
+        </div>
+        <div class="lockrow">Locked to <span class="lvlchip locked">LVL 1</span> &amp; below
+          <span class="lk"><button>−</button><span class="lvlchip">LVL 1</span><button>+</button></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PODCAST -->
+    <div class="cat">
+      <div class="chead">
+        <span class="ci">🎙️</span>
+        <span class="ct"><h3>Podcast</h3><div class="cn">Short curious episodes · 9 tracks</div></span>
+        <button class="toggle" aria-pressed="true"><span class="track-t"></span><span class="knob"></span></button>
+      </div>
+      <div class="tracks">
+        <div class="track">
+          <span class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></span>
+          <span class="tmeta"><div class="tt">Why Do Planets Spin?</div><div class="td">Curious Kids · 6 min</div></span>
+          <span class="lvlchip">LVL 3</span>
+          <button class="toggle" aria-pressed="true"><span class="track-t"></span><span class="knob"></span></button>
+        </div>
+        <div class="lockrow">Locked to <span class="lvlchip locked">LVL 3</span> &amp; below
+          <span class="lk"><button>−</button><span class="lvlchip">LVL 3</span><button>+</button></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOUND & FUN FACTS -->
+    <div class="cat">
+      <div class="chead">
+        <span class="ci">🔔</span>
+        <span class="ct"><h3>Sound &amp; Fun Facts</h3><div class="cn">Ambient sounds &amp; snippets · 24 tracks</div></span>
+        <button class="toggle" aria-pressed="false"><span class="track-t"></span><span class="knob"></span></button>
+      </div>
+      <div class="tracks">
+        <div class="track" style="opacity:.55">
+          <span class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9v6h4l5 4V5L9 9H5z"/><path d="M17 8a5 5 0 010 8"/></svg></span>
+          <span class="tmeta"><div class="tt">Soft Wind Chimes</div><div class="td">Ambient · 10 min</div></span>
+          <span class="lvlchip">LVL 1</span>
+          <button class="toggle" aria-pressed="false"><span class="track-t"></span><span class="knob"></span></button>
+        </div>
+        <div class="lockrow" style="opacity:.55">Category off — tracks won't play
+          <span class="lk"><button>−</button><span class="lvlchip">LVL 1</span><button>+</button></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.toggle').forEach(t=>t.addEventListener('click',()=>t.setAttribute('aria-pressed', t.getAttribute('aria-pressed')==='true'?'false':'true')));
+</script>
+</body>
+</html>

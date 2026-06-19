@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nowa · Data & privacy</title>
+<link rel="stylesheet" href="../../design-system/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --step8:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));
+  --step12:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));
+}
+html,body{height:100%}
+body{font-family:var(--font-noto-sans);color:var(--color-deep-ink);background:var(--color-slate-mid);display:flex;align-items:center;justify-content:center;padding:20px;-webkit-font-smoothing:antialiased}
+.phone{width:393px;height:852px;position:relative;overflow:hidden;background-color:var(--surface-warm-parchment);display:flex;flex-direction:column;box-shadow:0 24px 60px -20px rgba(0,0,0,.5)}
+.scroll{flex:1;overflow-y:auto;padding:0 18px 40px}
+h1,h2,h3,h4{font-family:var(--font-onest);letter-spacing:-.02em;line-height:1.12}
+.appbar{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--color-warm-parchment) 84%,transparent);border-bottom:1px solid rgba(22,28,36,.07);padding:14px 18px;display:flex;align-items:center;gap:12px}
+.backbtn{width:38px;height:38px;background:var(--surface-pure-white);clip-path:var(--step8);display:flex;align-items:center;justify-content:center;filter:drop-shadow(var(--px-shadow));cursor:pointer}
+.backbtn svg{width:18px;height:18px}
+.appbar .crumb{font-size:11px;color:var(--color-mist-body);font-weight:600;letter-spacing:.06em}
+.appbar h1{font-size:20px;font-weight:800}
+
+/* hero trust statement */
+.hero{padding:22px 4px 6px}
+.hero .lock{font-size:30px;margin-bottom:8px}
+.hero h2{font-size:28px;font-weight:900;letter-spacing:-.03em}
+.hero p{font-size:14px;color:var(--color-slate-mid);line-height:1.55;margin-top:10px;max-width:42ch}
+.hero p b{color:var(--color-deep-ink);font-weight:700}
+.badges{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-onest);font-weight:700;font-size:11px;color:#3f7a23;background:#e7f6df;padding:5px 10px;clip-path:var(--step8)}
+.badge .sq{width:8px;height:8px;background:var(--color-leaf-success)}
+.badge.coppa{color:#2c5a7a;background:#e2eef7}
+.badge.coppa .sq{background:#6c9bd2}
+
+.glabel{font-family:var(--font-onest);font-weight:700;font-size:11px;letter-spacing:.12em;color:var(--color-mist-body);text-transform:uppercase;margin:26px 0 12px 2px}
+/* action rows */
+.act{position:relative;display:flex;align-items:center;gap:14px;margin:0 8px 12px 0;padding:16px 18px;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);filter:drop-shadow(var(--px-shadow));cursor:pointer}
+.act::before{content:"";position:absolute;inset:0;z-index:0;clip-path:var(--step12);background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder)}
+.act>*{position:relative;z-index:1}
+.act .ic{width:40px;height:40px;flex:none;clip-path:var(--step8);background:var(--surface-warm-parchment);display:flex;align-items:center;justify-content:center}
+.act .ic svg{width:20px;height:20px;color:var(--color-slate-mid)}
+.act .am{flex:1}
+.act h3{font-size:16px;font-family:var(--font-onest);font-weight:700}
+.act p{font-size:12px;color:var(--color-mist-body);margin-top:2px}
+.act .chev{color:var(--color-cloud-border)}.act .chev svg{width:18px;height:18px;display:block}
+/* primary positive = coral accent on View */
+.act.primary{--pxbg:#fdecea;--pxborder:var(--color-coral-blush)}
+.act.primary .ic{background:var(--color-coral-flame)}
+.act.primary .ic svg{color:#fff}
+.act.primary .chev{color:var(--color-coral-glow)}
+
+/* quiet destructive */
+.danger{margin:18px 8px 0 0;padding:14px 18px;position:relative}
+.danger .ditem{display:flex;align-items:center;gap:14px;cursor:pointer}
+.danger .ic{width:40px;height:40px;flex:none;clip-path:var(--step8);background:var(--surface-ghost-white);display:flex;align-items:center;justify-content:center;color:var(--color-mist-body)}
+.danger .ic svg{width:18px;height:18px}
+.danger h3{font-size:15px;font-family:var(--font-onest);font-weight:700;color:var(--color-slate-mid)}
+.danger p{font-size:12px;color:var(--color-mist-body);margin-top:2px;line-height:1.4}
+.danger .del{font-family:var(--font-onest);font-weight:700;font-size:13px;color:var(--color-ember-deep);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--color-cloud-border);margin-left:auto;white-space:nowrap}
+.footnote{font-size:11px;color:var(--color-mist-body);text-align:center;margin-top:22px;line-height:1.5;padding:0 10px}
+::selection{background:var(--color-coral-flame);color:#fff}
+</style>
+</head>
+<body>
+<div class="phone">
+  <header class="appbar">
+    <div class="backbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+    <div><div class="crumb">SETTINGS</div><h1>Data &amp; privacy</h1></div>
+  </header>
+
+  <div class="scroll">
+    <div class="hero">
+      <div class="lock">🔒</div>
+      <h2>Your data, always yours.</h2>
+      <p>We keep nothing for any other purpose — <b>no selling, no ads, no profiling.</b> See it, take it, or erase it whenever you like.</p>
+      <div class="badges">
+        <span class="badge"><span class="sq"></span>Never sold</span>
+        <span class="badge"><span class="sq"></span>No ads</span>
+        <span class="badge coppa"><span class="sq"></span>Built to meet COPPA</span>
+      </div>
+    </div>
+
+    <div class="glabel">Your family's data</div>
+    <div class="act primary">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
+      <span class="am"><h3>View your family's data</h3><p>Everything Nowa holds, in plain language</p></span>
+      <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </div>
+    <div class="act">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg></span>
+      <span class="am"><h3>Export data</h3><p>Download a copy anytime</p></span>
+      <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </div>
+
+    <div class="glabel">Erase</div>
+    <div class="danger">
+      <div class="ditem">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7h14M9 7V5h6v2M7 7l1 13h8l1-13"/></svg></span>
+        <div><h3>Delete all data</h3><p>Removes everything from Nowa's servers, not just this device.</p></div>
+        <span class="del">Delete</span>
+      </div>
+    </div>
+
+    <p class="footnote">Nowa is closed and family-safe — no open internet, no public sharing. Insights are shaped by our advisory board.</p>
+  </div>
+</div>
+</body>
+</html>
