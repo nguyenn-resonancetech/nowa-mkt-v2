@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="paper3">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nowa — the pet that turns routines into play</title>
+<title>Nowa: the pet that turns routines into play</title>
 <meta name="description" content="Nowa is a pet your child looks after. Caring for it is how they practice calm, build routines, and grow kinder. Built with the scientists who wrote the science. Pre-order now, ships September 2026.">
 <link rel="stylesheet" href="../design/tokens.css">
 <link rel="icon" type="image/png" href="assets/brand/logo-app-64.png">
@@ -404,6 +404,8 @@ footer a:hover{color:#fff}
 /* dithered checkerboard section transitions */
 .dither{height:24px;background-color:var(--dith-dark,var(--surface-deep-ink));background-image:linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%),linear-gradient(45deg,var(--dith-light,var(--surface-warm-parchment)) 25%,transparent 25%,transparent 75%,var(--dith-light,var(--surface-warm-parchment)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
 .dither.rev{background-color:var(--dith-light,var(--surface-warm-parchment));background-image:linear-gradient(45deg,var(--dith-dark,var(--surface-deep-ink)) 25%,transparent 25%,transparent 75%,var(--dith-dark,var(--surface-deep-ink)) 75%),linear-gradient(45deg,var(--dith-dark,var(--surface-deep-ink)) 25%,transparent 25%,transparent 75%,var(--dith-dark,var(--surface-deep-ink)) 75%);background-position:0 0,6px 6px;background-size:12px 12px}
+/* soft checker seam for light→light section transitions (keeps the divider consistent everywhere) */
+.dith-soft{--dith-dark:color-mix(in srgb,var(--color-deep-ink) 20%,var(--surface-warm-parchment));--dith-light:var(--surface-warm-parchment)}
 /* pixel plus-sparkles */
 .spark{position:absolute;width:14px;height:14px;background:var(--color-amber-signal);clip-path:polygon(40% 0,60% 0,60% 40%,100% 40%,100% 60%,60% 60%,60% 100%,40% 100%,40% 60%,0 60%,0 40%,40% 40%);animation:twinkle 2.8s ease-in-out infinite}
 .spark.s2{animation-delay:.9s;background:var(--color-coral-glow)}
@@ -654,9 +656,9 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .geyebrow .cell{width:14px;height:14px;background:var(--color-coral-flame)}
 .dark .geyebrow{color:var(--color-cloud-border)}
 .safety .geyebrow{color:#4d6b58}
-.hero-eyebrow{font-family:var(--font-pixel);font-size:20px;color:var(--color-coral-flame);letter-spacing:.04em;margin-bottom:10px}
-/* device blends into the hero opening (same parchment, no dark band) */
-.device-blend{padding-top:clamp(12px,2vw,28px)}
+.hero-eyebrow{font-family:var(--font-onest);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-coral-flame);margin-bottom:14px}
+/* device is its own section now (after the spine quote) */
+.device-blend{padding-top:clamp(56px,7vw,96px)}
 /* mission stat cards */
 .mcards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-16);margin-top:var(--spacing-48)}
 .mcard{padding:var(--card-padding)}
@@ -668,19 +670,64 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .mcard .stat .txt{display:block;margin-top:5px;font-size:var(--text-body-sm);color:var(--color-slate-mid);line-height:1.45}
 .mcard .stat .src{display:block;margin-top:8px;font-size:var(--text-caption);color:var(--color-mist-body);font-style:italic}
 @media(max-width:860px){.mcards{grid-template-columns:1fr}}
+/* missions — distinct white band w/ the V1 tab + video panel */
+.missions-band{background-color:#faf8f0;background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell);background-position:0 16px}
+.missions-band .mpanel{--pxbg:var(--surface-warm-parchment)}
+.missions-band .mtab:not(.on){--tab-top:var(--surface-warm-parchment)}
+.mpanel .mstat{margin-top:18px;padding:14px 16px;background:var(--surface-pure-white);border-left:3px solid var(--color-coral-flame)}
+.mpanel .mstat .big{display:block;font-family:var(--font-onest);font-weight:900;font-size:clamp(20px,2.2vw,24px);color:var(--color-coral-flame);letter-spacing:-.02em;line-height:1.05}
+.mpanel .mstat .txt{display:block;margin-top:6px;font-size:var(--text-body-sm);color:var(--color-slate-mid);line-height:1.45}
+.mpanel .mstat .src{display:block;margin-top:8px;font-size:var(--text-caption);color:var(--color-mist-body);font-style:italic}
 /* win-moment beat */
 .winbeat .wb{max-width:var(--page-max-width-content);margin:0 auto;text-align:center;padding:clamp(30px,4vw,48px);--pxbg:var(--color-coral-blush)}
 .winbeat .rq{font-family:var(--font-onest);font-weight:800;font-size:clamp(22px,2.8vw,32px);line-height:1.3;color:var(--color-deep-ink);max-width:26ch;margin:0 auto}
 .winbeat .un{display:inline-block;margin-top:12px;font-family:var(--font-pixel);font-size:20px;color:var(--color-coral-flame);letter-spacing:.06em}
 .winbeat .rw{margin-top:14px;font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+.winbeat .photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-16);max-width:var(--page-max-width-content);margin:0 auto}
+.winbeat .photo-strip .pxslot{aspect-ratio:4/3;border-radius:var(--radius-cards)}
+@media(max-width:700px){.winbeat .photo-strip{grid-template-columns:1fr 1fr}}
 /* the game loop — 4 steps strung on a marching-dot rail that loops around */
 .gameloop{position:relative;margin-top:var(--spacing-48);padding-left:48px;max-width:var(--page-max-width-content)}
 .gameloop .loop-rail{position:absolute;left:14px;top:12px;bottom:78px;width:6px;background:repeating-linear-gradient(180deg,var(--color-coral-flame) 0 6px,transparent 6px 12px);background-size:6px 12px;animation:marchY 700ms linear infinite}
 @keyframes marchY{to{background-position:0 12px}}
-.gameloop .step{position:relative;margin-bottom:var(--spacing-16)}
+.gameloop .step{position:relative;margin-bottom:var(--spacing-16);display:flex;gap:16px;align-items:flex-start;padding:clamp(20px,2.2vw,26px)}
+.gameloop .step .sicon{flex:none;height:58px;width:auto;max-width:64px;border:0;border-radius:0;margin:2px 0 0}
+.gameloop .step .step-body{flex:1;min-width:0}
+.gameloop .step .n{font-family:var(--font-pixel);font-size:18px;color:var(--color-coral-flame);margin-bottom:4px;line-height:1}
+.gameloop .step h3{font-size:var(--text-subheading);margin-bottom:6px;line-height:1.2}
+.gameloop .step p{font-size:var(--text-body-sm);color:var(--color-slate-mid);line-height:1.5;margin:0}
 .gameloop .step .node{position:absolute;left:-46px;top:20px;width:20px;height:20px;background:var(--color-coral-flame);clip-path:polygon(40% 0,60% 0,60% 40%,100% 40%,100% 60%,60% 60%,60% 100%,40% 100%,40% 60%,0 60%,0 40%,40% 40%)}
 .gameloop .again{margin:6px 0 0 -48px}
 @media(prefers-reduced-motion:reduce){.gameloop .loop-rail{animation:none}}
+/* desktop: the four steps become a closed 2×2 ring, numbered clockwise,
+   with directional arrows hugging the inner edges and a ↻ medallion at the hub */
+@media(min-width:861px){
+  .gameloop{padding-left:0;display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"s1 s2" "s4 s3";gap:clamp(40px,4.5vw,72px);margin-left:auto;margin-right:auto}
+  .gameloop .loop-rail{display:none}
+  .gameloop .step{margin-bottom:0}
+  .gameloop .step:nth-of-type(1){grid-area:s1}
+  .gameloop .step:nth-of-type(2){grid-area:s2}
+  .gameloop .step:nth-of-type(3){grid-area:s3}
+  .gameloop .step:nth-of-type(4){grid-area:s4}
+  .gameloop .step .node{width:28px;height:28px;background:var(--color-coral-flame);z-index:3}
+  .gameloop .step:nth-of-type(1) .node{left:auto;right:-16px;top:50%;clip-path:polygon(0 32%,44% 32%,44% 8%,100% 50%,44% 92%,44% 68%,0 68%);animation:nudgeR 1.2s steps(2) infinite}
+  .gameloop .step:nth-of-type(2) .node{left:50%;right:auto;top:auto;bottom:-16px;clip-path:polygon(68% 0,68% 44%,92% 44%,50% 100%,8% 44%,32% 44%,32% 0);animation:nudgeD 1.2s steps(2) infinite}
+  .gameloop .step:nth-of-type(3) .node{left:-16px;right:auto;top:50%;clip-path:polygon(100% 32%,56% 32%,56% 8%,0 50%,56% 92%,56% 68%,100% 68%);animation:nudgeL 1.2s steps(2) infinite}
+  .gameloop .step:nth-of-type(4) .node{left:50%;right:auto;top:-16px;clip-path:polygon(68% 100%,68% 56%,92% 56%,50% 0,8% 56%,32% 56%,32% 100%);animation:nudgeU 1.2s steps(2) infinite}
+  .gameloop .again{position:absolute;left:50%;top:50%;margin:0;width:auto;z-index:4;transform:translate(-50%,-50%)}
+  .gameloop.reveal-group>.again,.gameloop.reveal-group.in>.again{transform:translate(-50%,-50%)}
+  .gameloop .again .lb-line,.gameloop .again .lb-words{display:none}
+  .gameloop .again .lb-txt{display:flex;align-items:center;justify-content:center;width:66px;height:66px;font-size:32px;color:#fff;background:var(--color-coral-flame);clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));filter:drop-shadow(3px 3px 0 var(--color-coral-blush))}
+  .gameloop .again .lb-rot{display:inline-block;line-height:1;animation:spin 6s linear infinite}
+}
+@keyframes nudgeR{0%,100%{transform:translateY(-50%)}50%{transform:translateY(-50%) translateX(4px)}}
+@keyframes nudgeD{0%,100%{transform:translateX(-50%)}50%{transform:translateX(-50%) translateY(4px)}}
+@keyframes nudgeL{0%,100%{transform:translateY(-50%)}50%{transform:translateY(-50%) translateX(-4px)}}
+@keyframes nudgeU{0%,100%{transform:translateX(-50%)}50%{transform:translateX(-50%) translateY(-4px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* the learn-through-play study uses the shared .pullq advisor-quote styling, with the care-loop scene scaled to fit the image frame */
+#mechanic .pullq{margin-left:auto;margin-right:auto;align-items:center}
+#mechanic .pullq img{width:96px;height:96px;flex:none}
 /* why-it-works: library unlocks live on the dark world band */
 .unlock-head{font-family:var(--font-pixel);font-size:18px;color:var(--color-coral-glow);letter-spacing:.05em;margin-top:var(--spacing-48);margin-bottom:var(--spacing-16);display:flex;align-items:center;gap:12px}
 .unlock-head .ln{flex:1;height:5px;background:repeating-linear-gradient(90deg,var(--color-coral-glow) 0 6px,transparent 6px 12px);background-size:12px 5px}
@@ -688,22 +735,54 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .world .libs .lib h3{color:#fff}
 .world .libs .lib p{color:var(--color-chalk-surface)}
 .world .libs .lib .trk .ttl{color:var(--color-warm-parchment)}
+/* explainer FAQ inside the dark world band */
+.world .world-faq{--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.08);max-width:var(--page-max-width-content);margin-top:var(--spacing-32)}
+.world .world-faq summary{color:#fff}
+.world .world-faq .fplus{color:var(--color-coral-glow)}
+.world .world-faq .faq-a p{color:var(--color-chalk-surface);max-width:70ch}
+.world .world-faq.pxcard[open]{--pxbg:var(--color-ink-charcoal);--pxborder:var(--color-coral-flame);transform:translateY(-3px)}
+/* full coral ring traced all around (incl. stepped corners) when open */
+.world .world-faq.pxcard[open]::before{background:var(--pxborder)}
+.world .world-faq.pxcard[open]::after{content:"";display:block;position:absolute;inset:0;width:auto;height:auto;z-index:0;background:var(--pxbg);clip-path:polygon(4px 16px,10px 16px,10px 10px,16px 10px,16px 4px,calc(100% - 16px) 4px,calc(100% - 16px) 10px,calc(100% - 10px) 10px,calc(100% - 10px) 16px,calc(100% - 4px) 16px,calc(100% - 4px) calc(100% - 16px),calc(100% - 10px) calc(100% - 16px),calc(100% - 10px) calc(100% - 10px),calc(100% - 16px) calc(100% - 10px),calc(100% - 16px) calc(100% - 4px),16px calc(100% - 4px),16px calc(100% - 10px),10px calc(100% - 10px),10px calc(100% - 16px),4px calc(100% - 16px))}
 /* comparison — a real matrix */
-.cmptbl{margin-top:var(--spacing-48);overflow-x:auto;-webkit-overflow-scrolling:touch}
-.cmptbl table{border-collapse:collapse;width:100%;min-width:300px}
-.cmptbl th,.cmptbl td{padding:13px 5px;text-align:center;border-bottom:1px solid var(--color-chalk-surface);font-size:12px}
+/* compare sits on the same bright grid-paper band as the missions section */
+.compare-band{background-color:#faf8f0;background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell);background-position:0 16px}
+/* the matrix carries the design-system pixel card: stepped corners + hard offset shadow (was a rounded, shadowless box) */
+.compare-band .cmptbl.pxcard{--pxbg:var(--surface-pure-white);max-width:960px;margin:var(--spacing-48) auto 0;padding:clamp(16px,2vw,30px);filter:drop-shadow(3px 3px 0 rgba(22,28,36,.12))}
+.cmptbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmptbl{margin-top:var(--spacing-48)}
+.cmptbl table{border-collapse:collapse;width:100%;min-width:340px;max-width:920px;margin:0 auto}
+.cmptbl th,.cmptbl td{padding:12px 4px;text-align:center;border-bottom:1px solid var(--color-chalk-surface);font-size:12px}
 .cmptbl tbody th{padding-left:6px}
-.cmptbl thead th{font-family:var(--font-onest);font-weight:800;color:var(--color-slate-mid)}
-.cmptbl tbody th{text-align:left;font-weight:600;color:var(--color-deep-ink);font-family:var(--font-noto-sans)}
+.cmptbl thead th{font-family:var(--font-onest);font-weight:800;color:var(--color-slate-mid);font-size:12px}
+.cmptbl tbody th{text-align:left;font-weight:600;color:var(--color-deep-ink);font-family:var(--font-noto-sans);font-size:13px}
 .cmptbl .col-us{background:var(--color-coral-blush)}
-.cmptbl thead .col-us{background:var(--color-coral-flame);color:#fff;font-family:var(--font-pixel);letter-spacing:.06em}
+.cmptbl thead .col-us{background:var(--color-coral-flame);color:#fff;font-family:var(--font-pixel);letter-spacing:.06em;font-size:13px}
+/* pixel category icons + NOWA pet on the header row */
+.cmptbl thead th{vertical-align:bottom}
+.cmptbl .cmp-ic{width:34px;height:34px;object-fit:contain;display:block;margin:0 auto 6px}
+.cmptbl .cmp-ic-pet{width:40px;height:40px;animation:pbob 1.6s steps(2) infinite}
+@media(prefers-reduced-motion:reduce){.cmptbl .cmp-ic-pet{animation:none}}
+/* frame the NOWA column in coral so the winner reads at a glance */
+.cmptbl th.col-us,.cmptbl td.col-us{border-left:2px solid var(--color-coral-flame);border-right:2px solid var(--color-coral-flame)}
+.cmptbl thead th.col-us{border-top:2px solid var(--color-coral-flame)}
+.cmptbl tbody tr:last-child td.col-us{border-bottom:2px solid var(--color-coral-flame)}
 .cmptbl .y{color:var(--color-coral-flame);font-weight:900;font-size:18px}
 .cmptbl .n{color:var(--color-cloud-border);font-size:16px}
-.cmptbl .p{color:var(--color-mist-body)}
+.cmptbl .p{color:var(--color-mist-body);font-size:17px}
 .cmptbl tbody tr:last-child th,.cmptbl tbody tr:last-child td{border-bottom:0}
-/* shorter phone so the carousel fits a mobile viewport */
-.pf-screen{height:560px}
-.pf-slide iframe{height:734px}
+/* desktop has the room for comfortable rows + larger marks */
+@media(min-width:861px){
+  .cmptbl th,.cmptbl td{padding:17px 10px;font-size:var(--text-body-sm)}
+  .cmptbl thead th{font-size:var(--text-body-sm)}
+  .cmptbl tbody th{font-size:var(--text-body)}
+  .cmptbl thead .col-us{font-size:16px}
+  .cmptbl .y{font-size:22px}
+  .cmptbl .n{font-size:19px}
+  .cmptbl .p{font-size:20px}
+  .cmptbl .cmp-ic{width:46px;height:46px;margin-bottom:8px}
+  .cmptbl .cmp-ic-pet{width:56px;height:56px}
+}
 /* the looping how-it-works reuses .step but not the row arrow */
 .gameloop .step::after{display:none}
 .gameloop .step{margin-left:0}
@@ -711,7 +790,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 </head>
 <body>
 
-<div class="note">PERMILL LP v2 — restructured into the six question-groups. Real sprites + video; advisor and beta quotes are SAMPLE, pending approval.</div>
+<div class="note">PERMILL LP v2 · restructured into the six question-groups. Real sprites + video; advisor and beta quotes are SAMPLE, pending approval.</div>
 
 <div class="readbar" aria-hidden="true"></div>
 
@@ -721,7 +800,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <div class="navlinks">
       <a href="#learnings">Learnings</a>
       <a href="#mechanic">How it works</a>
-      <a href="#why">Why kids love it</a>
+      <a href="#world">Why kids love it</a>
       <a href="#compare">Compare</a>
       <a href="#preorder" class="btn">Pre-order</a>
     </div>
@@ -733,7 +812,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   <a href="#device" data-ch="device"><span class="rcell"></span><span class="rname">What Nowa is</span></a>
   <a href="#learnings" data-ch="learnings"><span class="rcell"></span><span class="rname">Learnings &amp; science</span></a>
   <a href="#mechanic" data-ch="mechanic"><span class="rcell"></span><span class="rname">How it works</span></a>
-  <a href="#why" data-ch="why"><span class="rcell"></span><span class="rname">Why it works</span></a>
+  <a href="#world" data-ch="world"><span class="rcell"></span><span class="rname">Why it works</span></a>
   <a href="#safety" data-ch="safety"><span class="rcell"></span><span class="rname">Safety &amp; control</span></a>
   <a href="#compare" data-ch="compare"><span class="rcell"></span><span class="rname">Compare</span></a>
   <a href="#preorder" data-ch="preorder"><span class="rcell"></span><span class="rname">Pre-order</span></a>
@@ -750,7 +829,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       </h1>
       <p class="lead">Nowa is a little pet your child looks after. Caring for it is how they practice calm, build routines, and grow kinder. The follow-through comes from them, not from you repeating yourself.</p>
       <div class="hero-cta">
-        <a href="#preorder" class="btn">Pre-order Nowa — $99 <span class="arr">→</span></a>
+        <a href="#preorder" class="btn">Pre-order Nowa for $99 <span class="arr">→</span></a>
         <a href="#mechanic" class="btn-ghost">See how it works →</a>
       </div>
       <p class="ship">Ages 3–10 · $99 · ships September 2026 · no open internet, no ads</p>
@@ -764,7 +843,17 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   </div>
 </header>
 
-<!-- DEVICE — blended into the opening (same parchment, no dark band) -->
+<div class="dither" aria-hidden="true"></div>
+<!-- SPINE — the parent's line; gives the hero its own standalone beat -->
+<section class="spine dark" id="spine">
+  <div class="wrap">
+    <p class="quote" id="spineQuote">"I want to stay calm, and I want my kid to learn how, too."</p>
+    <p class="sub reveal">Every parent we built Nowa for said a version of this. So we started there.</p>
+  </div>
+</section>
+<div class="dither rev" aria-hidden="true"></div>
+
+<!-- DEVICE — its own section, after the quote -->
 <section id="device" class="device-blend">
   <div class="wrap device-grid">
     <div class="blueprint pxcard reveal"><video src="assets/videos/device-blueprint.mp4" autoplay muted loop playsinline aria-label="Technical blueprint of the Nowa device" style="width:100%;display:block"></video></div>
@@ -781,38 +870,43 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     </div>
   </div>
 </section>
+<div class="dither dith-soft" aria-hidden="true"></div>
 <!-- ░░ GROUP 2 · THE LEARNINGS & SCIENCE ░░ -->
 <!-- MISSIONS -->
-<section id="learnings">
+<section id="learnings" class="missions-band">
   <div class="wrap">
     <p class="geyebrow"><span class="cell"></span>The learnings &amp; science</p>
     <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">All the learning runs through missions.</h2>
     <p class="lead reveal" style="margin-top:16px;max-width:58ch">The pet asks your child for help, and every request is one of three kinds. We chose these three because decades of research tie them to how well kids do later in life.</p>
-    <div class="mcards reveal-group">
-      <div class="mcard pxcard">
-        <span class="mtag">Habit &amp; routine</span>
-        <h3>The daily friction, minus the referee.</h3>
-        <p>Brushing teeth, getting dressed, bedtime, homework start. The routine becomes something the pet needs help to finish, so the follow-through comes from your child.</p>
-        <div class="stat"><span class="big">1,000 kids · 30+ yrs</span><span class="txt">Children with stronger self-control grew into healthier, more financially secure adults, whatever their IQ or background.</span><span class="src">Moffitt &amp; Caspi et al., PNAS, 2011 · Dunedin study</span></div>
+    <div class="mtabs reveal" role="tablist" aria-label="Mission types">
+      <button class="mtab on" role="tab" aria-selected="true" data-m="0">Habit &amp; routine</button>
+      <button class="mtab" role="tab" aria-selected="false" data-m="1">Emotional regulation</button>
+      <button class="mtab" role="tab" aria-selected="false" data-m="2">Executive function</button>
+    </div>
+    <div class="mpanel reveal pxcard">
+      <div class="mfade" id="mText">
+        <h3 id="mHead">The daily friction, minus the referee.</h3>
+        <p id="mBody">Brushing teeth, getting dressed, bedtime, homework start. The routine becomes something the pet needs help to finish, so the follow-through comes from your child.</p>
+        <div class="mstat" id="mStat"><span class="big">3× more likely</span><span class="txt">Children with the weakest self-control as young kids were about three times more likely to face poor health, money trouble, or a criminal record as adults, whatever their IQ or background.</span><span class="src">Moffitt &amp; Caspi et al., PNAS, 2011 · Dunedin study, 1,000+ children</span></div>
+        <p class="mreal"><span class="cell"></span><span id="mReal">Shaped with Dr. Steven Kurtz · Parent-child interaction</span></p>
       </div>
-      <div class="mcard pxcard">
-        <span class="mtag">Emotional regulation</span>
-        <h3>Practising calm before the storm.</h3>
-        <p>Naming a big feeling, taking turtle-time, riding out a wobble. Low-stakes reps with the pet, so the skill is there when a real meltdown comes.</p>
-        <div class="stat"><span class="big">Four years on</span><span class="txt">5-year-olds who could read and name emotions were doing measurably better, socially and academically, by age 9.</span><span class="src">Izard et al., 2001</span></div>
-      </div>
-      <div class="mcard pxcard">
-        <span class="mtag">Executive function</span>
-        <h3>Planning, focus, and finishing.</h3>
-        <p>Missions that ask your child to plan a few steps, hold attention, and see something through. The skills school leans on hardest.</p>
-        <div class="stat"><span class="big">~50% likelier</span><span class="txt">Kids with stronger attention and persistence at age 4 were about 50% more likely to finish college by 25, regardless of early reading or maths.</span><span class="src">McClelland et al., 2013</span></div>
+      <div class="mission-art">
+        <div class="pxgrid graph"></div>
+        <div class="device-frame mfade" id="mVidWrap">
+          <video id="mVid" src="assets/videos/the-mission-engine-02.mp4" autoplay muted loop playsinline aria-label="A mission on the Nowa device screen"></video>
+          <div class="df-buttons" aria-hidden="true"><span class="db y"></span><span class="db r"></span><span class="db b"></span></div>
+        </div>
       </div>
     </div>
     <p class="mnote reveal" style="margin-top:var(--spacing-24);font-size:var(--text-body-sm);color:var(--color-mist-body)">Every mission syncs to a real action: tonight's actual toothbrush, this morning's actual shoes. You choose which kinds run, and when, from the parent app.</p>
+    <figure class="pullq pxcard reveal" style="margin-top:var(--spacing-48)">
+      <img src="assets/avatars/dr-megan-mcclelland.png" alt="Dr. Megan McClelland" loading="lazy" decoding="async">
+      <figcaption><p class="qt">"Self-regulation works like a muscle. It grows through small, repeated practice, and play is where children practice the hardest."</p><p class="who">Dr. Megan McClelland · Executive function · HTKS, used in 31 countries <span class="sample-chip">SAMPLE · PENDING APPROVAL</span></p></figcaption>
+    </figure>
   </div>
 </section>
 
-<div class="dither" aria-hidden="true"></div>
+<div class="dither" aria-hidden="true" style="--dith-light:var(--surface-pure-white)"></div>
 <!-- CH 02 — SCIENCE -->
 <section class="dark" id="science">
   <div class="wrap">
@@ -863,7 +957,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
           <div class="role">Mental-health systems</div>
           <div class="ttl">CEO, Benchmark Health Group</div>
           <ul>
-            <li>Harvard-trained physician — MD and MBA</li>
+            <li>Harvard-trained physician (MD and MBA)</li>
             <li>Named "Top 10 Under 35 for Healthcare" by LinkedIn</li>
           </ul>
         </div>
@@ -877,16 +971,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 </section>
 
 <div class="dither rev" aria-hidden="true"></div>
-<!-- WIN-MOMENT beat -->
-<section id="winbeat" class="winbeat">
-  <div class="wrap">
-    <figure class="wb pxcard reveal">
-      <p class="rq">“She said ‘I did turtle time so my pet could calm down.’ Then she did it herself at dinner.”</p>
-      <span class="un">UNPROMPTED.</span>
-      <p class="rw">Dana · mom of a 5-year-old <span class="beta-chip">BETA FAMILY</span></p>
-    </figure>
-  </div>
-</section>
 
 <!-- ░░ GROUP 3 · THE GAME MECHANIC ░░ -->
 <section id="mechanic">
@@ -896,12 +980,16 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <p class="lead reveal" style="margin-top:16px;max-width:54ch">Nowa never assigns chores or grades behaviour. The pet just has needs and feelings. Your child responds, and the loop turns on its own.</p>
     <div class="gameloop reveal-group">
       <span class="loop-rail" aria-hidden="true"></span>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><div class="n">01</div><img class="px sicon" src="assets/pixels/miko_msg_anim.gif" alt="Nowa pet expressing an emotion" loading="lazy" decoding="async"><h3>The pet feels</h3><p>Nowa shows a need or a mood in its own sounds and animation. Never human words.</p></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><div class="n">02</div><img class="px sicon" src="assets/pixels/watering_can_anim_80px.gif" alt="Watering can caring for the pet" loading="lazy" decoding="async"><h3>Your child cares</h3><p>They read what it needs and respond, with care and a little imagination.</p></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><div class="n">03</div><img class="px sicon" src="assets/pixels/miko_evolution_loop_80px.gif" alt="Nowa pet evolving from small to big" loading="lazy" decoding="async"><h3>The pet grows</h3><p>Steady care helps it thrive and evolve. The visible reward of showing up.</p></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><div class="n">04</div><img class="px sicon" src="assets/pixels/kid_wave_anim_80px.gif" alt="Pixel child waving" loading="lazy" decoding="async"><h3>Your child grows</h3><p>Calm, routines, and self-regulation form on their own, as a result of the bond.</p></div>
-      <div class="loopback again reveal" aria-hidden="true"><span class="lb-line"></span><span class="lb-txt">AND AROUND AGAIN ↻</span><span class="lb-line r"></span></div>
+      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/miko_msg_anim.gif" alt="Nowa pet expressing an emotion" loading="lazy" decoding="async"><div class="step-body"><div class="n">01</div><h3>The pet feels</h3><p>Nowa shows a need or a mood in its own sounds and animation. Never human words.</p></div></div>
+      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/watering_can_anim_80px.gif" alt="Watering can caring for the pet" loading="lazy" decoding="async"><div class="step-body"><div class="n">02</div><h3>Your child cares</h3><p>They read what it needs and respond, with care and a little imagination.</p></div></div>
+      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/miko_evolution_loop_80px.gif" alt="Nowa pet evolving from small to big" loading="lazy" decoding="async"><div class="step-body"><div class="n">03</div><h3>The pet grows</h3><p>Steady care helps it thrive and evolve. The visible reward of showing up.</p></div></div>
+      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/kid_wave_anim_80px.gif" alt="Pixel child waving" loading="lazy" decoding="async"><div class="step-body"><div class="n">04</div><h3>Your child grows</h3><p>Calm, routines, and self-regulation form on their own, as a result of the bond.</p></div></div>
+      <div class="loopback again reveal" aria-hidden="true"><span class="lb-line"></span><span class="lb-txt"><span class="lb-words">AND AROUND AGAIN </span><span class="lb-rot">↻</span></span><span class="lb-line r"></span></div>
     </div>
+    <figure class="pullq reveal pxcard" style="margin-top:var(--spacing-48)">
+      <img class="px" src="assets/scenes/scene-care-loop.png" alt="Pixel-art scene of a child watering a sprout" loading="lazy" decoding="async">
+      <figcaption><p class="qt">Play beats being taught. Across 17 studies of nearly 3,900 young children, learning woven into play drove bigger gains in early maths, focus, and task-switching than being taught directly.</p><p class="who">Skene et al., Child Development, 2022 · meta-analysis of guided play</p></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -933,8 +1021,8 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       </button>
       <div class="fun-grid reveal-group">
         <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 66%,var(--color-coral-glow))"><img class="px ficon" src="assets/pixels/miko_heart_58x42.png" alt="Pet with a heart bubble" loading="lazy" decoding="async"><h3>A pet that knows them</h3><p>The pet reacts to the care it's been given: greetings, moods, and little rituals, all in its own sounds and animations. Never human words.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 72%,var(--color-amber-signal))"><img class="px ficon" src="assets/pixels/miko_watered_x2.png" alt="Pet sprouting after being watered" loading="lazy" decoding="async"><h3>Grown through care</h3><p>How the pet grows depends on how your child shows up. With steady care the bond deepens and the pet evolves in its own way — no two journeys alike.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 74%,var(--color-leaf-success))"><img class="px ficon" src="assets/pixels/miko_read_x3.png" alt="Pet reading an open storybook" loading="lazy" decoding="async"><h3>Its own quirks and story</h3><p>Every pet arrives with a look, a personality, and a backstory from Nowa Planet — the bond is theirs, not a checklist.</p></div>
+        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 72%,var(--color-amber-signal))"><img class="px ficon" src="assets/pixels/miko_watered_x2.png" alt="Pet sprouting after being watered" loading="lazy" decoding="async"><h3>Grown through care</h3><p>How the pet grows depends on how your child shows up. With steady care the bond deepens and the pet evolves in its own way, no two journeys alike.</p></div>
+        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 74%,var(--color-leaf-success))"><img class="px ficon" src="assets/pixels/miko_read_x3.png" alt="Pet reading an open storybook" loading="lazy" decoding="async"><h3>Its own quirks and story</h3><p>Every pet arrives with a look, a personality, and a backstory from Nowa Planet. The bond is theirs, not a checklist.</p></div>
         <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 62%,var(--color-coral-blush))"><img class="px ficon" src="assets/pixels/egg_hatch_x2.png" alt="Cracked egg with a glow" loading="lazy" decoding="async"><h3>It opens up as it grows</h3><p>The more they care, the more unlocks: new songs, stories, and podcasts to discover. The world keeps getting bigger.</p></div>
       </div>
     </div>
@@ -957,22 +1045,32 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   </div>
   <div class="wrap">
     <p class="who reveal">Who might your child meet? Every journey is its own story, never a set to complete.</p>
-    <p class="unlock-head reveal"><span class="ln"></span> UNLOCKED THROUGH CARE <span class="ln"></span></p>
+    <p class="unlock-head reveal"><span class="ln"></span> MORE REWARDS AS YOUR PET GROWS <span class="ln"></span></p>
     <div class="libs reveal-group">
       <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)">St</div><h3>Stories</h3><p>Classics retold, plus original tales from the Nowa universe.</p>
         <div class="tracks">
           <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/048-the-fairy-who-collected-lost-giggles-69yo-female.mp3"><button class="pbtn" aria-label="Play The Fairy Who Collected Lost Giggles"><span class="pb-ico"></span></button><span class="ttl">The Fairy Who Collected Lost Giggles</span><span class="dur">4:28</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/027-the-lion-and-the-mouse-69yo-female.mp3"><button class="pbtn" aria-label="Play The Lion and the Mouse"><span class="pb-ico"></span></button><span class="ttl">The Lion and the Mouse</span><span class="dur">2:16</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/050-the-bunny-and-the-secret-tunnel-69yo-female.mp3"><button class="pbtn" aria-label="Play The Bunny and the Secret Tunnel"><span class="pb-ico"></span></button><span class="ttl">The Bunny and the Secret Tunnel</span><span class="dur">6:09</span></div>
         </div><div class="pbar"><i></i></div></div>
       <div class="lib pxcard"><div class="licon" style="background:var(--color-chalk-surface);color:var(--color-deep-ink)">So</div><h3>Songs</h3><p>A morning anthem to start the day, a lullaby to end it.</p>
         <div class="tracks">
           <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/021-spin-around-the-sun.mp3"><button class="pbtn" aria-label="Play Spin Around the Sun"><span class="pb-ico"></span></button><span class="ttl">Spin Around the Sun</span><span class="dur">4:02</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/015-yellow-duck.mp3"><button class="pbtn" aria-label="Play Yellow Duck"><span class="pb-ico"></span></button><span class="ttl">Yellow Duck</span><span class="dur">1:27</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/020-whispering-dreams.mp3"><button class="pbtn" aria-label="Play Whispering Dreams"><span class="pb-ico"></span></button><span class="ttl">Whispering Dreams</span><span class="dur">4:01</span></div>
         </div><div class="pbar"><i></i></div></div>
       <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)">Po</div><h3>Podcasts</h3><p>A curious host and a real expert, on science, nature, and life.</p>
         <div class="tracks">
           <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/001-why-do-planets-spin.mp3"><button class="pbtn" aria-label="Play Why Do Planets Spin?"><span class="pb-ico"></span></button><span class="ttl">Why Do Planets Spin?</span><span class="dur">10:57</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/009-kick-it-like-a-pro.mp3"><button class="pbtn" aria-label="Play Kick It Like a Pro"><span class="pb-ico"></span></button><span class="ttl">Kick It Like a Pro</span><span class="dur">6:47</span></div>
+          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/013-inside-a-raindrop.mp3"><button class="pbtn" aria-label="Play Inside a Raindrop"><span class="pb-ico"></span></button><span class="ttl">Inside a Raindrop</span><span class="dur">12:40</span></div>
         </div><div class="pbar"><i></i></div></div>
     </div>
     <p class="lib-note reveal" style="margin-top:var(--spacing-24);color:var(--color-cloud-border)">Tap play to hear real samples. Unlocks are part of the game; you decide what's available, always.</p>
+    <details class="faq pxcard world-faq reveal">
+      <summary>Why songs, stories, and podcasts, and why they unlock?<span class="fplus">+</span></summary>
+      <div class="faq-a"><p>The rewards aren't filler. Stories build language and empathy, songs anchor routines and calm, and podcasts feed the curiosity that drives early learning. Every piece was chosen for its developmental value and shaped with our child-development advisors. Tying them to care turns showing up into something your child looks forward to: the better they look after their pet, the more of this world opens up. And you stay in control of what's available, always.</p></div>
+    </details>
   </div>
 </section>
 
@@ -984,17 +1082,17 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   <div class="wrap">
     <p class="geyebrow"><span class="cell"></span>Safety &amp; control</p>
     <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">The safety isn't a setting. It's the design.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:60ch">Most apps for kids are built to hold their attention. Nowa is built for the opposite — short, purposeful play that hands your child back to the real world, and an AI that can't say anything you didn't choose.</p>
+    <p class="lead reveal" style="margin-top:16px;max-width:60ch">Most apps for kids are built to hold their attention. Nowa is built for the opposite: short, purposeful play that hands your child back to the real world, and an AI that can't say anything you didn't choose.</p>
     <div class="safety-grid reveal-group">
       <div class="safe-col">
-        <h3>A natural part of the day — never the center of it.</h3>
-        <p>Like a real pet, Nowa blends into your child's day — checked on here and there, never one long sitting.</p>
+        <h3>A natural part of the day, never the center of it.</h3>
+        <p>Like a real pet, Nowa blends into your child's day, checked on here and there, never one long sitting.</p>
         <ul class="safe-list">
           <li><span class="cell"></span>Short check-ins of about 10–15 minutes, a few times through the day</li>
           <li><span class="cell"></span>No infinite scroll, autoplay, or notifications pulling them back</li>
-          <li><span class="cell"></span>Every check-in points back out — to real routines, real people, real play</li>
+          <li><span class="cell"></span>Every check-in points back out, to real routines, real people, real play</li>
         </ul>
-        <div class="day-rhythm pxcard reveal" role="img" aria-label="A day with Nowa — three short check-ins of about 10 to 15 minutes spread across the day, with the rest of the day free for real life">
+        <div class="day-rhythm pxcard reveal" role="img" aria-label="A day with Nowa: three short check-ins of about 10 to 15 minutes spread across the day, with the rest of the day free for real life">
           <p class="dr-label">A day with Nowa</p>
           <div class="dr-track" aria-hidden="true">
             <span class="dr-line"></span>
@@ -1011,13 +1109,13 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <h3>A pet, not an AI companion.</h3>
         <p>Companion chatbots are built to be talked to, and needed. Nowa is the opposite: a pet your child looks after, nothing more.</p>
         <ul class="safe-list">
-          <li><span class="cell"></span>Speaks only in sound, motion, and feeling — never human words</li>
-          <li><span class="cell"></span>No open internet — nothing it can say that you didn't choose</li>
-          <li><span class="cell"></span>Its walled AI only reads progress and brings the pet to life — building attachment to the real world, not a screen</li>
+          <li><span class="cell"></span>Speaks only in sound, motion, and feeling, never human words</li>
+          <li><span class="cell"></span>No open internet, so nothing it can say that you didn't choose</li>
+          <li><span class="cell"></span>Its walled AI only reads progress and brings the pet to life, building attachment to the real world, not a screen</li>
         </ul>
         <div class="talk-demo reveal pxcard">
           <p class="bubble" id="petSound">♪ prrr… blip!</p>
-          <p class="label">Nowa speaks in sound, motion, and feeling — your child does the understanding.</p>
+          <p class="label">Nowa speaks in sound, motion, and feeling. Your child does the understanding.</p>
           <div class="pet-row">
             <img class="px" src="assets/species/miko.png" alt="Miko, a pixel-art Nowa pet, listening" width="120" height="120" loading="lazy" decoding="async">
             <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
@@ -1038,8 +1136,8 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <section class="parent-app" id="parent-app">
   <div class="wrap">
     <p class="geyebrow"><span class="cell"></span>Safety &amp; control</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:18ch">You hold every dial.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:56ch">The app is where your role lives. You shape the routines, you set the limits — and what you get back isn't a score, it's a warm picture of how your child is growing.</p>
+    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:18ch">The parent app: you hold every dial.</h2>
+    <p class="lead reveal" style="margin-top:16px;max-width:56ch">The app is where your role lives. You shape the routines, you set the limits. What you get back is a warm picture of how your child is growing, never a score.</p>
     <div class="papp-grid reveal-group">
       <div class="papp-stage">
         <div class="pf-phone">
@@ -1066,26 +1164,28 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         </div>
       </div>
       <div class="papp-feats">
-        <div class="papp-feat" role="button" tabindex="0" data-feature="mission"><h3>Mission Control</h3><p>Set up the habit routines that fit your family's schedule — mornings, homework, bedtime. The app turns each one into a mission your child's pet needs their help to complete.</p><span class="papp-go">See it →</span></div>
-        <div class="papp-feat" role="button" tabindex="0" data-feature="growth"><h3>Growth insights</h3><p>Progress and developmental insights drawn from frameworks <strong>shaped by our advisory board</strong> — not metrics we invented. You see only what genuinely reflects your child's journey, never noise.</p><span class="papp-go">See it →</span></div>
-        <div class="papp-feat" role="button" tabindex="0" data-feature="loop"><h3>Stay in the loop</h3><p>See every mission and how your child did it, and set the pet's bedtime to match your child's. Every byte the game collects is yours — view it, and delete it from our servers anytime. We keep nothing for any other purpose.</p><span class="papp-go">See it →</span></div>
+        <div class="papp-feat" role="button" tabindex="0" data-feature="mission"><h3>Mission Control</h3><p>Set up the habit routines that fit your family's schedule: mornings, homework, bedtime. The app turns each one into a mission your child's pet needs their help to complete.</p><span class="papp-go">See it →</span></div>
+        <div class="papp-feat" role="button" tabindex="0" data-feature="growth"><h3>Growth insights</h3><p>Progress and developmental insights drawn from frameworks <strong>shaped by our advisory board</strong>, not metrics we invented. You see only what genuinely reflects your child's journey, never noise.</p><span class="papp-go">See it →</span></div>
+        <div class="papp-feat" role="button" tabindex="0" data-feature="loop"><h3>Stay in the loop</h3><p>See every mission and how your child did it, and set the pet's bedtime to match your child's. Every byte the game collects is yours. View it, and delete it from our servers anytime. We keep nothing for any other purpose.</p><span class="papp-go">See it →</span></div>
       </div>
     </div>
-    <p class="papp-trust reveal">Closed and family-safe — no open internet, no ads, ever. <a href="parent-app.html">Explore the parent app →</a></p>
+    <p class="papp-trust reveal">Closed and family-safe. No open internet, no ads, ever. <a href="parent-app.html">Explore the parent app →</a></p>
   </div>
 </section>
 
 <!-- v2: device moved into the opening; "hard parts" cut per sturdy-parent feedback -->
 
+<div class="dither dith-soft" aria-hidden="true"></div>
 <!-- ░░ COMPARE — a real comparison matrix ░░ -->
-<section id="compare">
+<section id="compare" class="compare-band">
   <div class="wrap">
     <p class="geyebrow"><span class="cell"></span>Compare</p>
     <h2 class="reveal" style="font-size:clamp(26px,3vw,40px);max-width:26ch">Calm like Yoto. Developmental like Lovevery. But alive.</h2>
-    <div class="cmptbl reveal">
+    <div class="cmptbl pxcard reveal">
+      <div class="cmptbl-scroll">
       <table>
         <thead>
-          <tr><th scope="col"></th><th scope="col">Audio</th><th scope="col">Play kits</th><th scope="col">Tablets</th><th scope="col" class="col-us">NOWA</th></tr>
+          <tr><th scope="col"></th><th scope="col"><img class="px cmp-ic" src="assets/compare/cmp-audio.png" alt="" loading="lazy" decoding="async"><span>Audio</span></th><th scope="col"><img class="px cmp-ic" src="assets/compare/cmp-play.png" alt="" loading="lazy" decoding="async"><span>Play kits</span></th><th scope="col"><img class="px cmp-ic" src="assets/compare/cmp-tablet.png" alt="" loading="lazy" decoding="async"><span>Tablets</span></th><th scope="col" class="col-us"><img class="px cmp-ic cmp-ic-pet" src="assets/species/brim.png" alt="" loading="lazy" decoding="async"><span>NOWA</span></th></tr>
         </thead>
         <tbody>
           <tr><th scope="row">Responds to your child</th><td class="n">✗</td><td class="n">✗</td><td class="p">~</td><td class="col-us y">✓</td></tr>
@@ -1095,16 +1195,18 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
           <tr><th scope="row">No open internet, no ads</th><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="col-us y">✓</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 </section>
 
+<div class="dither dith-soft" aria-hidden="true"></div>
 <!-- BETA FAMILIES -->
 <section class="reviews">
   <div class="wrap">
     <p class="geyebrow"><span class="cell"></span>From beta families</p>
     <h2 class="reveal" style="font-size:clamp(30px,3.4vw,46px);max-width:22ch">From the families who tested it first.</h2>
-    <p class="lead reveal" style="margin-top:16px">Real households, real mornings — words from the beta program.</p>
+    <p class="lead reveal" style="margin-top:16px">Real households, real mornings. Words from the beta program.</p>
   </div>
   <div class="rev-rows" aria-label="Beta family reviews">
     <div class="rev-row"><div class="rev-track" data-dir="1"><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">My son used to fight me for 20 minutes every morning about his shoes. Now he's racing to get them on because he wants to tell his Nowa pet he's ready for the School Mission.</p><p class="rwho"><strong>Mark J.</strong> · Dad of a 6-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">The dashboard actually showed me my daughter was feeling anxious about her math homework before she even told me. It gave us a bridge to talk.</p><p class="rwho"><strong>Kate</strong> · Mom of an 8-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">Bedtime went from negotiation to ritual. The pet gets sleepy, so somehow my daughter does too.</p><p class="rwho"><strong>Tom R.</strong> · Dad of a 4-year-old <span class="beta-chip">BETA FAMILY</span></p></div></div></div>
@@ -1112,18 +1214,19 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   </div>
 </section>
 
+<div class="dither dith-soft" aria-hidden="true"></div>
 <!-- FAQ -->
 <section class="faqsec" id="faq">
   <div class="wrap">
     <p class="geyebrow"><span class="cell"></span>Before you ask</p>
     <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:20ch">The questions every parent asks.</h2>
     <div class="faqs reveal-group">
-      <details class="faq pxcard"><summary>What age is Nowa designed for?<span class="fplus">+</span></summary><div class="faq-a"><p>Kids ages 3–10 — the stage when routines, independence, and emotional habits develop fastest. The experience is age-scaffolded so it grows with your child.</p></div></details>
-      <details class="faq pxcard"><summary>How does Nowa build habits without nagging?<span class="fplus">+</span></summary><div class="faq-a"><p>Instead of you repeating instructions, daily routines become missions your child does to help their pet grow. The pet celebrates wins and encourages them through struggles — habit-building feels like play, not punishment.</p></div></details>
-      <details class="faq pxcard"><summary>Is there AI in Nowa? Is it safe for young children?<span class="fplus">+</span></summary><div class="faq-a"><p>Yes — a closed, walled AI shapes how the pet feels, remembers care, and chooses missions. It never speaks to your child in human language, has no access to the open internet, and collects nothing beyond what personalizes the experience. It was built with our child-development researchers to support growth, not maximize engagement.</p></div></details>
+      <details class="faq pxcard"><summary>What age is Nowa designed for?<span class="fplus">+</span></summary><div class="faq-a"><p>Kids ages 3–10, the stage when routines, independence, and emotional habits develop fastest. The experience is age-scaffolded so it grows with your child.</p></div></details>
+      <details class="faq pxcard"><summary>How does Nowa build habits without nagging?<span class="fplus">+</span></summary><div class="faq-a"><p>Instead of you repeating instructions, daily routines become missions your child does to help their pet grow. The pet celebrates wins and encourages them through struggles, so habit-building feels like play, not punishment.</p></div></details>
+      <details class="faq pxcard"><summary>Is there AI in Nowa? Is it safe for young children?<span class="fplus">+</span></summary><div class="faq-a"><p>Yes. A closed, walled AI shapes how the pet feels, remembers care, and chooses missions. It never speaks to your child in human language, has no access to the open internet, and collects nothing beyond what personalizes the experience. It was built with our child-development researchers to support growth, not maximize engagement.</p></div></details>
       <details class="faq pxcard"><summary>Is my child's experience safe and private?<span class="fplus">+</span></summary><div class="faq-a"><p>The pet doesn't converse, so there's nothing to monitor and nothing to leak. No open internet, content age-scaffolded for 3–10, built to meet COPPA and ASTM F963 standards. You stay in control through topic boundaries, bedtime modes, and usage limits in the parent app.</p></div></details>
-      <details class="faq pxcard"><summary>How much screen time does Nowa involve?<span class="fplus">+</span></summary><div class="faq-a"><p>Nowa is designed to be put down, not stayed on. Check-ins run about 10–15 minutes each, a few times through the day — short and active, with no infinite scroll, no autoplay, no engagement mechanics. The goal is always to send your child back into the real world.</p></div></details>
-      <details class="faq pxcard"><summary>What happens if my child misses a day?<span class="fplus">+</span></summary><div class="faq-a"><p>Real life happens. Missing a day doesn't erase progress or create punishment — and the pet never dies. Left alone for a long time it may get sad or gently return to its home world, but it can always come back.</p></div></details>
+      <details class="faq pxcard"><summary>How much screen time does Nowa involve?<span class="fplus">+</span></summary><div class="faq-a"><p>Nowa is designed to be put down, not stayed on. Check-ins run about 10–15 minutes each, a few times through the day. Short and active, with no infinite scroll, no autoplay, no engagement mechanics. The goal is always to send your child back into the real world.</p></div></details>
+      <details class="faq pxcard"><summary>What happens if my child misses a day?<span class="fplus">+</span></summary><div class="faq-a"><p>Real life happens. Missing a day doesn't erase progress or create punishment, and the pet never dies. Left alone for a long time it may get sad or gently return to its home world, but it can always come back.</p></div></details>
       <details class="faq pxcard"><summary>How does the parent app work?<span class="fplus">+</span></summary><div class="faq-a"><p>Set routines, see progress, and get warm, narrative insights without more mental load. Basic setup and routine tracking come with the device; full insights, advanced missions, and expert guidance are part of the optional Nowa+ subscription.</p></div></details>
       <details class="faq pxcard"><summary>When will Nowa be available?<span class="fplus">+</span></summary><div class="faq-a"><p>Pre-orders are open now at $99, shipping September 2026. You can cancel your reservation anytime before it ships.</p></div></details>
     </div>
@@ -1137,7 +1240,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <p class="geyebrow" style="justify-content:center"><span class="cell"></span>The beginning</p>
     <h2 class="reveal">Reserve your child's Nowa.</h2>
     <p class="lead reveal" style="max-width:42ch">$99 · ships September 2026 · free updates · cancel your reservation anytime before it ships.</p>
-    <a href="#" class="btn reveal">Pre-order Nowa — $99 <span class="arr">→</span></a>
+    <a href="#" class="btn reveal">Pre-order Nowa for $99 <span class="arr">→</span></a>
     <p class="reveal" style="margin-top:20px;font-size:var(--text-body-sm);color:var(--band-note,var(--color-cloud-border))">You're reserving a spot, not racing a clock. We'll email you well before yours ships.</p>
     <div class="pets reveal-group" aria-hidden="true">
       <img class="px" src="assets/species/flori.png" alt="" width="64" height="64" loading="lazy" decoding="async">
@@ -1155,7 +1258,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     </div>
     <div style="display:flex;gap:48px;flex-wrap:wrap">
       <div style="display:flex;flex-direction:column;gap:8px"><a href="#mechanic">How it works</a><a href="#learnings">The science</a><a href="#compare">Compare</a></div>
-      <div style="display:flex;flex-direction:column;gap:8px"><a href="#why">The world</a><a href="#preorder">Pre-order</a><a href="#safety">Safety &amp; privacy</a></div>
+      <div style="display:flex;flex-direction:column;gap:8px"><a href="#world">The world</a><a href="#preorder">Pre-order</a><a href="#safety">Safety &amp; privacy</a></div>
     </div>
   </div>
   <div class="wrap foot-mark graph-dark">
@@ -1209,13 +1312,67 @@ document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el))
   tick();
 })();
 
-/* v2: mission tabs replaced by stat cards */
+/* mission tabs — swap copy, folded research stat, and device video */
+(() => {
+  const data = [
+    {h: 'The daily friction, minus the referee.',
+     b: 'Brushing teeth, getting dressed, bedtime, homework start. The routine becomes something the pet needs help to finish, so the follow-through comes from your child.',
+     r: 'Shaped with Dr. Steven Kurtz · Parent-child interaction',
+     sbig: '3× more likely', stxt: 'Children with the weakest self-control as young kids were about three times more likely to face poor health, money trouble, or a criminal record as adults, whatever their IQ or background.', ssrc: 'Moffitt & Caspi et al., PNAS, 2011 · Dunedin study, 1,000+ children',
+     vid: 'assets/videos/the-mission-engine-02.mp4'},
+    {h: 'Practising calm before the storm.',
+     b: 'Naming a big feeling, taking turtle-time, riding out a wobble. Low-stakes reps with the pet, so the skill is there when a real meltdown comes.',
+     r: 'Shaped with Dr. Susanne Denham · Emotional competence',
+     sbig: '+11 points', stxt: 'Children in social-and-emotional learning programs scored about 11 percentile points higher on academics, and behaved better, than peers who did not.', ssrc: 'Durlak et al., meta-analysis of 213 programs, 2011',
+     vid: 'assets/videos/the-mission-engine-04.mp4'},
+    {h: 'Planning, focus, and finishing.',
+     b: 'Missions that ask your child to plan a few steps, hold attention, and see something through. The skills school leans on hardest.',
+     r: 'Shaped with Dr. Megan McClelland · Executive function',
+     sbig: '~50% likelier', stxt: 'Kids with stronger attention and persistence at age 4 were about 50% more likely to finish college by 25, regardless of early reading or maths.', ssrc: 'McClelland et al., 2013',
+     vid: 'assets/videos/the-mission-engine-03.mp4'}
+  ];
+  const tabs = [...document.querySelectorAll('.mtab')];
+  if (!tabs.length) return;
+  const txt = document.getElementById('mText'), wrap = document.getElementById('mVidWrap'), vid = document.getElementById('mVid');
+  const head = document.getElementById('mHead'), body = document.getElementById('mBody'), real = document.getElementById('mReal'), stat = document.getElementById('mStat');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    if (t.classList.contains('on')) return;
+    tabs.forEach(x => { x.classList.remove('on'); x.setAttribute('aria-selected', 'false'); });
+    t.classList.add('on'); t.setAttribute('aria-selected', 'true');
+    const d = data[+t.dataset.m];
+    const apply = () => {
+      head.textContent = d.h; body.textContent = d.b; real.textContent = d.r;
+      stat.querySelector('.big').textContent = d.sbig;
+      stat.querySelector('.txt').textContent = d.stxt;
+      stat.querySelector('.src').textContent = d.ssrc;
+      vid.src = d.vid;
+    };
+    if (reduced) { apply(); return; }
+    txt.classList.add('out'); wrap.classList.add('out');
+    setTimeout(() => { apply(); txt.classList.remove('out'); wrap.classList.remove('out'); }, 220);
+  }));
+})();
+
+/* spine quote: words brighten as it enters */
+(() => {
+  const q = document.getElementById('spineQuote');
+  if (!q) return;
+  const words = q.textContent.split(' ');
+  q.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
+  const ws = [...q.querySelectorAll('.w')];
+  const qio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    ws.forEach((w, i) => setTimeout(() => w.classList.add('on'), reduced ? 0 : 80 * i));
+    qio.disconnect();
+  }), {threshold: 0.5});
+  qio.observe(q);
+})();
 
 /* egg hatch — rare-moment delight */
 (() => {
   const card = document.getElementById('eggCard');
   const pets = ['ollie','flori','puffin','nori-2','miko-1','taro-1','brim-1','nori-1'];
-  const names = {'ollie':'Ollie','flori':'Flori','puffin':'Puffin','nori-2':'Nori — Crystal','miko-1':'Miko — Scholar','taro-1':'Taro — Pilot','brim-1':'Brim — Viking','nori-1':'Nori — Coral'};
+  const names = {'ollie':'Ollie','flori':'Flori','puffin':'Puffin','nori-2':'Nori, Crystal form','miko-1':'Miko, Scholar form','taro-1':'Taro, Pilot form','brim-1':'Brim, Viking form','nori-1':'Nori, Coral form'};
   let busy = false;
   card.addEventListener('click', () => {
     if (busy) return; busy = true;
@@ -1337,7 +1494,7 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
   document.querySelectorAll('section, header.hero, footer').forEach(el => bgio.observe(el));
 })();
 (() => {
-  const map = {device: 'device', learnings: 'learnings', mechanic: 'mechanic', why: 'why', safety: 'safety', compare: 'compare', preorder: 'preorder'};
+  const map = {device: 'device', learnings: 'learnings', mechanic: 'mechanic', world: 'world', safety: 'safety', compare: 'compare', preorder: 'preorder'};
   const links = [...document.querySelectorAll('.rail a')];
   const sio = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
@@ -1380,7 +1537,7 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
 
   function ready(slide){var f=slide.querySelector('iframe');var l=slide.querySelector('.pf-load');
     try{var d=f.contentDocument;if(d){var st=d.createElement('style');
-      st.textContent='html,body{background:transparent!important;height:auto!important}body{display:block!important;margin:0!important;padding:52px 0 0!important;min-height:0!important}.phone{box-shadow:none!important;border-radius:0!important;margin:0!important}';
+      st.textContent='html,body{background:transparent!important;height:auto!important;scrollbar-width:none!important}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}body{display:block!important;margin:0!important;padding:52px 0 0!important;min-height:0!important}.phone{box-shadow:none!important;border-radius:0!important;margin:0!important}';
       d.head.appendChild(st);}}catch(e){}
     if(l)l.style.display='none';}
   all.forEach(function(s){s.querySelector('iframe').addEventListener('load',function(){ready(s);});});
