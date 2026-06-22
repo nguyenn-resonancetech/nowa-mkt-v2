@@ -215,14 +215,15 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .pf-btn.r{right:-3px;top:172px;height:80px}
 .pf-btn.u{left:-3px;top:150px;height:48px}
 .pf-btn.d{left:-3px;top:210px;height:48px}
-.pf-screen{position:relative;width:300px;height:690px;overflow:hidden;background:var(--surface-warm-parchment);border-radius:37px}
-.pf-island{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:84px;height:25px;background:#05070a;border-radius:14px;z-index:6;pointer-events:none}
+/* frame fits the app at true width-scale (.76336) with a small top status-bar inset; height trimmed
+   from the bottom (app viewport shortened via injected .phone height, tab bar rides up, nothing cropped) */
+.pf-screen{position:relative;width:300px;height:611px;overflow:hidden;background:var(--surface-warm-parchment);border-radius:37px}
 .pf-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-y}
 .pf-track::-webkit-scrollbar{display:none}
 .pf-track:active{cursor:grabbing}
 .pf-slide{flex:0 0 300px;height:100%;scroll-snap-align:start;overflow:hidden;position:relative}
 .pf-slide.pf-hide{display:none}
-.pf-slide iframe{width:393px;height:904px;border:0;transform:scale(.76336);transform-origin:top left;display:block;pointer-events:none;background:var(--surface-warm-parchment)}
+.pf-slide iframe{width:393px;height:800px;border:0;transform:scale(.76336);transform-origin:top left;display:block;pointer-events:none;background:var(--surface-warm-parchment)}
 .pf-load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-onest);font-weight:600;font-size:12px;color:var(--color-mist-body);letter-spacing:.08em}
 .pf-nav{display:flex;align-items:center;gap:16px}
 .pf-arrow{width:40px;height:40px;background:var(--color-ink-charcoal);border:2px solid var(--color-slate-mid);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
@@ -725,9 +726,14 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 @keyframes nudgeL{0%,100%{transform:translateY(-50%)}50%{transform:translateY(-50%) translateX(-4px)}}
 @keyframes nudgeU{0%,100%{transform:translateX(-50%)}50%{transform:translateX(-50%) translateY(-4px)}}
 @keyframes spin{to{transform:rotate(360deg)}}
-/* the learn-through-play study uses the shared .pullq advisor-quote styling, with the care-loop scene scaled to fit the image frame */
-#mechanic .pullq{margin-left:auto;margin-right:auto;align-items:center}
-#mechanic .pullq img{width:96px;height:96px;flex:none}
+/* the learn-through-play study is a highlighted research-finding callout: soft coral-blush
+   fill + oversized decorative quote marks, kept lighter than the care-loop ring above it */
+#mechanic .pullq{margin-left:auto;margin-right:auto;align-items:center;max-width:640px;--pxbg:color-mix(in srgb,var(--color-coral-blush) 55%,var(--surface-pure-white))}
+#mechanic .pullq img{width:64px;height:64px;flex:none}
+#mechanic .pullq .qt b{font-weight:800;color:var(--color-deep-ink)}
+#mechanic .pullq .qd{font-family:var(--font-onest);font-weight:900;color:var(--color-coral-glow);font-size:1.7em;line-height:0;vertical-align:-.42em}
+#mechanic .pullq .qd.ql{margin-right:.04em}
+#mechanic .pullq .qd.qr{margin-left:.02em}
 /* why-it-works: library unlocks live on the dark world band */
 .unlock-head{font-family:var(--font-pixel);font-size:18px;color:var(--color-coral-glow);letter-spacing:.05em;margin-top:var(--spacing-48);margin-bottom:var(--spacing-16);display:flex;align-items:center;gap:12px}
 .unlock-head .ln{flex:1;height:5px;background:repeating-linear-gradient(90deg,var(--color-coral-glow) 0 6px,transparent 6px 12px);background-size:12px 5px}
@@ -827,7 +833,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <span class="line"><span>The pet that turns</span></span>
         <span class="line"><span>routines into play.</span></span>
       </h1>
-      <p class="lead">Nowa is a little pet your child looks after. Caring for it is how they practice calm, build routines, and grow kinder. The follow-through comes from them, not from you repeating yourself.</p>
+      <p class="lead">Nowa is a virtual pet your child looks after. Caring for it is how they practice calm, build routines, and grow kinder. The follow-through comes from them, not from you repeating yourself.</p>
       <div class="hero-cta">
         <a href="#preorder" class="btn">Pre-order Nowa for $99 <span class="arr">→</span></a>
         <a href="#mechanic" class="btn-ghost">See how it works →</a>
@@ -859,10 +865,10 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <div class="blueprint pxcard reveal"><video src="assets/videos/device-blueprint.mp4" autoplay muted loop playsinline aria-label="Technical blueprint of the Nowa device" style="width:100%;display:block"></video></div>
     <div>
       <p class="geyebrow"><span class="cell"></span>What Nowa is</p>
-      <h2 class="reveal" style="font-size:clamp(26px,3vw,40px);max-width:18ch">And it lives in one small thing.</h2>
-      <p class="lead reveal" style="margin-top:14px">No tablet, no app for the kid. The pet lives in a pocket-sized device built for small hands. Three chunky buttons and a screen just big enough for the pet it holds.</p>
+      <h2 class="reveal" style="font-size:clamp(26px,3vw,40px);max-width:18ch">A pocket-sized pet, not a screen to scroll.</h2>
+      <p class="lead reveal" style="margin-top:14px">No tablet, no app for the kid. The pet lives in a handheld device built for small hands. Three chunky buttons and a screen just big enough for the pet it holds.</p>
       <ul class="specs reveal-group">
-        <li><span class="cell"></span>6.76 × 7.52 cm, fits a coat pocket or a backpack side pouch</li>
+        <li><span class="cell"></span>2.9 × 3.2 in (7.34 × 8.04 cm), fits a coat pocket or a backpack side pouch</li>
         <li><span class="cell"></span>Three physical buttons, simple enough for age 3</li>
         <li><span class="cell"></span>Closed, family-safe system you control from the app</li>
         <li><span class="cell"></span>$99 · ships September 2026</li>
@@ -877,7 +883,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   <div class="wrap">
     <p class="geyebrow"><span class="cell"></span>The learnings &amp; science</p>
     <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">All the learning runs through missions.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:58ch">The pet asks your child for help, and every request is one of three kinds. We chose these three because decades of research tie them to how well kids do later in life.</p>
+    <p class="lead reveal" style="margin-top:16px;max-width:60ch">The pet asks your child for help, and every request comes as a mission: a small, real-world action your child does to care for it. Each mission grows one of three skills, chosen because decades of research tie them to how well kids do later in life.</p>
     <div class="mtabs reveal" role="tablist" aria-label="Mission types">
       <button class="mtab on" role="tab" aria-selected="true" data-m="0">Habit &amp; routine</button>
       <button class="mtab" role="tab" aria-selected="false" data-m="1">Emotional regulation</button>
@@ -967,6 +973,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <img src="assets/avatars/dr-susanne-denham.png" alt="Dr. Susanne Denham" loading="lazy" decoding="async">
       <figcaption><p class="qt">“Children don’t learn feelings from being told about them. They learn by reading them, naming them, and caring for someone who has them.”</p><p class="who">Dr. Susanne Denham · Emotional competence · 40+ years of research <span class="sample-chip">SAMPLE · PENDING APPROVAL</span></p></figcaption>
     </figure>
+    <p class="safe-trust reveal">See how we design each mission with our advisors · <a href="the-science.html">Inside the learning &amp; science →</a></p>
   </div>
 </section>
 
@@ -988,7 +995,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     </div>
     <figure class="pullq reveal pxcard" style="margin-top:var(--spacing-48)">
       <img class="px" src="assets/scenes/scene-care-loop.png" alt="Pixel-art scene of a child watering a sprout" loading="lazy" decoding="async">
-      <figcaption><p class="qt">Play beats being taught. Across 17 studies of nearly 3,900 young children, learning woven into play drove bigger gains in early maths, focus, and task-switching than being taught directly.</p><p class="who">Skene et al., Child Development, 2022 · meta-analysis of guided play</p></figcaption>
+      <figcaption><p class="qt"><span class="qd ql" aria-hidden="true">“</span><b>Play beats being taught.</b> Across 17 studies of nearly 3,900 young children, learning woven into play drove bigger gains in early maths, focus, and task-switching than being taught directly.<span class="qd qr" aria-hidden="true">”</span></p><p class="who">Skene et al., Child Development, 2022 · meta-analysis of guided play</p></figcaption>
     </figure>
   </div>
 </section>
@@ -1143,7 +1150,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <div class="pf-phone">
           <span class="pf-btn r"></span><span class="pf-btn u"></span><span class="pf-btn d"></span>
           <div class="pf-screen">
-            <div class="pf-island"></div>
             <div class="pf-track" id="pfTrack">
               <div class="pf-slide" data-feature="mission"><div class="pf-load">loading…</div><iframe title="Mission Control" data-src="../app-ui/new/mission-control.html"></iframe></div>
               <div class="pf-slide" data-feature="mission"><div class="pf-load">loading…</div><iframe title="Add mission" data-src="../app-ui/new/mission-edit.html"></iframe></div>
@@ -1535,11 +1541,9 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
 
   function vis(){return all.filter(function(s){return !s.classList.contains('pf-hide');});}
 
-  function ready(slide){var f=slide.querySelector('iframe');var l=slide.querySelector('.pf-load');
-    try{var d=f.contentDocument;if(d){var st=d.createElement('style');
-      st.textContent='html,body{background:transparent!important;height:auto!important;scrollbar-width:none!important}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}body{display:block!important;margin:0!important;padding:52px 0 0!important;min-height:0!important}.phone{box-shadow:none!important;border-radius:0!important;margin:0!important}';
-      d.head.appendChild(st);}}catch(e){}
-    if(l)l.style.display='none';}
+  /* each app screen self-styles for embedding (see html.embed rules in app-ui/new/*.html);
+     no cross-document injection here so it works on file:// too. just hide the loader. */
+  function ready(slide){var l=slide.querySelector('.pf-load');if(l)l.style.display='none';}
   all.forEach(function(s){s.querySelector('iframe').addEventListener('load',function(){ready(s);});});
 
   var PFV='?v='+Date.now(); /* showcase dev: always load the freshest screen (bypass local-server cache). Remove for production. */
