@@ -90,8 +90,8 @@ h1,h2,h3,h4{font-family:var(--font-onest);letter-spacing:-.02em;line-height:1.12
 /* embed mode: when shown inside the marketing phone frame (iframed), drop the
    standalone showroom styling and fit the frame. Self-applied so it never depends
    on the parent reaching into this document (which file:// blocks). */
-html.embed,html.embed body{background:transparent!important;height:auto!important;overflow:hidden!important;scrollbar-width:none!important}
-html.embed::-webkit-scrollbar,html.embed body::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
+html.embed,html.embed body,html.embed *{scrollbar-width:none!important}html.embed,html.embed body{background:transparent!important;height:auto!important;overflow:hidden!important}
+html.embed ::-webkit-scrollbar,html.embed::-webkit-scrollbar,html.embed body::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
 html.embed body{display:block!important;margin:0!important;padding:30px 0 0!important;min-height:0!important}
 html.embed .phone{box-shadow:none!important;border-radius:0!important;margin:0!important;height:770px!important}
 </style>
