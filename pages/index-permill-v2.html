@@ -792,6 +792,73 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 /* the looping how-it-works reuses .step but not the row arrow */
 .gameloop .step::after{display:none}
 .gameloop .step{margin-left:0}
+
+/* ===== Founding Family offer ===== */
+/* announcement bar (scrolls away; nav stays sticky below it) */
+.annc{display:block;background:var(--color-deep-ink);color:var(--color-warm-parchment);font-family:var(--font-onest);font-size:var(--text-body-sm);overflow:hidden;white-space:nowrap;text-decoration:none}
+.annc-track{display:inline-flex;align-items:center;padding:9px 0;animation:anncScroll 34s linear infinite;will-change:transform}
+.annc:hover .annc-track{animation-play-state:paused}
+.annc-item{display:inline-flex;align-items:center}
+.annc-item strong{color:#fff;font-weight:700}
+.annc .ad{color:var(--color-coral-glow);margin:0 14px}
+.annc .annc-go{color:var(--color-coral-glow);font-weight:700}
+@keyframes anncScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.annc{text-align:center}.annc-track{animation:none;justify-content:center;width:100%}.annc-item:nth-child(n+2){display:none}}
+
+/* preorder: left-aligned offer column inside the centered section */
+#preorder .offer-wrap{max-width:660px;margin:var(--spacing-48) auto 0;text-align:left;display:flex;flex-direction:column;gap:22px}
+.offer-stack.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);padding:clamp(22px,3vw,34px);filter:drop-shadow(3px 3px 0 rgba(22,28,36,.14))}
+.offer-stack>*{position:relative;z-index:1}
+.os-head,.os-exhead{font-family:var(--font-onest);font-weight:800;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-slate-mid)}
+.os-list{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:18px}
+.os-item{display:grid;grid-template-columns:18px 1fr auto;column-gap:12px;row-gap:3px;align-items:baseline}
+.os-check{grid-row:1/span 2;align-self:start;margin-top:1px;color:var(--color-coral-flame);font-weight:900;font-size:15px;line-height:1.4}
+.os-name{font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink)}
+.os-val{font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink);white-space:nowrap;font-size:var(--text-body-sm)}
+.os-desc{grid-column:2/-1;font-size:var(--text-body-sm);color:var(--color-slate-mid);text-wrap:pretty}
+.os-sub{list-style:none;margin:9px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
+.os-sub li{font-size:var(--text-body-sm);color:var(--color-slate-mid);padding-left:14px;position:relative}
+.os-sub li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--color-coral-glow)}
+.os-sub b{color:var(--color-deep-ink);font-weight:700}
+.os-extras{margin-top:22px;padding-top:20px;border-top:1px dashed var(--color-cloud-border)}
+.os-exlist{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.os-exlist li{font-size:var(--text-body-sm);color:var(--color-deep-ink);padding-left:24px;position:relative}
+.os-exlist li::before{content:"\2605";position:absolute;left:0;top:-1px;color:var(--color-amber-signal)}
+.os-total{margin-top:22px;padding-top:18px;border-top:1px solid var(--color-chalk-surface);font-size:var(--text-body-sm);color:var(--color-slate-mid);text-wrap:pretty}
+.os-total b{color:var(--color-deep-ink);font-weight:800}
+
+/* guarantee + scarcity merged (night card, the section's hero element) */
+.guarantee.pxcard{--pxbg:var(--color-deep-ink);--pxborder:var(--color-ink-charcoal);padding:clamp(24px,3.2vw,38px);color:var(--color-cloud-border);filter:drop-shadow(4px 4px 0 rgba(0,0,0,.28))}
+.guarantee>*{position:relative;z-index:1}
+.g-badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-onest);font-weight:800;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--color-deep-ink);background:var(--color-warm-parchment);padding:5px 12px 7px;clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px))}
+.guarantee h3{color:#fff;font-size:clamp(20px,2.4vw,28px);margin-top:16px;max-width:24ch}
+.g-list{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+.g-list li{position:relative;padding-left:22px;color:var(--color-cloud-border);font-size:var(--text-body-sm);text-wrap:pretty}
+.g-list li .cell{position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--color-coral-glow)}
+.g-list b{color:#fff;font-weight:700}
+.g-scar{margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12)}
+.g-scar .gs-lead{font-family:var(--font-onest);font-weight:700;color:#fff}
+.g-scar p{font-size:var(--text-body-sm);color:var(--color-cloud-border);margin-top:8px;max-width:56ch;text-wrap:pretty}
+.g-scar .gs-num{color:var(--color-coral-glow);font-weight:700}
+#preorder .offer-cta{margin-top:var(--spacing-32)}
+.offer-fine{max-width:58ch;margin:16px auto 0;font-size:var(--text-body-sm);font-family:var(--font-onest);font-weight:600;color:var(--color-deep-ink);text-wrap:pretty}
+.fdot{color:var(--color-coral-flame);font-weight:700;margin:0 8px}
+
+/* compact mid-page CTA */
+.midcta{background:#fff3d6;text-align:center;padding:clamp(48px,6vw,84px) 0}
+.midcta .geyebrow{justify-content:center}
+/* warm-gold founding bands: eyebrow needs ink contrast, not the dark-section pale grey */
+#preorder .geyebrow,.midcta .geyebrow{color:var(--color-deep-ink)}
+.midcta h3{font-family:var(--font-onest);font-weight:800;font-size:clamp(24px,3.2vw,40px);color:var(--color-deep-ink);max-width:20ch;margin:10px auto 0}
+.midcta .mc-fine{font-size:var(--text-body-sm);font-family:var(--font-onest);font-weight:600;color:var(--color-deep-ink);max-width:62ch;margin:16px auto 26px;text-wrap:pretty}
+.midcta .btn{margin:0 auto}
+.midcta .mc-more{font-size:var(--text-body-sm);color:var(--color-slate-mid);margin-top:18px}
+.midcta .mc-more a{color:var(--color-coral-flame);font-weight:700}
+
+/* FAQ category tabs */
+.faqtabs{margin-bottom:var(--spacing-24)}
+.faqsec .faqpanel{margin-top:0}
+.faqpanel[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -799,6 +866,17 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <div class="note">PERMILL LP v2 · restructured into the six question-groups. Real sprites + video; advisor and beta quotes are SAMPLE, pending approval.</div>
 
 <div class="readbar" aria-hidden="true"></div>
+
+<a class="annc" href="#preorder" aria-label="Founding Family pre-order is open. $99, retail $149. Fully refundable. Ships September 2026. Reserve yours.">
+  <div class="annc-track" aria-hidden="true">
+    <span class="annc-item"><strong>Founding Family pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Founding Family pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Founding Family pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Founding Family pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Founding Family pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Founding Family pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+  </div>
+</a>
 
 <nav>
   <div class="wrap">
@@ -835,10 +913,10 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       </h1>
       <p class="lead">Nowa is a virtual pet your child looks after. Caring for it is how they practice calm, build routines, and grow kinder. The follow-through comes from them, not from you repeating yourself.</p>
       <div class="hero-cta">
-        <a href="#preorder" class="btn">Pre-order Nowa for $99 <span class="arr">→</span></a>
+        <a href="#preorder" class="btn">Reserve your Nowa <span class="arr">→</span></a>
         <a href="#mechanic" class="btn-ghost">See how it works →</a>
       </div>
-      <p class="ship">Ages 3–10 · $99 · ships September 2026 · no open internet, no ads</p>
+      <p class="ship">$99 founding price (retail $149) · Ages 3–10 · Ships September 2026 · Fully refundable</p>
     </div>
     <div class="hero-stage">
       <div class="stage-inner">
@@ -1207,6 +1285,18 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 </section>
 
 <div class="dither dith-soft" aria-hidden="true"></div>
+<!-- MID-PAGE CTA (after Compare) -->
+<section class="midcta" id="midcta">
+  <div class="wrap">
+    <p class="geyebrow reveal"><span class="cell"></span>Founding Family</p>
+    <h3 class="reveal">Convinced? Become a Founding Family.</h3>
+    <p class="mc-fine reveal">$99 today (retail $149)<span class="fdot">·</span>Fully refundable<span class="fdot">·</span>Cancel anytime<span class="fdot">·</span>Refunded automatically if not shipped by Oct 31</p>
+    <a href="#preorder" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
+    <p class="mc-more reveal">Your founding price, 6 months of Nowa+, and the Playbooks, all waiting. <a href="#preorder">Full details below.</a></p>
+  </div>
+</section>
+
+<div class="dither dith-soft" aria-hidden="true"></div>
 <!-- BETA FAMILIES -->
 <section class="reviews">
   <div class="wrap">
@@ -1226,7 +1316,11 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   <div class="wrap">
     <p class="geyebrow"><span class="cell"></span>Before you ask</p>
     <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:20ch">The questions every parent asks.</h2>
-    <div class="faqs reveal-group">
+    <div class="mtabs faqtabs reveal" role="tablist" aria-label="FAQ categories">
+      <button class="mtab on" role="tab" aria-selected="true" data-faq="0">About the product</button>
+      <button class="mtab" role="tab" aria-selected="false" data-faq="1">Pre-order &amp; founding</button>
+    </div>
+    <div class="faqs faqpanel" data-panel="0">
       <details class="faq pxcard"><summary>What age is Nowa designed for?<span class="fplus">+</span></summary><div class="faq-a"><p>Kids ages 3–10, the stage when routines, independence, and emotional habits develop fastest. The experience is age-scaffolded so it grows with your child.</p></div></details>
       <details class="faq pxcard"><summary>How does Nowa build habits without nagging?<span class="fplus">+</span></summary><div class="faq-a"><p>Instead of you repeating instructions, daily routines become missions your child does to help their pet grow. The pet celebrates wins and encourages them through struggles, so habit-building feels like play, not punishment.</p></div></details>
       <details class="faq pxcard"><summary>Is there AI in Nowa? Is it safe for young children?<span class="fplus">+</span></summary><div class="faq-a"><p>Yes. A closed, walled AI shapes how the pet feels, remembers care, and chooses missions. It never speaks to your child in human language, has no access to the open internet, and collects nothing beyond what personalizes the experience. It was built with our child-development researchers to support growth, not maximize engagement.</p></div></details>
@@ -1236,6 +1330,13 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <details class="faq pxcard"><summary>How does the parent app work?<span class="fplus">+</span></summary><div class="faq-a"><p>Set routines, see progress, and get warm, narrative insights without more mental load. Basic setup and routine tracking come with the device; full insights, advanced missions, and expert guidance are part of the optional Nowa+ subscription.</p></div></details>
       <details class="faq pxcard"><summary>When will Nowa be available?<span class="fplus">+</span></summary><div class="faq-a"><p>Pre-orders are open now at $99, shipping September 2026. You can cancel your reservation anytime before it ships.</p></div></details>
     </div>
+    <div class="faqs faqpanel" data-panel="1" hidden>
+      <details class="faq pxcard"><summary>Why is it full price now instead of a small deposit?<span class="fplus">+</span></summary><div class="faq-a"><p>Because your reservation is fully refundable, paying now and paying a deposit carry the same risk to you: none. Reserving in full simply locks your founding price, starts your benefits today, and means there's nothing to remember or re-confirm later. Cancel anytime before your Nowa ships and you're refunded in full.</p></div></details>
+      <details class="faq pxcard"><summary>What if I change my mind?<span class="fplus">+</span></summary><div class="faq-a"><p>Cancel anytime before your Nowa ships and we refund every cent, no questions asked. Your reservation is never a commitment to keep it.</p></div></details>
+      <details class="faq pxcard"><summary>What if Nowa ships late?<span class="fplus">+</span></summary><div class="faq-a"><p>If we don't ship by October 31, you're refunded automatically. You don't even have to ask. We're targeting September, and we've built in time so a normal delay never costs you.</p></div></details>
+      <details class="faq pxcard"><summary>When do my founding benefits start?<span class="fplus">+</span></summary><div class="faq-a"><p>The moment you reserve. Your Founding Family Playbooks arrive right away, and your 6 months of Nowa+ begins when your device is set up, so you get the full experience from day one.</p></div></details>
+      <details class="faq pxcard"><summary>What makes a "Founding Family" different?<span class="fplus">+</span></summary><div class="faq-a"><p>Founding families get the $99 price locked below retail, an exclusive starter pet you can't get later, a Founder's badge, and their Nowa+ price held for 2 years. It's our thank-you for believing early, and it's only available to the first 500 families.</p></div></details>
+    </div>
   </div>
 </section>
 
@@ -1243,11 +1344,74 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <!-- PRE-ORDER -->
 <section class="dark final" id="preorder">
   <div class="wrap">
-    <p class="geyebrow" style="justify-content:center"><span class="cell"></span>The beginning</p>
-    <h2 class="reveal">Reserve your child's Nowa.</h2>
-    <p class="lead reveal" style="max-width:42ch">$99 · ships September 2026 · free updates · cancel your reservation anytime before it ships.</p>
-    <a href="#" class="btn reveal">Pre-order Nowa for $99 <span class="arr">→</span></a>
-    <p class="reveal" style="margin-top:20px;font-size:var(--text-body-sm);color:var(--band-note,var(--color-cloud-border))">You're reserving a spot, not racing a clock. We'll email you well before yours ships.</p>
+    <p class="geyebrow" style="justify-content:center"><span class="cell"></span>Founding Family</p>
+    <h2 class="reveal">Become a Founding Family.</h2>
+    <p class="lead reveal" style="max-width:50ch;margin-left:auto;margin-right:auto">Reserve your child's Nowa at the founding price, and start today. You pay $99 now (retail will be $149), fully refundable. Your founding benefits begin the moment you reserve, months before your device ships.</p>
+
+    <div class="offer-wrap">
+      <div class="offer-stack pxcard reveal">
+        <p class="os-head">What's included in your founding reservation</p>
+        <ul class="os-list">
+          <li class="os-item">
+            <span class="os-check" aria-hidden="true">✓</span>
+            <span class="os-name">Your Nowa device</span>
+            <span class="os-val">$99 <span style="color:var(--color-slate-mid);font-weight:400">(retail $149)</span></span>
+            <span class="os-desc">Locked below retail. Founding families never pay more.</span>
+          </li>
+          <li class="os-item">
+            <span class="os-check" aria-hidden="true">✓</span>
+            <span class="os-name">6 months of Nowa+, free</span>
+            <span class="os-val">$120 value</span>
+            <span class="os-desc">Advanced missions, full growth insights, and expert guidance. Long enough to know it's working for your child.</span>
+          </li>
+          <li class="os-item">
+            <span class="os-check" aria-hidden="true">✓</span>
+            <span class="os-name">The Founding Family Playbooks</span>
+            <span class="os-val">Day you reserve</span>
+            <span class="os-desc">Built with our advisors. Three short guides you can use right now, while you wait:
+              <ul class="os-sub">
+                <li><b>Calm Mornings:</b> turning the daily routine fight into follow-through</li>
+                <li><b>Big Feelings:</b> helping your child name and steady their emotions</li>
+                <li><b>Focus &amp; Follow-Through:</b> building the start-and-finish habit</li>
+              </ul>
+            </span>
+          </li>
+          <li class="os-item">
+            <span class="os-check" aria-hidden="true">✓</span>
+            <span class="os-name">The Adventure Kit</span>
+            <span class="os-val">$25 value</span>
+            <span class="os-desc">Silicone cover and lanyard.</span>
+          </li>
+        </ul>
+        <div class="os-extras">
+          <p class="os-exhead">Founding Family extras, only for the first 500 families and never sold later</p>
+          <ul class="os-exlist">
+            <li>An exclusive starter pet, found in no other Nowa</li>
+            <li>A Founder's badge in your parent app</li>
+            <li>Your Nowa+ price locked for 2 years</li>
+          </ul>
+        </div>
+        <p class="os-total">You pay <b>$99 today</b>. What's included is worth <b>$294</b>: the $149 device (yours for $99), 6 months of Nowa+ ($120), and the Adventure Kit ($25), plus the Playbooks and founding extras that aren't sold at any price.</p>
+      </div>
+
+      <div class="guarantee pxcard reveal">
+        <span class="g-badge">✓ Fully refundable</span>
+        <h3>You're not taking a risk. You're holding your place.</h3>
+        <ul class="g-list">
+          <li><span class="cell"></span><b>Cancel anytime</b> before your Nowa ships. Full refund, no questions.</li>
+          <li><span class="cell"></span>If we don't ship by <b>October 31</b>, you're refunded automatically. Every cent.</li>
+          <li><span class="cell"></span>Your founding price is <b>locked</b>. It only ever goes up from here.</li>
+        </ul>
+        <div class="g-scar">
+          <p class="gs-lead">This isn't a countdown. We won't pretend there's a timer.</p>
+          <p>But Founding Family pricing, the exclusive starter pet, and the locked Nowa+ price are only for the first <span class="gs-num">500 families</span>. When those spots are taken, they're taken. The price becomes $149 and the founding extras are gone for good.</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="btn offer-cta reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
+    <p class="offer-fine reveal">Founding price $99<span class="fdot">·</span>Retail $149<span class="fdot">·</span>Ships September 2026<span class="fdot">·</span>Fully refundable<span class="fdot">·</span>Refunded automatically if not shipped by Oct 31</p>
+
     <div class="pets reveal-group" aria-hidden="true">
       <img class="px" src="assets/species/flori.png" alt="" width="64" height="64" loading="lazy" decoding="async">
       <img class="px" src="assets/species/puffin.png" alt="" width="64" height="64" loading="lazy" decoding="async">
@@ -1337,7 +1501,7 @@ document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el))
      sbig: '~50% likelier', stxt: 'Kids with stronger attention and persistence at age 4 were about 50% more likely to finish college by 25, regardless of early reading or maths.', ssrc: 'McClelland et al., 2013',
      vid: 'assets/videos/the-mission-engine-03.mp4'}
   ];
-  const tabs = [...document.querySelectorAll('.mtab')];
+  const tabs = [...document.querySelectorAll('.mtab[data-m]')];
   if (!tabs.length) return;
   const txt = document.getElementById('mText'), wrap = document.getElementById('mVidWrap'), vid = document.getElementById('mVid');
   const head = document.getElementById('mHead'), body = document.getElementById('mBody'), real = document.getElementById('mReal'), stat = document.getElementById('mStat');
@@ -1512,7 +1676,7 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
 /* smooth momentum scroll (Lenis) — skipped under reduced-motion for accessibility */
 (() => {
   if (reduced || typeof Lenis === 'undefined') return;
-  const lenis = new Lenis({ lerp: 0.13, wheelMultiplier: 1, smoothWheel: true });
+  const lenis = new Lenis({ lerp: 0.17, wheelMultiplier: 1.1, smoothWheel: true });
   function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
   /* route same-page anchors through Lenis for smooth glide */
@@ -1523,7 +1687,7 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      lenis.scrollTo(target, { offset: -20, duration: 0.8 });
+      lenis.scrollTo(target, { offset: -20, duration: 0.65 });
     });
   });
 })();
@@ -1584,6 +1748,21 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
   track.addEventListener('pointercancel',up);
 
   setFeature('mission');
+})();
+</script>
+<script>
+/* FAQ category tabs */
+(function(){
+  const tabs = [...document.querySelectorAll('.faqtabs .mtab')];
+  if (!tabs.length) return;
+  const panels = [...document.querySelectorAll('.faqsec .faqpanel')];
+  tabs.forEach(t => t.addEventListener('click', () => {
+    if (t.classList.contains('on')) return;
+    tabs.forEach(x => { x.classList.remove('on'); x.setAttribute('aria-selected', 'false'); });
+    t.classList.add('on'); t.setAttribute('aria-selected', 'true');
+    const i = +t.dataset.faq;
+    panels.forEach(p => { p.hidden = (+p.dataset.panel !== i); });
+  }));
 })();
 </script>
 </body>
