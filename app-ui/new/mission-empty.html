@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>if(window.self!==window.top)document.documentElement.classList.add('embed');</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nowa · Mission Control (empty)</title>
@@ -38,6 +39,13 @@ h1,h2,h3{font-family:var(--font-onest);letter-spacing:-.02em;line-height:1.15}
 .tab{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--color-mist-body);flex:1}
 .tab svg{width:24px;height:24px}.tab .lab{font-family:var(--font-onest);font-weight:700;font-size:10px}
 .tab.on{color:var(--color-coral-flame)}.tab.on .dot{width:14px;height:3px;background:var(--color-coral-flame);margin-top:1px}
+/* embed mode: when shown inside the marketing phone frame (iframed), drop the
+   standalone showroom styling and fit the frame. Self-applied so it never depends
+   on the parent reaching into this document (which file:// blocks). */
+html.embed,html.embed body,html.embed *{scrollbar-width:none!important}html.embed,html.embed body{background:transparent!important;height:auto!important;overflow:hidden!important}
+html.embed ::-webkit-scrollbar,html.embed::-webkit-scrollbar,html.embed body::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
+html.embed body{display:block!important;margin:0!important;padding:30px 0 0!important;min-height:0!important}
+html.embed .phone{box-shadow:none!important;border-radius:0!important;margin:0!important;height:770px!important}
 </style>
 </head>
 <body>
