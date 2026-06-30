@@ -466,15 +466,56 @@ footer a:hover{color:#fff}
 .dark .pullq{background:var(--color-ink-charcoal);border-color:rgba(255,255,255,.08)}
 .dark .pullq .qt{color:var(--color-pure-white)}
 .dark .pullq .who{color:#fff}
+
+/* founder mission quote — spine-style big centered display, on mint sage band */
+.founder-quote{background:#e2efdb;padding:clamp(80px,10vw,140px) 0;text-align:center}
+.founder-quote-text{font-family:var(--font-onest);font-weight:800;font-size:clamp(22px,2.8vw,38px);line-height:1.3;letter-spacing:-.01em;color:#1e3a2c;max-width:32ch;margin:0 auto;text-wrap:pretty}
+.founder-attribution{margin:var(--spacing-32) auto 0;display:inline-flex;align-items:center;gap:14px;justify-content:center}
+.founder-attribution img{width:64px;height:64px;display:block;object-fit:cover;background:var(--surface-pure-white);clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));filter:drop-shadow(3px 3px 0 rgba(30,58,44,.18))}
+.founder-attribution-text{font-family:var(--font-onest);font-weight:800;font-size:var(--text-caption);color:var(--color-coral-flame);letter-spacing:.02em;text-align:left}
 /* device section */
 .device-sec{background:var(--surface-pure-white)}
-.device-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
-.blueprint{background:var(--surface-ghost-white);padding:20px}
-.blueprint img{width:100%}
-.specs{list-style:none;margin-top:var(--spacing-24);display:flex;flex-direction:column;gap:12px}
-.specs li{display:flex;gap:12px;align-items:baseline;font-size:var(--text-body-sm);color:var(--color-slate-mid)}
-.specs .cell{width:10px;height:10px;background:var(--color-coral-flame);flex:none}
-@media(max-width:860px){.device-grid{grid-template-columns:1fr}}
+.device-blend{padding-top:clamp(56px,7vw,96px)}
+/* device layout: carousel left + all specs right */
+.device-intro{margin-bottom:clamp(24px,3vw,40px)}
+.device-hybrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);align-items:start}
+/* carousel */
+.device-carousel{position:relative}
+.device-carousel .pxcard{--pxbg:var(--surface-ghost-white);overflow:hidden}
+.dc-track{display:flex;transition:transform 400ms var(--ease-out-strong)}
+.dc-slide{flex:none;width:100%}
+.dc-slide video,.dc-slide img{width:100%;display:block;object-fit:contain;transition:transform 300ms var(--ease-out-strong)}
+/* per-slide framing — source photos have inconsistent device size + centering;
+   these scales/offsets normalize the apparent device size across the 5 slides.
+   tuned visually 2026-06-25 against assets/device/{front,back,side-left,side-right}.* */
+.dc-slide[data-fit="back"] img{transform:scale(.82)}
+.dc-slide[data-fit="side-r"] img{transform:scale(1.25) translateX(3.5%)}
+.dc-slide[data-fit="side-l"] img{transform:scale(1.3)}
+.dc-label{font-family:var(--font-onest);font-weight:700;font-size:12px;letter-spacing:.10em;text-transform:uppercase;color:var(--color-slate-mid);text-align:center;margin:14px auto 0;min-height:1.4em;transition:opacity 220ms var(--ease-out-strong)}
+.dc-label.is-swap{opacity:0}
+.dc-label .dcl-tag{color:var(--color-coral-flame);font-weight:800;margin-right:8px}
+.dc-dots{display:flex;justify-content:center;gap:8px;margin-top:12px}
+.dc-dot{width:8px;height:8px;background:var(--color-chalk-surface);border:0;cursor:pointer;clip-path:polygon(0 2px,2px 2px,2px 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px));padding:0;transition:background 200ms}
+.dc-dot.on{background:var(--color-coral-flame)}
+.dc-arrows{position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;transform:translateY(-50%);pointer-events:none;padding:0 6px}
+.dc-arr{pointer-events:auto;width:32px;height:32px;border:0;background:rgba(255,255,255,.85);cursor:pointer;display:flex;align-items:center;justify-content:center;clip-path:polygon(0 4px,2px 4px,2px 2px,4px 2px,4px 0,calc(100% - 4px) 0,calc(100% - 4px) 2px,calc(100% - 2px) 2px,calc(100% - 2px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 2px) calc(100% - 4px),calc(100% - 2px) calc(100% - 2px),calc(100% - 4px) calc(100% - 2px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 2px),2px calc(100% - 2px),2px calc(100% - 4px),0 calc(100% - 4px));transition:background 150ms}
+.dc-arr:hover{background:#fff}
+.dc-arr svg{width:16px;height:16px}
+/* device specs accordion (reuses .faq .pxcard pattern) */
+.device-specs{display:flex;flex-direction:column;gap:10px;padding-right:10px;padding-bottom:10px;interpolate-size:allow-keywords}
+.device-specs .faq.pxcard{--pxbg:var(--surface-ghost-white);transition:filter 250ms var(--ease-out-strong),transform 250ms var(--ease-out-strong)}
+.device-specs .faq.pxcard::before{transition:background 250ms var(--ease-out-strong)}
+.device-specs .faq summary{gap:12px}
+.device-specs .faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows 300ms var(--ease-out-strong);padding:0}
+.device-specs .faq[open] .faq-a{grid-template-rows:1fr}
+.device-specs .faq-a>div{overflow:hidden;padding:0 20px 18px}
+.dspec-ic{width:24px;height:24px;flex:none;display:flex;align-items:center;justify-content:center;color:var(--color-slate-mid);transition:color 200ms}
+.faq.pxcard[open] .dspec-ic{color:var(--color-coral-flame)}
+.dspec-val{font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);color:var(--color-deep-ink);margin-bottom:4px}
+.device-specs .faq-a p{text-wrap:pretty}
+@media(max-width:860px){
+  .device-hybrid{grid-template-columns:1fr}
+}
 /* pixel device frame for mission videos */
 .mission-art{position:relative;padding:18px;background:var(--surface-warm-parchment)}
 .device-frame{position:relative;margin:0 auto;max-width:none;background:var(--surface-pure-white);border:3px solid var(--color-deep-ink);padding:10px 10px 0}
@@ -548,7 +589,7 @@ footer a:hover{color:#fff}
 .fplus{font-family:var(--font-pixel);font-size:20px;color:var(--color-coral-flame);transition:transform 200ms var(--ease-out-strong);flex:none}
 .faq[open] .fplus{transform:rotate(45deg)}
 .faq-a{padding:0 20px 18px}
-.faq-a p{font-size:var(--text-body-sm);color:var(--color-slate-mid);max-width:65ch}
+.faq-a p{font-size:var(--text-body-sm);color:var(--color-slate-mid);text-wrap:pretty}
 
 /* =========================================================
    THEME VARIANTS — A mint cartridge / B sky day / C cream soda
@@ -658,8 +699,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .dark .geyebrow{color:var(--color-cloud-border)}
 .safety .geyebrow{color:#4d6b58}
 .hero-eyebrow{font-family:var(--font-onest);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-coral-flame);margin-bottom:14px}
-/* device is its own section now (after the spine quote) */
-.device-blend{padding-top:clamp(56px,7vw,96px)}
 /* mission stat cards */
 .mcards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-16);margin-top:var(--spacing-48)}
 .mcard{padding:var(--card-padding)}
@@ -745,7 +784,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .world .world-faq{--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.08);max-width:var(--page-max-width-content);margin-top:var(--spacing-32)}
 .world .world-faq summary{color:#fff}
 .world .world-faq .fplus{color:var(--color-coral-glow)}
-.world .world-faq .faq-a p{color:var(--color-chalk-surface);max-width:70ch}
+.world .world-faq .faq-a p{color:var(--color-chalk-surface);text-wrap:pretty}
 .world .world-faq.pxcard[open]{--pxbg:var(--color-ink-charcoal);--pxborder:var(--color-coral-flame);transform:translateY(-3px)}
 /* full coral ring traced all around (incl. stepped corners) when open */
 .world .world-faq.pxcard[open]::before{background:var(--pxborder)}
@@ -805,44 +844,202 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 @keyframes anncScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.annc{text-align:center}.annc-track{animation:none;justify-content:center;width:100%}.annc-item:nth-child(n+2){display:none}}
 
-/* preorder: left-aligned offer column inside the centered section */
-#preorder .offer-wrap{max-width:660px;margin:var(--spacing-48) auto 0;text-align:left;display:flex;flex-direction:column;gap:22px}
-.offer-stack.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);padding:clamp(22px,3vw,34px);filter:drop-shadow(3px 3px 0 rgba(22,28,36,.14))}
-.offer-stack>*{position:relative;z-index:1}
-.os-head,.os-exhead{font-family:var(--font-onest);font-weight:800;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-slate-mid)}
-.os-list{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:18px}
-.os-item{display:grid;grid-template-columns:18px 1fr auto;column-gap:12px;row-gap:3px;align-items:baseline}
-.os-check{grid-row:1/span 2;align-self:start;margin-top:1px;color:var(--color-coral-flame);font-weight:900;font-size:15px;line-height:1.4}
-.os-name{font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink)}
-.os-val{font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink);white-space:nowrap;font-size:var(--text-body-sm)}
-.os-desc{grid-column:2/-1;font-size:var(--text-body-sm);color:var(--color-slate-mid);text-wrap:pretty}
-.os-sub{list-style:none;margin:9px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
-.os-sub li{font-size:var(--text-body-sm);color:var(--color-slate-mid);padding-left:14px;position:relative}
-.os-sub li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--color-coral-glow)}
-.os-sub b{color:var(--color-deep-ink);font-weight:700}
-.os-extras{margin-top:22px;padding-top:20px;border-top:1px dashed var(--color-cloud-border)}
-.os-exlist{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
-.os-exlist li{font-size:var(--text-body-sm);color:var(--color-deep-ink);padding-left:24px;position:relative}
-.os-exlist li::before{content:"\2605";position:absolute;left:0;top:-1px;color:var(--color-amber-signal)}
-.os-total{margin-top:22px;padding-top:18px;border-top:1px solid var(--color-chalk-surface);font-size:var(--text-body-sm);color:var(--color-slate-mid);text-wrap:pretty}
-.os-total b{color:var(--color-deep-ink);font-weight:800}
+/* ---- preorder v3 — $99-as-hero rebuild ---- */
+/* big price headline */
+.po-price{font-family:var(--font-onest);font-weight:900;font-size:clamp(48px,7vw,96px);line-height:.96;letter-spacing:-.02em;color:var(--color-deep-ink);text-align:center;margin-top:14px}
+.po-price .po-amt{color:var(--color-coral-flame)}
+.po-price .po-save{color:var(--color-deep-ink)}
+.po-sub{font-family:var(--font-onest);font-weight:600;font-size:clamp(15px,1.4vw,18px);color:var(--color-slate-mid);text-align:center;max-width:54ch;margin:14px auto 0;text-wrap:pretty}
 
-/* guarantee + scarcity merged (night card, the section's hero element) */
-.guarantee.pxcard{--pxbg:var(--color-deep-ink);--pxborder:var(--color-ink-charcoal);padding:clamp(24px,3.2vw,38px);color:var(--color-cloud-border);filter:drop-shadow(4px 4px 0 rgba(0,0,0,.28))}
-.guarantee>*{position:relative;z-index:1}
-.g-badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-onest);font-weight:800;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--color-deep-ink);background:var(--color-warm-parchment);padding:5px 12px 7px;clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px))}
-.guarantee h3{color:#fff;font-size:clamp(20px,2.4vw,28px);margin-top:16px;max-width:24ch}
-.g-list{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
-.g-list li{position:relative;padding-left:22px;color:var(--color-cloud-border);font-size:var(--text-body-sm);text-wrap:pretty}
-.g-list li .cell{position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--color-coral-glow)}
-.g-list b{color:#fff;font-weight:700}
-.g-scar{margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12)}
-.g-scar .gs-lead{font-family:var(--font-onest);font-weight:700;color:#fff}
-.g-scar p{font-size:var(--text-body-sm);color:var(--color-cloud-border);margin-top:8px;max-width:56ch;text-wrap:pretty}
-.g-scar .gs-num{color:var(--color-coral-glow);font-weight:700}
+/* the "deal block" — TWO sibling pxcards each with their own stepped corners */
+.deal{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;max-width:920px;margin:var(--spacing-48) auto 0;text-align:left}
+.deal-get.pxcard,.deal-pay.pxcard{padding:clamp(22px,3vw,32px)}
+.deal-get.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);filter:drop-shadow(4px 4px 0 rgba(22,28,36,.14))}
+.deal-pay.pxcard{--pxbg:#e2efdb;--pxborder:#c9dec3;color:#1e3a2c;filter:drop-shadow(4px 4px 0 rgba(30,58,44,.18));display:flex;flex-direction:column}
+.deal-h{font-family:var(--font-onest);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-slate-mid);margin:0;text-align:left}
+.deal-pay .deal-h{color:#4d6b58}
+
+/* GET list */
+.deal-list{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:18px}
+.deal-row{display:grid;grid-template-columns:28px 1fr auto;column-gap:14px;row-gap:6px;align-items:baseline;text-align:left}
+.deal-ic{grid-row:1/span 3;align-self:start;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;color:var(--color-coral-flame);margin-top:-1px}
+.deal-name{font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink);font-size:16px;text-align:left;justify-self:start}
+.deal-name .deal-name-sub{font-family:var(--font-noto-sans);font-weight:400;color:var(--color-slate-mid);font-size:13px;margin-left:6px}
+.deal-val{font-family:var(--font-onest);font-weight:800;color:var(--color-deep-ink);white-space:nowrap;font-size:15px;text-align:right;justify-self:end}
+.deal-val-tag{color:var(--color-coral-flame);font-size:13px;letter-spacing:.04em}
+.deal-note{grid-column:2/-1;font-size:13.5px;color:var(--color-slate-mid);max-width:42ch;text-wrap:pretty;line-height:1.5;text-align:left;margin-top:2px}
+.deal-sub{grid-column:2/-1;list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:5px;text-align:left}
+.deal-sub li{font-size:13.5px;color:var(--color-slate-mid);padding-left:14px;position:relative;text-wrap:pretty;text-align:left}
+.deal-sub li::before{content:"\2605";position:absolute;left:0;top:0;color:var(--color-amber-signal);font-size:10px;line-height:1.6}
+.deal-photos{grid-column:2/-1;display:flex;gap:10px;margin-top:10px}
+.deal-photo{flex:1;aspect-ratio:1;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--font-onest);font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-slate-mid);max-width:140px;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px))}
+.deal-photo-ph{background:repeating-linear-gradient(45deg,rgba(22,28,36,.05) 0 6px,transparent 6px 12px),var(--surface-ghost-white)}
+.deal-photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* PAY math — top-aligned to match the GET column's heading + list rhythm */
+.deal-pay-body{margin-top:18px;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+.deal-totalv{font-family:var(--font-onest);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#4d6b58;margin:0}
+.deal-total{font-family:var(--font-onest);font-weight:700;font-size:clamp(28px,3vw,36px);color:#4d6b58;margin:4px 0 0;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(30,58,44,.32)}
+.deal-div{width:48px;height:2px;background:var(--color-coral-flame);margin:18px 0;border:0}
+.deal-todayl{font-family:var(--font-onest);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#1e3a2c;margin:0}
+.deal-today{font-family:var(--font-onest);font-weight:900;font-size:clamp(64px,7vw,96px);line-height:1;color:var(--color-coral-flame);letter-spacing:-.02em;margin:6px 0 0}
+.deal-save{display:inline-flex;align-items:center;font-family:var(--font-onest);font-weight:800;font-size:13px;letter-spacing:.04em;color:#fff;background:var(--color-coral-flame);padding:5px 12px 6px;margin-top:16px;clip-path:polygon(0 4px,4px 4px,4px 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px));align-self:flex-start}
+/* trust bullets — inside the pay card, sitting close to the $99 / Save badge so they're in the focal scan */
+.deal-trust{list-style:none;margin:22px 0 0;padding:18px 0 0;display:flex;flex-direction:column;gap:10px;width:100%;border-top:1px solid rgba(30,58,44,.14);position:relative;z-index:1}
+.deal-trust li{display:grid;grid-template-columns:18px 1fr;column-gap:10px;align-items:start;font-size:13.5px;color:#1e3a2c;line-height:1.45;text-wrap:pretty}
+.deal-trust-ic{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;color:var(--color-coral-flame);margin-top:1px}
+.deal-trust b{font-family:var(--font-onest);font-weight:800}
+
+/* honest scarcity line */
+.po-honest{font-family:var(--font-onest);font-weight:600;font-size:14px;color:var(--color-slate-mid);text-align:center;max-width:62ch;margin:var(--spacing-32) auto 0;text-wrap:pretty;line-height:1.55}
+.po-honest .po-honest-lead{color:var(--color-deep-ink);font-weight:700}
+.po-honest .po-honest-num{color:var(--color-coral-flame);font-weight:800}
+
+/* trust strip — three pill chips */
+.po-trust{list-style:none;margin:var(--spacing-24) auto 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:920px}
+.po-chip.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);padding:10px 16px;display:inline-flex;align-items:center;gap:10px;font-size:13.5px;color:var(--color-deep-ink);filter:drop-shadow(2px 2px 0 rgba(22,28,36,.10));text-wrap:pretty;max-width:none}
+.po-chip b{font-family:var(--font-onest);font-weight:800}
+.po-chip-ic{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;color:var(--color-coral-flame);flex:none}
+
+/* ====== V1 / V2 variant toggle ====== */
+.po-variant{display:none}
+.po-variant.is-on{display:block}
+
+/* switcher chip — fixed top-right */
+.po-switch{position:fixed;top:96px;right:18px;z-index:80;display:inline-flex;background:var(--surface-pure-white);clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px));filter:drop-shadow(2px 2px 0 rgba(22,28,36,.18));font-family:var(--font-onest);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.po-switch-lbl{padding:8px 10px 8px 14px;color:var(--color-slate-mid);align-self:center}
+.po-switch-btn{padding:8px 14px;border:0;background:transparent;color:var(--color-slate-mid);cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;transition:color 150ms,background 150ms}
+.po-switch-btn:hover{color:var(--color-deep-ink)}
+.po-switch-btn.on{background:var(--color-coral-flame);color:#fff}
+
+/* ====== V2 — showcase variant ====== */
+
+/* unlock timeline */
+.po-tl{max-width:920px;margin:var(--spacing-48) auto 0;padding:clamp(20px,2.6vw,28px) clamp(16px,2vw,24px);text-align:center}
+.po-tl-h{font-family:var(--font-onest);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-slate-mid);margin:0 0 var(--spacing-24)}
+.po-tl-track{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative;align-items:start}
+.po-tl-track::before{content:"";position:absolute;top:14px;left:14%;right:14%;height:3px;background:var(--color-coral-flame);z-index:0}
+.po-tl-step{position:relative;z-index:1;text-align:center;padding-top:42px}
+.po-tl-step::before{content:attr(data-n);position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:32px;background:var(--color-coral-flame);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-onest);font-weight:900;font-size:14px;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px))}
+.po-tl-when{font-family:var(--font-onest);font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-coral-flame)}
+.po-tl-what{font-family:var(--font-onest);font-weight:800;font-size:15px;color:var(--color-deep-ink);margin-top:6px;line-height:1.3}
+.po-tl-desc{font-size:13px;color:var(--color-slate-mid);margin:6px auto 0;text-wrap:pretty;max-width:26ch;line-height:1.5}
+
+/* product gallery (Gruns-style hero) — thumbnail rail + main panel */
+.po-gallery.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);max-width:920px;margin:var(--spacing-32) auto 0;padding:clamp(18px,2.2vw,26px);filter:drop-shadow(4px 4px 0 rgba(22,28,36,.14));display:grid;grid-template-columns:120px 1fr;gap:clamp(16px,2vw,24px);text-align:left;align-items:stretch}
+.po-gallery>*{position:relative;z-index:1}
+.po-gallery-rail{display:flex;flex-direction:column;gap:10px}
+.po-gallery-thumb{display:flex;flex-direction:column;background:transparent;border:0;cursor:pointer;padding:0;text-align:center;font:inherit;transition:transform 150ms var(--ease-out-strong)}
+.po-gallery-thumb:hover{transform:translateY(-2px)}
+.po-thumb-img{aspect-ratio:1;background:var(--surface-ghost-white);display:flex;align-items:center;justify-content:center;padding:6px;clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px));position:relative;transition:background 200ms}
+.po-thumb-img .pxslot{width:100%;height:100%;min-height:0;font-size:9px;letter-spacing:.04em;padding:4px}
+.po-gallery-thumb.on .po-thumb-img{background:var(--color-coral-blush);outline:2px solid var(--color-coral-flame);outline-offset:-2px}
+.po-thumb-lbl{font-family:var(--font-onest);font-weight:700;font-size:10.5px;letter-spacing:.02em;color:var(--color-slate-mid);margin-top:7px;line-height:1.2;text-wrap:pretty;text-align:center}
+.po-gallery-thumb.on .po-thumb-lbl{color:var(--color-coral-flame)}
+.po-gallery-main{position:relative;min-height:380px}
+.po-gallery-panel{display:none;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,28px);align-items:start;height:100%}
+.po-gallery-panel.on{display:grid}
+.po-panel-img{aspect-ratio:1;background:var(--surface-ghost-white);display:flex;align-items:center;justify-content:center;padding:20px;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px))}
+.po-panel-img .pxslot{width:100%;min-height:200px;font-size:12px}
+/* when an <img> is inside the panel image area, drop the inner padding/bg/clip — the image carries its own frame */
+.po-panel-img:has(img){padding:0;background:transparent;clip-path:none}
+.po-panel-img img{width:100%;height:100%;object-fit:contain;display:block}
+/* Option A: image-only panels — image becomes the full-width hero, body hidden */
+.po-gallery-panel:has(.po-panel-img img){grid-template-columns:1fr;justify-items:center}
+.po-gallery-panel:has(.po-panel-img img) .po-panel-img{width:100%;max-width:560px}
+.po-gallery-panel:has(.po-panel-img img) .po-panel-body{display:none}
+/* thumbnail rail — when a real image is inside the thumb, let it fill (no inner padding) */
+.po-thumb-img:has(img){padding:0;background:transparent}
+.po-thumb-img img{width:100%;height:100%;object-fit:cover;display:block}
+.po-panel-body{display:flex;flex-direction:column;justify-content:center;padding:8px 0}
+.po-panel-name{font-family:var(--font-onest);font-weight:900;font-size:clamp(22px,2.4vw,30px);color:var(--color-deep-ink);margin:10px 0 0;line-height:1.15}
+.po-panel-desc{font-size:14.5px;color:var(--color-slate-mid);line-height:1.55;margin:10px 0 0;text-wrap:pretty;max-width:42ch}
+.po-panel-body .show-card-bullets{margin-top:12px}
+.po-panel-body .show-card-price{margin-top:14px}
+.po-gallery-panel.is-feature .po-panel-img{background:#e2efdb}
+
+/* showcase cards stack (kept for back-compat; .po-stack no longer used in V2) */
+.po-stack{display:flex;flex-direction:column;gap:18px;max-width:920px;margin:var(--spacing-32) auto 0}
+.show-card.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);padding:0;filter:drop-shadow(4px 4px 0 rgba(22,28,36,.14));display:grid;grid-template-columns:240px 1fr;align-items:stretch;overflow:hidden;text-align:left;position:relative}
+.show-card.show-card-feature.pxcard{--pxbg:#e2efdb;--pxborder:#c9dec3;filter:drop-shadow(4px 4px 0 rgba(30,58,44,.18))}
+.show-card>*{position:relative;z-index:1}
+.show-card-img{display:flex;align-items:center;justify-content:center;padding:18px;min-height:200px}
+.show-card-img .pxslot{width:100%;min-height:160px;font-family:var(--font-onest);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-slate-mid)}
+.show-card-img img{max-width:100%;height:auto;display:block}
+.show-card-body{padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;justify-content:center;gap:0}
+.show-card-tag{display:inline-flex;align-self:flex-start;align-items:center;font-family:var(--font-onest);font-weight:800;font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:var(--color-coral-flame);background:var(--color-coral-blush);padding:4px 9px 5px;clip-path:polygon(0 3px,3px 3px,3px 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px))}
+.show-card-name{font-family:var(--font-onest);font-weight:900;font-size:clamp(20px,2.2vw,26px);color:var(--color-deep-ink);margin:10px 0 0;line-height:1.15}
+.show-card-desc{font-size:14px;color:var(--color-slate-mid);text-wrap:pretty;line-height:1.5;margin:8px 0 0;max-width:48ch}
+.show-card-bullets{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
+.show-card-bullets li{font-size:13.5px;color:var(--color-slate-mid);padding-left:16px;position:relative;text-wrap:pretty}
+.show-card-bullets li::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;background:var(--color-coral-flame)}
+.show-card-price{display:flex;align-items:center;gap:12px;margin-top:14px;font-family:var(--font-onest);flex-wrap:wrap}
+.show-card-orig{font-weight:700;font-size:16px;color:var(--color-slate-mid);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(22,28,36,.4)}
+.show-card-arrow{color:var(--color-slate-mid);font-weight:700;font-size:16px}
+.show-card-new{font-weight:900;font-size:22px;color:var(--color-coral-flame)}
+.show-card-stamp{display:inline-flex;align-items:center;font-family:var(--font-onest);font-weight:900;font-size:13px;letter-spacing:.08em;color:#fff;background:var(--color-coral-flame);padding:5px 12px 6px;clip-path:polygon(0 4px,4px 4px,4px 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px));text-transform:uppercase}
+
+/* section eyebrow headings inside V2 ("What you get" / "What you pay") */
+.po-section-h{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font-onest);font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-slate-mid);margin:var(--spacing-48) auto 0;width:100%;text-align:center}
+.po-section-h .cell{width:10px;height:10px;background:var(--color-coral-flame);display:inline-block}
+
+/* "What you pay" tally — mint pxcard, $99 as the dominant hero */
+.po-tally{max-width:920px;margin:var(--spacing-24) auto 0;padding:clamp(28px,4vw,44px) clamp(24px,3vw,40px);background:#e2efdb;color:#1e3a2c;display:flex;flex-direction:column;align-items:center;text-align:center;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));position:relative}
+.po-tally-context{font-family:var(--font-onest);font-weight:600;font-size:14px;color:#4d6b58;margin:0;display:inline-flex;align-items:center;gap:8px}
+.po-tally-context s{color:#4d6b58;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(30,58,44,.4);font-weight:700}
+.po-tally-hero{font-family:var(--font-onest);font-weight:900;font-size:clamp(96px,14vw,180px);line-height:.92;color:var(--color-coral-flame);letter-spacing:-.03em;margin:8px 0 0;text-shadow:4px 4px 0 rgba(239,73,61,.18)}
+.po-tally-sub{font-family:var(--font-onest);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1e3a2c;margin:10px 0 0;opacity:.78}
+.po-tally-save{display:inline-flex;align-items:center;font-family:var(--font-onest);font-weight:900;font-size:14px;letter-spacing:.08em;color:#fff;background:var(--color-coral-flame);padding:8px 16px 9px;margin-top:22px;text-transform:uppercase;clip-path:polygon(0 5px,5px 5px,5px 0,calc(100% - 5px) 0,calc(100% - 5px) 5px,100% 5px,100% calc(100% - 5px),calc(100% - 5px) calc(100% - 5px),calc(100% - 5px) 100%,5px 100%,5px calc(100% - 5px),0 calc(100% - 5px))}
+
+/* comparison: pre-order vs retail — semantic table in pxcard, Nowa pattern */
+.po-vs{max-width:920px;margin:var(--spacing-32) auto 0;text-align:left}
+.po-vs-h{font-family:var(--font-onest);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-slate-mid);text-align:center;margin:0 0 6px}
+.po-vs-sub{text-align:center;font-size:14px;color:var(--color-slate-mid);margin:0 auto var(--spacing-24);text-wrap:pretty;max-width:50ch}
+.po-vs-wrap.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);padding:clamp(8px,1.4vw,18px);filter:drop-shadow(4px 4px 0 rgba(22,28,36,.14))}
+.po-vs-wrap>*{position:relative;z-index:1}
+.po-vs-table-el{width:100%;border-collapse:collapse;table-layout:fixed;font-family:var(--font-noto-sans)}
+.po-vs-table-el th,.po-vs-table-el td{padding:14px 16px;text-align:left;font-size:13.5px;vertical-align:middle;border-bottom:1px solid var(--color-chalk-surface)}
+.po-vs-table-el tr:last-child th,.po-vs-table-el tr:last-child td{border-bottom:0}
+.po-vs-table-el thead th{font-family:var(--font-onest);font-weight:800;font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--color-slate-mid);padding:12px 16px 14px;border-bottom:2px solid var(--color-chalk-surface);text-align:center}
+.po-vs-table-el thead th:first-child{text-align:left;color:var(--color-deep-ink)}
+.po-vs-table-el thead th.is-mine{color:var(--color-coral-flame);border-bottom-color:var(--color-coral-flame)}
+.po-vs-table-el tbody th{font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink);font-size:14px}
+.po-vs-table-el tbody td{text-align:center;font-family:var(--font-onest);font-weight:700}
+.po-vs-table-el tbody td.is-mine{background:#fff5f4;color:var(--color-coral-flame);font-weight:800}
+.po-vs-table-el tbody td.is-them{color:var(--color-slate-mid)}
+.po-vs-table-el tbody td.is-them-no{color:rgba(22,28,36,.38);font-weight:600}
+.po-vs-ic{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;vertical-align:-3px}
+.po-vs-ic-yes{color:var(--color-coral-flame)}
+.po-vs-ic-no{color:rgba(22,28,36,.3)}
+
+@media(max-width:780px){
+  .show-card.pxcard{grid-template-columns:1fr}
+  .show-card-img{min-height:160px}
+  .po-tl-track{grid-template-columns:1fr;gap:24px}
+  .po-tl-track::before{display:none}
+  .po-tl-step{padding-top:0;padding-left:46px;text-align:left}
+  .po-tl-step::before{left:0;top:0;transform:none}
+  .po-tl-desc{margin:6px 0 0;max-width:none}
+  .po-vs-table-el th,.po-vs-table-el td{padding:11px 10px;font-size:12.5px}
+  .po-vs-table-el tbody th{font-size:12.5px}
+  .po-switch{top:auto;bottom:18px;right:18px}
+  /* gallery: flip rail to horizontal scroll on top, panel below */
+  .po-gallery.pxcard{grid-template-columns:1fr;gap:14px}
+  .po-gallery-rail{flex-direction:row;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:8px;padding-bottom:4px}
+  .po-gallery-thumb{flex:none;width:88px}
+  .po-gallery-panel{grid-template-columns:1fr;gap:14px}
+  .po-gallery-main{min-height:0}
+}
+
 #preorder .offer-cta{margin-top:var(--spacing-32)}
-.offer-fine{max-width:58ch;margin:16px auto 0;font-size:var(--text-body-sm);font-family:var(--font-onest);font-weight:600;color:var(--color-deep-ink);text-wrap:pretty}
+.offer-fine{max-width:58ch;margin:16px auto 0;font-size:var(--text-body-sm);font-family:var(--font-onest);font-weight:600;color:var(--color-deep-ink);text-wrap:pretty;text-align:center}
 .fdot{color:var(--color-coral-flame);font-weight:700;margin:0 8px}
+
+@media(max-width:780px){
+  .deal{grid-template-columns:1fr}
+  .deal-pay{order:-1;align-items:center;text-align:center}
+  .deal-div{align-self:center}
+}
 
 /* compact mid-page CTA */
 .midcta{background:#fff3d6;text-align:center;padding:clamp(48px,6vw,84px) 0}
@@ -939,18 +1136,70 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
 <!-- DEVICE — its own section, after the quote -->
 <section id="device" class="device-blend">
-  <div class="wrap device-grid">
-    <div class="blueprint pxcard reveal"><video src="assets/videos/device-blueprint.mp4" autoplay muted loop playsinline aria-label="Technical blueprint of the Nowa device" style="width:100%;display:block"></video></div>
-    <div>
+  <div class="wrap">
+    <div class="device-intro">
       <p class="geyebrow"><span class="cell"></span>What Nowa is</p>
       <h2 class="reveal" style="font-size:clamp(26px,3vw,40px);max-width:18ch">A pocket-sized pet, not a screen to scroll.</h2>
       <p class="lead reveal" style="margin-top:14px">No tablet, no app for the kid. The pet lives in a handheld device built for small hands. Three chunky buttons and a screen just big enough for the pet it holds.</p>
-      <ul class="specs reveal-group">
-        <li><span class="cell"></span>2.9 × 3.2 in (7.34 × 8.04 cm), fits a coat pocket or a backpack side pouch</li>
-        <li><span class="cell"></span>Three physical buttons, simple enough for age 3</li>
-        <li><span class="cell"></span>Closed, family-safe system you control from the app</li>
-        <li><span class="cell"></span>$99 · ships September 2026</li>
-      </ul>
+    </div>
+
+    <div class="device-hybrid reveal-group">
+      <!-- LEFT: product carousel -->
+      <div class="device-carousel reveal">
+        <div class="pxcard blueprint" style="overflow:hidden;padding:clamp(8px,1.5vw,16px)">
+          <div class="dc-track" id="dcTrack">
+            <div class="dc-slide" data-label="<span class='dcl-tag'>01</span>Built for small hands"><video src="assets/videos/device-blueprint.mp4" autoplay muted loop playsinline aria-label="Technical blueprint of the Nowa device"></video></div>
+            <div class="dc-slide" data-label="<span class='dcl-tag'>02</span>Front · screen + buttons"><img src="assets/device/front.png" alt="Nowa device front view showing the screen and three colorful buttons"></div>
+            <div class="dc-slide" data-fit="back" data-label="<span class='dcl-tag'>03</span>Back · speaker"><img src="assets/device/back.png" alt="Nowa device back view showing the speaker grille and Nowa logo"></div>
+            <div class="dc-slide" data-fit="side-r" data-label="<span class='dcl-tag'>04</span>Side · scroll wheel + mute flip"><img src="assets/device/side-right.jpg" alt="Nowa device angled view showing the scroll wheel and mute flip switch"></div>
+            <div class="dc-slide" data-fit="side-l" data-label="<span class='dcl-tag'>05</span>Side · USB-C + headphone jack"><img src="assets/device/side-left.jpg" alt="Nowa device side view showing the USB-C port and headphone jack"></div>
+          </div>
+          <div class="dc-arrows">
+            <button class="dc-arr" aria-label="Previous" id="dcPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="dc-arr" aria-label="Next" id="dcNext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></button>
+          </div>
+        </div>
+        <div class="dc-dots" id="dcDots">
+          <button class="dc-dot on" aria-label="Slide 1"></button>
+          <button class="dc-dot" aria-label="Slide 2"></button>
+          <button class="dc-dot" aria-label="Slide 3"></button>
+          <button class="dc-dot" aria-label="Slide 4"></button>
+          <button class="dc-dot" aria-label="Slide 5"></button>
+        </div>
+        <p class="dc-label" id="dcLabel" aria-live="polite"><span class="dcl-tag">01</span>Built for small hands</p>
+      </div>
+
+      <!-- RIGHT: 6 spec accordions -->
+      <div class="device-specs">
+        <details class="faq pxcard">
+          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="18" x2="15" y2="18"/></svg></span><span>Display</span><span class="fplus">+</span></summary>
+          <div class="faq-a"><div><div class="dspec-val">320 × 240 color LCD</div><p>Scratch-resistant screen cover. Vivid colors built for pixel-art pet animations.</p></div></div>
+        </details>
+        <details class="faq pxcard">
+          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="7" width="12" height="14" rx="2"/><line x1="10" y1="3" x2="10" y2="7"/><line x1="14" y1="3" x2="14" y2="7"/><line x1="10" y1="17" x2="14" y2="17"/></svg></span><span>Battery</span><span class="fplus">+</span></summary>
+          <div class="faq-a"><div><div class="dspec-val">2,000 mAh · 8–10 hours</div><p>USB-C fast charging. Lasts a full day of play on a single charge.</p></div></div>
+        </details>
+        <details class="faq pxcard">
+          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg></span><span>Audio</span><span class="fplus">+</span></summary>
+          <div class="faq-a"><div><div class="dspec-val">Speaker + microphone + 3.5 mm jack</div><p>Clear audio up to 2 m. Push-to-talk mic for the child's voice. Plug in any kid headphones.</p></div></div>
+        </details>
+        <details class="faq pxcard">
+          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg></span><span>Connectivity</span><span class="fplus">+</span></summary>
+          <div class="faq-a"><div><div class="dspec-val">Wi-Fi 2.4 GHz · Bluetooth 5.0 LE · full offline play</div><p>Works offline. Stories, songs, and missions download to the device so your child can play anywhere. Connects when available for updates and new content.</p></div></div>
+        </details>
+        <details class="faq pxcard">
+          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg></span><span>Controls</span><span class="fplus">+</span></summary>
+          <div class="faq-a"><div><div class="dspec-val">3 buttons + scroll wheel + motion sensor</div><p>Physical-only input, simple enough for age 3. Power, voice (push-to-talk), select/back. Scroll wheel for menus. Shake and tilt the device to play.</p></div></div>
+        </details>
+        <details class="faq pxcard">
+          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span><span>Safety &amp; privacy</span><span class="fplus">+</span></summary>
+          <div class="faq-a"><div><div class="dspec-val">Hardware mic mute switch</div><p>Physical circuit disconnect, not software. When the switch is off, no audio can be captured. FCC, CPSIA, and ASTM F963 toy-safety certified. Lead-free, phthalate-free materials.</p></div></div>
+        </details>
+        <details class="faq pxcard">
+          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span><span>In the box</span><span class="fplus">+</span></summary>
+          <div class="faq-a"><div><div class="dspec-val">Device · USB-C cable · manual</div><p>2.9 × 3.2 in (7.3 × 8.0 cm) — fits a coat pocket or backpack pouch. ABS case with rounded, child-safe edges, built for small hands. Ships with a 0.5 m USB-C charging cable, quick-start manual, and safety booklet.</p></div></div>
+        </details>
+      </div>
     </div>
   </div>
 </section>
@@ -971,7 +1220,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <div class="mfade" id="mText">
         <h3 id="mHead">The daily friction, minus the referee.</h3>
         <p id="mBody">Brushing teeth, getting dressed, bedtime, homework start. The routine becomes something the pet needs help to finish, so the follow-through comes from your child.</p>
-        <div class="mstat" id="mStat"><span class="big">3× more likely</span><span class="txt">Children with the weakest self-control as young kids were about three times more likely to face poor health, money trouble, or a criminal record as adults, whatever their IQ or background.</span><span class="src">Moffitt &amp; Caspi et al., PNAS, 2011 · Dunedin study, 1,000+ children</span></div>
+        <div class="mstat" id="mStat"><span class="big">3× better</span><span class="txt">Children with a consistent nightly routine fell asleep faster, slept through more nights, and showed steadier daytime mood and behavior — and the more consistent the routine, the bigger the gain.</span><span class="src">Mindell et al., Sleep, 2009 · 405 mothers; replicated globally across 10,000+ children (Mindell &amp; Williamson, 2018)</span></div>
         <p class="mreal"><span class="cell"></span><span id="mReal">Shaped with Dr. Steven Kurtz · Parent-child interaction</span></p>
       </div>
       <div class="mission-art">
@@ -1078,7 +1327,19 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   </div>
 </section>
 
-<div class="dither" aria-hidden="true"></div>
+<div class="dither" aria-hidden="true" style="--dith-dark:#e2efdb;--dith-light:var(--surface-warm-parchment)"></div>
+<!-- FOUNDER MISSION QUOTE — spine-style centered display, mint band, deep forest text -->
+<section class="founder-quote">
+  <div class="wrap">
+    <p class="founder-quote-text reveal">"Nowa's pet has feelings, not words. When the pet doesn't speak, your child does. That's how we rebuild imagination."</p>
+    <div class="founder-attribution reveal">
+      <img src="assets/brand/logo-app.png" alt="Daniel Nguyen" width="64" height="64" decoding="async">
+      <span class="founder-attribution-text">Daniel Nguyen · Dad and Co-founder, Nowa</span>
+    </div>
+  </div>
+</section>
+
+<div class="dither" aria-hidden="true" style="--dith-dark:var(--color-ink-charcoal);--dith-light:#e2efdb"></div>
 <!-- CH 04 — THE WORLD -->
 <section class="dark world" id="world">
   <div class="wrap">
@@ -1161,7 +1422,18 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
 <!-- v2: Library merged into "Why it works" above -->
 
-<div class="dither" aria-hidden="true" style="--dith-dark:var(--color-ink-charcoal);--dith-light:#e2efdb"></div>
+<div class="dither" aria-hidden="true" style="--dith-dark:var(--color-ink-charcoal);--dith-light:#fff3d6"></div>
+<!-- MID-PAGE CTA (after Why kids love it) -->
+<section class="midcta" id="midcta-world">
+  <div class="wrap">
+    <p class="geyebrow reveal"><span class="cell"></span>Pre-order</p>
+    <h3 class="reveal">Reserve their first Nowa today.</h3>
+    <p class="mc-fine reveal">$99 today (retail $149)<span class="fdot">·</span>Ships September 2026<span class="fdot">·</span>Fully refundable</p>
+    <a href="#preorder" class="btn reveal">Lock in at $99 <span class="arr">→</span></a>
+  </div>
+</section>
+
+<div class="dither" aria-hidden="true" style="--dith-dark:#fff3d6;--dith-light:#e2efdb"></div>
 <!-- CH 06 — SAFETY BY DESIGN -->
 <section class="safety" id="safety">
   <div class="wrap">
@@ -1343,74 +1615,302 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <div class="dither" aria-hidden="true"></div>
 <!-- PRE-ORDER -->
 <section class="dark final" id="preorder">
+  <!-- A/B variant switcher (fixed; toggles V1 / V2 of the pre-order showcase) -->
+  <div class="po-switch" role="tablist" aria-label="Pre-order layout variant">
+    <span class="po-switch-lbl">Design</span>
+    <button class="po-switch-btn on" type="button" data-v="1" role="tab" aria-selected="true">V1</button>
+    <button class="po-switch-btn" type="button" data-v="2" role="tab" aria-selected="false">V2</button>
+  </div>
   <div class="wrap">
-    <p class="geyebrow" style="justify-content:center"><span class="cell"></span>Pre-order</p>
-    <h2 class="reveal">Reserve your child's Nowa.</h2>
-    <p class="lead reveal" style="max-width:50ch;margin-left:auto;margin-right:auto">Reserve your child's Nowa at the pre-order price, and start today. You pay $99 now (retail will be $149), fully refundable. Your benefits begin the moment you reserve, months before your device ships.</p>
+    <p class="geyebrow" style="justify-content:center"><span class="cell"></span>Pre-order · 500 reservations</p>
+    <h2 class="po-price reveal"><span class="po-amt">$99 today.</span> <span class="po-save">Save $195.</span></h2>
+    <p class="po-sub reveal">On the device, six months of Nowa+, the Playbooks, and pre-order extras you only get now.</p>
 
-    <div class="offer-wrap">
-      <div class="offer-stack pxcard reveal">
-        <p class="os-head">What's included in your reservation</p>
-        <ul class="os-list">
-          <li class="os-item">
-            <span class="os-check" aria-hidden="true">✓</span>
-            <span class="os-name">Your Nowa device</span>
-            <span class="os-val">$99 <span style="color:var(--color-slate-mid);font-weight:400">(retail $149)</span></span>
-            <span class="os-desc">Locked below retail. It only goes up from here.</span>
+    <!-- ===== V1 — split deal block ===== -->
+    <div class="po-variant po-v1 is-on" data-v="1">
+    <!-- DEAL BLOCK: WHAT YOU GET (light pxcard) | WHAT YOU PAY (mint pxcard) -->
+    <div class="deal reveal-group">
+      <div class="deal-get pxcard">
+        <p class="deal-h">What you get</p>
+        <ul class="deal-list">
+          <li class="deal-row">
+            <span class="deal-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+            <span class="deal-name">Nowa device (retail)</span>
+            <span class="deal-val">$149</span>
           </li>
-          <li class="os-item">
-            <span class="os-check" aria-hidden="true">✓</span>
-            <span class="os-name">6 months of Nowa+, free</span>
-            <span class="os-val">$120 value</span>
-            <span class="os-desc">Advanced missions, full growth insights, and expert guidance. Long enough to know it's working for your child.</span>
+          <li class="deal-row">
+            <span class="deal-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+            <span class="deal-name">6 months of Nowa+</span>
+            <span class="deal-val">$120</span>
+            <ul class="deal-sub">
+              <li>Advanced missions tuned to your child's growth phase</li>
+              <li>Full growth insights: emotions, focus, follow-through</li>
+              <li>Expert-shaped guidance from our PCIT, EQ, and EF advisors</li>
+            </ul>
           </li>
-          <li class="os-item">
-            <span class="os-check" aria-hidden="true">✓</span>
-            <span class="os-name">The Nowa Playbooks</span>
-            <span class="os-val">Day you reserve</span>
-            <span class="os-desc">Built with our advisors. Three short guides you can use right now, while you wait:
-              <ul class="os-sub">
-                <li><b>Calm Mornings:</b> turning the daily routine fight into follow-through</li>
-                <li><b>Big Feelings:</b> helping your child name and steady their emotions</li>
-                <li><b>Focus &amp; Follow-Through:</b> building the start-and-finish habit</li>
-              </ul>
-            </span>
+          <li class="deal-row">
+            <span class="deal-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
+            <span class="deal-name">The Nowa Playbooks</span>
+            <span class="deal-val deal-val-tag">★ Day 1</span>
+            <span class="deal-note">Three practical guides — Calm Mornings, Big Feelings, Focus &amp; Follow-Through — shaped with our PCIT, EQ, and EF advisors. Yours the day you reserve, while you wait.</span>
           </li>
-          <li class="os-item">
-            <span class="os-check" aria-hidden="true">✓</span>
-            <span class="os-name">The Adventure Kit</span>
-            <span class="os-val">$25 value</span>
-            <span class="os-desc">Silicone cover and lanyard.</span>
+          <li class="deal-row">
+            <span class="deal-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a4 4 0 014-4h8a4 4 0 014 4v9a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M9 6V4a3 3 0 016 0v2"/><line x1="8" y1="14" x2="16" y2="14"/></svg></span>
+            <span class="deal-name">Adventure Kit <span class="deal-name-sub">silicone cover + lanyard</span></span>
+            <span class="deal-val">$25</span>
+            <ul class="deal-sub">
+              <li>Silicone case in swappable colors — soft, drop-protective</li>
+              <li>Lanyard for hands-free carry: walks, school, the car</li>
+            </ul>
+            <div class="deal-photos" aria-hidden="true">
+              <div class="deal-photo deal-photo-ph"><span>Silicone cover</span></div>
+              <div class="deal-photo deal-photo-ph"><span>Lanyard</span></div>
+            </div>
+          </li>
+          <li class="deal-row">
+            <span class="deal-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            <span class="deal-name">Pre-order extras</span>
+            <span class="deal-val deal-val-tag">★ Exclusive</span>
+            <ul class="deal-sub">
+              <li>An exclusive starter pet, found in no other Nowa</li>
+              <li>An exclusive badge in your parent app</li>
+              <li>Your Nowa+ price locked for 2 years</li>
+            </ul>
           </li>
         </ul>
-        <div class="os-extras">
-          <p class="os-exhead">Pre-order extras, limited to 500 reservations and never sold later</p>
-          <ul class="os-exlist">
-            <li>An exclusive starter pet, found in no other Nowa</li>
-            <li>An exclusive badge in your parent app</li>
-            <li>Your Nowa+ price locked for 2 years</li>
-          </ul>
-        </div>
-        <p class="os-total">You pay <b>$99 today</b>. What's included is worth <b>$294</b>: the $149 device (yours for $99), 6 months of Nowa+ ($120), and the Adventure Kit ($25), plus the Playbooks and extras that aren't sold at any price.</p>
       </div>
-
-      <div class="guarantee pxcard reveal">
-        <span class="g-badge">✓ Fully refundable</span>
-        <h3>You're not taking a risk. You're holding your place.</h3>
-        <ul class="g-list">
-          <li><span class="cell"></span><b>Cancel anytime</b> before your Nowa ships. Full refund, no questions.</li>
-          <li><span class="cell"></span>If we don't ship by <b>October 31</b>, you're refunded automatically. Every cent.</li>
-          <li><span class="cell"></span>Your pre-order price is <b>locked</b>. It only ever goes up from here.</li>
-        </ul>
-        <div class="g-scar">
-          <p class="gs-lead">This isn't a countdown. We won't pretend there's a timer.</p>
-          <p>But this pre-order price, the exclusive starter pet, and the locked Nowa+ price are limited to <span class="gs-num">500 reservations</span>. When those are taken, they're taken. The price becomes $149 and the extras are gone for good.</p>
+      <div class="deal-pay pxcard">
+        <p class="deal-h">What you pay</p>
+        <div class="deal-pay-body">
+          <p class="deal-totalv">Total value</p>
+          <p class="deal-total">$294</p>
+          <hr class="deal-div" aria-hidden="true">
+          <p class="deal-todayl">You pay today</p>
+          <p class="deal-today">$99</p>
+          <span class="deal-save">Save $195</span>
         </div>
+        <ul class="deal-trust" aria-label="Pre-order guarantees">
+          <li>
+            <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+            <span><b>Cancel anytime</b> before ship · full refund</span>
+          </li>
+          <li>
+            <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg></span>
+            <span><b>Refunded automatically</b> if not shipped by Oct 31</span>
+          </li>
+          <li>
+            <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+            <span><b>Price locked.</b> Only goes up from here</span>
+          </li>
+        </ul>
       </div>
     </div>
 
+    </div><!-- /.po-v1 -->
+
+    <!-- ===== V2 — showcase variant (Gruns-inspired but pre-order optimized) ===== -->
+    <div class="po-variant po-v2" data-v="2">
+      <!-- "What you get" eyebrow heading -->
+      <p class="po-section-h reveal"><span class="cell"></span>What you get</p>
+
+      <!-- product gallery (Gruns-style): left rail + main panel -->
+      <div class="po-gallery pxcard reveal">
+        <div class="po-gallery-rail" role="tablist" aria-label="Pre-order items">
+          <button class="po-gallery-thumb on" type="button" data-i="0" role="tab" aria-selected="true">
+            <div class="po-thumb-img"><img src="assets/showcase/device.jpg" alt="" decoding="async"></div>
+            <span class="po-thumb-lbl">Nowa device</span>
+          </button>
+          <button class="po-gallery-thumb" type="button" data-i="1" role="tab" aria-selected="false">
+            <div class="po-thumb-img"><img src="assets/showcase/nowa-plus.jpg" alt="" decoding="async"></div>
+            <span class="po-thumb-lbl">6 mo Nowa+</span>
+          </button>
+          <button class="po-gallery-thumb" type="button" data-i="2" role="tab" aria-selected="false">
+            <div class="po-thumb-img"><img src="assets/showcase/playbooks.jpg" alt="" decoding="async"></div>
+            <span class="po-thumb-lbl">Playbooks</span>
+          </button>
+          <button class="po-gallery-thumb" type="button" data-i="3" role="tab" aria-selected="false">
+            <div class="po-thumb-img"><img src="assets/showcase/adventure-kit.jpg" alt="" decoding="async"></div>
+            <span class="po-thumb-lbl">Adventure Kit</span>
+          </button>
+          <button class="po-gallery-thumb" type="button" data-i="4" role="tab" aria-selected="false">
+            <div class="po-thumb-img"><div class="pxslot">★</div></div>
+            <span class="po-thumb-lbl">Reservation bonus</span>
+          </button>
+        </div>
+        <div class="po-gallery-main">
+          <!-- 1: Device -->
+          <div class="po-gallery-panel on" data-i="0" role="tabpanel">
+            <div class="po-panel-img"><img src="assets/showcase/device.jpg" alt="Illustration of the Nowa handheld device with pixel pet on screen, $99 pre-order price" decoding="async"></div>
+            <div class="po-panel-body">
+              <span class="show-card-tag">Pre-order locked</span>
+              <h3 class="po-panel-name">Nowa device</h3>
+              <p class="po-panel-desc">The handheld pet your child looks after. Locked at the pre-order price. Retail kicks in once 500 reservations are claimed.</p>
+              <div class="show-card-price">
+                <span class="show-card-orig">$149</span>
+                <span class="show-card-arrow">→</span>
+                <span class="show-card-new">$99</span>
+              </div>
+            </div>
+          </div>
+          <!-- 2: Nowa+ -->
+          <div class="po-gallery-panel" data-i="1" role="tabpanel">
+            <div class="po-panel-img"><img src="assets/showcase/nowa-plus.jpg" alt="Illustration of the Nowa+ parent app on a phone, free with pre-order" decoding="async"></div>
+            <div class="po-panel-body">
+              <span class="show-card-tag">Free with pre-order</span>
+              <h3 class="po-panel-name">6 months of Nowa+</h3>
+              <p class="po-panel-desc">Advanced missions, growth insights, and advisor-shaped guidance. Activates when your device ships.</p>
+              <ul class="show-card-bullets">
+                <li>Advanced missions tuned to your child's growth phase</li>
+                <li>Full growth insights: emotions, focus, follow-through</li>
+                <li>Expert-shaped guidance from our PCIT, EQ, and EF advisors</li>
+              </ul>
+              <div class="show-card-price">
+                <span class="show-card-orig">$120</span>
+                <span class="show-card-arrow">→</span>
+                <span class="show-card-stamp">Free</span>
+              </div>
+            </div>
+          </div>
+          <!-- 3: Playbooks -->
+          <div class="po-gallery-panel" data-i="2" role="tabpanel">
+            <div class="po-panel-img"><img src="assets/showcase/playbooks.jpg" alt="Three Nowa Playbook covers — Calm Mornings, Big Feelings, Focus &amp; Follow-Through" decoding="async"></div>
+            <div class="po-panel-body">
+              <span class="show-card-tag">Day 1 · while you wait</span>
+              <h3 class="po-panel-name">The Nowa Playbooks</h3>
+              <p class="po-panel-desc">Three practical guides shaped with our PCIT, EQ, and EF advisors. Yours the day you reserve, months before your device ships.</p>
+              <ul class="show-card-bullets">
+                <li><b>Calm Mornings</b> · turning the routine fight into follow-through</li>
+                <li><b>Big Feelings</b> · helping your child name and steady emotions</li>
+                <li><b>Focus &amp; Follow-Through</b> · building the start-and-finish habit</li>
+              </ul>
+              <div class="show-card-price">
+                <span class="show-card-stamp">Free · Day 1</span>
+              </div>
+            </div>
+          </div>
+          <!-- 4: Adventure Kit -->
+          <div class="po-gallery-panel" data-i="3" role="tabpanel">
+            <div class="po-panel-img"><img src="assets/showcase/adventure-kit.jpg" alt="Adventure Kit illustration — coral silicone case and mint lanyard, free with pre-order" decoding="async"></div>
+            <div class="po-panel-body">
+              <span class="show-card-tag">Free with pre-order</span>
+              <h3 class="po-panel-name">Adventure Kit</h3>
+              <p class="po-panel-desc">Soft silicone case and lanyard, so the pet travels with your child wherever they go.</p>
+              <ul class="show-card-bullets">
+                <li>Silicone case in swappable colors — soft, drop-protective</li>
+                <li>Lanyard for hands-free carry: walks, school, the car</li>
+              </ul>
+              <div class="show-card-price">
+                <span class="show-card-orig">$25</span>
+                <span class="show-card-arrow">→</span>
+                <span class="show-card-stamp">Free</span>
+              </div>
+            </div>
+          </div>
+          <!-- 5: Pre-order extras -->
+          <div class="po-gallery-panel is-feature" data-i="4" role="tabpanel">
+            <div class="po-panel-img"><div class="pxslot">Starter pet + badge<br>placeholder</div></div>
+            <div class="po-panel-body">
+              <span class="show-card-tag">★ Pre-order exclusive</span>
+              <h3 class="po-panel-name">The reservation bonus</h3>
+              <p class="po-panel-desc">Three things only the first 500 families ever get. Never sold later, at any price.</p>
+              <ul class="show-card-bullets">
+                <li>An exclusive starter pet, found in no other Nowa</li>
+                <li>An exclusive badge in your parent app</li>
+                <li>Your Nowa+ price locked for 2 years</li>
+              </ul>
+              <div class="show-card-price">
+                <span class="show-card-stamp">500 reservations only</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- "What you pay" heading + the value reveal (vertical hierarchy, $99 as the hero) -->
+      <p class="po-section-h reveal"><span class="cell"></span>What you pay</p>
+      <div class="po-tally reveal">
+        <p class="po-tally-context">Total value <s>$294</s></p>
+        <p class="po-tally-hero">$99</p>
+        <p class="po-tally-sub">today · pre-order locked</p>
+        <span class="po-tally-save">You save $195</span>
+      </div>
+
+      <!-- pre-order vs retail comparison — Nowa pxcard pattern, semantic table -->
+      <div class="po-vs reveal">
+        <p class="po-vs-h">Pre-order today vs. wait for retail</p>
+        <p class="po-vs-sub">Same product. The difference is what's bundled in — and what disappears the moment the 500 reservations are gone.</p>
+        <div class="po-vs-wrap pxcard">
+          <table class="po-vs-table-el">
+            <thead>
+              <tr>
+                <th scope="col">What you get</th>
+                <th scope="col" class="is-mine">Pre-order today</th>
+                <th scope="col">Wait for retail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Device price</th>
+                <td class="is-mine">$99</td>
+                <td class="is-them">$149</td>
+              </tr>
+              <tr>
+                <th scope="row">6 months of Nowa+</th>
+                <td class="is-mine">Free</td>
+                <td class="is-them-no">Not included</td>
+              </tr>
+              <tr>
+                <th scope="row">Playbooks (Day 1)</th>
+                <td class="is-mine">Free</td>
+                <td class="is-them-no">Not sold</td>
+              </tr>
+              <tr>
+                <th scope="row">Adventure Kit</th>
+                <td class="is-mine">Free</td>
+                <td class="is-them">Sold separately</td>
+              </tr>
+              <tr>
+                <th scope="row">Exclusive starter pet</th>
+                <td class="is-mine"><span class="po-vs-ic po-vs-ic-yes" aria-label="included"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                <td class="is-them-no"><span class="po-vs-ic po-vs-ic-no" aria-label="not included"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+              </tr>
+              <tr>
+                <th scope="row">Exclusive parent app badge</th>
+                <td class="is-mine"><span class="po-vs-ic po-vs-ic-yes" aria-label="included"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                <td class="is-them-no"><span class="po-vs-ic po-vs-ic-no" aria-label="not included"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+              </tr>
+              <tr>
+                <th scope="row">Nowa+ price locked 2 years</th>
+                <td class="is-mine"><span class="po-vs-ic po-vs-ic-yes" aria-label="included"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                <td class="is-them-no"><span class="po-vs-ic po-vs-ic-no" aria-label="not included"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- trust strip for v2 (V1 has it embedded in the deal-pay card) -->
+      <ul class="po-trust reveal-group" aria-label="Pre-order guarantees" style="margin-top:var(--spacing-32)">
+        <li class="po-chip pxcard">
+          <span class="po-chip-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+          <span><b>Cancel anytime</b> before ship · full refund</span>
+        </li>
+        <li class="po-chip pxcard">
+          <span class="po-chip-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg></span>
+          <span><b>Refunded automatically</b> if not shipped by Oct 31</span>
+        </li>
+        <li class="po-chip pxcard">
+          <span class="po-chip-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+          <span><b>Price locked.</b> Only goes up from here</span>
+        </li>
+      </ul>
+    </div><!-- /.po-v2 -->
+
+    <!-- honest scarcity line — kept per Daniel's call -->
+    <p class="po-honest reveal"><span class="po-honest-lead">This isn't a countdown. We won't pretend there's a timer.</span> But these terms hold for <span class="po-honest-num">500 reservations only</span>. When those are taken, they're taken — the price becomes $149 and the extras are gone for good.</p>
+
     <a href="#" class="btn offer-cta reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
-    <p class="offer-fine reveal">Pre-order price $99<span class="fdot">·</span>Retail $149<span class="fdot">·</span>Ships September 2026<span class="fdot">·</span>Fully refundable<span class="fdot">·</span>Refunded automatically if not shipped by Oct 31</p>
+    <p class="offer-fine reveal">Ships September 2026<span class="fdot">·</span>500 reservations only<span class="fdot">·</span>Fully refundable</p>
 
     <div class="pets reveal-group" aria-hidden="true">
       <img class="px" src="assets/species/flori.png" alt="" width="64" height="64" loading="lazy" decoding="async">
@@ -1488,7 +1988,7 @@ document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el))
     {h: 'The daily friction, minus the referee.',
      b: 'Brushing teeth, getting dressed, bedtime, homework start. The routine becomes something the pet needs help to finish, so the follow-through comes from your child.',
      r: 'Shaped with Dr. Steven Kurtz · Parent-child interaction',
-     sbig: '3× more likely', stxt: 'Children with the weakest self-control as young kids were about three times more likely to face poor health, money trouble, or a criminal record as adults, whatever their IQ or background.', ssrc: 'Moffitt & Caspi et al., PNAS, 2011 · Dunedin study, 1,000+ children',
+     sbig: '3× better', stxt: 'Children with a consistent nightly routine fell asleep faster, slept through more nights, and showed steadier daytime mood and behavior — and the more consistent the routine, the bigger the gain.', ssrc: 'Mindell et al., Sleep, 2009 · 405 mothers; replicated globally across 10,000+ children (Mindell & Williamson, 2018)',
      vid: 'assets/videos/the-mission-engine-02.mp4'},
     {h: 'Practising calm before the storm.',
      b: 'Naming a big feeling, taking turtle-time, riding out a wobble. Low-stakes reps with the pet, so the skill is there when a real meltdown comes.',
@@ -1763,6 +2263,77 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
     const i = +t.dataset.faq;
     panels.forEach(p => { p.hidden = (+p.dataset.panel !== i); });
   }));
+})();
+
+/* device carousel */
+(() => {
+  const track = document.getElementById('dcTrack');
+  if (!track) return;
+  const dots = [...document.querySelectorAll('#dcDots .dc-dot')];
+  const slides = [...track.children];
+  const label = document.getElementById('dcLabel');
+  const total = slides.length;
+  let idx = 0;
+  function go(i) {
+    const next = (i + total) % total;
+    if (next === idx) return;
+    idx = next;
+    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    dots.forEach((d, j) => d.classList.toggle('on', j === idx));
+    if (label) {
+      const html = slides[idx].dataset.label || '';
+      label.classList.add('is-swap');
+      setTimeout(() => { label.innerHTML = html; label.classList.remove('is-swap'); }, 200);
+    }
+  }
+  document.getElementById('dcPrev').addEventListener('click', () => go(idx - 1));
+  document.getElementById('dcNext').addEventListener('click', () => go(idx + 1));
+  dots.forEach((d, j) => d.addEventListener('click', () => go(j)));
+})();
+
+/* device specs — single-open accordion */
+(() => {
+  const specs = document.querySelectorAll('.device-specs .faq.pxcard');
+  specs.forEach(d => d.addEventListener('toggle', () => {
+    if (d.open) specs.forEach(o => { if (o !== d) o.open = false; });
+  }));
+})();
+
+/* V2 gallery — thumbnail rail toggles the main panel */
+(() => {
+  const thumbs = document.querySelectorAll('.po-gallery-thumb');
+  const panels = document.querySelectorAll('.po-gallery-panel');
+  if (!thumbs.length) return;
+  thumbs.forEach(b => b.addEventListener('click', () => {
+    const i = b.dataset.i;
+    thumbs.forEach(t => {
+      const on = t.dataset.i === i;
+      t.classList.toggle('on', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panels.forEach(p => p.classList.toggle('on', p.dataset.i === i));
+  }));
+})();
+
+/* pre-order variant switcher — A/B compare V1 vs V2 inline */
+(() => {
+  const buttons = document.querySelectorAll('.po-switch-btn');
+  const variants = document.querySelectorAll('.po-variant');
+  if (!buttons.length || !variants.length) return;
+  const STORAGE_KEY = 'nowa-po-variant';
+  function setVariant(v) {
+    variants.forEach(el => el.classList.toggle('is-on', el.dataset.v === v));
+    buttons.forEach(b => {
+      const isOn = b.dataset.v === v;
+      b.classList.toggle('on', isOn);
+      b.setAttribute('aria-selected', isOn ? 'true' : 'false');
+    });
+    try { localStorage.setItem(STORAGE_KEY, v); } catch(e){}
+  }
+  let initial = '1';
+  try { initial = localStorage.getItem(STORAGE_KEY) || '1'; } catch(e){}
+  setVariant(initial);
+  buttons.forEach(b => b.addEventListener('click', () => setVariant(b.dataset.v)));
 })();
 </script>
 </body>
