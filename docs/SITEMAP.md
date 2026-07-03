@@ -7,7 +7,7 @@ with the hook for the segment most likely to land on it.
 ## Information architecture
 
 ```
-/                    Home — the whole promise in one scroll (v2 built)
+/                    Home — the whole promise in one scroll (pre-order campaign LP: pages/index-permill-v2.html)
 /how-it-works        Care Loop, missions, device, a day with Nowa
 /the-world           Pets, species, library — the kid-delight deep dive
 /parent-app          Control, boundaries, warm insights — the trust surface
