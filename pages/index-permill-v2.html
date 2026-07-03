@@ -870,6 +870,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .deal-note{grid-column:2/-1;font-size:13.5px;color:var(--color-slate-mid);max-width:42ch;text-wrap:pretty;line-height:1.5;text-align:left;margin-top:2px}
 .deal-sub{grid-column:2/-1;list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:5px;text-align:left}
 .deal-sub li{font-size:13.5px;color:var(--color-slate-mid);padding-left:14px;position:relative;text-wrap:pretty;text-align:left}
+.deal-sub b{font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink)}
 .deal-sub li::before{content:"\2605";position:absolute;left:0;top:0;color:var(--color-amber-signal);font-size:10px;line-height:1.6}
 .deal-photos{grid-column:2/-1;display:flex;gap:10px;margin-top:10px}
 .deal-photo{flex:1;aspect-ratio:1;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--font-onest);font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-slate-mid);max-width:140px;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px))}
@@ -879,7 +880,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 /* PAY math — top-aligned to match the GET column's heading + list rhythm */
 .deal-pay-body{margin-top:18px;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
 .deal-totalv{font-family:var(--font-onest);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#4d6b58;margin:0}
-.deal-total{font-family:var(--font-onest);font-weight:700;font-size:clamp(28px,3vw,36px);color:#4d6b58;margin:4px 0 0;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(30,58,44,.32)}
+.deal-total{font-family:var(--font-onest);font-weight:700;font-size:clamp(28px,3vw,36px);color:#4d6b58;margin:4px 0 0;text-decoration:line-through;text-decoration-thickness:4px;text-decoration-color:var(--color-coral-flame)}
 .deal-div{width:48px;height:2px;background:var(--color-coral-flame);margin:18px 0;border:0}
 .deal-todayl{font-family:var(--font-onest);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#1e3a2c;margin:0}
 .deal-today{font-family:var(--font-onest);font-weight:900;font-size:clamp(64px,7vw,96px);line-height:1;color:var(--color-coral-flame);letter-spacing:-.02em;margin:6px 0 0}
@@ -974,7 +975,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .show-card-bullets li{font-size:13.5px;color:var(--color-slate-mid);padding-left:16px;position:relative;text-wrap:pretty}
 .show-card-bullets li::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;background:var(--color-coral-flame)}
 .show-card-price{display:flex;align-items:center;gap:12px;margin-top:14px;font-family:var(--font-onest);flex-wrap:wrap}
-.show-card-orig{font-weight:700;font-size:16px;color:var(--color-slate-mid);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(22,28,36,.4)}
+.show-card-orig{font-weight:700;font-size:16px;color:var(--color-slate-mid);text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:var(--color-coral-flame)}
 .show-card-arrow{color:var(--color-slate-mid);font-weight:700;font-size:16px}
 .show-card-new{font-weight:900;font-size:22px;color:var(--color-coral-flame)}
 .show-card-stamp{display:inline-flex;align-items:center;font-family:var(--font-onest);font-weight:900;font-size:13px;letter-spacing:.08em;color:#fff;background:var(--color-coral-flame);padding:5px 12px 6px;clip-path:polygon(0 4px,4px 4px,4px 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px));text-transform:uppercase}
@@ -986,7 +987,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 /* "What you pay" tally — mint pxcard, $99 as the dominant hero */
 .po-tally{max-width:920px;margin:var(--spacing-24) auto 0;padding:clamp(28px,4vw,44px) clamp(24px,3vw,40px);background:#e2efdb;color:#1e3a2c;display:flex;flex-direction:column;align-items:center;text-align:center;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));position:relative}
 .po-tally-context{font-family:var(--font-onest);font-weight:600;font-size:14px;color:#4d6b58;margin:0;display:inline-flex;align-items:center;gap:8px}
-.po-tally-context s{color:#4d6b58;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(30,58,44,.4);font-weight:700}
+.po-tally-context s{color:#4d6b58;text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:var(--color-coral-flame);font-weight:700}
 .po-tally-hero{font-family:var(--font-onest);font-weight:900;font-size:clamp(96px,14vw,180px);line-height:.92;color:var(--color-coral-flame);letter-spacing:-.03em;margin:8px 0 0;text-shadow:4px 4px 0 rgba(239,73,61,.18)}
 .po-tally-sub{font-family:var(--font-onest);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1e3a2c;margin:10px 0 0;opacity:.78}
 .po-tally-save{display:inline-flex;align-items:center;font-family:var(--font-onest);font-weight:900;font-size:14px;letter-spacing:.08em;color:#fff;background:var(--color-coral-flame);padding:8px 16px 9px;margin-top:22px;text-transform:uppercase;clip-path:polygon(0 5px,5px 5px,5px 0,calc(100% - 5px) 0,calc(100% - 5px) 5px,100% 5px,100% calc(100% - 5px),calc(100% - 5px) calc(100% - 5px),calc(100% - 5px) 100%,5px 100%,5px calc(100% - 5px),0 calc(100% - 5px))}
@@ -1039,6 +1040,12 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   .deal{grid-template-columns:1fr}
   .deal-pay{order:-1;align-items:center;text-align:center}
   .deal-div{align-self:center}
+  /* center the price stack as a unit; keep trust rows left-aligned but centered as a block */
+  .deal-pay .deal-h{text-align:center}
+  .deal-pay-body{align-items:center;text-align:center}
+  .deal-save{align-self:center}
+  .deal-trust{max-width:330px;margin-left:auto;margin-right:auto}
+  .deal-trust li{text-align:left}
 }
 
 /* compact mid-page CTA */
@@ -1056,7 +1063,92 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .faqtabs{margin-bottom:var(--spacing-24)}
 .faqsec .faqpanel{margin-top:0}
 .faqpanel[hidden]{display:none}
-</style>
+
+/* ===================================================================
+   FEEDBACK ROUND (uncommitted) — whole-system loop, advisor chips,
+   photo placeholders, mobile-length trims
+   =================================================================== */
+/* how-it-works system strip — the whole machine before the care loop */
+.sysrow{margin-top:var(--spacing-32)}
+.sysrow .step .n{font-size:20px;letter-spacing:.06em}
+.sysrow .step h3{font-size:var(--text-subheading)}
+.sysrow .step p a{color:var(--color-coral-flame);font-weight:700}
+.sysrow .step p a:hover{text-decoration:underline}
+/* compact advisor chips; full bios collapse into the expander below */
+.adv-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16);margin-top:var(--spacing-48);padding-right:10px;padding-bottom:10px}
+@media(max-width:860px){.adv-chips{grid-template-columns:1fr 1fr}}
+.adv-chip{padding:20px 14px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px}
+.adv-chip img{width:64px;height:64px;object-fit:cover;image-rendering:auto;margin-bottom:9px;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px))}
+.adv-chip .nm{font-family:var(--font-onest);font-weight:800;font-size:var(--text-body);color:var(--color-deep-ink);line-height:1.2}
+.adv-chip .role{font-size:var(--text-caption);font-weight:700;color:var(--color-ember-deep)}
+.adv-chip .ttl{font-size:var(--text-caption);color:var(--color-mist-body)}
+/* dark-band credentials expander (mirrors .world-faq) */
+.sci-faq{--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.08);max-width:var(--page-max-width-content);margin-top:var(--spacing-24)}
+.sci-faq summary{color:#fff}
+.sci-faq .fplus{color:var(--color-coral-glow)}
+.sci-faq .faq-a p{color:var(--color-chalk-surface);max-width:75ch}
+.sci-faq .faq-a b{color:#fff}
+.sci-faq.pxcard[open]{--pxbg:var(--color-ink-charcoal);--pxborder:var(--color-coral-flame);transform:translateY(-3px)}
+.sci-faq.pxcard[open]::before{background:var(--pxborder)}
+.sci-faq.pxcard[open]::after{content:"";display:block;position:absolute;inset:0;width:auto;height:auto;z-index:0;background:var(--pxbg);clip-path:polygon(4px 16px,10px 16px,10px 10px,16px 10px,16px 4px,calc(100% - 16px) 4px,calc(100% - 16px) 10px,calc(100% - 10px) 10px,calc(100% - 10px) 16px,calc(100% - 4px) 16px,calc(100% - 4px) calc(100% - 16px),calc(100% - 10px) calc(100% - 16px),calc(100% - 10px) calc(100% - 10px),calc(100% - 16px) calc(100% - 10px),calc(100% - 16px) calc(100% - 4px),16px calc(100% - 4px),16px calc(100% - 10px),10px calc(100% - 10px),10px calc(100% - 16px),4px calc(100% - 16px))}
+/* product-photo placeholders — real photos hatching soon */
+.photo-sec{padding:clamp(44px,5vw,72px) 0}
+.photo-sec .photo-strip{margin-top:var(--spacing-24)}
+.hatch-slot{position:relative;overflow:hidden}
+.hatch-slot img{animation:eggtease 1.6s steps(2) infinite;transform-origin:50% 90%}
+.hatch-slot .t{color:var(--color-coral-flame)}
+@media(prefers-reduced-motion:reduce){.hatch-slot img{animation:none}}
+/* pre-order V1: real-image row thumbnails replace the line icons */
+.deal-row{grid-template-columns:56px 1fr auto}
+.deal-ic.deal-th{width:56px;height:56px;overflow:hidden;background:var(--surface-ghost-white);clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px))}
+.deal-th img{width:100%;height:100%;object-fit:cover;display:block}
+.deal-th-pet img{object-fit:contain;padding:6px;image-rendering:pixelated}
+/* pre-order V2: whole-bundle glance strip (the stack, visible without clicking) */
+.po-glance{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:820px;margin:var(--spacing-24) auto 0;padding:0}
+.po-glance li{background:var(--surface-pure-white);padding:9px 15px;font-family:var(--font-onest);font-weight:600;font-size:12.5px;color:var(--color-slate-mid);clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px));filter:drop-shadow(2px 2px 0 rgba(22,28,36,.12))}
+.po-glance b{color:var(--color-deep-ink);font-weight:800;margin-left:4px}
+/* struck-price shorthand (was-$149 → $99), matching the offer section's coral slash */
+.ship s,.mc-fine s{text-decoration-thickness:2.5px;text-decoration-color:var(--color-coral-flame);color:var(--color-mist-body)}
+.ship b{color:var(--color-deep-ink);font-weight:700}
+.annc s{text-decoration-thickness:2.5px;text-decoration-color:var(--color-coral-glow);color:var(--color-cloud-border);margin-right:4px}
+/* ── V1 rows open inline to show the item visual (words + picture together) ── */
+.deal-row:has(.deal-exp){cursor:pointer}
+.deal-ic.deal-th{position:relative}
+.deal-row:has(.deal-exp) .deal-th::after{content:"+";position:absolute;right:0;bottom:0;width:18px;height:18px;background:var(--color-coral-flame);color:#fff;font-family:var(--font-onest);font-weight:800;font-size:13px;line-height:1;display:flex;align-items:center;justify-content:center}
+.deal-row.open .deal-th::after{content:"−"}
+@media(hover:hover) and (pointer:fine){.deal-row:has(.deal-exp):hover .deal-name{color:var(--color-coral-flame)}}
+.deal-exp{grid-column:2/-1;grid-row:4;display:grid;grid-template-rows:0fr;transition:grid-template-rows 300ms var(--ease-out-strong)}
+.deal-row.open .deal-exp{grid-template-rows:1fr}
+.deal-exp-in{overflow:hidden;min-height:0}
+.deal-exp img{width:100%;max-width:420px;display:block;margin:12px 0 4px;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px))}
+.deal-exp-bonus{margin:12px 0 4px;max-width:420px;background:var(--color-ink-charcoal);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px))}
+.deal-exp-bonus img{width:100px;height:100px;image-rendering:pixelated;margin:0;clip-path:none}
+.deal-bonus-cap{font-family:var(--font-pixel);font-size:14px;letter-spacing:.08em;color:var(--color-coral-glow)}
+@media(prefers-reduced-motion:reduce){.deal-exp{transition:none}}
+/* ── pre-order polish round ──────────────────────────────────────── */
+/* V1: zoom the infographic thumbs into their illustration centers (crops the baked-in text away) */
+.deal-th-zoom img{transform:scale(2)}
+/* V1: the stack reads as a list — dashed separators, single-line rows center on their thumbs */
+.deal-list{gap:16px}
+.deal-row + .deal-row{border-top:1px dashed var(--color-cloud-border);padding-top:16px}
+.deal-row:not(:has(.deal-sub, .deal-note)){align-items:center}
+.deal-row:not(:has(.deal-sub, .deal-note)) .deal-ic{align-self:center}
+/* V1: included features use the system square cell; amber stars stay reserved for the exclusives row */
+.deal-sub li::before{content:"";width:6px;height:6px;background:var(--color-coral-glow);top:7px}
+.deal-row:last-child .deal-sub li::before{content:"\2605";width:auto;height:auto;background:none;color:var(--color-amber-signal);top:0}
+/* V2: glance chips hold one line on desktop */
+.po-glance{max-width:980px}
+/* V2: reservation bonus gets a real pet-world visual instead of a dead placeholder */
+.po-thumb-img.po-thumb-bonus{background:var(--color-ink-charcoal);padding:8px}
+.po-thumb-bonus img{object-fit:contain;image-rendering:pixelated}
+.po-gallery-panel.is-feature .po-panel-img.po-panel-bonus{background:var(--color-ink-charcoal);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:320px;position:relative}
+.po-panel-bonus img{width:100px;height:100px;object-fit:contain;image-rendering:pixelated}
+.po-panel-bonus .po-bonus-cap{font-family:var(--font-pixel);font-size:15px;letter-spacing:.08em;color:var(--color-coral-glow)}
+/* the bonus panel keeps its copy visible beside the visual (overrides the image-hides-body rule) */
+.po-gallery-panel.is-feature:has(.po-panel-img img){grid-template-columns:1fr 1fr;justify-items:stretch}
+.po-gallery-panel.is-feature:has(.po-panel-img img) .po-panel-img{width:100%;max-width:none}
+.po-gallery-panel.is-feature:has(.po-panel-img img) .po-panel-body{display:block}
+@media(max-width:860px){.po-gallery-panel.is-feature:has(.po-panel-img img){grid-template-columns:1fr}}</style>
 </head>
 <body>
 
@@ -1064,14 +1156,14 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
 <div class="readbar" aria-hidden="true"></div>
 
-<a class="annc" href="#preorder" aria-label="Nowa pre-order is open. $99, retail $149. Fully refundable. Ships September 2026. Reserve yours.">
+<a class="annc" href="#preorder" aria-label="Nowa pre-order is open. Was $149, now $99. Fully refundable. Handbooks free the day you reserve. Reserve yours.">
   <div class="annc-track" aria-hidden="true">
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
   </div>
 </a>
 
@@ -1113,7 +1205,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <a href="#preorder" class="btn">Reserve your Nowa <span class="arr">→</span></a>
         <a href="#mechanic" class="btn-ghost">See how it works →</a>
       </div>
-      <p class="ship">$99 pre-order price (retail $149) · Ages 3–10 · Ships September 2026 · Fully refundable</p>
+      <p class="ship"><s>$149</s> <b>$99</b> pre-order · Ages 3–10 · Ships September 2026 · Fully refundable</p>
     </div>
     <div class="hero-stage">
       <div class="stage-inner">
@@ -1197,7 +1289,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         </details>
         <details class="faq pxcard">
           <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span><span>In the box</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">Device · USB-C cable · manual</div><p>2.9 × 3.2 in (7.3 × 8.0 cm) — fits a coat pocket or backpack pouch. ABS case with rounded, child-safe edges, built for small hands. Ships with a 0.5 m USB-C charging cable, quick-start manual, and safety booklet.</p></div></div>
+          <div class="faq-a"><div><div class="dspec-val">Device · USB-C cable · manual</div><p>2.9 × 3.2 in (7.3 × 8.0 cm). Fits a coat pocket or backpack pouch. ABS case with rounded, child-safe edges, built for small hands. Ships with a 0.5 m USB-C charging cable, quick-start manual, and safety booklet.</p></div></div>
         </details>
       </div>
     </div>
@@ -1220,7 +1312,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <div class="mfade" id="mText">
         <h3 id="mHead">The daily friction, minus the referee.</h3>
         <p id="mBody">Brushing teeth, getting dressed, bedtime, homework start. The routine becomes something the pet needs help to finish, so the follow-through comes from your child.</p>
-        <div class="mstat" id="mStat"><span class="big">3× better</span><span class="txt">Children with a consistent nightly routine fell asleep faster, slept through more nights, and showed steadier daytime mood and behavior — and the more consistent the routine, the bigger the gain.</span><span class="src">Mindell et al., Sleep, 2009 · 405 mothers; replicated globally across 10,000+ children (Mindell &amp; Williamson, 2018)</span></div>
+        <div class="mstat" id="mStat"><span class="big">3× better</span><span class="txt">Children with a consistent nightly routine fell asleep faster, slept through more nights, and showed steadier daytime mood and behavior. The more consistent the routine, the bigger the gain.</span><span class="src">Mindell et al., Sleep, 2009 · 405 mothers; replicated globally across 10,000+ children (Mindell &amp; Williamson, 2018)</span></div>
         <p class="mreal"><span class="cell"></span><span id="mReal">Shaped with Dr. Steven Kurtz · Parent-child interaction</span></p>
       </div>
       <div class="mission-art">
@@ -1246,56 +1338,21 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <p class="geyebrow"><span class="cell"></span>The learnings &amp; science</p>
     <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">Built with the scientists who wrote the science.</h2>
     <p class="lead reveal" style="margin-top:16px;max-width:52ch">Those frameworks aren't borrowed second-hand. Nowa was shaped by the researchers behind them: in emotional competence, executive function, and parent-child interaction.</p>
-    <div class="advisors reveal-group">
-      <div class="adv pxcard">
-        <img class="px" src="assets/avatars/dr-susanne-denham.png" alt="Portrait of Dr. Susanne Denham" width="88" height="88" loading="lazy" decoding="async">
-        <div>
-          <div class="nm">Dr. Susanne Denham</div>
-          <div class="role">Emotional competence</div>
-          <div class="ttl">Professor Emerita, George Mason University</div>
-          <ul>
-            <li>40+ years researching how children process and manage emotions</li>
-            <li>Creator of CAPSEL and the Affect Knowledge Test</li>
-          </ul>
-        </div>
-      </div>
-      <div class="adv pxcard">
-        <img class="px" src="assets/avatars/dr-megan-mcclelland.png" alt="Portrait of Dr. Megan McClelland" width="88" height="88" loading="lazy" decoding="async">
-        <div>
-          <div class="nm">Dr. Megan McClelland</div>
-          <div class="role">Executive function</div>
-          <div class="ttl">Professor, Oregon State University</div>
-          <ul>
-            <li>Co-creator of the HTKS task, used in 31 countries</li>
-            <li>116+ peer-reviewed publications, cited 23,000+ times</li>
-          </ul>
-        </div>
-      </div>
-      <div class="adv pxcard">
-        <img class="px" src="assets/avatars/dr-steven-kurtz.png" alt="Portrait of Dr. Steven Kurtz" width="88" height="88" loading="lazy" decoding="async">
-        <div>
-          <div class="nm">Dr. Steven Kurtz</div>
-          <div class="role">Parent-child interaction</div>
-          <div class="ttl">President, Kurtz Psychology Consulting</div>
-          <ul>
-            <li>ABPP board-certified child psychologist</li>
-            <li>One of only 21 certified global PCIT trainers worldwide</li>
-          </ul>
-        </div>
-      </div>
-      <div class="adv pxcard">
-        <img class="px" src="assets/avatars/dr-david-mou.png" alt="Portrait of Dr. David Mou" width="88" height="88" loading="lazy" decoding="async">
-        <div>
-          <div class="nm">Dr. David Mou</div>
-          <div class="role">Mental-health systems</div>
-          <div class="ttl">CEO, Benchmark Health Group</div>
-          <ul>
-            <li>Harvard-trained physician (MD and MBA)</li>
-            <li>Named "Top 10 Under 35 for Healthcare" by LinkedIn</li>
-          </ul>
-        </div>
-      </div>
+    <div class="adv-chips reveal-group">
+      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-susanne-denham.png" alt="Portrait of Dr. Susanne Denham" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. Susanne Denham</span><span class="role">Emotional competence</span><span class="ttl">George Mason University</span></div>
+      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-megan-mcclelland.png" alt="Portrait of Dr. Megan McClelland" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. Megan McClelland</span><span class="role">Executive function</span><span class="ttl">Oregon State University</span></div>
+      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-steven-kurtz.png" alt="Portrait of Dr. Steven Kurtz" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. Steven Kurtz</span><span class="role">Parent-child interaction</span><span class="ttl">Kurtz Psychology Consulting</span></div>
+      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-david-mou.png" alt="Portrait of Dr. David Mou" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. David Mou</span><span class="role">Mental-health systems</span><span class="ttl">Benchmark Health Group</span></div>
     </div>
+    <details class="faq pxcard sci-faq reveal">
+      <summary>Their full credentials<span class="fplus">+</span></summary>
+      <div class="faq-a">
+        <p><b>Dr. Susanne Denham</b> · Professor Emerita, George Mason University. 40+ years researching how children process and manage emotions; creator of CAPSEL and the Affect Knowledge Test.</p>
+        <p style="margin-top:10px"><b>Dr. Megan McClelland</b> · Professor, Oregon State University. Co-creator of the HTKS self-regulation task, used in 31 countries; 116+ peer-reviewed publications, cited 23,000+ times.</p>
+        <p style="margin-top:10px"><b>Dr. Steven Kurtz</b> · President, Kurtz Psychology Consulting. ABPP board-certified child psychologist; one of only 21 certified global PCIT trainers worldwide.</p>
+        <p style="margin-top:10px"><b>Dr. David Mou</b> · CEO, Benchmark Health Group. Harvard-trained physician (MD and MBA); named "Top 10 Under 35 for Healthcare" by LinkedIn.</p>
+      </div>
+    </details>
     <figure class="pullq pxcard reveal" style="margin-top:var(--spacing-32)">
       <img src="assets/avatars/dr-susanne-denham.png" alt="Dr. Susanne Denham" loading="lazy" decoding="async">
       <figcaption><p class="qt">“Children don’t learn feelings from being told about them. They learn by reading them, naming them, and caring for someone who has them.”</p><p class="who">Dr. Susanne Denham · Emotional competence · 40+ years of research <span class="sample-chip">SAMPLE · PENDING APPROVAL</span></p></figcaption>
@@ -1309,12 +1366,20 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <!-- ░░ GROUP 3 · THE GAME MECHANIC ░░ -->
 <section id="mechanic">
   <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>The game mechanic</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:18ch">How it works.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:54ch">Nowa never assigns chores or grades behaviour. The pet just has needs and feelings. Your child responds, and the loop turns on its own.</p>
+    <p class="geyebrow"><span class="cell"></span>How it works</p>
+    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:18ch">Three parts. One loop.</h2>
+    <p class="lead reveal" style="margin-top:16px;max-width:56ch">The app where you set the routines, the device where the pet lives, and the real world where your child follows through.</p>
+    <div class="steps sysrow reveal-group">
+      <div class="step pxcard"><div class="n">YOU</div><h3>Set the routine</h3><p>Mornings, homework, bedtime. Two minutes in the <a href="#parent-app">parent app</a>.</p></div>
+      <div class="step pxcard"><div class="n">THE PET</div><h3>Asks for help</h3><p>On <a href="#device">its device</a>, your routine becomes a mission the pet needs finished.</p></div>
+      <div class="step pxcard"><div class="n">YOUR CHILD</div><h3>Does it for real</h3><p>Shoes on, teeth brushed, calm practised. The pet celebrates; nobody nags.</p></div>
+      <div class="step pxcard"><div class="n">YOU</div><h3>See the growth</h3><p>Wins and progress land back in your app, day by day.</p></div>
+    </div>
+    <h3 class="reveal" style="font-size:clamp(22px,2.6vw,32px);margin-top:var(--spacing-64)">Why your child keeps choosing it: the care loop.</h3>
+    <p class="lead reveal" style="margin-top:14px;max-width:54ch">Nowa never assigns chores or grades behaviour. The pet just has needs and feelings. Your child responds, and the loop turns on its own.</p>
     <div class="gameloop reveal-group">
       <span class="loop-rail" aria-hidden="true"></span>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/miko_msg_anim.gif" alt="Nowa pet expressing an emotion" loading="lazy" decoding="async"><div class="step-body"><div class="n">01</div><h3>The pet feels</h3><p>The pet shows a need or a mood in its own sounds and animation. Never human words.</p></div></div>
+      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/miko_msg_anim.gif" alt="Nowa pet expressing an emotion" loading="lazy" decoding="async"><div class="step-body"><div class="n">01</div><h3>The pet feels</h3><p>The pet shows a need or a mood in its own sounds and animation.</p></div></div>
       <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/watering_can_anim_80px.gif" alt="Watering can caring for the pet" loading="lazy" decoding="async"><div class="step-body"><div class="n">02</div><h3>Your child cares</h3><p>They read what it needs and respond, with care and a little imagination.</p></div></div>
       <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/miko_evolution_loop_80px.gif" alt="Nowa pet evolving from small to big" loading="lazy" decoding="async"><div class="step-body"><div class="n">03</div><h3>The pet grows</h3><p>Steady care helps it thrive and evolve. The visible reward of showing up.</p></div></div>
       <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/kid_wave_anim_80px.gif" alt="Pixel child waving" loading="lazy" decoding="async"><div class="step-body"><div class="n">04</div><h3>Your child grows</h3><p>Calm, routines, and self-regulation form on their own, as a result of the bond.</p></div></div>
@@ -1324,6 +1389,19 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <img class="px" src="assets/scenes/scene-care-loop.png" alt="Pixel-art scene of a child watering a sprout" loading="lazy" decoding="async">
       <figcaption><p class="qt"><span class="qd ql" aria-hidden="true">“</span><b>Play beats being taught.</b> Across 17 studies of nearly 3,900 young children, learning woven into play drove bigger gains in early maths, focus, and task-switching than being taught directly.<span class="qd qr" aria-hidden="true">”</span></p><p class="who">Skene et al., Child Development, 2022 · meta-analysis of guided play</p></figcaption>
     </figure>
+  </div>
+</section>
+
+<div class="dither dith-soft" aria-hidden="true"></div>
+<!-- PRODUCT PHOTOS — fun placeholder slots for the graphic team; swap each .pxslot for an <img> when the real shot lands -->
+<section class="winbeat photo-sec" id="photos">
+  <div class="wrap">
+    <p class="geyebrow"><span class="cell"></span>Nowa in real hands</p>
+    <div class="photo-strip reveal-group">
+      <div class="pxslot hatch-slot"><span class="spark s2" style="right:12px;top:12px"></span><img class="px" src="assets/pixels/egg_hatch_x2.png" alt="" width="56" loading="lazy" decoding="async"><span class="t">REAL PHOTO · HATCHING SOON</span><span class="d">The device in a 6-year-old's hands, true scale</span></div>
+      <div class="pxslot hatch-slot"><span class="spark s3" style="left:14px;top:16px"></span><img class="px" src="assets/pixels/egg_hatch_x2.png" alt="" width="56" loading="lazy" decoding="async"><span class="t">REAL PHOTO · HATCHING SOON</span><span class="d">Morning routine: shoes on, pet in hand, out the door on time</span></div>
+      <div class="pxslot hatch-slot"><span class="spark" style="right:16px;bottom:14px"></span><img class="px" src="assets/pixels/egg_hatch_x2.png" alt="" width="56" loading="lazy" decoding="async"><span class="t">REAL PHOTO · HATCHING SOON</span><span class="d">Bedtime: the pet gets tucked in too</span></div>
+    </div>
   </div>
 </section>
 
@@ -1369,8 +1447,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 66%,var(--color-coral-glow))"><img class="px ficon" src="assets/pixels/miko_heart_58x42.png" alt="Pet glowing with a heart" loading="lazy" decoding="async"><h3>Care for it like a real pet</h3><p>A real little creature to feed, wash, play with, and tuck in. Caring for someone other than themselves is where the bond starts.</p></div>
         <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 72%,var(--color-amber-signal))"><img class="px ficon" src="assets/pixels/miko_evolution_loop_80px.gif" alt="Pet evolving into a new form" loading="lazy" decoding="async"><h3>Collect a world of creatures</h3><p>A whole planet of creatures to collect, each evolving with your child's care, so no two journeys are ever the same.</p></div>
         <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 74%,var(--color-leaf-success))"><img class="px ficon" src="assets/pixels/kid_wave_anim_80px.gif" alt="Child playing alongside their pet" loading="lazy" decoding="async"><h3>Games to play side by side</h3><p>Mini-games and little quests your child and their pet take on together, just for the fun of it.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 62%,var(--color-coral-blush))"><img class="px ficon" src="assets/pixels/miko_read_x3.png" alt="Pet with an open storybook" loading="lazy" decoding="async"><h3>A world that keeps opening up</h3><p>Caring unlocks more to enjoy: bedtime stories, songs, and fun-fact podcasts. The more they care, the bigger the world gets.</p></div>
-      </div>
+        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 62%,var(--color-coral-blush))"><img class="px ficon" src="assets/pixels/miko_read_x3.png" alt="Pet with an open storybook" loading="lazy" decoding="async"><h3>A world that keeps opening up</h3><p>Caring unlocks more to enjoy: bedtime stories, songs, and fun-fact podcasts. The more they care, the bigger the world gets.</p></div>      </div>
     </div>
   </div>
   <div class="species-strip">
@@ -1395,24 +1472,18 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <div class="libs reveal-group">
       <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)">St</div><h3>Stories</h3><p>Classics retold, plus original tales from the Nowa universe.</p>
         <div class="tracks">
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/048-the-fairy-who-collected-lost-giggles-69yo-female.mp3"><button class="pbtn" aria-label="Play The Fairy Who Collected Lost Giggles"><span class="pb-ico"></span></button><span class="ttl">The Fairy Who Collected Lost Giggles</span><span class="dur">4:28</span></div>
           <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/027-the-lion-and-the-mouse-69yo-female.mp3"><button class="pbtn" aria-label="Play The Lion and the Mouse"><span class="pb-ico"></span></button><span class="ttl">The Lion and the Mouse</span><span class="dur">2:16</span></div>
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/050-the-bunny-and-the-secret-tunnel-69yo-female.mp3"><button class="pbtn" aria-label="Play The Bunny and the Secret Tunnel"><span class="pb-ico"></span></button><span class="ttl">The Bunny and the Secret Tunnel</span><span class="dur">6:09</span></div>
         </div><div class="pbar"><i></i></div></div>
       <div class="lib pxcard"><div class="licon" style="background:var(--color-chalk-surface);color:var(--color-deep-ink)">So</div><h3>Songs</h3><p>A morning anthem to start the day, a lullaby to end it.</p>
         <div class="tracks">
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/021-spin-around-the-sun.mp3"><button class="pbtn" aria-label="Play Spin Around the Sun"><span class="pb-ico"></span></button><span class="ttl">Spin Around the Sun</span><span class="dur">4:02</span></div>
           <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/015-yellow-duck.mp3"><button class="pbtn" aria-label="Play Yellow Duck"><span class="pb-ico"></span></button><span class="ttl">Yellow Duck</span><span class="dur">1:27</span></div>
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/020-whispering-dreams.mp3"><button class="pbtn" aria-label="Play Whispering Dreams"><span class="pb-ico"></span></button><span class="ttl">Whispering Dreams</span><span class="dur">4:01</span></div>
         </div><div class="pbar"><i></i></div></div>
       <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)">Po</div><h3>Podcasts</h3><p>A curious host and a real expert, on science, nature, and life.</p>
         <div class="tracks">
           <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/001-why-do-planets-spin.mp3"><button class="pbtn" aria-label="Play Why Do Planets Spin?"><span class="pb-ico"></span></button><span class="ttl">Why Do Planets Spin?</span><span class="dur">10:57</span></div>
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/009-kick-it-like-a-pro.mp3"><button class="pbtn" aria-label="Play Kick It Like a Pro"><span class="pb-ico"></span></button><span class="ttl">Kick It Like a Pro</span><span class="dur">6:47</span></div>
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/013-inside-a-raindrop.mp3"><button class="pbtn" aria-label="Play Inside a Raindrop"><span class="pb-ico"></span></button><span class="ttl">Inside a Raindrop</span><span class="dur">12:40</span></div>
         </div><div class="pbar"><i></i></div></div>
     </div>
-    <p class="lib-note reveal" style="margin-top:var(--spacing-24);color:var(--color-cloud-border)">Tap play to hear real samples. Unlocks are part of the game; you decide what's available, always.</p>
+    <p class="lib-note reveal" style="margin-top:var(--spacing-24);color:var(--color-cloud-border)">Tap play to hear real samples. Unlocks are part of the game.</p>
     <details class="faq pxcard world-faq reveal">
       <summary>Why songs, stories, and podcasts, and why they unlock?<span class="fplus">+</span></summary>
       <div class="faq-a"><p>The rewards aren't filler. Stories build language and empathy, songs anchor routines and calm, and podcasts feed the curiosity that drives early learning. Every piece was chosen for its developmental value and shaped with our child-development advisors. Tying them to care turns showing up into something your child looks forward to: the better they look after their pet, the more of this world opens up. And you stay in control of what's available, always.</p></div>
@@ -1428,7 +1499,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   <div class="wrap">
     <p class="geyebrow reveal"><span class="cell"></span>Pre-order</p>
     <h3 class="reveal">Reserve their first Nowa today.</h3>
-    <p class="mc-fine reveal">$99 today (retail $149)<span class="fdot">·</span>Ships September 2026<span class="fdot">·</span>Fully refundable</p>
+    <p class="mc-fine reveal"><s>$149</s> $99 today<span class="fdot">·</span>Ships September 2026<span class="fdot">·</span>Fully refundable</p>
     <a href="#preorder" class="btn reveal">Lock in at $99 <span class="arr">→</span></a>
   </div>
 </section>
@@ -1468,7 +1539,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <ul class="safe-list">
           <li><span class="cell"></span>Speaks only in sound, motion, and feeling, never human words</li>
           <li><span class="cell"></span>No open internet. Nothing it can say that you didn't choose</li>
-          <li><span class="cell"></span>Its walled AI only reads progress and brings the pet to life, bonding your child to real life, not a screen</li>
+          <li><span class="cell"></span>Its walled AI has one job: bringing the pet to life. It learns from your child's care, never from conversations</li>
         </ul>
         <div class="talk-demo reveal pxcard">
           <p class="bubble" id="petSound">♪ prrr… blip!</p>
@@ -1522,10 +1593,10 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <div class="papp-feats">
         <div class="papp-feat" role="button" tabindex="0" data-feature="mission"><h3>Mission Control</h3><p>Set up the habit routines that fit your family's schedule: mornings, homework, bedtime. The app turns each one into a mission your child's pet needs their help to complete.</p><span class="papp-go">See it →</span></div>
         <div class="papp-feat" role="button" tabindex="0" data-feature="growth"><h3>Growth insights</h3><p>Progress and developmental insights drawn from frameworks <strong>shaped by our advisory board</strong>, not metrics we invented. You see only what genuinely reflects your child's journey, never noise.</p><span class="papp-go">See it →</span></div>
-        <div class="papp-feat" role="button" tabindex="0" data-feature="loop"><h3>Stay in the loop</h3><p>See every mission and how your child did it, and set the pet's bedtime to match your child's. Every byte the game collects is yours. View it, and delete it from our servers anytime. We keep nothing for any other purpose.</p><span class="papp-go">See it →</span></div>
+        <div class="papp-feat" role="button" tabindex="0" data-feature="loop"><h3>Stay in the loop</h3><p>See every mission and how it went, and set the pet's bedtime to match your child's. Everything the game collects is yours: view it, or delete it from our servers, anytime.</p><span class="papp-go">See it →</span></div>
       </div>
     </div>
-    <p class="papp-trust reveal">Closed and family-safe. No open internet, no ads, ever. <a href="parent-app.html">Explore the parent app →</a></p>
+    <p class="papp-trust reveal">Included with every Nowa. <a href="parent-app.html">Explore the parent app →</a></p>
   </div>
 </section>
 
@@ -1560,11 +1631,11 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <!-- MID-PAGE CTA (after Compare) -->
 <section class="midcta" id="midcta">
   <div class="wrap">
-    <p class="geyebrow reveal"><span class="cell"></span>Pre-order</p>
-    <h3 class="reveal">Convinced? Reserve your Nowa.</h3>
-    <p class="mc-fine reveal">$99 today (retail $149)<span class="fdot">·</span>Fully refundable<span class="fdot">·</span>Cancel anytime<span class="fdot">·</span>Refunded automatically if not shipped by Oct 31</p>
+    <p class="geyebrow reveal"><span class="cell"></span>The Day-One Bundle</p>
+    <h3 class="reveal">$99 reserves the whole Day-One Bundle.</h3>
+    <p class="mc-fine reveal">The $149 device<span class="fdot">·</span>6 months of Nowa+ free<span class="fdot">·</span>The Handbooks, from the day you reserve<span class="fdot">·</span>Fully refundable</p>
     <a href="#preorder" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
-    <p class="mc-more reveal">Your pre-order price, 6 months of Nowa+, and the Playbooks, all waiting. <a href="#preorder">Full details below.</a></p>
+    <p class="mc-more reveal"><a href="#preorder">See the full breakdown ↓</a></p>
   </div>
 </section>
 
@@ -1577,42 +1648,12 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <p class="lead reveal" style="margin-top:16px">Real households, real mornings. Words from the beta program.</p>
   </div>
   <div class="rev-rows" aria-label="Beta family reviews">
-    <div class="rev-row"><div class="rev-track" data-dir="1"><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">My son used to fight me for 20 minutes every morning about his shoes. Now he's racing to get them on because he wants to tell his Nowa pet he's ready for the School Mission.</p><p class="rwho"><strong>Mark J.</strong> · Dad of a 6-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">The dashboard actually showed me my daughter was feeling anxious about her math homework before she even told me. It gave us a bridge to talk.</p><p class="rwho"><strong>Kate</strong> · Mom of an 8-year-old <span class="beta-chip">BETA FAMILY</span></p></div></div></div>
+    <div class="rev-row"><div class="rev-track" data-dir="1"><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">My son used to fight me for 20 minutes every morning about his shoes. Now he's racing to get them on because he wants to tell his Nowa pet he's ready for the School Mission.</p><p class="rwho"><strong>Mark J.</strong> · Dad of a 6-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">She came downstairs and said 'I did turtle time so my pet could calm down.' Then she did it herself at dinner. Unprompted.</p><p class="rwho"><strong>Dana</strong> · Mom of a 5-year-old <span class="beta-chip">BETA FAMILY</span></p></div></div></div>
     <div class="rev-row"><div class="rev-track" data-dir="-1"><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">It's the first screen I don't feel guilty about. Ten minutes, then he's off building a fort because his pet 'needed' one.</p><p class="rwho"><strong>Priya</strong> · Mom of a 6-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">I expected another abandoned gadget. Six weeks in, the pet is still fed and my mornings are still quiet.</p><p class="rwho"><strong>Alex M.</strong> · Dad of an 8-year-old <span class="beta-chip">BETA FAMILY</span></p></div></div></div>
   </div>
 </section>
 
-<div class="dither dith-soft" aria-hidden="true"></div>
-<!-- FAQ -->
-<section class="faqsec" id="faq">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Before you ask</p>
-    <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:20ch">The questions every parent asks.</h2>
-    <div class="mtabs faqtabs reveal" role="tablist" aria-label="FAQ categories">
-      <button class="mtab on" role="tab" aria-selected="true" data-faq="0">About the product</button>
-      <button class="mtab" role="tab" aria-selected="false" data-faq="1">Pre-order</button>
-    </div>
-    <div class="faqs faqpanel" data-panel="0">
-      <details class="faq pxcard"><summary>What age is Nowa designed for?<span class="fplus">+</span></summary><div class="faq-a"><p>Kids ages 3–10, the stage when routines, independence, and emotional habits develop fastest. The experience is age-scaffolded so it grows with your child.</p></div></details>
-      <details class="faq pxcard"><summary>How does Nowa build habits without nagging?<span class="fplus">+</span></summary><div class="faq-a"><p>Instead of you repeating instructions, daily routines become missions your child does to help their pet grow. The pet celebrates wins and encourages them through struggles, so habit-building feels like play, not punishment.</p></div></details>
-      <details class="faq pxcard"><summary>Is there AI in Nowa? Is it safe for young children?<span class="fplus">+</span></summary><div class="faq-a"><p>Yes. A closed, walled AI shapes how the pet feels, remembers care, and chooses missions. It never speaks to your child in human language, has no access to the open internet, and collects nothing beyond what personalizes the experience. It was built with our child-development researchers to support growth, not maximize engagement.</p></div></details>
-      <details class="faq pxcard"><summary>Is my child's experience safe and private?<span class="fplus">+</span></summary><div class="faq-a"><p>The pet doesn't converse, so there's nothing to monitor and nothing to leak. No open internet, content age-scaffolded for 3–10, built to meet COPPA and ASTM F963 standards. You stay in control through topic boundaries, bedtime modes, and usage limits in the parent app.</p></div></details>
-      <details class="faq pxcard"><summary>How much screen time does Nowa involve?<span class="fplus">+</span></summary><div class="faq-a"><p>Nowa is designed to be put down, not stayed on. Check-ins run about 10–15 minutes each, a few times through the day. Short and active, with no infinite scroll, no autoplay, no engagement mechanics. The goal is always to send your child back into the real world.</p></div></details>
-      <details class="faq pxcard"><summary>What happens if my child misses a day?<span class="fplus">+</span></summary><div class="faq-a"><p>Real life happens. Missing a day doesn't erase progress or create punishment, and the pet never dies. Left alone for a long time it may get sad or gently return to its home world, but it can always come back.</p></div></details>
-      <details class="faq pxcard"><summary>How does the parent app work?<span class="fplus">+</span></summary><div class="faq-a"><p>Set routines, see progress, and get warm, narrative insights without more mental load. Basic setup and routine tracking come with the device; full insights, advanced missions, and expert guidance are part of the optional Nowa+ subscription.</p></div></details>
-      <details class="faq pxcard"><summary>When will Nowa be available?<span class="fplus">+</span></summary><div class="faq-a"><p>Pre-orders are open now at $99, shipping September 2026. You can cancel your reservation anytime before it ships.</p></div></details>
-    </div>
-    <div class="faqs faqpanel" data-panel="1" hidden>
-      <details class="faq pxcard"><summary>Why is it full price now instead of a small deposit?<span class="fplus">+</span></summary><div class="faq-a"><p>Because your reservation is fully refundable, paying now and paying a deposit carry the same risk to you: none. Reserving in full simply locks your pre-order price, starts your benefits today, and means there's nothing to remember or re-confirm later. Cancel anytime before your Nowa ships and you're refunded in full.</p></div></details>
-      <details class="faq pxcard"><summary>What if I change my mind?<span class="fplus">+</span></summary><div class="faq-a"><p>Cancel anytime before your Nowa ships and we refund every cent, no questions asked. Your reservation is never a commitment to keep it.</p></div></details>
-      <details class="faq pxcard"><summary>What if Nowa ships late?<span class="fplus">+</span></summary><div class="faq-a"><p>If we don't ship by October 31, you're refunded automatically. You don't even have to ask. We're targeting September, and we've built in time so a normal delay never costs you.</p></div></details>
-      <details class="faq pxcard"><summary>When do my benefits start?<span class="fplus">+</span></summary><div class="faq-a"><p>The moment you reserve. Your Nowa Playbooks arrive right away, and your 6 months of Nowa+ begins when your device is set up, so you get the full experience from day one.</p></div></details>
-      <details class="faq pxcard"><summary>Why reserve now instead of waiting?<span class="fplus">+</span></summary><div class="faq-a"><p>Reserving now locks the $99 price below the $149 retail, and includes an exclusive starter pet you can't get later, an in-app badge, and your Nowa+ price held for 2 years. These extras are limited to 500 reservations and never sold later. Your reservation stays fully refundable until your Nowa ships.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<div class="dither" aria-hidden="true"></div>
+<div class="dither" aria-hidden="true" style="--dith-light:var(--color-pure-white)"></div>
 <!-- PRE-ORDER -->
 <section class="dark final" id="preorder">
   <!-- A/B variant switcher (fixed; toggles V1 / V2 of the pre-order showcase) -->
@@ -1624,22 +1665,23 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   <div class="wrap">
     <p class="geyebrow" style="justify-content:center"><span class="cell"></span>Pre-order · 500 reservations</p>
     <h2 class="po-price reveal"><span class="po-amt">$99 today.</span> <span class="po-save">Save $195.</span></h2>
-    <p class="po-sub reveal">On the device, six months of Nowa+, the Playbooks, and pre-order extras you only get now.</p>
+    <p class="po-sub reveal">The Day-One Bundle: the device, six months of Nowa+, the Handbooks, and pre-order extras you only get now.</p>
 
     <!-- ===== V1 — split deal block ===== -->
     <div class="po-variant po-v1 is-on" data-v="1">
     <!-- DEAL BLOCK: WHAT YOU GET (light pxcard) | WHAT YOU PAY (mint pxcard) -->
     <div class="deal reveal-group">
       <div class="deal-get pxcard">
-        <p class="deal-h">What you get</p>
+        <p class="deal-h">The Day-One Bundle</p>
         <ul class="deal-list">
           <li class="deal-row">
-            <span class="deal-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+            <span class="deal-ic deal-th" aria-hidden="true"><img src="assets/device/front.png" alt="" loading="lazy" decoding="async"></span>
             <span class="deal-name">Nowa device (retail)</span>
             <span class="deal-val">$149</span>
+            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/device.jpg" alt="" loading="lazy" decoding="async"></div></div>
           </li>
           <li class="deal-row">
-            <span class="deal-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+            <span class="deal-ic deal-th deal-th-zoom" aria-hidden="true"><img src="assets/showcase/nowa-plus.jpg" alt="" style="object-position:38% 55%" loading="lazy" decoding="async"></span>
             <span class="deal-name">6 months of Nowa+</span>
             <span class="deal-val">$120</span>
             <ul class="deal-sub">
@@ -1647,28 +1689,31 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
               <li>Full growth insights: emotions, focus, follow-through</li>
               <li>Expert-shaped guidance from our PCIT, EQ, and EF advisors</li>
             </ul>
+            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/nowa-plus.jpg" alt="" loading="lazy" decoding="async"></div></div>
           </li>
           <li class="deal-row">
-            <span class="deal-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
-            <span class="deal-name">The Nowa Playbooks</span>
+            <span class="deal-ic deal-th deal-th-zoom" aria-hidden="true"><img src="assets/showcase/playbooks.jpg" alt="" style="object-position:50% 62%" loading="lazy" decoding="async"></span>
+            <span class="deal-name">The Nowa Handbooks <span class="deal-name-sub">three parent guides, advisor-shaped</span></span>
             <span class="deal-val deal-val-tag">★ Day 1</span>
-            <span class="deal-note">Three practical guides — Calm Mornings, Big Feelings, Focus &amp; Follow-Through — shaped with our PCIT, EQ, and EF advisors. Yours the day you reserve, while you wait.</span>
+            <ul class="deal-sub">
+              <li><b>Big Feelings</b> · when the feeling is bigger than the kid</li>
+              <li><b>Routine</b> · stop being the narrator of every morning</li>
+              <li><b>Raising a Kid Who Can Stop</b> · third guide, lands before your device ships</li>
+            </ul>
+            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/playbooks.jpg" alt="" loading="lazy" decoding="async"></div></div>
           </li>
           <li class="deal-row">
-            <span class="deal-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a4 4 0 014-4h8a4 4 0 014 4v9a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M9 6V4a3 3 0 016 0v2"/><line x1="8" y1="14" x2="16" y2="14"/></svg></span>
+            <span class="deal-ic deal-th deal-th-zoom" aria-hidden="true"><img src="assets/showcase/adventure-kit.jpg" alt="" style="transform-origin:30% 55%" loading="lazy" decoding="async"></span>
             <span class="deal-name">Adventure Kit <span class="deal-name-sub">silicone cover + lanyard</span></span>
             <span class="deal-val">$25</span>
             <ul class="deal-sub">
-              <li>Silicone case in swappable colors — soft, drop-protective</li>
+              <li>Silicone case in swappable colors, soft and drop-protective</li>
               <li>Lanyard for hands-free carry: walks, school, the car</li>
             </ul>
-            <div class="deal-photos" aria-hidden="true">
-              <div class="deal-photo deal-photo-ph"><span>Silicone cover</span></div>
-              <div class="deal-photo deal-photo-ph"><span>Lanyard</span></div>
-            </div>
+            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/adventure-kit.jpg" alt="" loading="lazy" decoding="async"></div></div>
           </li>
           <li class="deal-row">
-            <span class="deal-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            <span class="deal-ic deal-th deal-th-pet" aria-hidden="true"><img class="px" src="assets/species/flori.png" alt="" loading="lazy" decoding="async"></span>
             <span class="deal-name">Pre-order extras</span>
             <span class="deal-val deal-val-tag">★ Exclusive</span>
             <ul class="deal-sub">
@@ -1676,6 +1721,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
               <li>An exclusive badge in your parent app</li>
               <li>Your Nowa+ price locked for 2 years</li>
             </ul>
+            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><div class="deal-exp-bonus"><img class="px" src="assets/species/nori-2.png" alt="" width="100" height="100" loading="lazy" decoding="async"><span class="deal-bonus-cap">EXCLUSIVE STARTER PET</span></div></div></div>
           </li>
         </ul>
       </div>
@@ -1711,7 +1757,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <!-- ===== V2 — showcase variant (Gruns-inspired but pre-order optimized) ===== -->
     <div class="po-variant po-v2" data-v="2">
       <!-- "What you get" eyebrow heading -->
-      <p class="po-section-h reveal"><span class="cell"></span>What you get</p>
+      <p class="po-section-h reveal"><span class="cell"></span>The Day-One Bundle</p>
 
       <!-- product gallery (Gruns-style): left rail + main panel -->
       <div class="po-gallery pxcard reveal">
@@ -1726,14 +1772,14 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
           </button>
           <button class="po-gallery-thumb" type="button" data-i="2" role="tab" aria-selected="false">
             <div class="po-thumb-img"><img src="assets/showcase/playbooks.jpg" alt="" decoding="async"></div>
-            <span class="po-thumb-lbl">Playbooks</span>
+            <span class="po-thumb-lbl">Handbooks</span>
           </button>
           <button class="po-gallery-thumb" type="button" data-i="3" role="tab" aria-selected="false">
             <div class="po-thumb-img"><img src="assets/showcase/adventure-kit.jpg" alt="" decoding="async"></div>
             <span class="po-thumb-lbl">Adventure Kit</span>
           </button>
           <button class="po-gallery-thumb" type="button" data-i="4" role="tab" aria-selected="false">
-            <div class="po-thumb-img"><div class="pxslot">★</div></div>
+            <div class="po-thumb-img po-thumb-bonus"><img class="px" src="assets/species/nori-2.png" alt="" decoding="async"></div>
             <span class="po-thumb-lbl">Reservation bonus</span>
           </button>
         </div>
@@ -1771,17 +1817,17 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
               </div>
             </div>
           </div>
-          <!-- 3: Playbooks -->
+          <!-- 3: Handbooks -->
           <div class="po-gallery-panel" data-i="2" role="tabpanel">
-            <div class="po-panel-img"><img src="assets/showcase/playbooks.jpg" alt="Three Nowa Playbook covers — Calm Mornings, Big Feelings, Focus &amp; Follow-Through" decoding="async"></div>
+            <div class="po-panel-img"><img src="assets/showcase/playbooks.jpg" alt="Nowa Handbook covers: Big Feelings and Routine, with a third on the way" decoding="async"></div>
             <div class="po-panel-body">
               <span class="show-card-tag">Day 1 · while you wait</span>
-              <h3 class="po-panel-name">The Nowa Playbooks</h3>
-              <p class="po-panel-desc">Three practical guides shaped with our PCIT, EQ, and EF advisors. Yours the day you reserve, months before your device ships.</p>
+              <h3 class="po-panel-name">The Nowa Handbooks</h3>
+              <p class="po-panel-desc">Parent guides shaped with our EQ, EF, and PCIT advisors. The first two arrive the day you reserve.</p>
               <ul class="show-card-bullets">
-                <li><b>Calm Mornings</b> · turning the routine fight into follow-through</li>
-                <li><b>Big Feelings</b> · helping your child name and steady emotions</li>
-                <li><b>Focus &amp; Follow-Through</b> · building the start-and-finish habit</li>
+                <li><b>Big Feelings</b> · when the feeling is bigger than the kid</li>
+                <li><b>Routine</b> · stop being the narrator of every morning</li>
+                <li><b>Raising a Kid Who Can Stop</b> · on its way, yours before your device ships</li>
               </ul>
               <div class="show-card-price">
                 <span class="show-card-stamp">Free · Day 1</span>
@@ -1796,7 +1842,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
               <h3 class="po-panel-name">Adventure Kit</h3>
               <p class="po-panel-desc">Soft silicone case and lanyard, so the pet travels with your child wherever they go.</p>
               <ul class="show-card-bullets">
-                <li>Silicone case in swappable colors — soft, drop-protective</li>
+                <li>Silicone case in swappable colors, soft and drop-protective</li>
                 <li>Lanyard for hands-free carry: walks, school, the car</li>
               </ul>
               <div class="show-card-price">
@@ -1808,7 +1854,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
           </div>
           <!-- 5: Pre-order extras -->
           <div class="po-gallery-panel is-feature" data-i="4" role="tabpanel">
-            <div class="po-panel-img"><div class="pxslot">Starter pet + badge<br>placeholder</div></div>
+            <div class="po-panel-img po-panel-bonus"><span class="spark" style="right:18px;top:16px"></span><span class="spark s3" style="left:20px;bottom:22px"></span><img class="px" src="assets/species/nori-2.png" alt="Nori crystal form, the exclusive pre-order starter pet" decoding="async"><p class="po-bonus-cap">EXCLUSIVE STARTER PET</p></div>
             <div class="po-panel-body">
               <span class="show-card-tag">★ Pre-order exclusive</span>
               <h3 class="po-panel-name">The reservation bonus</h3>
@@ -1826,6 +1872,15 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         </div>
       </div>
 
+      <!-- the whole bundle at a glance — visible without touching the gallery -->
+      <ul class="po-glance reveal" aria-label="Everything in the Day-One Bundle at a glance">
+        <li>Device <b>$149 → $99</b></li>
+        <li>6 mo Nowa+ <b>$120 → Free</b></li>
+        <li>Handbooks <b>Day 1</b></li>
+        <li>Adventure Kit <b>$25 → Free</b></li>
+        <li>Reservation bonus <b>500 only</b></li>
+      </ul>
+
       <!-- "What you pay" heading + the value reveal (vertical hierarchy, $99 as the hero) -->
       <p class="po-section-h reveal"><span class="cell"></span>What you pay</p>
       <div class="po-tally reveal">
@@ -1838,7 +1893,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <!-- pre-order vs retail comparison — Nowa pxcard pattern, semantic table -->
       <div class="po-vs reveal">
         <p class="po-vs-h">Pre-order today vs. wait for retail</p>
-        <p class="po-vs-sub">Same product. The difference is what's bundled in — and what disappears the moment the 500 reservations are gone.</p>
+        <p class="po-vs-sub">Same product. The difference is what's bundled in, and what disappears the moment the 500 reservations are gone.</p>
         <div class="po-vs-wrap pxcard">
           <table class="po-vs-table-el">
             <thead>
@@ -1860,7 +1915,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
                 <td class="is-them-no">Not included</td>
               </tr>
               <tr>
-                <th scope="row">Playbooks (Day 1)</th>
+                <th scope="row">Handbooks (Day 1)</th>
                 <td class="is-mine">Free</td>
                 <td class="is-them-no">Not sold</td>
               </tr>
@@ -1907,7 +1962,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     </div><!-- /.po-v2 -->
 
     <!-- honest scarcity line — kept per Daniel's call -->
-    <p class="po-honest reveal"><span class="po-honest-lead">This isn't a countdown. We won't pretend there's a timer.</span> But these terms hold for <span class="po-honest-num">500 reservations only</span>. When those are taken, they're taken — the price becomes $149 and the extras are gone for good.</p>
+    <p class="po-honest reveal"><span class="po-honest-lead">This isn't a countdown. We won't pretend there's a timer.</span> But these terms hold for <span class="po-honest-num">500 reservations only</span>. When those are taken, they're taken. The price becomes $149 and the extras are gone for good.</p>
 
     <a href="#" class="btn offer-cta reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
     <p class="offer-fine reveal">Ships September 2026<span class="fdot">·</span>500 reservations only<span class="fdot">·</span>Fully refundable</p>
@@ -1917,6 +1972,45 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <img class="px" src="assets/species/puffin.png" alt="" width="64" height="64" loading="lazy" decoding="async">
       <img class="px" src="assets/species/ollie.png" alt="" width="64" height="64" loading="lazy" decoding="async">
     </div>
+  </div>
+</section>
+
+<div class="dither" aria-hidden="true" style="--dith-dark:#fff3d6;--dith-light:var(--surface-warm-parchment)"></div>
+<!-- FAQ (now after the offer: objection-handling) -->
+<section class="faqsec" id="faq">
+  <div class="wrap">
+    <p class="geyebrow"><span class="cell"></span>Before you ask</p>
+    <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:20ch">The questions every parent asks.</h2>
+    <div class="mtabs faqtabs reveal" role="tablist" aria-label="FAQ categories">
+      <button class="mtab on" role="tab" aria-selected="true" data-faq="0">About the product</button>
+      <button class="mtab" role="tab" aria-selected="false" data-faq="1">Pre-order</button>
+    </div>
+    <div class="faqs faqpanel" data-panel="0">
+      <details class="faq pxcard"><summary>What age is Nowa designed for?<span class="fplus">+</span></summary><div class="faq-a"><p>Kids ages 3–10, the stage when routines, independence, and emotional habits develop fastest. The experience is age-scaffolded so it grows with your child.</p></div></details>
+      <details class="faq pxcard"><summary>How does Nowa build habits without nagging?<span class="fplus">+</span></summary><div class="faq-a"><p>Instead of you repeating instructions, daily routines become missions your child does to help their pet grow. The pet celebrates wins and encourages them through struggles, so habit-building feels like play, not punishment.</p></div></details>
+      <details class="faq pxcard"><summary>Is there AI in Nowa? Is it safe for young children?<span class="fplus">+</span></summary><div class="faq-a"><p>Yes. A closed, walled AI shapes how the pet feels, remembers care, and chooses missions. It never speaks to your child in human language, has no access to the open internet, and collects nothing beyond what personalizes the experience. It was built with our child-development researchers to support growth, not maximize engagement.</p></div></details>
+      <details class="faq pxcard"><summary>Is my child's experience safe and private?<span class="fplus">+</span></summary><div class="faq-a"><p>The pet doesn't converse, so there's nothing to monitor and nothing to leak. No open internet, content age-scaffolded for 3–10, built to meet COPPA and ASTM F963 standards. You stay in control through topic boundaries, bedtime modes, and usage limits in the parent app.</p></div></details>
+      <details class="faq pxcard"><summary>How much screen time does Nowa involve?<span class="fplus">+</span></summary><div class="faq-a"><p>Nowa is built to be put down. Check-ins run about 10–15 minutes each, a few times through the day. Short and active, with no infinite scroll, no autoplay, no engagement mechanics. The goal is always to send your child back into the real world.</p></div></details>
+      <details class="faq pxcard"><summary>What happens if my child misses a day?<span class="fplus">+</span></summary><div class="faq-a"><p>Real life happens. Missing a day doesn't erase progress or create punishment, and the pet never dies. Left alone for a long time it may get sad or gently return to its home world, but it can always come back.</p></div></details>
+      <details class="faq pxcard"><summary>How does the parent app work?<span class="fplus">+</span></summary><div class="faq-a"><p>Set routines, see progress, and get warm, narrative insights without more mental load. Basic setup and routine tracking come with the device; full insights, advanced missions, and expert guidance are part of the optional Nowa+ subscription.</p></div></details>
+      <details class="faq pxcard"><summary>When will Nowa be available?<span class="fplus">+</span></summary><div class="faq-a"><p>Pre-orders are open now at $99, shipping September 2026. You can cancel your reservation anytime before it ships.</p></div></details>
+    </div>
+    <div class="faqs faqpanel" data-panel="1" hidden>
+      <details class="faq pxcard"><summary>Why is it full price now instead of a small deposit?<span class="fplus">+</span></summary><div class="faq-a"><p>Because your reservation is fully refundable, paying now and paying a deposit carry the same risk to you: none. Reserving in full simply locks your pre-order price, starts your benefits today, and means there's nothing to remember or re-confirm later. Cancel anytime before your Nowa ships and you're refunded in full.</p></div></details>
+      <details class="faq pxcard"><summary>What if I change my mind?<span class="fplus">+</span></summary><div class="faq-a"><p>Cancel anytime before your Nowa ships and we refund every cent, no questions asked. Your reservation is never a commitment to keep it.</p></div></details>
+      <details class="faq pxcard"><summary>What if Nowa ships late?<span class="fplus">+</span></summary><div class="faq-a"><p>If we don't ship by October 31, you're refunded automatically. You don't even have to ask. We're targeting September, and we've built in time so a normal delay never costs you.</p></div></details>
+      <details class="faq pxcard"><summary>When do my benefits start?<span class="fplus">+</span></summary><div class="faq-a"><p>The moment you reserve. Your Nowa Handbooks arrive right away, and your 6 months of Nowa+ begins when your device is set up, so you get the full experience from day one.</p></div></details>
+      <details class="faq pxcard"><summary>Why reserve now instead of waiting?<span class="fplus">+</span></summary><div class="faq-a"><p>Reserving now locks the $99 price below the $149 retail, and includes an exclusive starter pet you can't get later, an in-app badge, and your Nowa+ price held for 2 years. These extras are limited to 500 reservations and never sold later. Your reservation stays fully refundable until your Nowa ships.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA — for readers who needed the FAQ first -->
+<section class="closing-cta" style="padding:clamp(40px,5vw,64px) 0;text-align:center">
+  <div class="wrap">
+    <h3 class="reveal" style="font-family:var(--font-onest);font-weight:800;font-size:clamp(22px,2.8vw,34px);max-width:22ch;margin:0 auto 20px">Questions answered? Your spot is still open.</h3>
+    <a href="#preorder" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
+    <p class="reveal" style="margin-top:16px;font-size:var(--text-body-sm);color:var(--color-slate-mid)">Fully refundable until it ships<span class="fdot">·</span>500 reservations only</p>
   </div>
 </section>
 
@@ -1988,7 +2082,7 @@ document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el))
     {h: 'The daily friction, minus the referee.',
      b: 'Brushing teeth, getting dressed, bedtime, homework start. The routine becomes something the pet needs help to finish, so the follow-through comes from your child.',
      r: 'Shaped with Dr. Steven Kurtz · Parent-child interaction',
-     sbig: '3× better', stxt: 'Children with a consistent nightly routine fell asleep faster, slept through more nights, and showed steadier daytime mood and behavior — and the more consistent the routine, the bigger the gain.', ssrc: 'Mindell et al., Sleep, 2009 · 405 mothers; replicated globally across 10,000+ children (Mindell & Williamson, 2018)',
+     sbig: '3× better', stxt: 'Children with a consistent nightly routine fell asleep faster, slept through more nights, and showed steadier daytime mood and behavior. The more consistent the routine, the bigger the gain.', ssrc: 'Mindell et al., Sleep, 2009 · 405 mothers; replicated globally across 10,000+ children (Mindell & Williamson, 2018)',
      vid: 'assets/videos/the-mission-engine-02.mp4'},
     {h: 'Practising calm before the storm.',
      b: 'Naming a big feeling, taking turtle-time, riding out a wobble. Low-stakes reps with the pet, so the skill is there when a real meltdown comes.',
@@ -2299,20 +2393,49 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
   }));
 })();
 
-/* V2 gallery — thumbnail rail toggles the main panel */
+/* V1 deal rows — tap a row to unfold its visual inline */
 (() => {
-  const thumbs = document.querySelectorAll('.po-gallery-thumb');
-  const panels = document.querySelectorAll('.po-gallery-panel');
+  document.querySelectorAll('.deal-row').forEach(row => {
+    if (!row.querySelector('.deal-exp')) return;
+    row.setAttribute('role', 'button');
+    row.setAttribute('tabindex', '0');
+    row.setAttribute('aria-expanded', 'false');
+    const toggle = () => {
+      const open = row.classList.toggle('open');
+      row.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    row.addEventListener('click', e => { if (!e.target.closest('a')) toggle(); });
+    row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  });
+})();
+
+/* V2 gallery — thumbnail rail toggles the main panel + gentle auto-tour */
+(() => {
+  const thumbs = [...document.querySelectorAll('.po-gallery-thumb')];
+  const panels = [...document.querySelectorAll('.po-gallery-panel')];
   if (!thumbs.length) return;
-  thumbs.forEach(b => b.addEventListener('click', () => {
-    const i = b.dataset.i;
+  let idx = 0;
+  const show = i => {
+    idx = Number(i);
     thumbs.forEach(t => {
-      const on = t.dataset.i === i;
+      const on = Number(t.dataset.i) === idx;
       t.classList.toggle('on', on);
       t.setAttribute('aria-selected', on ? 'true' : 'false');
     });
-    panels.forEach(p => p.classList.toggle('on', p.dataset.i === i));
-  }));
+    panels.forEach(p => p.classList.toggle('on', Number(p.dataset.i) === idx));
+  };
+  /* auto-tour: walk the five items while the gallery is in view; any interaction hands over control for good */
+  const gallery = document.querySelector('.po-gallery');
+  let timer = null, handed = false;
+  const stop = () => { clearInterval(timer); timer = null; };
+  thumbs.forEach(b => b.addEventListener('click', () => { handed = true; stop(); show(b.dataset.i); }));
+  if (gallery && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    ['pointerdown', 'keydown'].forEach(ev => gallery.addEventListener(ev, () => { handed = true; stop(); }));
+    new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting && !handed && !timer) timer = setInterval(() => show((idx + 1) % thumbs.length), 4000);
+      else if (!e.isIntersecting) stop();
+    }), {threshold: .35}).observe(gallery);
+  }
 })();
 
 /* pre-order variant switcher — A/B compare V1 vs V2 inline */
