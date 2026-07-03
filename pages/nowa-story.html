@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nowa: the pet that turns routines into play</title>
-<meta name="description" content="Nowa is a pet your child looks after. Caring for it is how they practice calm, build routines, and grow kinder. Built with the scientists who wrote the science. Pre-order now, ships September 2026.">
+<title>The Nowa story · built in the open</title>
+<meta name="description" content="Why Dan built Nowa, who he built it with, and exactly where it stands today. Founder letter and the full production timeline, updated as we go.">
 <link rel="stylesheet" href="../design/tokens.css">
 <link rel="icon" type="image/png" href="assets/brand/logo-app-64.png">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
@@ -484,7 +484,7 @@ footer a:hover{color:#fff}
 .device-carousel .pxcard{--pxbg:var(--surface-ghost-white);overflow:hidden}
 .dc-track{display:flex;transition:transform 400ms var(--ease-out-strong)}
 .dc-slide{flex:none;width:100%}
-.dc-slide video,.dc-slide img{width:100%;aspect-ratio:1/1;display:block;object-fit:contain;transition:transform 300ms var(--ease-out-strong)}
+.dc-slide video,.dc-slide img{width:100%;display:block;object-fit:contain;transition:transform 300ms var(--ease-out-strong)}
 /* per-slide framing — source photos have inconsistent device size + centering;
    these scales/offsets normalize the apparent device size across the 5 slides.
    tuned visually 2026-06-25 against assets/device/{front,back,side-left,side-right}.* */
@@ -519,7 +519,7 @@ footer a:hover{color:#fff}
 /* pixel device frame for mission videos */
 .mission-art{position:relative;padding:18px;background:var(--surface-warm-parchment)}
 .device-frame{position:relative;margin:0 auto;max-width:none;background:var(--surface-pure-white);border:3px solid var(--color-deep-ink);padding:10px 10px 0}
-.device-frame video{width:100%;aspect-ratio:16/9;display:block;border:2px solid var(--color-ink-charcoal);background:var(--color-deep-ink)}
+.device-frame video{width:100%;display:block;border:2px solid var(--color-ink-charcoal);background:var(--color-deep-ink)}
 .df-buttons{display:flex;justify-content:center;gap:16px;padding:12px}
 .db{width:20px;height:20px;border-radius:50%}
 .db.y{background:var(--color-amber-signal)}
@@ -870,7 +870,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .deal-note{grid-column:2/-1;font-size:13.5px;color:var(--color-slate-mid);max-width:42ch;text-wrap:pretty;line-height:1.5;text-align:left;margin-top:2px}
 .deal-sub{grid-column:2/-1;list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:5px;text-align:left}
 .deal-sub li{font-size:13.5px;color:var(--color-slate-mid);padding-left:14px;position:relative;text-wrap:pretty;text-align:left}
-.deal-sub b{font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink)}
 .deal-sub li::before{content:"\2605";position:absolute;left:0;top:0;color:var(--color-amber-signal);font-size:10px;line-height:1.6}
 .deal-photos{grid-column:2/-1;display:flex;gap:10px;margin-top:10px}
 .deal-photo{flex:1;aspect-ratio:1;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--font-onest);font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-slate-mid);max-width:140px;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px))}
@@ -880,7 +879,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 /* PAY math — top-aligned to match the GET column's heading + list rhythm */
 .deal-pay-body{margin-top:18px;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
 .deal-totalv{font-family:var(--font-onest);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#4d6b58;margin:0}
-.deal-total{font-family:var(--font-onest);font-weight:700;font-size:clamp(28px,3vw,36px);color:#4d6b58;margin:4px 0 0;text-decoration:line-through;text-decoration-thickness:4px;text-decoration-color:var(--color-coral-flame)}
+.deal-total{font-family:var(--font-onest);font-weight:700;font-size:clamp(28px,3vw,36px);color:#4d6b58;margin:4px 0 0;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(30,58,44,.32)}
 .deal-div{width:48px;height:2px;background:var(--color-coral-flame);margin:18px 0;border:0}
 .deal-todayl{font-family:var(--font-onest);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#1e3a2c;margin:0}
 .deal-today{font-family:var(--font-onest);font-weight:900;font-size:clamp(64px,7vw,96px);line-height:1;color:var(--color-coral-flame);letter-spacing:-.02em;margin:6px 0 0}
@@ -896,9 +895,141 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .po-honest .po-honest-lead{color:var(--color-deep-ink);font-weight:700}
 .po-honest .po-honest-num{color:var(--color-coral-flame);font-weight:800}
 
+/* trust strip — three pill chips */
+.po-trust{list-style:none;margin:var(--spacing-24) auto 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:920px}
+.po-chip.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);padding:10px 16px;display:inline-flex;align-items:center;gap:10px;font-size:13.5px;color:var(--color-deep-ink);filter:drop-shadow(2px 2px 0 rgba(22,28,36,.10));text-wrap:pretty;max-width:none}
+.po-chip b{font-family:var(--font-onest);font-weight:800}
+.po-chip-ic{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;color:var(--color-coral-flame);flex:none}
 
+/* ====== V1 / V2 variant toggle ====== */
+.po-variant{display:none}
+.po-variant.is-on{display:block}
 
+/* switcher chip — fixed top-right */
+.po-switch{position:fixed;top:96px;right:18px;z-index:80;display:inline-flex;background:var(--surface-pure-white);clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px));filter:drop-shadow(2px 2px 0 rgba(22,28,36,.18));font-family:var(--font-onest);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.po-switch-lbl{padding:8px 10px 8px 14px;color:var(--color-slate-mid);align-self:center}
+.po-switch-btn{padding:8px 14px;border:0;background:transparent;color:var(--color-slate-mid);cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;transition:color 150ms,background 150ms}
+.po-switch-btn:hover{color:var(--color-deep-ink)}
+.po-switch-btn.on{background:var(--color-coral-flame);color:#fff}
 
+/* ====== V2 — showcase variant ====== */
+
+/* unlock timeline */
+.po-tl{max-width:920px;margin:var(--spacing-48) auto 0;padding:clamp(20px,2.6vw,28px) clamp(16px,2vw,24px);text-align:center}
+.po-tl-h{font-family:var(--font-onest);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-slate-mid);margin:0 0 var(--spacing-24)}
+.po-tl-track{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative;align-items:start}
+.po-tl-track::before{content:"";position:absolute;top:14px;left:14%;right:14%;height:3px;background:var(--color-coral-flame);z-index:0}
+.po-tl-step{position:relative;z-index:1;text-align:center;padding-top:42px}
+.po-tl-step::before{content:attr(data-n);position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:32px;background:var(--color-coral-flame);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-onest);font-weight:900;font-size:14px;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px))}
+.po-tl-when{font-family:var(--font-onest);font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-coral-flame)}
+.po-tl-what{font-family:var(--font-onest);font-weight:800;font-size:15px;color:var(--color-deep-ink);margin-top:6px;line-height:1.3}
+.po-tl-desc{font-size:13px;color:var(--color-slate-mid);margin:6px auto 0;text-wrap:pretty;max-width:26ch;line-height:1.5}
+
+/* product gallery (Gruns-style hero) — thumbnail rail + main panel */
+.po-gallery.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);max-width:920px;margin:var(--spacing-32) auto 0;padding:clamp(18px,2.2vw,26px);filter:drop-shadow(4px 4px 0 rgba(22,28,36,.14));display:grid;grid-template-columns:120px 1fr;gap:clamp(16px,2vw,24px);text-align:left;align-items:stretch}
+.po-gallery>*{position:relative;z-index:1}
+.po-gallery-rail{display:flex;flex-direction:column;gap:10px}
+.po-gallery-thumb{display:flex;flex-direction:column;background:transparent;border:0;cursor:pointer;padding:0;text-align:center;font:inherit;transition:transform 150ms var(--ease-out-strong)}
+.po-gallery-thumb:hover{transform:translateY(-2px)}
+.po-thumb-img{aspect-ratio:1;background:var(--surface-ghost-white);display:flex;align-items:center;justify-content:center;padding:6px;clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px));position:relative;transition:background 200ms}
+.po-thumb-img .pxslot{width:100%;height:100%;min-height:0;font-size:9px;letter-spacing:.04em;padding:4px}
+.po-gallery-thumb.on .po-thumb-img{background:var(--color-coral-blush);outline:2px solid var(--color-coral-flame);outline-offset:-2px}
+.po-thumb-lbl{font-family:var(--font-onest);font-weight:700;font-size:10.5px;letter-spacing:.02em;color:var(--color-slate-mid);margin-top:7px;line-height:1.2;text-wrap:pretty;text-align:center}
+.po-gallery-thumb.on .po-thumb-lbl{color:var(--color-coral-flame)}
+.po-gallery-main{position:relative;min-height:380px}
+.po-gallery-panel{display:none;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,28px);align-items:start;height:100%}
+.po-gallery-panel.on{display:grid}
+.po-panel-img{aspect-ratio:1;background:var(--surface-ghost-white);display:flex;align-items:center;justify-content:center;padding:20px;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px))}
+.po-panel-img .pxslot{width:100%;min-height:200px;font-size:12px}
+/* when an <img> is inside the panel image area, drop the inner padding/bg/clip — the image carries its own frame */
+.po-panel-img:has(img){padding:0;background:transparent;clip-path:none}
+.po-panel-img img{width:100%;height:100%;object-fit:contain;display:block}
+/* Option A: image-only panels — image becomes the full-width hero, body hidden */
+.po-gallery-panel:has(.po-panel-img img){grid-template-columns:1fr;justify-items:center}
+.po-gallery-panel:has(.po-panel-img img) .po-panel-img{width:100%;max-width:560px}
+.po-gallery-panel:has(.po-panel-img img) .po-panel-body{display:none}
+/* thumbnail rail — when a real image is inside the thumb, let it fill (no inner padding) */
+.po-thumb-img:has(img){padding:0;background:transparent}
+.po-thumb-img img{width:100%;height:100%;object-fit:cover;display:block}
+.po-panel-body{display:flex;flex-direction:column;justify-content:center;padding:8px 0}
+.po-panel-name{font-family:var(--font-onest);font-weight:900;font-size:clamp(22px,2.4vw,30px);color:var(--color-deep-ink);margin:10px 0 0;line-height:1.15}
+.po-panel-desc{font-size:14.5px;color:var(--color-slate-mid);line-height:1.55;margin:10px 0 0;text-wrap:pretty;max-width:42ch}
+.po-panel-body .show-card-bullets{margin-top:12px}
+.po-panel-body .show-card-price{margin-top:14px}
+.po-gallery-panel.is-feature .po-panel-img{background:#e2efdb}
+
+/* showcase cards stack (kept for back-compat; .po-stack no longer used in V2) */
+.po-stack{display:flex;flex-direction:column;gap:18px;max-width:920px;margin:var(--spacing-32) auto 0}
+.show-card.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);padding:0;filter:drop-shadow(4px 4px 0 rgba(22,28,36,.14));display:grid;grid-template-columns:240px 1fr;align-items:stretch;overflow:hidden;text-align:left;position:relative}
+.show-card.show-card-feature.pxcard{--pxbg:#e2efdb;--pxborder:#c9dec3;filter:drop-shadow(4px 4px 0 rgba(30,58,44,.18))}
+.show-card>*{position:relative;z-index:1}
+.show-card-img{display:flex;align-items:center;justify-content:center;padding:18px;min-height:200px}
+.show-card-img .pxslot{width:100%;min-height:160px;font-family:var(--font-onest);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-slate-mid)}
+.show-card-img img{max-width:100%;height:auto;display:block}
+.show-card-body{padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;justify-content:center;gap:0}
+.show-card-tag{display:inline-flex;align-self:flex-start;align-items:center;font-family:var(--font-onest);font-weight:800;font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:var(--color-coral-flame);background:var(--color-coral-blush);padding:4px 9px 5px;clip-path:polygon(0 3px,3px 3px,3px 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px))}
+.show-card-name{font-family:var(--font-onest);font-weight:900;font-size:clamp(20px,2.2vw,26px);color:var(--color-deep-ink);margin:10px 0 0;line-height:1.15}
+.show-card-desc{font-size:14px;color:var(--color-slate-mid);text-wrap:pretty;line-height:1.5;margin:8px 0 0;max-width:48ch}
+.show-card-bullets{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
+.show-card-bullets li{font-size:13.5px;color:var(--color-slate-mid);padding-left:16px;position:relative;text-wrap:pretty}
+.show-card-bullets li::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;background:var(--color-coral-flame)}
+.show-card-price{display:flex;align-items:center;gap:12px;margin-top:14px;font-family:var(--font-onest);flex-wrap:wrap}
+.show-card-orig{font-weight:700;font-size:16px;color:var(--color-slate-mid);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(22,28,36,.4)}
+.show-card-arrow{color:var(--color-slate-mid);font-weight:700;font-size:16px}
+.show-card-new{font-weight:900;font-size:22px;color:var(--color-coral-flame)}
+.show-card-stamp{display:inline-flex;align-items:center;font-family:var(--font-onest);font-weight:900;font-size:13px;letter-spacing:.08em;color:#fff;background:var(--color-coral-flame);padding:5px 12px 6px;clip-path:polygon(0 4px,4px 4px,4px 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px));text-transform:uppercase}
+
+/* section eyebrow headings inside V2 ("What you get" / "What you pay") */
+.po-section-h{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font-onest);font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-slate-mid);margin:var(--spacing-48) auto 0;width:100%;text-align:center}
+.po-section-h .cell{width:10px;height:10px;background:var(--color-coral-flame);display:inline-block}
+
+/* "What you pay" tally — mint pxcard, $99 as the dominant hero */
+.po-tally{max-width:920px;margin:var(--spacing-24) auto 0;padding:clamp(28px,4vw,44px) clamp(24px,3vw,40px);background:#e2efdb;color:#1e3a2c;display:flex;flex-direction:column;align-items:center;text-align:center;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px));position:relative}
+.po-tally-context{font-family:var(--font-onest);font-weight:600;font-size:14px;color:#4d6b58;margin:0;display:inline-flex;align-items:center;gap:8px}
+.po-tally-context s{color:#4d6b58;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(30,58,44,.4);font-weight:700}
+.po-tally-hero{font-family:var(--font-onest);font-weight:900;font-size:clamp(96px,14vw,180px);line-height:.92;color:var(--color-coral-flame);letter-spacing:-.03em;margin:8px 0 0;text-shadow:4px 4px 0 rgba(239,73,61,.18)}
+.po-tally-sub{font-family:var(--font-onest);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1e3a2c;margin:10px 0 0;opacity:.78}
+.po-tally-save{display:inline-flex;align-items:center;font-family:var(--font-onest);font-weight:900;font-size:14px;letter-spacing:.08em;color:#fff;background:var(--color-coral-flame);padding:8px 16px 9px;margin-top:22px;text-transform:uppercase;clip-path:polygon(0 5px,5px 5px,5px 0,calc(100% - 5px) 0,calc(100% - 5px) 5px,100% 5px,100% calc(100% - 5px),calc(100% - 5px) calc(100% - 5px),calc(100% - 5px) 100%,5px 100%,5px calc(100% - 5px),0 calc(100% - 5px))}
+
+/* comparison: pre-order vs retail — semantic table in pxcard, Nowa pattern */
+.po-vs{max-width:920px;margin:var(--spacing-32) auto 0;text-align:left}
+.po-vs-h{font-family:var(--font-onest);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-slate-mid);text-align:center;margin:0 0 6px}
+.po-vs-sub{text-align:center;font-size:14px;color:var(--color-slate-mid);margin:0 auto var(--spacing-24);text-wrap:pretty;max-width:50ch}
+.po-vs-wrap.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);padding:clamp(8px,1.4vw,18px);filter:drop-shadow(4px 4px 0 rgba(22,28,36,.14))}
+.po-vs-wrap>*{position:relative;z-index:1}
+.po-vs-table-el{width:100%;border-collapse:collapse;table-layout:fixed;font-family:var(--font-noto-sans)}
+.po-vs-table-el th,.po-vs-table-el td{padding:14px 16px;text-align:left;font-size:13.5px;vertical-align:middle;border-bottom:1px solid var(--color-chalk-surface)}
+.po-vs-table-el tr:last-child th,.po-vs-table-el tr:last-child td{border-bottom:0}
+.po-vs-table-el thead th{font-family:var(--font-onest);font-weight:800;font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--color-slate-mid);padding:12px 16px 14px;border-bottom:2px solid var(--color-chalk-surface);text-align:center}
+.po-vs-table-el thead th:first-child{text-align:left;color:var(--color-deep-ink)}
+.po-vs-table-el thead th.is-mine{color:var(--color-coral-flame);border-bottom-color:var(--color-coral-flame)}
+.po-vs-table-el tbody th{font-family:var(--font-onest);font-weight:700;color:var(--color-deep-ink);font-size:14px}
+.po-vs-table-el tbody td{text-align:center;font-family:var(--font-onest);font-weight:700}
+.po-vs-table-el tbody td.is-mine{background:#fff5f4;color:var(--color-coral-flame);font-weight:800}
+.po-vs-table-el tbody td.is-them{color:var(--color-slate-mid)}
+.po-vs-table-el tbody td.is-them-no{color:rgba(22,28,36,.38);font-weight:600}
+.po-vs-ic{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;vertical-align:-3px}
+.po-vs-ic-yes{color:var(--color-coral-flame)}
+.po-vs-ic-no{color:rgba(22,28,36,.3)}
+
+@media(max-width:780px){
+  .show-card.pxcard{grid-template-columns:1fr}
+  .show-card-img{min-height:160px}
+  .po-tl-track{grid-template-columns:1fr;gap:24px}
+  .po-tl-track::before{display:none}
+  .po-tl-step{padding-top:0;padding-left:46px;text-align:left}
+  .po-tl-step::before{left:0;top:0;transform:none}
+  .po-tl-desc{margin:6px 0 0;max-width:none}
+  .po-vs-table-el th,.po-vs-table-el td{padding:11px 10px;font-size:12.5px}
+  .po-vs-table-el tbody th{font-size:12.5px}
+  .po-switch{top:auto;bottom:18px;right:18px}
+  /* gallery: flip rail to horizontal scroll on top, panel below */
+  .po-gallery.pxcard{grid-template-columns:1fr;gap:14px}
+  .po-gallery-rail{flex-direction:row;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:8px;padding-bottom:4px}
+  .po-gallery-thumb{flex:none;width:88px}
+  .po-gallery-panel{grid-template-columns:1fr;gap:14px}
+  .po-gallery-main{min-height:0}
+}
 
 #preorder .offer-cta{margin-top:var(--spacing-32)}
 .offer-fine{max-width:58ch;margin:16px auto 0;font-size:var(--text-body-sm);font-family:var(--font-onest);font-weight:600;color:var(--color-deep-ink);text-wrap:pretty;text-align:center}
@@ -908,12 +1039,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   .deal{grid-template-columns:1fr}
   .deal-pay{order:-1;align-items:center;text-align:center}
   .deal-div{align-self:center}
-  /* center the price stack as a unit; keep trust rows left-aligned but centered as a block */
-  .deal-pay .deal-h{text-align:center}
-  .deal-pay-body{align-items:center;text-align:center}
-  .deal-save{align-self:center}
-  .deal-trust{max-width:330px;margin-left:auto;margin-right:auto}
-  .deal-trust li{text-align:left}
 }
 
 /* compact mid-page CTA */
@@ -931,747 +1056,330 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .faqtabs{margin-bottom:var(--spacing-24)}
 .faqsec .faqpanel{margin-top:0}
 .faqpanel[hidden]{display:none}
+/* =========================================================
+   THE SCIENCE sub-page — four decisions, document-native
+   ========================================================= */
+.shero{padding:clamp(60px,7vw,100px) 0 clamp(48px,6vw,72px)}
+.shero .backlink{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);color:var(--color-slate-mid);margin-bottom:var(--spacing-24);transition:color 150ms ease}
+.shero .backlink:hover{color:var(--color-coral-flame)}
+.shero h1{font-family:var(--font-onest);font-weight:800;font-size:clamp(34px,5.6vw,72px);line-height:1.05;letter-spacing:-.025em;max-width:15ch;text-wrap:balance}
+.shero .lead{margin-top:var(--spacing-24);max-width:62ch}
+/* hero contents: the four decisions */
+.toc{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16);margin-top:clamp(36px,5vw,56px);padding-right:10px;padding-bottom:10px}
+.toc a{display:block;padding:18px}
+.toc .tn{font-family:var(--font-pixel);font-size:16px;color:var(--color-coral-flame);letter-spacing:.05em}
+.toc h3{font-size:var(--text-body);margin-top:8px;line-height:1.25}
+.toc p{margin-top:6px;font-size:var(--text-caption);color:var(--color-slate-mid);line-height:1.45}
+@media(max-width:860px){.toc{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.toc{grid-template-columns:1fr}.toc p{display:none}}
+/* shared pxcard shadow for the new artifacts */
+.toc a.pxcard,.script.pxcard,.catcard.pxcard,.redline.pxcard,.dashcard.pxcard,.pil.pxcard{filter:drop-shadow(3px 3px 0 rgba(22,28,36,.12))}
+/* honesty / tension callout (light card even on dark bands) */
+.callout{padding:clamp(22px,3vw,32px);--pxbg:color-mix(in srgb,var(--color-coral-blush) 60%,var(--surface-pure-white));filter:drop-shadow(3px 3px 0 rgba(22,28,36,.12))}
+.callout p{font-family:var(--font-onest);font-weight:800;font-size:clamp(18px,2.2vw,24px);line-height:1.35;color:var(--color-deep-ink);max-width:30ch}
+.callout .sub{margin-top:12px;font-family:var(--font-noto-sans);font-weight:400;font-size:var(--text-body-sm);color:var(--color-slate-mid);max-width:54ch}
+/* two-column chapter grid */
+.sci-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:center;margin-top:var(--spacing-48)}
+@media(max-width:860px){.sci-grid{grid-template-columns:1fr}}
+/* the two loops */
+.loops{display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-16);margin-top:var(--spacing-48);max-width:920px;padding-right:10px;padding-bottom:10px}
+@media(max-width:760px){.loops{grid-template-columns:1fr}}
+.loop{padding:clamp(20px,2.6vw,30px);--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.08);filter:drop-shadow(3px 3px 0 rgba(0,0,0,.18))}
+.loop .lt{font-family:var(--font-onest);font-weight:800;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-cloud-border)}
+.loop .seq{display:flex;align-items:center;gap:10px;margin:18px 0 4px;flex-wrap:wrap}
+.loop .word{font-family:var(--font-pixel);font-size:17px;letter-spacing:.04em;color:#fff}
+.loop .a{width:26px;height:5px;flex:none;background:repeating-linear-gradient(90deg,var(--color-coral-glow) 0 5px,transparent 5px 10px);background-size:10px 5px}
+.loop.fast .a{animation:march 240ms linear infinite}
+.loop.slow .a{animation:march 1500ms linear infinite}
+.loop .tick{display:block;margin-top:10px;font-family:var(--font-pixel);font-size:13px;color:var(--color-coral-glow);letter-spacing:.06em}
+.loop p{font-size:var(--text-body-sm);color:var(--color-chalk-surface);line-height:1.55;margin-top:12px}
+.loop.slow{--pxborder:var(--color-coral-glow)}
+@media(prefers-reduced-motion:reduce){.loop .a{animation:none}}
+/* receipts: the proof strip under a claim */
+.receipt{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;margin-top:var(--spacing-16);padding:14px 16px;background:var(--surface-pure-white);border-left:3px solid var(--color-coral-flame);font-size:var(--text-body-sm);color:var(--color-slate-mid);line-height:1.55;max-width:640px}
+.receipt .rk{font-family:"Departure Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-ember-deep);white-space:nowrap;padding-top:4px}
+.dark .receipt{background:var(--color-ink-charcoal);color:var(--color-chalk-surface)}
+.dark .receipt .rk{color:var(--color-coral-glow)}
+/* three pillars mini row */
+.pils{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-16);margin-top:var(--spacing-32);max-width:920px;padding-right:10px;padding-bottom:10px}
+@media(max-width:760px){.pils{grid-template-columns:1fr}}
+.pil{padding:16px 18px}
+.pil .pk{font-family:var(--font-onest);font-weight:800;font-size:var(--text-body);color:var(--color-deep-ink)}
+.pil .pa{margin-top:5px;font-family:"Departure Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-ember-deep)}
+/* the walk-back */
+.walk{position:relative;margin-top:var(--spacing-48);max-width:880px;padding-right:10px;padding-bottom:10px}
+.wstop{position:relative;display:grid;grid-template-columns:44px 1fr;gap:18px;padding-bottom:var(--spacing-48)}
+.wstop:last-child{padding-bottom:0}
+.wstop::before{content:"";position:absolute;left:20px;top:52px;bottom:6px;width:4px;background:repeating-linear-gradient(180deg,var(--color-coral-flame) 0 5px,transparent 5px 10px)}
+.wstop:last-child::before{display:none}
+.wnode{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:16px;color:#fff;background:var(--color-coral-flame);clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px))}
+.wstop h3{font-size:var(--text-subheading);line-height:1.25;padding-top:9px}
+.wstop .wsub{margin-top:6px;font-size:var(--text-body-sm);color:var(--color-slate-mid);max-width:58ch;line-height:1.55}
+.wart{margin-top:var(--spacing-16)}
+/* script card: what the child hears */
+.script{padding:clamp(18px,2.4vw,26px);max-width:640px}
+.script .sfrom{font-family:"Departure Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-ember-deep)}
+.script .sq{margin-top:10px;font-family:var(--font-onest);font-weight:700;font-size:clamp(17px,2vw,21px);line-height:1.5;color:var(--color-deep-ink);max-width:44ch}
+.script .scap{margin-top:10px;font-size:var(--text-caption);color:var(--color-mist-body)}
+/* catalog card */
+.catcard{padding:clamp(18px,2.4vw,26px)}
+.catcard .crow{display:grid;grid-template-columns:118px 1fr;gap:12px;padding:8px 0;border-bottom:1px dashed var(--color-cloud-border);font-size:var(--text-body-sm)}
+.catcard .crow:last-child{border-bottom:0}
+.catcard .ck{font-family:"Departure Mono",monospace;font-size:10px;letter-spacing:.08em;color:var(--color-mist-body);text-transform:uppercase;padding-top:3px}
+.catcard .cv{color:var(--color-deep-ink);font-weight:600;line-height:1.45}
+.cat-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--spacing-16);align-items:stretch;margin-top:var(--spacing-16)}
+@media(max-width:760px){.cat-grid{grid-template-columns:1fr}}
+.cat-photo{min-height:220px}
+/* age comparison */
+.agecmp{display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-16)}
+@media(max-width:700px){.agecmp{grid-template-columns:1fr}}
+.agecmp .achip{display:inline-block;font-family:var(--font-pixel);font-size:14px;letter-spacing:.05em;color:var(--color-deep-ink);background:var(--color-coral-glow);padding:2px 10px;margin-bottom:10px}
+.agecmp .script{max-width:none}
+.agecmp .sq{font-size:clamp(15px,1.7vw,18px)}
+/* redline: the advisor's edit */
+.redline{padding:clamp(18px,2.4vw,26px);max-width:640px}
+.redline .rq2{font-family:var(--font-onest);font-weight:700;font-size:clamp(16px,1.9vw,20px);line-height:1.7;color:var(--color-deep-ink)}
+.redline del{color:var(--color-mist-body);text-decoration:line-through;text-decoration-color:var(--color-coral-flame);text-decoration-thickness:2px}
+.redline ins{text-decoration:none;color:var(--color-deep-ink);font-weight:800;background:linear-gradient(transparent 60%,var(--color-coral-blush) 60%)}
+.redline .scap{margin-top:12px;font-size:var(--text-caption);color:var(--color-mist-body)}
+/* library version chips */
+.vers{display:flex;align-items:center;gap:10px;margin-top:var(--spacing-24);flex-wrap:wrap}
+.vers .vchip{font-family:var(--font-pixel);font-size:14px;letter-spacing:.05em;padding:4px 11px;background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);color:var(--color-slate-mid)}
+.vers .vchip.now{background:var(--color-coral-flame);border-color:var(--color-coral-flame);color:#fff}
+.vers .va{color:var(--color-coral-flame);font-weight:900}
+.vers .vcap{width:100%;font-size:var(--text-caption);color:var(--color-mist-body)}
+.walk-foot{margin-top:var(--spacing-48);font-family:var(--font-onest);font-weight:700;font-size:var(--text-subheading);color:var(--color-deep-ink);max-width:44ch}
+.walk-foot b{color:var(--color-coral-flame)}
+/* dashboard fragment */
+.dashcard{padding:clamp(20px,2.6vw,28px)}
+.dashcard .dmon{font-family:"Departure Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-mist-body)}
+.dashcard .dbig{margin-top:12px;font-family:var(--font-onest);font-weight:800;font-size:clamp(17px,2vw,21px);line-height:1.4;color:var(--color-deep-ink)}
+.dashcard .dtip{margin-top:14px;padding:12px 14px;background:var(--surface-warm-parchment);font-size:var(--text-body-sm);color:var(--color-slate-mid);line-height:1.5}
+/* one sound, three theories */
+.s3bub{display:inline-flex;align-items:center;gap:16px;padding:16px 22px;margin-top:var(--spacing-48);--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.08);filter:drop-shadow(3px 3px 0 rgba(0,0,0,.18))}
+.s3bub .bt{font-family:var(--font-pixel);font-size:clamp(19px,2.3vw,25px);color:var(--color-amber-signal);letter-spacing:.06em}
+.s3kids{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-16);margin-top:var(--spacing-24);max-width:920px;padding-right:10px;padding-bottom:10px}
+@media(max-width:760px){.s3kids{grid-template-columns:1fr}}
+.s3k{padding:18px;--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.08);filter:drop-shadow(3px 3px 0 rgba(0,0,0,.18))}
+.s3k .kq{font-family:var(--font-onest);font-weight:700;font-size:var(--text-body);color:#fff;line-height:1.45}
+.s3k .kw{margin-top:10px;font-family:"Departure Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-cloud-border)}
+.s3cap{margin-top:var(--spacing-24);font-size:var(--text-body-sm);color:var(--band-note,var(--color-cloud-border))}
+/* the standard (closer) */
+.defend{text-align:center}
+.defend h2{margin-left:auto;margin-right:auto}
+.trace{list-style:none;margin:var(--spacing-48) auto 0;padding:0;max-width:36ch;display:flex;flex-direction:column;gap:14px}
+.trace li{display:flex;align-items:center;gap:14px;font-family:var(--font-onest);font-weight:800;font-size:clamp(17px,2.3vw,25px);color:var(--color-deep-ink);text-align:left}
+.trace .cell{width:14px;height:14px;background:var(--color-coral-flame);flex:none}
+.defend .lead{margin:var(--spacing-32) auto 0}
+.defend-cta{margin-top:var(--spacing-32);display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap}
+.defend .pets{display:flex;justify-content:center;gap:18px;margin-top:var(--spacing-48)}
+.defend .pets img{width:60px}
 
-/* ===================================================================
-   FEEDBACK ROUND (uncommitted) — whole-system loop, advisor chips,
-   photo placeholders, mobile-length trims
-   =================================================================== */
-/* how-it-works system strip — the whole machine before the care loop */
-.sysrow{margin-top:var(--spacing-32)}
-.sysrow .step .n{font-size:20px;letter-spacing:.06em}
-.sysrow .step h3{font-size:var(--text-subheading)}
-.sysrow .step p a{color:var(--color-coral-flame);font-weight:700}
-.sysrow .step p a:hover{text-decoration:underline}
-/* compact advisor chips; full bios collapse into the expander below */
-.adv-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16);margin-top:var(--spacing-48);padding-right:10px;padding-bottom:10px}
-@media(max-width:860px){.adv-chips{grid-template-columns:1fr 1fr}}
-.adv-chip{padding:20px 14px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px}
-.adv-chip img{width:64px;height:64px;object-fit:cover;image-rendering:auto;margin-bottom:9px;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px))}
-.adv-chip .nm{font-family:var(--font-onest);font-weight:800;font-size:var(--text-body);color:var(--color-deep-ink);line-height:1.2}
-.adv-chip .role{font-size:var(--text-caption);font-weight:700;color:var(--color-ember-deep)}
-.adv-chip .ttl{font-size:var(--text-caption);color:var(--color-mist-body)}
-/* dark-band credentials expander (mirrors .world-faq) */
-.sci-faq{--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.08);max-width:var(--page-max-width-content);margin-top:var(--spacing-24)}
-.sci-faq summary{color:#fff}
-.sci-faq .fplus{color:var(--color-coral-glow)}
-.sci-faq .faq-a p{color:var(--color-chalk-surface);max-width:75ch}
-.sci-faq .faq-a b{color:#fff}
-.sci-faq.pxcard[open]{--pxbg:var(--color-ink-charcoal);--pxborder:var(--color-coral-flame);transform:translateY(-3px)}
-.sci-faq.pxcard[open]::before{background:var(--pxborder)}
-.sci-faq.pxcard[open]::after{content:"";display:block;position:absolute;inset:0;width:auto;height:auto;z-index:0;background:var(--pxbg);clip-path:polygon(4px 16px,10px 16px,10px 10px,16px 10px,16px 4px,calc(100% - 16px) 4px,calc(100% - 16px) 10px,calc(100% - 10px) 10px,calc(100% - 10px) 16px,calc(100% - 4px) 16px,calc(100% - 4px) calc(100% - 16px),calc(100% - 10px) calc(100% - 16px),calc(100% - 10px) calc(100% - 10px),calc(100% - 16px) calc(100% - 10px),calc(100% - 16px) calc(100% - 4px),16px calc(100% - 4px),16px calc(100% - 10px),10px calc(100% - 10px),10px calc(100% - 16px),4px calc(100% - 16px))}
-/* lifestyle photo mosaic */
-.photo-sec{padding:clamp(44px,5vw,72px) 0}
-.photo-mosaic{margin-top:var(--spacing-24);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-16)}
-.lifeshot{margin:0;display:flex;flex-direction:column;gap:8px;grid-column:span 2}
-.lifeshot .ph{aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-cards);box-shadow:3px 3px 0 var(--color-deep-ink)}
-.lifeshot img{width:100%;height:100%;object-fit:cover;display:block}
-.lifeshot figcaption{font-family:var(--font-noto-sans);font-size:13.5px;line-height:1.4;color:var(--color-slate-mid);text-align:center;text-wrap:pretty}
-.lifeshot--wide{grid-column:1/-1}
-.lifeshot--wide .ph{aspect-ratio:2/1}
-.lifeshot--tall{grid-column:span 1}
-.lifeshot--tall .ph{aspect-ratio:3/4}
-.photo-sec .geyebrow{flex-wrap:wrap;row-gap:8px}
-@media(max-width:700px){
-  .photo-mosaic{grid-template-columns:1fr 1fr;gap:var(--spacing-16)}
-  .lifeshot{grid-column:1/-1}
-  .lifeshot--tall{grid-column:span 1}
-  .lifeshot--wide .ph{aspect-ratio:4/3}
-}
-/* pre-order V1: real-image row thumbnails replace the line icons */
-.deal-row{grid-template-columns:56px 1fr auto}
-.deal-ic.deal-th{width:56px;height:56px;overflow:hidden;background:var(--surface-ghost-white);clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px))}
-.deal-th img{width:100%;height:100%;object-fit:cover;display:block}
-.deal-th-pet img{object-fit:contain;padding:6px;image-rendering:pixelated}
-/* pre-order V2: whole-bundle glance strip (the stack, visible without clicking) */
-.po-glance{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:820px;margin:var(--spacing-24) auto 0;padding:0}
-.po-glance li{background:var(--surface-pure-white);padding:9px 15px;font-family:var(--font-onest);font-weight:600;font-size:12.5px;color:var(--color-slate-mid);clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px));filter:drop-shadow(2px 2px 0 rgba(22,28,36,.12))}
-.po-glance b{color:var(--color-deep-ink);font-weight:800;margin-left:4px}
-/* struck-price shorthand (was-$149 → $99), matching the offer section's coral slash */
-.ship s,.mc-fine s{text-decoration-thickness:2.5px;text-decoration-color:var(--color-coral-flame);color:var(--color-mist-body)}
-.ship b{color:var(--color-deep-ink);font-weight:700}
-.annc s{text-decoration-thickness:2.5px;text-decoration-color:var(--color-coral-glow);color:var(--color-cloud-border);margin-right:4px}
-/* ── V1 rows open inline to show the item visual (words + picture together) ── */
-.deal-row:has(.deal-exp){cursor:pointer}
-.deal-ic.deal-th{position:relative}
-.deal-row:has(.deal-exp) .deal-th::after{content:"+";position:absolute;right:0;bottom:0;width:18px;height:18px;background:var(--color-coral-flame);color:#fff;font-family:var(--font-onest);font-weight:800;font-size:13px;line-height:1;display:flex;align-items:center;justify-content:center}
-.deal-row.open .deal-th::after{content:"−"}
-@media(hover:hover) and (pointer:fine){.deal-row:has(.deal-exp):hover .deal-name{color:var(--color-coral-flame)}}
-.deal-exp{grid-column:2/-1;grid-row:4;display:grid;grid-template-rows:0fr;transition:grid-template-rows 300ms var(--ease-out-strong)}
-.deal-row.open .deal-exp{grid-template-rows:1fr}
-.deal-exp-in{overflow:hidden;min-height:0}
-.deal-exp img{width:100%;max-width:420px;display:block;margin:12px 0 4px;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px))}
-.deal-exp-bonus{margin:12px 0 4px;max-width:420px;background:var(--color-ink-charcoal);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px))}
-.deal-exp-bonus img{width:100px;height:100px;image-rendering:pixelated;margin:0;clip-path:none}
-.deal-bonus-cap{font-family:var(--font-pixel);font-size:14px;letter-spacing:.08em;color:var(--color-coral-glow)}
-@media(prefers-reduced-motion:reduce){.deal-exp{transition:none}}
-/* ── pre-order polish round ──────────────────────────────────────── */
-/* V1: zoom the infographic thumbs into their illustration centers (crops the baked-in text away) */
-.deal-th-zoom img{transform:scale(2)}
-/* V1: the stack reads as a list — dashed separators, single-line rows center on their thumbs */
-.deal-list{gap:16px}
-.deal-row + .deal-row{border-top:1px dashed var(--color-cloud-border);padding-top:16px}
-.deal-row:not(:has(.deal-sub, .deal-note)){align-items:center}
-.deal-row:not(:has(.deal-sub, .deal-note)) .deal-ic{align-self:center}
-/* deal rows: included features use the system square cell; amber stars stay reserved for the exclusives row */
-.deal-sub li::before{content:"";width:6px;height:6px;background:var(--color-coral-glow);top:7px}
-.deal-row:last-child .deal-sub li::before{content:"\2605";width:auto;height:auto;background:none;color:var(--color-amber-signal);top:0}
+/* ===== story page ===== */
+.letter-grid{display:grid;grid-template-columns:280px 1fr;gap:clamp(28px,4vw,56px);margin-top:var(--spacing-48);align-items:start}
+.letter-photo{margin:0;position:sticky;top:96px}
+.letter-photo img{width:100%;aspect-ratio:960/958;object-fit:cover;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px))}
+.letter-photo figcaption{margin-top:10px;font-family:var(--font-onest);font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--band-muted,var(--color-cloud-border))}
+.letter-body p{font-size:var(--text-subheading);line-height:1.7;color:var(--band-muted,var(--color-chalk-surface));max-width:58ch}
+.letter-body p+p,.letter-body ul+p{margin-top:1.1em}
+.letter-body b{color:#fff;font-family:var(--font-onest)}
+.letter-list{list-style:none;margin:1.1em 0;padding:0;display:flex;flex-direction:column;gap:.9em}
+.letter-list li{font-size:var(--text-body);line-height:1.7;color:var(--band-muted,var(--color-chalk-surface));padding-left:18px;position:relative;max-width:58ch}
+.letter-list li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;background:var(--color-coral-glow)}
+.letter-sig{font-family:var(--font-onest);font-weight:800;color:#fff;margin-top:1.4em}
+@media(max-width:860px){.letter-grid{grid-template-columns:1fr}.letter-photo{position:static;max-width:300px}}
+/* timeline */
+.progress-band{background:#faf8f0}
+.progress-band::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell);pointer-events:none}
+.progress-band .wrap{position:relative}
+.tl{margin-top:var(--spacing-48);display:flex;flex-direction:column;gap:var(--spacing-24);position:relative;padding-left:44px}
+.tl::before{content:"";position:absolute;left:12px;top:16px;bottom:16px;width:4px;background:repeating-linear-gradient(180deg,var(--color-cloud-border) 0 6px,transparent 6px 12px)}
+.tl-item{position:relative;padding:clamp(20px,2.4vw,30px)}
+.tl-item::after{content:"";position:absolute;left:-38px;top:26px;width:16px;height:16px;background:var(--color-cloud-border);clip-path:polygon(40% 0,60% 0,60% 40%,100% 40%,100% 60%,60% 60%,60% 100%,40% 100%,40% 60%,0 60%,0 40%,40% 40%)}
+.tl-item.is-done::after{background:#4d6b58}
+.tl-item.is-here::after{background:var(--color-coral-flame)}
+.tl-meta{display:flex;align-items:center;gap:14px;margin-bottom:12px;flex-wrap:wrap}
+.tl-n{font-family:var(--font-pixel);font-size:18px;color:var(--color-coral-flame)}
+.tl-date{font-family:var(--font-onest);font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-deep-ink)}
+.tl-chip{font-family:var(--font-onest);font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;background:var(--color-chalk-surface);color:var(--color-slate-mid)}
+.is-done .tl-chip{background:#e2efdb;color:#4d6b58}
+.is-here .tl-chip{background:var(--color-coral-flame);color:#fff}
+.is-finish .tl-chip{background:var(--color-amber-signal);color:var(--color-deep-ink)}
+.tl-item.is-here{--pxborder:var(--color-coral-flame)}
+.tl-body h3{font-size:var(--text-subheading);margin-bottom:8px}
+.tl-body>p{font-size:var(--text-body-sm);color:var(--color-slate-mid);line-height:1.6;max-width:62ch}
+.tl-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.tl-photos figure{margin:0;overflow:hidden;border-radius:var(--radius-cards)}
+.tl-photos img{width:100%;height:100%;object-fit:cover;max-height:300px}
+.tl-cap{margin-top:10px;font-size:12.5px;color:var(--color-mist-body);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tl-slot{margin-top:14px;min-height:96px}
+@media(max-width:700px){.tl{padding-left:0}.tl::before{display:none}.tl-item::after{display:none}.tl-photos{grid-template-columns:1fr}.tl-photos img{max-height:260px}}
 </style>
 </head>
 <body>
 
-<div class="note">PERMILL LP v2 · restructured into the six question-groups. Real sprites + video; advisor and beta quotes are SAMPLE, pending approval.</div>
+<div class="note">NOWA STORY · sub-page draft for partner review. Timeline dates from the hardware plan (Jul 2026), pending sign-off; lifestyle photos are SAMPLE previews.</div>
 
 <div class="readbar" aria-hidden="true"></div>
 
-<a class="annc" href="#preorder" aria-label="Nowa pre-order is open. Was $149, now $99. Fully refundable. Handbooks free the day you reserve. Reserve yours.">
+<a class="annc" href="index-permill-v2.html#preorder" aria-label="Nowa pre-order is open. $99, retail $149. Fully refundable. Ships September 2026. Reserve yours.">
   <div class="annc-track" aria-hidden="true">
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
+    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span>$99 (retail $149)<span class="ad">·</span>Fully refundable<span class="ad">·</span>Ships September 2026<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
   </div>
 </a>
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#"><img src="assets/brand/logo-app-64.png" alt="Nowa logo" width="28" height="28" style="border-radius:7px">Nowa</a>
+    <a class="brand" href="index-permill-v2.html"><img src="assets/brand/logo-app-64.png" alt="Nowa logo" width="28" height="28" style="border-radius:7px">Nowa</a>
     <div class="navlinks">
-      <a href="#learnings">What it does</a>
-      <a href="#mechanic">How it works</a>
-      <a href="#world">Why kids love it</a>
-      <a href="#compare">Compare</a>
-      <a href="#preorder" class="btn">Pre-order</a>
+      <a href="#play">The play</a>
+      <a href="#missions">The missions</a>
+      <a href="#mirror">For parents</a>
+      <a href="index-permill-v2.html#preorder" class="btn">Pre-order</a>
     </div>
   </div>
 </nav>
 
 <!-- chapter rail -->
-<div class="rail" aria-label="Chapters">
-  <a href="#device" data-ch="device"><span class="rcell"></span><span class="rname">What Nowa is</span></a>
-  <a href="#learnings" data-ch="learnings"><span class="rcell"></span><span class="rname">What it does</span></a>
-  <a href="#mechanic" data-ch="mechanic"><span class="rcell"></span><span class="rname">How it works</span></a>
-  <a href="#world" data-ch="world"><span class="rcell"></span><span class="rname">Why it works</span></a>
-  <a href="#safety" data-ch="safety"><span class="rcell"></span><span class="rname">Safety &amp; control</span></a>
-  <a href="#compare" data-ch="compare"><span class="rcell"></span><span class="rname">Compare</span></a>
-  <a href="#preorder" data-ch="preorder"><span class="rcell"></span><span class="rname">Pre-order</span></a>
+<div class="rail" aria-label="Sections">
+  <a href="#letter" data-ch="letter"><span class="rcell"></span><span class="rname">The letter</span></a>
+  <a href="#progress" data-ch="progress"><span class="rcell"></span><span class="rname">Where we are</span></a>
+  <a href="#reserve" data-ch="reserve"><span class="rcell"></span><span class="rname">Reserve</span></a>
 </div>
 
 <!-- HERO -->
-<header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="hero-eyebrow">less nagging, more follow-through</p>
-      <h1>
-        <span class="line"><span>The pet that turns</span></span>
-        <span class="line"><span>routines into play.</span></span>
-      </h1>
-      <p class="lead">Nowa is a virtual pet your child looks after. Caring for it is how they practice calm, build routines, and grow kinder. The follow-through comes from them, not from you repeating yourself.</p>
-      <div class="hero-cta">
-        <a href="#preorder" class="btn">Reserve your Nowa <span class="arr">→</span></a>
-        <a href="#mechanic" class="btn-ghost">See how it works →</a>
-      </div>
-      <p class="ship"><s>$149</s> <b>$99</b> pre-order · Ages 3–10 · Ships September 2026 · Fully refundable</p>
-    </div>
-    <div class="hero-stage">
-      <div class="stage-inner">
-        <video class="stage-video" src="assets/videos/hero-main.mp4" preload="auto" autoplay muted loop playsinline aria-label="The Nowa device, alive on screen"></video>
-      </div>
-      <span class="spark" style="right:-8px;top:-9px"></span><span class="spark s2" style="left:-10px;bottom:26%"></span><span class="spark s3" style="right:18%;bottom:-10px"></span>
+<header class="shero" id="top">
+  <div class="wrap">
+    <a class="backlink" href="index-permill-v2.html">← Back to Nowa</a>
+    <p class="hero-eyebrow">Our story · July 2026</p>
+    <h1>Built in the open.<br>For the families who asked.</h1>
+    <p class="lead">Why Dan built Nowa, who he built it with, and exactly where it stands today. No polish, no spin.</p>
+    <div class="toc reveal-group">
+      <a class="pxcard" href="#letter"><span class="tn">01</span><h3>Why I built Nowa</h3><p>The letter, from a brand-new dad.</p></a>
+      <a class="pxcard" href="#progress"><span class="tn">02</span><h3>Where we are</h3><p>Prototypes are in family homes. EVT starts late July.</p></a>
+      <a class="pxcard" href="index-permill-v2.html#preorder"><span class="tn">03</span><h3>Reserve yours</h3><p>$99 pre-order. First units ship September 2026.</p></a>
     </div>
   </div>
 </header>
 
 <div class="dither" aria-hidden="true"></div>
-<!-- SPINE — the parent's line; gives the hero its own standalone beat -->
-<section class="spine dark" id="spine">
+<!-- THE LETTER -->
+<section id="letter" class="dark">
   <div class="wrap">
-    <p class="quote" id="spineQuote">"I want to stay calm, and I want my kid to learn how, too."</p>
-    <p class="sub reveal">Every parent we built Nowa for said a version of this. So we started there.</p>
-  </div>
-</section>
-<div class="dither rev" aria-hidden="true"></div>
-
-<!-- DEVICE — its own section, after the quote -->
-<section id="device" class="device-blend">
-  <div class="wrap">
-    <div class="device-intro">
-      <p class="geyebrow"><span class="cell"></span>What Nowa is</p>
-      <h2 class="reveal" style="font-size:clamp(26px,3vw,40px);max-width:18ch">A pocket-sized pet, not a screen to scroll.</h2>
-      <p class="lead reveal" style="margin-top:14px">No tablet, no app for the kid. The pet lives in a handheld device built for small hands. Three chunky buttons and a screen just big enough for the pet it holds.</p>
-    </div>
-
-    <div class="device-hybrid reveal-group">
-      <!-- LEFT: product carousel -->
-      <div class="device-carousel reveal">
-        <div class="pxcard blueprint" style="overflow:hidden;padding:clamp(8px,1.5vw,16px)">
-          <div class="dc-track" id="dcTrack">
-            <div class="dc-slide" data-label="<span class='dcl-tag'>01</span>Built for small hands"><video src="assets/videos/device-blueprint.mp4" autoplay muted loop playsinline aria-label="Technical blueprint of the Nowa device"></video></div>
-            <div class="dc-slide" data-label="<span class='dcl-tag'>02</span>Front · screen + buttons"><img src="assets/device/front.webp" alt="Nowa device front view showing the screen and three colorful buttons"></div>
-            <div class="dc-slide" data-fit="back" data-label="<span class='dcl-tag'>03</span>Back · speaker"><img src="assets/device/back.webp" alt="Nowa device back view showing the speaker grille and Nowa logo"></div>
-            <div class="dc-slide" data-fit="side-r" data-label="<span class='dcl-tag'>04</span>Side · scroll wheel + mute flip"><img src="assets/device/side-right.webp" alt="Nowa device angled view showing the scroll wheel and mute flip switch"></div>
-            <div class="dc-slide" data-fit="side-l" data-label="<span class='dcl-tag'>05</span>Side · USB-C + headphone jack"><img src="assets/device/side-left.webp" alt="Nowa device side view showing the USB-C port and headphone jack"></div>
-          </div>
-          <div class="dc-arrows">
-            <button class="dc-arr" aria-label="Previous" id="dcPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-            <button class="dc-arr" aria-label="Next" id="dcNext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></button>
-          </div>
-        </div>
-        <div class="dc-dots" id="dcDots">
-          <button class="dc-dot on" aria-label="Slide 1"></button>
-          <button class="dc-dot" aria-label="Slide 2"></button>
-          <button class="dc-dot" aria-label="Slide 3"></button>
-          <button class="dc-dot" aria-label="Slide 4"></button>
-          <button class="dc-dot" aria-label="Slide 5"></button>
-        </div>
-        <p class="dc-label" id="dcLabel" aria-live="polite"><span class="dcl-tag">01</span>Built for small hands</p>
-      </div>
-
-      <!-- RIGHT: 6 spec accordions -->
-      <div class="device-specs">
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="18" x2="15" y2="18"/></svg></span><span>Display</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">320 × 240 color LCD</div><p>Scratch-resistant screen cover. Vivid colors built for pixel-art pet animations.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="7" width="12" height="14" rx="2"/><line x1="10" y1="3" x2="10" y2="7"/><line x1="14" y1="3" x2="14" y2="7"/><line x1="10" y1="17" x2="14" y2="17"/></svg></span><span>Battery</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">2,000 mAh · 8–10 hours</div><p>USB-C fast charging. Lasts a full day of play on a single charge.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg></span><span>Audio</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">Speaker + microphone + 3.5 mm jack</div><p>Clear audio up to 2 m. Push-to-talk mic for the child's voice. Plug in any kid headphones.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg></span><span>Connectivity</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">Wi-Fi 2.4 GHz · Bluetooth 5.0 LE · full offline play</div><p>Works offline. Stories, songs, and missions download to the device so your child can play anywhere. Connects when available for updates and new content.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg></span><span>Controls</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">3 buttons + scroll wheel + motion sensor</div><p>Physical-only input, simple enough for age 3. Power, voice (push-to-talk), select/back. Scroll wheel for menus. Shake and tilt the device to play.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span><span>Safety &amp; privacy</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">Hardware mic mute switch</div><p>Physical circuit disconnect, not software. When the switch is off, no audio can be captured. FCC, CPSIA, and ASTM F963 toy-safety certified. Lead-free, phthalate-free materials.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span><span>In the box</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">Device · USB-C cable · manual</div><p>2.9 × 3.2 in (7.3 × 8.0 cm). Fits a coat pocket or backpack pouch. ABS case with rounded, child-safe edges, built for small hands. Ships with a 0.5 m USB-C charging cable, quick-start manual, and safety booklet.</p></div></div>
-        </details>
+    <p class="geyebrow"><span class="cell"></span>Why I built Nowa</p>
+    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:22ch">The thing I want in my own house before my son is three.</h2>
+    <div class="letter-grid">
+      <figure class="letter-photo reveal"><img src="assets/story/founder-dan.webp" alt="Daniel Nguyen, founder of Nowa" width="960" height="958" loading="lazy" decoding="async"><figcaption>Daniel Nguyen · Dad and Co-founder</figcaption></figure>
+      <div class="letter-body reveal">
+        <p>I've been building with AI for six years. In June, my son was born. Those two facts used to feel like separate lives. They aren't anymore.</p>
+        <p>I know what AI can do. I also know what it can cost, especially to a child whose attention is still forming. Nowa comes from sitting with that tension.</p>
+        <p>Three things landed at once.</p>
+        <ul class="letter-list">
+          <li><b>First:</b> the researchers who spent forty years studying how children learn to start, focus, and follow through (Dr. Susanne Denham, Dr. Megan McClelland, Dr. Steven Kurtz, with Dr. David Mou shaping the safety framework from day one) can finally put that science into a device a six-year-old holds in one hand.</li>
+          <li><b>Second:</b> our kids will grow up alongside AI whether anyone designs it for them or not. I'd rather someone designed for them. A closed system. No open internet. No ads. Sessions that end.</li>
+          <li><b>Third:</b> no parent I know is looking for another screen. They're looking for a few minutes back in the morning, and the sense that they're doing right by their kid.</li>
+        </ul>
+        <p>Nowa is the thing I want in my own house before my son is three. This June, that stopped being an idea. The deadline has a face now.</p>
+        <p class="letter-sig">Daniel Nguyen · Dad and Co-founder, Nowa</p>
       </div>
     </div>
-  </div>
-</section>
-<div class="dither dith-soft" aria-hidden="true"></div>
-<!-- ░░ GROUP 2 · THE LEARNINGS & SCIENCE ░░ -->
-<!-- MISSIONS -->
-<section id="learnings" class="missions-band">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>What it does</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">All the learning runs through missions.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:60ch">The pet asks your child for help in missions: small, real-world acts of care. Each one grows one of three skills that decades of research tie to how well kids do later in life.</p>
-    <div class="mtabs reveal" role="tablist" aria-label="Mission types">
-      <button class="mtab on" role="tab" aria-selected="true" data-m="0">Habit &amp; routine</button>
-      <button class="mtab" role="tab" aria-selected="false" data-m="1">Emotional regulation</button>
-      <button class="mtab" role="tab" aria-selected="false" data-m="2">Executive function</button>
-    </div>
-    <div class="mpanel reveal pxcard">
-      <div class="mfade" id="mText">
-        <h3 id="mHead">The daily friction, minus the referee.</h3>
-        <p id="mBody">Brushing teeth, getting dressed, bedtime, homework start. The routine becomes something the pet needs help to finish, so the follow-through comes from your child.</p>
-        <div class="mstat" id="mStat"><span class="big">3× better</span><span class="txt">Kids with a consistent bedtime routine fell asleep faster, woke less, and had steadier daytime moods.</span><span class="src">Mindell et al., Sleep, 2009 · replicated across 10,000+ children</span></div>
-        <p class="mreal"><span class="cell"></span><span id="mReal">Shaped with Dr. Steven Kurtz · Parent-child interaction</span></p>
-      </div>
-      <div class="mission-art">
-        <div class="pxgrid graph"></div>
-        <div class="device-frame mfade" id="mVidWrap">
-          <video id="mVid" src="assets/videos/the-mission-engine-02.mp4" autoplay muted loop playsinline aria-label="A mission on the Nowa device screen"></video>
-          <div class="df-buttons" aria-hidden="true"><span class="db y"></span><span class="db r"></span><span class="db b"></span></div>
-        </div>
-      </div>
-    </div>
-    <figure class="pullq pxcard reveal" style="margin-top:var(--spacing-48)">
-      <img src="assets/avatars/dr-megan-mcclelland.png" alt="Dr. Megan McClelland" loading="lazy" decoding="async">
-      <figcaption><p class="qt">"Self-regulation works like a muscle. It grows through small, repeated practice, and play is where children practice the hardest."</p><p class="who">Dr. Megan McClelland · Executive function · HTKS, used in 31 countries <span class="sample-chip">SAMPLE · PENDING APPROVAL</span></p></figcaption>
-    </figure>
-  </div>
-</section>
-
-<div class="dither" aria-hidden="true" style="--dith-light:var(--surface-pure-white)"></div>
-<!-- CH 02 — SCIENCE -->
-<section class="dark" id="science">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>The learnings &amp; science</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">Built with the scientists who wrote the science.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:52ch">Those frameworks aren't borrowed second-hand. Nowa was shaped by the researchers behind them.</p>
-    <div class="adv-chips reveal-group">
-      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-susanne-denham.png" alt="Portrait of Dr. Susanne Denham" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. Susanne Denham</span><span class="role">Emotional competence</span><span class="ttl">George Mason University</span></div>
-      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-megan-mcclelland.png" alt="Portrait of Dr. Megan McClelland" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. Megan McClelland</span><span class="role">Executive function</span><span class="ttl">Oregon State University</span></div>
-      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-steven-kurtz.png" alt="Portrait of Dr. Steven Kurtz" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. Steven Kurtz</span><span class="role">Parent-child interaction</span><span class="ttl">Kurtz Psychology Consulting</span></div>
-      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-david-mou.png" alt="Portrait of Dr. David Mou" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. David Mou</span><span class="role">Mental-health systems</span><span class="ttl">Benchmark Health Group</span></div>
-    </div>
-    <details class="faq pxcard sci-faq reveal">
-      <summary>Their full credentials<span class="fplus">+</span></summary>
-      <div class="faq-a">
-        <p><b>Dr. Susanne Denham</b> · Professor Emerita, George Mason University. 40+ years researching how children process and manage emotions; creator of CAPSEL and the Affect Knowledge Test.</p>
-        <p style="margin-top:10px"><b>Dr. Megan McClelland</b> · Professor, Oregon State University. Co-creator of the HTKS self-regulation task, used in 31 countries; 116+ peer-reviewed publications, cited 23,000+ times.</p>
-        <p style="margin-top:10px"><b>Dr. Steven Kurtz</b> · President, Kurtz Psychology Consulting. ABPP board-certified child psychologist; one of only 21 certified global PCIT trainers worldwide.</p>
-        <p style="margin-top:10px"><b>Dr. David Mou</b> · CEO, Benchmark Health Group. Harvard-trained physician (MD and MBA); named "Top 10 Under 35 for Healthcare" by LinkedIn.</p>
-      </div>
-    </details>
-    <figure class="pullq pxcard reveal" style="margin-top:var(--spacing-32)">
-      <img src="assets/avatars/dr-susanne-denham.png" alt="Dr. Susanne Denham" loading="lazy" decoding="async">
-      <figcaption><p class="qt">“Children don’t learn feelings from being told about them. They learn by reading them, naming them, and caring for someone who has them.”</p><p class="who">Dr. Susanne Denham · Emotional competence · 40+ years of research <span class="sample-chip">SAMPLE · PENDING APPROVAL</span></p></figcaption>
-    </figure>
-    <p class="safe-trust reveal">See how we design each mission with our advisors · <a href="the-science.html">Inside the learning &amp; science →</a></p>
   </div>
 </section>
 
 <div class="dither rev" aria-hidden="true"></div>
-
-<!-- ░░ GROUP 3 · THE GAME MECHANIC ░░ -->
-<section id="mechanic">
+<!-- PRODUCTION TIMELINE -->
+<section id="progress" class="progress-band">
   <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>How it works</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:18ch">Three parts. One loop.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:56ch">The app where you set the routines, the device where the pet lives, and the real world where your child follows through.</p>
-    <div class="steps sysrow reveal-group">
-      <div class="step pxcard"><div class="n">YOU</div><h3>Set the routine</h3><p>Mornings, homework, bedtime. Two minutes in the <a href="#parent-app">parent app</a>.</p></div>
-      <div class="step pxcard"><div class="n">THE PET</div><h3>Asks for help</h3><p>On <a href="#device">its device</a>, your routine becomes a mission the pet needs finished.</p></div>
-      <div class="step pxcard"><div class="n">YOUR CHILD</div><h3>Does it for real</h3><p>Shoes on, teeth brushed, calm practised. The pet celebrates; nobody nags.</p></div>
-      <div class="step pxcard"><div class="n">YOU</div><h3>See the growth</h3><p>Wins and progress land back in your app, day by day.</p></div>
-    </div>
-    <h3 class="reveal" style="font-size:clamp(22px,2.6vw,32px);margin-top:var(--spacing-64)">Why your child keeps choosing it: the care loop.</h3>
-    <p class="lead reveal" style="margin-top:14px;max-width:54ch">No chores assigned, no behaviour graded. The pet just has needs and feelings, and the loop turns on its own.</p>
-    <div class="gameloop reveal-group">
-      <span class="loop-rail" aria-hidden="true"></span>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/miko_msg_anim.gif" alt="Nowa pet expressing an emotion" loading="lazy" decoding="async"><div class="step-body"><div class="n">01</div><h3>The pet feels</h3><p>Hungry, sleepy, or wobbly, shown in its own sounds and motion.</p></div></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/watering_can_anim_80px.gif" alt="Watering can caring for the pet" loading="lazy" decoding="async"><div class="step-body"><div class="n">02</div><h3>Your child cares</h3><p>Little needs, met with a tap. Big ones become missions, out in the real world.</p></div></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/miko_evolution_loop_80px.gif" alt="Nowa pet evolving from small to big" loading="lazy" decoding="async"><div class="step-body"><div class="n">03</div><h3>The pet grows</h3><p>It thrives and evolves. The reward your child can see.</p></div></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/kid_wave_anim_80px.gif" alt="Pixel child waving" loading="lazy" decoding="async"><div class="step-body"><div class="n">04</div><h3>Your child grows</h3><p>Calm and routines form on their own, out of the bond.</p></div></div>
-      <div class="loopback again reveal" aria-hidden="true"><span class="lb-line"></span><span class="lb-txt"><span class="lb-words">AND AROUND AGAIN </span><span class="lb-rot">↻</span></span><span class="lb-line r"></span></div>
-    </div>
-    <figure class="pullq reveal pxcard" style="margin-top:var(--spacing-48)">
-      <img class="px" src="assets/scenes/scene-care-loop.png" alt="Pixel-art scene of a child watering a sprout" loading="lazy" decoding="async">
-      <figcaption><p class="qt"><span class="qd ql" aria-hidden="true">“</span><b>Play beats being taught.</b> Across 17 studies of nearly 3,900 children, learning woven into play beat direct teaching for gains in early maths, focus, and task-switching.<span class="qd qr" aria-hidden="true">”</span></p><p class="who">Skene et al., Child Development, 2022 · meta-analysis of guided play</p></figcaption>
-    </figure>
-  </div>
-</section>
+    <p class="geyebrow"><span class="cell"></span>Production update</p>
+    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:16ch">We're building in the open.</h2>
+    <p class="lead reveal" style="margin-top:16px;max-width:54ch">Nothing has shipped yet, and we won't pretend otherwise. Here is exactly where things stand, step by step.</p>
+    <div class="tl reveal-group">
 
-<div class="dither dith-soft" aria-hidden="true"></div>
-<!-- LIFESTYLE PHOTOS — AI lifestyle previews (assets/photos/), swap for real family photos before public launch; 7 more processed shots in the same folder -->
-<section class="winbeat photo-sec" id="photos">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Nowa out in the world <span class="sample-chip">SAMPLE · REAL FAMILY PHOTOS AT LAUNCH</span></p>
-    <div class="photo-mosaic reveal-group">
-      <figure class="lifeshot lifeshot--wide"><div class="ph"><img src="assets/photos/life-play-table.webp" alt="Two young children at a play table, one turning the dial on the Nowa device while the other watches the pet on screen" loading="lazy" decoding="async" style="object-position:50% 45%"></div><figcaption>Big sister runs the mission. Little brother supervises.</figcaption></figure>
-      <figure class="lifeshot"><div class="ph"><img src="assets/photos/life-carseat-girl.webp" alt="A smiling girl in a car seat holding her Nowa device with both hands" loading="lazy" decoding="async"></div><figcaption>The backseat, without a tablet.</figcaption></figure>
-      <figure class="lifeshot"><div class="ph"><img src="assets/photos/life-bedtime.webp" alt="A child asleep with a teddy bear while the Nowa pet sleeps on its screen on the nightstand" loading="lazy" decoding="async" style="object-position:50% 62%"></div><figcaption>Bedtime: the pet gets tucked in too.</figcaption></figure>
-      <figure class="lifeshot lifeshot--tall"><div class="ph"><img src="assets/photos/life-hands-closeup.webp" alt="Close-up of a child's hands holding the Nowa device and pressing a button" loading="lazy" decoding="async"></div></figure>
-      <figure class="lifeshot lifeshot--tall"><div class="ph"><img src="assets/photos/life-hands-pointing.webp" alt="A child holding the Nowa device while a parent points at the pet on screen" loading="lazy" decoding="async"></div></figure>
-      <figure class="lifeshot lifeshot--tall"><div class="ph"><img src="assets/photos/life-carseat-boy-green.webp" alt="A boy in a car seat looking down at his Nowa pet" loading="lazy" decoding="async"></div></figure>
-      <figure class="lifeshot lifeshot--tall"><div class="ph"><img src="assets/photos/life-blanket.webp" alt="The Nowa device resting on a blanket beside a child" loading="lazy" decoding="async" style="object-position:38% 50%"></div></figure>
-      <figure class="lifeshot"><div class="ph"><img src="assets/photos/life-livingroom-rug.webp" alt="A girl sitting on the living-room rug, smiling at the Nowa device in her hands" loading="lazy" decoding="async"></div><figcaption>Checking in after school.</figcaption></figure>
-      <figure class="lifeshot"><div class="ph"><img src="assets/photos/life-carseat-boy.webp" alt="A boy playing with his Nowa pet on the back seat of a car" loading="lazy" decoding="async"></div><figcaption>Errands go easier with a pet along.</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<div class="dither" aria-hidden="true" style="--dith-dark:#e2efdb;--dith-light:var(--surface-warm-parchment)"></div>
-<!-- FOUNDER MISSION QUOTE — spine-style centered display, mint band, deep forest text -->
-<section class="founder-quote">
-  <div class="wrap">
-    <p class="founder-quote-text reveal">"Nowa's pet has feelings, not words. When the pet doesn't speak, your child does. That's how we rebuild imagination."</p>
-    <div class="founder-attribution reveal">
-      <img src="assets/brand/logo-app.png" alt="Daniel Nguyen" width="64" height="64" decoding="async">
-      <span class="founder-attribution-text">Daniel Nguyen · Dad and Co-founder, Nowa</span>
-    </div>
-  </div>
-</section>
-
-<div class="dither" aria-hidden="true" style="--dith-dark:var(--color-ink-charcoal);--dith-light:#e2efdb"></div>
-<!-- CH 04 — THE WORLD -->
-<section class="dark world" id="world">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Why it works</p>
-    <h2 class="reveal">Kids follow through on what they love.</h2>
-    <p class="lead reveal">Charts and reminders get ignored. A pet they love gets looked after. So we made caring the whole game.</p>
-    <div class="world-row">
-      <button class="egg-card reveal pxcard" id="eggCard" type="button" aria-label="Tap the egg to hatch a surprise Nowa pet">
-        <div class="egg-wrap">
-          <div class="egg"><span class="spot" style="left:22px;top:38px"></span><span class="spot" style="right:20px;top:62px;width:9px;height:9px"></span><span class="q">?</span></div>
-          <span class="spark" style="right:-4px;top:6px"></span><span class="spark s3" style="left:-8px;bottom:18px"></span>
-          <img class="hatch px" id="hatchPet" src="assets/species/ollie.png" alt="" width="120" height="120" loading="lazy" decoding="async">
-          <span class="conf" style="--dx:-64px;--dy:-78px;background:var(--color-amber-signal)"></span>
-          <span class="conf" style="--dx:58px;--dy:-84px;background:var(--color-coral-glow)"></span>
-          <span class="conf" style="--dx:-86px;--dy:-20px;background:var(--color-leaf-success)"></span>
-          <span class="conf" style="--dx:84px;--dy:-26px;background:var(--color-coral-blush)"></span>
-          <span class="conf" style="--dx:-52px;--dy:48px;background:var(--color-coral-flame)"></span>
-          <span class="conf" style="--dx:56px;--dy:42px;background:var(--color-amber-signal)"></span>
-          <span class="conf" style="--dx:-20px;--dy:-96px;background:var(--color-coral-blush)"></span>
-          <span class="conf" style="--dx:22px;--dy:-60px;background:var(--color-leaf-success)"></span>
-          <span class="plusone" aria-hidden="true">+1 FRIEND!</span>
-        </div>
-        <span class="ehead" id="eggHead">It starts with an egg</span>
-        <span class="esub" id="eggSub">Tap to hatch · your child won't know who's inside either</span>
-      </button>
-      <div class="fun-grid reveal-group">
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 66%,var(--color-coral-glow))"><img class="px ficon" src="assets/pixels/miko_heart_58x42.png" alt="Pet glowing with a heart" loading="lazy" decoding="async"><h3>Care for it like a real pet</h3><p>A real little creature to feed, wash, play with, and tuck in. Caring for someone other than themselves is where the bond starts.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 72%,var(--color-amber-signal))"><img class="px ficon" src="assets/pixels/miko_evolution_loop_80px.gif" alt="Pet evolving into a new form" loading="lazy" decoding="async"><h3>Collect a world of creatures</h3><p>A whole planet of creatures to collect, each evolving with your child's care, so no two journeys are ever the same.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 74%,var(--color-leaf-success))"><img class="px ficon" src="assets/pixels/kid_wave_anim_80px.gif" alt="Child playing alongside their pet" loading="lazy" decoding="async"><h3>Games to play side by side</h3><p>Mini-games and little quests your child and their pet take on together, just for the fun of it.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 62%,var(--color-coral-blush))"><img class="px ficon" src="assets/pixels/miko_read_x3.png" alt="Pet with an open storybook" loading="lazy" decoding="async"><h3>A world that keeps opening up</h3><p>Caring unlocks more to enjoy: bedtime stories, songs, and fun-fact podcasts. The more they care, the bigger the world gets.</p></div>      </div>
-    </div>
-  </div>
-  <div class="species-strip">
-    <div class="species-track" id="speciesTrack">
-      <div class="sp"><img class="px" src="assets/species/brim.png" alt="Brim" width="128" height="128" loading="lazy" decoding="async"><span class="spname">BRIM</span></div>
-      <div class="sp"><img class="px" src="assets/species/nori.png" alt="Nori" width="128" height="128" loading="lazy" decoding="async"><span class="spname">NORI</span></div>
-      <div class="sp"><img class="px" src="assets/species/ollie.png" alt="Ollie" width="128" height="128" loading="lazy" decoding="async"><span class="spname">OLLIE</span></div>
-      <div class="sp"><img class="px" src="assets/species/flori.png" alt="Flori" width="128" height="128" loading="lazy" decoding="async"><span class="spname">FLORI</span></div>
-      <div class="sp"><img class="px" src="assets/species/miko.png" alt="Miko" width="128" height="128" loading="lazy" decoding="async"><span class="spname">MIKO</span></div>
-      <div class="sp"><img class="px" src="assets/species/puffin.png" alt="Puffin" width="128" height="128" loading="lazy" decoding="async"><span class="spname">PUFFIN</span></div>
-      <div class="sp"><img class="px" src="assets/species/taro.png" alt="Taro" width="128" height="128" loading="lazy" decoding="async"><span class="spname">TARO</span></div>
-      <div class="sp"><img class="px" src="assets/species/nori-2.png" alt="Nori, crystal form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">NORI · CRYSTAL</span></div>
-      <div class="sp"><img class="px" src="assets/species/miko-1.png" alt="Miko, scholar form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">MIKO · SCHOLAR</span></div>
-      <div class="sp"><img class="px" src="assets/species/taro-1.png" alt="Taro, pilot form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">TARO · PILOT</span></div>
-      <div class="sp"><img class="px" src="assets/species/brim-1.png" alt="Brim, viking form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">BRIM · VIKING</span></div>
-      <div class="sp"><img class="px" src="assets/species/nori-1.png" alt="Nori, coral form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">NORI · CORAL</span></div>
-    </div>
-  </div>
-  <div class="wrap">
-    <p class="who reveal">Who might your child meet? Never a set to complete.</p>
-    <p class="unlock-head reveal"><span class="ln"></span> MORE REWARDS AS YOUR PET GROWS <span class="ln"></span></p>
-    <div class="libs reveal-group">
-      <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)">St</div><h3>Stories</h3><p>Classics retold, plus original tales from the Nowa universe.</p>
-        <div class="tracks">
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/027-the-lion-and-the-mouse-69yo-female.mp3"><button class="pbtn" aria-label="Play The Lion and the Mouse"><span class="pb-ico"></span></button><span class="ttl">The Lion and the Mouse</span><span class="dur">2:16</span></div>
-        </div><div class="pbar"><i></i></div></div>
-      <div class="lib pxcard"><div class="licon" style="background:var(--color-chalk-surface);color:var(--color-deep-ink)">So</div><h3>Songs</h3><p>A morning anthem to start the day, a lullaby to end it.</p>
-        <div class="tracks">
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/015-yellow-duck.mp3"><button class="pbtn" aria-label="Play Yellow Duck"><span class="pb-ico"></span></button><span class="ttl">Yellow Duck</span><span class="dur">1:27</span></div>
-        </div><div class="pbar"><i></i></div></div>
-      <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)">Po</div><h3>Podcasts</h3><p>A curious host and a real expert, on science, nature, and life.</p>
-        <div class="tracks">
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/001-why-do-planets-spin.mp3"><button class="pbtn" aria-label="Play Why Do Planets Spin?"><span class="pb-ico"></span></button><span class="ttl">Why Do Planets Spin?</span><span class="dur">10:57</span></div>
-        </div><div class="pbar"><i></i></div></div>
-    </div>
-    <p class="lib-note reveal" style="margin-top:var(--spacing-24);color:var(--color-cloud-border)">Tap play to hear real samples. Unlocks are part of the game.</p>
-    <details class="faq pxcard world-faq reveal">
-      <summary>Why songs, stories, and podcasts, and why they unlock?<span class="fplus">+</span></summary>
-      <div class="faq-a"><p>The rewards aren't filler. Stories build language and empathy, songs anchor routines and calm, and podcasts feed the curiosity that drives early learning. Every piece was chosen for its developmental value and shaped with our child-development advisors. Tying them to care turns showing up into something your child looks forward to: the better they look after their pet, the more of this world opens up. And you stay in control of what's available, always.</p></div>
-    </details>
-  </div>
-</section>
-
-<!-- v2: Library merged into "Why it works" above -->
-
-<div class="dither" aria-hidden="true" style="--dith-dark:var(--color-ink-charcoal);--dith-light:#fff3d6"></div>
-<!-- MID-PAGE CTA (after Why kids love it) -->
-<section class="midcta" id="midcta-world">
-  <div class="wrap">
-    <p class="geyebrow reveal"><span class="cell"></span>Pre-order</p>
-    <h3 class="reveal">Reserve their first Nowa today.</h3>
-    <p class="mc-fine reveal"><s>$149</s> $99 today<span class="fdot">·</span>Ships September 2026<span class="fdot">·</span>Fully refundable</p>
-    <a href="#preorder" class="btn reveal">Lock in at $99 <span class="arr">→</span></a>
-  </div>
-</section>
-
-<div class="dither" aria-hidden="true" style="--dith-dark:#fff3d6;--dith-light:#e2efdb"></div>
-<!-- CH 06 — SAFETY BY DESIGN -->
-<section class="safety" id="safety">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Safety &amp; control</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">The safety isn't a setting. It's the design.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:60ch">Most kids' apps are built to hold attention. Nowa gives it back: short play that points to real life, and an AI that can't say anything you didn't choose.</p>
-    <div class="safety-grid reveal-group">
-      <div class="safe-col">
-        <h3>A natural part of the day, never the center of it.</h3>
-        <p>Like a real pet, Nowa fits into the day. Checked on here and there, never one long sitting.</p>
-        <ul class="safe-list">
-          <li><span class="cell"></span>A few short check-ins, about 10–15 minutes each</li>
-          <li><span class="cell"></span>No infinite scroll, autoplay, or notifications pulling them back</li>
-          <li><span class="cell"></span>Every check-in points back out: real routines, real people, real play</li>
-        </ul>
-        <div class="day-rhythm pxcard reveal" role="img" aria-label="A day with Nowa: three short check-ins of about 10 to 15 minutes spread across the day, with the rest of the day free for real life">
-          <p class="dr-label">A day with Nowa</p>
-          <div class="dr-track" aria-hidden="true">
-            <span class="dr-line"></span>
-            <span class="dr-sun"></span>
-            <span class="dr-moon"></span>
-            <span class="dr-checkin" style="left:20%"><span class="dr-time">~12 min</span><span class="dr-dot" style="animation-delay:0s"></span><span class="dr-part">morning</span></span>
-            <span class="dr-checkin" style="left:52%"><span class="dr-time">~15 min</span><span class="dr-dot" style="animation-delay:.6s"></span><span class="dr-part">afternoon</span></span>
-            <span class="dr-checkin" style="left:82%"><span class="dr-time">~10 min</span><span class="dr-dot" style="animation-delay:1.2s"></span><span class="dr-part">evening</span></span>
-          </div>
-          <p class="dr-caption">A few small moments. The rest of the day stays theirs.</p>
+      <div class="tl-item pxcard is-done">
+        <div class="tl-meta"><span class="tl-n">01</span><span class="tl-date">Oct 2025</span><span class="tl-chip">✓ Done</span></div>
+        <div class="tl-body">
+          <h3>Product locked</h3>
+          <p>Consumer insight, competitive audit, and the core feature set confirmed with the advisory board. The what and the why of Nowa, settled.</p>
+          <div class="tl-photos"><figure><img src="assets/story/step-01-whiteboard.webp" alt="Early Nowa product definition on a whiteboard" loading="lazy" decoding="async" style="aspect-ratio:1200/694"></figure><figure><img src="assets/story/step-01-advisory-session.webp" alt="Advisory board working session" loading="lazy" decoding="async" style="aspect-ratio:1200/622"></figure></div>
         </div>
       </div>
-      <div class="safe-col">
-        <h3>A pet, not an AI companion.</h3>
-        <p>Companion chatbots are built to be talked to, and needed. Nowa is the opposite: a pet your child looks after.</p>
-        <ul class="safe-list">
-          <li><span class="cell"></span>Speaks only in sound, motion, and feeling, never human words</li>
-          <li><span class="cell"></span>No open internet. Nothing it can say that you didn't choose</li>
-          <li><span class="cell"></span>Its walled AI has one job: bringing the pet to life. It learns from your child's care, never from conversations</li>
-        </ul>
-        <div class="talk-demo reveal pxcard">
-          <p class="bubble" id="petSound">♪ prrr… blip!</p>
-          <p class="label">Nowa speaks in sound, motion, and feeling. Your child does the understanding.</p>
-          <div class="pet-row">
-            <img class="px" src="assets/species/miko.png" alt="Miko, a pixel-art Nowa pet, listening" width="120" height="120" loading="lazy" decoding="async">
-            <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-          </div>
+
+      <div class="tl-item pxcard is-done">
+        <div class="tl-meta"><span class="tl-n">02</span><span class="tl-date">Apr 2026</span><span class="tl-chip">✓ Done</span></div>
+        <div class="tl-body">
+          <h3>Industrial design and CMF finalized</h3>
+          <p>Appearance model, materials, and finish locked. Speaker, screen, battery, scroll wheel: every key component picked. The physical Nowa is decided.</p>
+          <div class="tl-photos"><figure><img src="assets/story/step-02-cmf-render.webp" alt="Nowa CMF design render" loading="lazy" decoding="async" style="aspect-ratio:1200/675"></figure><figure><img src="assets/story/step-02-components.webp" alt="Key hardware components laid out" loading="lazy" decoding="async" style="aspect-ratio:912/644"></figure></div>
         </div>
       </div>
-    </div>
-    <figure class="pullq pxcard reveal">
-      <img src="assets/avatars/dr-david-mou.png" alt="Dr. David Mou" loading="lazy" decoding="async">
-      <figcaption><p class="qt">“The safest AI for a child is one with nothing to say, and everything to feel.”</p><p class="who">Dr. David Mou · Harvard-trained physician · CEO, Benchmark Health <span class="sample-chip">SAMPLE · PENDING APPROVAL</span></p></figcaption>
-    </figure>
-    <p class="safe-trust reveal">No open internet · COPPA · ASTM F963 · No ads, ever · <a href="safety.html">How we built Nowa safe →</a></p>
-  </div>
-</section>
 
-<div class="dither dith-papp" aria-hidden="true"></div>
-<!-- THE PARENT APP -->
-<section class="parent-app" id="parent-app">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Safety &amp; control</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:18ch">The parent app: you hold every dial.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:56ch">You set the routines and the limits. The app shows you how your child is growing: a picture, never a score.</p>
-    <div class="papp-grid reveal-group">
-      <div class="papp-stage">
-        <div class="pf-phone">
-          <span class="pf-btn r"></span><span class="pf-btn u"></span><span class="pf-btn d"></span>
-          <div class="pf-screen">
-            <div class="pf-track" id="pfTrack">
-              <div class="pf-slide" data-feature="mission"><div class="pf-load">loading…</div><iframe title="Mission Control" data-src="../app-ui/new/mission-control.html"></iframe></div>
-              <div class="pf-slide" data-feature="mission"><div class="pf-load">loading…</div><iframe title="Add mission" data-src="../app-ui/new/mission-edit.html"></iframe></div>
-              <div class="pf-slide" data-feature="mission"><div class="pf-load">loading…</div><iframe title="No missions yet" data-src="../app-ui/new/mission-empty.html"></iframe></div>
-              <div class="pf-slide" data-feature="growth"><div class="pf-load">loading…</div><iframe title="Growth insights" data-src="../app-ui/new/growth-insights.html"></iframe></div>
-              <div class="pf-slide" data-feature="growth"><div class="pf-load">loading…</div><iframe title="Growth detail" data-src="../app-ui/new/growth-domain.html"></iframe></div>
-              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Activity" data-src="../app-ui/new/activity.html"></iframe></div>
-              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Bedtime" data-src="../app-ui/new/bedtime.html"></iframe></div>
-              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Data & privacy" data-src="../app-ui/new/data-privacy.html"></iframe></div>
-              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Safety alerts" data-src="../app-ui/new/safety-alerts.html"></iframe></div>
-            </div>
-          </div>
-        </div>
-        <div class="pf-nav">
-          <button class="pf-arrow pf-prev" aria-label="Previous screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-          <div class="pf-dots" id="pfDots" aria-label="App screens"></div>
-          <button class="pf-arrow pf-next" aria-label="Next screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+      <div class="tl-item pxcard is-here">
+        <div class="tl-meta"><span class="tl-n">03</span><span class="tl-date">May–Jul 2026</span><span class="tl-chip">● We are here</span></div>
+        <div class="tl-body">
+          <h3>Functional prototypes, in real homes</h3>
+          <p>Three working prototypes built, tested, and signed off. Units are now with a small group of families: real mornings, real bedtimes, first impressions feeding the next build.</p>
+          <div class="tl-photos"><figure><img src="assets/story/step-03-factory-floor.webp" alt="Nowa prototypes on the factory floor in Shenzhen" loading="lazy" decoding="async" style="aspect-ratio:1200/900"></figure><figure><img src="assets/story/step-03-prototype-hand.webp" alt="A functional Nowa prototype held in one hand" loading="lazy" decoding="async" style="aspect-ratio:960/1280"></figure></div>
+          <div class="tl-photos"><figure><img src="assets/photos/life-play-table.webp" alt="Lifestyle preview: two children playing with the Nowa device at a table" loading="lazy" decoding="async" style="aspect-ratio:1/1"></figure><figure><img src="assets/photos/life-livingroom-rug.webp" alt="Lifestyle preview: a girl holding the Nowa device on the living-room rug" loading="lazy" decoding="async" style="aspect-ratio:1/1"></figure></div>
+          <p class="tl-cap">Family-testing scenes are previews <span class="sample-chip">SAMPLE · REAL PHOTOS ARRIVE WITH EVT</span></p>
         </div>
       </div>
-      <div class="papp-feats">
-        <div class="papp-feat" role="button" tabindex="0" data-feature="mission"><h3>Mission Control</h3><p>Pick the routines that matter in your house: mornings, homework, bedtime. Each one becomes a mission the pet needs your child's help to finish.</p><span class="papp-go">See it →</span></div>
-        <div class="papp-feat" role="button" tabindex="0" data-feature="growth"><h3>Growth insights</h3><p>See how the practice is adding up: feelings, focus, follow-through. Measured with frameworks <strong>shaped by our advisors</strong>, not metrics we invented.</p><span class="papp-go">See it →</span></div>
-        <div class="papp-feat" role="button" tabindex="0" data-feature="loop"><h3>Stay in the loop</h3><p>Each mission and how it went. The pet's bedtime, matched to your child's. And whatever the game collects is yours to view or delete, anytime.</p><span class="papp-go">See it →</span></div>
-      </div>
-    </div>
-    <p class="papp-trust reveal">Included with every Nowa. <a href="parent-app.html">Explore the parent app →</a></p>
-  </div>
-</section>
 
-<!-- v2: device moved into the opening; "hard parts" cut per sturdy-parent feedback -->
-
-<div class="dither dith-soft" aria-hidden="true"></div>
-<!-- ░░ COMPARE — a real comparison matrix ░░ -->
-<section id="compare" class="compare-band">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Compare</p>
-    <h2 class="reveal" style="font-size:clamp(26px,3vw,40px);max-width:26ch">Calm like Yoto. Developmental like Lovevery. But alive.</h2>
-    <div class="cmptbl pxcard reveal">
-      <div class="cmptbl-scroll">
-      <table>
-        <thead>
-          <tr><th scope="col"></th><th scope="col"><img class="px cmp-ic" src="assets/compare/cmp-audio.png" alt="" loading="lazy" decoding="async"><span>Audio</span></th><th scope="col"><img class="px cmp-ic" src="assets/compare/cmp-play.png" alt="" loading="lazy" decoding="async"><span>Play kits</span></th><th scope="col"><img class="px cmp-ic" src="assets/compare/cmp-tablet.png" alt="" loading="lazy" decoding="async"><span>Tablets</span></th><th scope="col" class="col-us"><img class="px cmp-ic cmp-ic-pet" src="assets/species/miko-1.png" alt="" loading="lazy" decoding="async"><span>NOWA</span></th></tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Responds to your child</th><td class="n">✗</td><td class="n">✗</td><td class="p">~</td><td class="col-us y">✓</td></tr>
-          <tr><th scope="row">Builds a bond over time</th><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="col-us y">✓</td></tr>
-          <tr><th scope="row">Sends them back to real life</th><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="col-us y">✓</td></tr>
-          <tr><th scope="row">Built with scientists</th><td class="n">✗</td><td class="p">~</td><td class="n">✗</td><td class="col-us y">✓</td></tr>
-          <tr><th scope="row">No open internet, no ads</th><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="col-us y">✓</td></tr>
-        </tbody>
-      </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="dither dith-soft" aria-hidden="true"></div>
-<!-- MID-PAGE CTA (after Compare) -->
-<section class="midcta" id="midcta">
-  <div class="wrap">
-    <p class="geyebrow reveal"><span class="cell"></span>The Day-One Bundle</p>
-    <h3 class="reveal">$99 reserves the whole Day-One Bundle.</h3>
-    <p class="mc-fine reveal">The $149 device<span class="fdot">·</span>6 months of Nowa+ free<span class="fdot">·</span>The Handbooks, from the day you reserve<span class="fdot">·</span>Fully refundable</p>
-    <a href="#preorder" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
-    <p class="mc-more reveal"><a href="#preorder">See the full breakdown ↓</a></p>
-  </div>
-</section>
-
-<div class="dither dith-soft" aria-hidden="true"></div>
-<!-- BETA FAMILIES -->
-<section class="reviews">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>From beta families</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.4vw,46px);max-width:22ch">From the families who tested it first.</h2>
-    <p class="lead reveal" style="margin-top:16px">Real households, real mornings. Words from the beta program.</p>
-  </div>
-  <div class="rev-rows" aria-label="Beta family reviews">
-    <div class="rev-row"><div class="rev-track" data-dir="1"><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">My son used to fight me for 20 minutes every morning about his shoes. Now he's racing to get them on because he wants to tell his Nowa pet he's ready for the School Mission.</p><p class="rwho"><strong>Mark J.</strong> · Dad of a 6-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">She came downstairs and said 'I did turtle time so my pet could calm down.' Then she did it herself at dinner. Unprompted.</p><p class="rwho"><strong>Dana</strong> · Mom of a 5-year-old <span class="beta-chip">BETA FAMILY</span></p></div></div></div>
-    <div class="rev-row"><div class="rev-track" data-dir="-1"><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">It's the first screen I don't feel guilty about. Ten minutes, then he's off building a fort because his pet 'needed' one.</p><p class="rwho"><strong>Priya</strong> · Mom of a 6-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">I expected another abandoned gadget. Six weeks in, the pet is still fed and my mornings are still quiet.</p><p class="rwho"><strong>Alex M.</strong> · Dad of an 8-year-old <span class="beta-chip">BETA FAMILY</span></p></div></div></div>
-  </div>
-</section>
-
-<div class="dither" aria-hidden="true" style="--dith-light:var(--color-pure-white)"></div>
-<!-- PRE-ORDER -->
-<section class="dark final" id="preorder">
-  <div class="wrap">
-    <p class="geyebrow" style="justify-content:center"><span class="cell"></span>Pre-order · 500 reservations</p>
-    <h2 class="po-price reveal"><span class="po-amt">$99 today.</span> <span class="po-save">Save $195.</span></h2>
-    <p class="po-sub reveal">The Day-One Bundle: the device, six months of Nowa+, the Handbooks, and pre-order extras you only get now.</p>
-
-    <!-- ===== the deal block ===== -->
-    <!-- DEAL BLOCK: WHAT YOU GET (light pxcard) | WHAT YOU PAY (mint pxcard) -->
-    <div class="deal reveal-group">
-      <div class="deal-get pxcard">
-        <p class="deal-h">The Day-One Bundle</p>
-        <ul class="deal-list">
-          <li class="deal-row">
-            <span class="deal-ic deal-th" aria-hidden="true"><img src="assets/device/front.webp" alt="" loading="lazy" decoding="async"></span>
-            <span class="deal-name">Nowa device (retail)</span>
-            <span class="deal-val">$149</span>
-            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/device.webp" alt="" loading="lazy" decoding="async"></div></div>
-          </li>
-          <li class="deal-row">
-            <span class="deal-ic deal-th deal-th-zoom" aria-hidden="true"><img src="assets/showcase/nowa-plus.webp" alt="" style="object-position:38% 55%" loading="lazy" decoding="async"></span>
-            <span class="deal-name">6 months of Nowa+</span>
-            <span class="deal-val">$120</span>
-            <ul class="deal-sub">
-              <li>Advanced missions tuned to your child's growth phase</li>
-              <li>Full growth insights: emotions, focus, follow-through</li>
-              <li>Expert-shaped guidance from our PCIT, EQ, and EF advisors</li>
-            </ul>
-            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/nowa-plus.webp" alt="" loading="lazy" decoding="async"></div></div>
-          </li>
-          <li class="deal-row">
-            <span class="deal-ic deal-th deal-th-zoom" aria-hidden="true"><img src="assets/showcase/playbooks.webp" alt="" style="object-position:50% 62%" loading="lazy" decoding="async"></span>
-            <span class="deal-name">The Nowa Handbooks <span class="deal-name-sub">three parent guides, advisor-shaped</span></span>
-            <span class="deal-val deal-val-tag">★ Day 1</span>
-            <ul class="deal-sub">
-              <li><b>Big Feelings</b> · when the feeling is bigger than the kid</li>
-              <li><b>Routine</b> · stop being the narrator of every morning</li>
-              <li><b>Raising a Kid Who Can Stop</b> · third guide, lands before your device ships</li>
-            </ul>
-            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/playbooks.webp" alt="" loading="lazy" decoding="async"></div></div>
-          </li>
-          <li class="deal-row">
-            <span class="deal-ic deal-th deal-th-zoom" aria-hidden="true"><img src="assets/showcase/adventure-kit.webp" alt="" style="transform-origin:30% 55%" loading="lazy" decoding="async"></span>
-            <span class="deal-name">Adventure Kit <span class="deal-name-sub">silicone cover + lanyard</span></span>
-            <span class="deal-val">$25</span>
-            <ul class="deal-sub">
-              <li>Silicone case in swappable colors, soft and drop-protective</li>
-              <li>Lanyard for hands-free carry: walks, school, the car</li>
-            </ul>
-            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/adventure-kit.webp" alt="" loading="lazy" decoding="async"></div></div>
-          </li>
-          <li class="deal-row">
-            <span class="deal-ic deal-th deal-th-pet" aria-hidden="true"><img class="px" src="assets/species/flori.png" alt="" loading="lazy" decoding="async"></span>
-            <span class="deal-name">Pre-order extras</span>
-            <span class="deal-val deal-val-tag">★ Exclusive</span>
-            <ul class="deal-sub">
-              <li>An exclusive starter pet, found in no other Nowa</li>
-              <li>An exclusive badge in your parent app</li>
-              <li>Your Nowa+ price locked for 2 years</li>
-            </ul>
-            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><div class="deal-exp-bonus"><img class="px" src="assets/species/nori-2.png" alt="" width="100" height="100" loading="lazy" decoding="async"><span class="deal-bonus-cap">EXCLUSIVE STARTER PET</span></div></div></div>
-          </li>
-        </ul>
-      </div>
-      <div class="deal-pay pxcard">
-        <p class="deal-h">What you pay</p>
-        <div class="deal-pay-body">
-          <p class="deal-totalv">Total value</p>
-          <p class="deal-total">$294</p>
-          <hr class="deal-div" aria-hidden="true">
-          <p class="deal-todayl">You pay today</p>
-          <p class="deal-today">$99</p>
-          <span class="deal-save">Save $195</span>
+      <div class="tl-item pxcard is-next">
+        <div class="tl-meta"><span class="tl-n">04</span><span class="tl-date">Late Jul–Aug 2026</span><span class="tl-chip">○ Coming up</span></div>
+        <div class="tl-body">
+          <h3>EVT and DVT trials</h3>
+          <p>A 50-unit engineering build starts at the end of July, then a 200-unit design-validation run. Reliability testing, and the first units out for early family review.</p>
+          <div class="pxslot tl-slot"><span class="t">PHOTOS ARRIVE WITH THIS MILESTONE</span></div>
         </div>
-        <ul class="deal-trust" aria-label="Pre-order guarantees">
-          <li>
-            <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
-            <span><b>Cancel anytime</b> before ship · full refund</span>
-          </li>
-          <li>
-            <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg></span>
-            <span><b>Refunded automatically</b> if not shipped by Oct 31</span>
-          </li>
-          <li>
-            <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
-            <span><b>Price locked.</b> Only goes up from here</span>
-          </li>
-        </ul>
       </div>
+
+      <div class="tl-item pxcard is-next">
+        <div class="tl-meta"><span class="tl-n">05</span><span class="tl-date">Aug–Sep 2026</span><span class="tl-chip">○ Coming up</span></div>
+        <div class="tl-body">
+          <h3>Mass production and certification</h3>
+          <p>A 2,000-unit production run, plus COPPA and ASTM F963 certification for North America. This is where Nowa becomes real at scale.</p>
+          <div class="pxslot tl-slot"><span class="t">PHOTOS ARRIVE WITH THIS MILESTONE</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item pxcard is-next is-finish">
+        <div class="tl-meta"><span class="tl-n">06</span><span class="tl-date">Sep 2026</span><span class="tl-chip">★ The finish line</span></div>
+        <div class="tl-body">
+          <h3>First units ship to families</h3>
+          <p>Express shipping to North America. Your pre-order becomes your child's first Nowa.</p>
+        </div>
+      </div>
+
     </div>
+    <p class="lead reveal" style="margin-top:var(--spacing-32);max-width:54ch">This page updates as each step lands. If a date moves, you'll read it here first.</p>
+  </div>
+</section>
 
-
-
-    <!-- honest scarcity line — kept per Daniel's call -->
-    <p class="po-honest reveal"><span class="po-honest-lead">This isn't a countdown. We won't pretend there's a timer.</span> But these terms hold for <span class="po-honest-num">500 reservations only</span>. When those are taken, they're taken. The price becomes $149 and the extras are gone for good.</p>
-
-    <a href="#" class="btn offer-cta reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
-    <p class="offer-fine reveal">Ships September 2026<span class="fdot">·</span>500 reservations only<span class="fdot">·</span>Fully refundable</p>
-
-    <div class="pets reveal-group" aria-hidden="true">
-      <img class="px" src="assets/species/flori.png" alt="" width="64" height="64" loading="lazy" decoding="async">
-      <img class="px" src="assets/species/puffin.png" alt="" width="64" height="64" loading="lazy" decoding="async">
-      <img class="px" src="assets/species/ollie.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+<div class="dither" aria-hidden="true"></div>
+<!-- RESERVE -->
+<section id="reserve" class="dark final">
+  <div class="wrap" style="text-align:center">
+    <p class="geyebrow" style="justify-content:center"><span class="cell"></span>Pre-order</p>
+    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px)">Be part of how this gets made.</h2>
+    <p class="lead reveal" style="margin:16px auto 0;max-width:46ch"><s>$149</s> $99 today. Fully refundable any time before your Nowa ships, and refunded automatically if it hasn't shipped by October 31.</p>
+    <div class="defend-cta reveal" style="justify-content:center">
+      <a href="index-permill-v2.html#preorder" class="btn">Reserve your Nowa for $99 <span class="arr">→</span></a>
+      <a href="index-permill-v2.html" class="btn-ghost">← Back to Nowa</a>
+    </div>
+    <div class="pets reveal-group" aria-hidden="true" style="justify-content:center">
+      <img class="px" src="assets/species/flori.png" alt="" width="60" height="60" loading="lazy" decoding="async">
+      <img class="px" src="assets/species/puffin.png" alt="" width="60" height="60" loading="lazy" decoding="async">
+      <img class="px" src="assets/species/ollie.png" alt="" width="60" height="60" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
 
-<div class="dither" aria-hidden="true" style="--dith-dark:#fff3d6;--dith-light:var(--surface-warm-parchment)"></div>
-<!-- FAQ (now after the offer: objection-handling) -->
-<section class="faqsec" id="faq">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Before you ask</p>
-    <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:20ch">The questions every parent asks.</h2>
-    <div class="mtabs faqtabs reveal" role="tablist" aria-label="FAQ categories">
-      <button class="mtab on" role="tab" aria-selected="true" data-faq="0">About the product</button>
-      <button class="mtab" role="tab" aria-selected="false" data-faq="1">Pre-order</button>
-    </div>
-    <div class="faqs faqpanel" data-panel="0">
-      <details class="faq pxcard"><summary>What age is Nowa designed for?<span class="fplus">+</span></summary><div class="faq-a"><p>Kids ages 3–10, the stage when routines, independence, and emotional habits develop fastest. The experience is age-scaffolded so it grows with your child.</p></div></details>
-      <details class="faq pxcard"><summary>How does Nowa build habits without nagging?<span class="fplus">+</span></summary><div class="faq-a"><p>Instead of you repeating instructions, daily routines become missions your child does to help their pet grow. The pet celebrates wins and encourages them through struggles, so habit-building feels like play, not punishment.</p></div></details>
-      <details class="faq pxcard"><summary>Is there AI in Nowa? Is it safe for young children?<span class="fplus">+</span></summary><div class="faq-a"><p>Yes. A closed, walled AI shapes how the pet feels, remembers care, and chooses missions. It never speaks to your child in human language, has no access to the open internet, and collects nothing beyond what personalizes the experience. It was built with our child-development researchers to support growth, not maximize engagement.</p></div></details>
-      <details class="faq pxcard"><summary>Is my child's experience safe and private?<span class="fplus">+</span></summary><div class="faq-a"><p>The pet doesn't converse, so there's nothing to monitor and nothing to leak. No open internet, content age-scaffolded for 3–10, built to meet COPPA and ASTM F963 standards. You stay in control through topic boundaries, bedtime modes, and usage limits in the parent app.</p></div></details>
-      <details class="faq pxcard"><summary>How much screen time does Nowa involve?<span class="fplus">+</span></summary><div class="faq-a"><p>Nowa is built to be put down. Check-ins run about 10–15 minutes each, a few times through the day. Short and active, with no infinite scroll, no autoplay, no engagement mechanics. The goal is always to send your child back into the real world.</p></div></details>
-      <details class="faq pxcard"><summary>What happens if my child misses a day?<span class="fplus">+</span></summary><div class="faq-a"><p>Real life happens. Missing a day doesn't erase progress or create punishment, and the pet never dies. Left alone for a long time it may get sad or gently return to its home world, but it can always come back.</p></div></details>
-      <details class="faq pxcard"><summary>How does the parent app work?<span class="fplus">+</span></summary><div class="faq-a"><p>Set routines, see progress, and get warm, narrative insights without more mental load. Basic setup and routine tracking come with the device; full insights, advanced missions, and expert guidance are part of the optional Nowa+ subscription.</p></div></details>
-      <details class="faq pxcard"><summary>When will Nowa be available?<span class="fplus">+</span></summary><div class="faq-a"><p>Pre-orders are open now at $99, shipping September 2026. You can cancel your reservation anytime before it ships.</p></div></details>
-    </div>
-    <div class="faqs faqpanel" data-panel="1" hidden>
-      <details class="faq pxcard"><summary>Why is it full price now instead of a small deposit?<span class="fplus">+</span></summary><div class="faq-a"><p>Because your reservation is fully refundable, paying now and paying a deposit carry the same risk to you: none. Reserving in full simply locks your pre-order price, starts your benefits today, and means there's nothing to remember or re-confirm later. Cancel anytime before your Nowa ships and you're refunded in full.</p></div></details>
-      <details class="faq pxcard"><summary>What if I change my mind?<span class="fplus">+</span></summary><div class="faq-a"><p>Cancel anytime before your Nowa ships and we refund every cent, no questions asked. Your reservation is never a commitment to keep it.</p></div></details>
-      <details class="faq pxcard"><summary>What if Nowa ships late?<span class="fplus">+</span></summary><div class="faq-a"><p>If we don't ship by October 31, you're refunded automatically. You don't even have to ask. We're targeting September, and we've built in time so a normal delay never costs you.</p></div></details>
-      <details class="faq pxcard"><summary>When do my benefits start?<span class="fplus">+</span></summary><div class="faq-a"><p>The moment you reserve. Your Nowa Handbooks arrive right away, and your 6 months of Nowa+ begins when your device is set up, so you get the full experience from day one.</p></div></details>
-      <details class="faq pxcard"><summary>Why reserve now instead of waiting?<span class="fplus">+</span></summary><div class="faq-a"><p>Reserving now locks the $99 price below the $149 retail, and includes an exclusive starter pet you can't get later, an in-app badge, and your Nowa+ price held for 2 years. These extras are limited to 500 reservations and never sold later. Your reservation stays fully refundable until your Nowa ships.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<!-- CLOSING CTA — for readers who needed the FAQ first -->
-<section class="closing-cta" style="padding:clamp(40px,5vw,64px) 0;text-align:center">
-  <div class="wrap">
-    <h3 class="reveal" style="font-family:var(--font-onest);font-weight:800;font-size:clamp(22px,2.8vw,34px);max-width:22ch;margin:0 auto 20px">Questions answered? Your spot is still open.</h3>
-    <a href="#preorder" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
-    <p class="reveal" style="margin-top:16px;font-size:var(--text-body-sm);color:var(--color-slate-mid)">Fully refundable until it ships<span class="fdot">·</span>500 reservations only</p>
-  </div>
-</section>
-
+<div class="dither" aria-hidden="true"></div>
 <footer>
   <div class="wrap foot-top">
     <div>
@@ -1679,8 +1387,8 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <p style="margin-top:10px;max-width:32ch">A pet that helps kids grow.<br>By Nowa Technologies.</p>
     </div>
     <div style="display:flex;gap:48px;flex-wrap:wrap">
-      <div style="display:flex;flex-direction:column;gap:8px"><a href="#mechanic">How it works</a><a href="#learnings">The science</a><a href="nowa-story.html">Our story</a></div>
-      <div style="display:flex;flex-direction:column;gap:8px"><a href="#world">The world</a><a href="#preorder">Pre-order</a><a href="#safety">Safety &amp; privacy</a><a href="#compare">Compare</a></div>
+      <div style="display:flex;flex-direction:column;gap:8px"><a href="index-permill-v2.html#mechanic">How it works</a><a href="the-science.html">The science</a><a href="nowa-story.html">Our story</a><a href="index-permill-v2.html#compare">Compare</a></div>
+      <div style="display:flex;flex-direction:column;gap:8px"><a href="index-permill-v2.html#world">The world</a><a href="index-permill-v2.html#preorder">Pre-order</a><a href="index-permill-v2.html#safety">Safety &amp; privacy</a></div>
     </div>
   </div>
   <div class="wrap foot-mark graph-dark">
@@ -1692,382 +1400,53 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <p class="legal">© 2026 Nowa Technologies · hello@nowaplanet.com</p>
   </div>
 </footer>
-
-<!-- v2: dev preview pickers removed -->
-
 <script>
 document.documentElement.classList.add('js');
-
-/* v2: preview pickers removed */
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* hero entrance */
 addEventListener('load', () => document.body.classList.add('loaded'));
-setTimeout(() => document.body.classList.add('loaded'), 600); /* safety: never gate hero on slow assets */
+setTimeout(() => document.body.classList.add('loaded'), 600);
 
-/* scroll reveals (transitions, interruptible; content visible without JS) */
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
 }), {rootMargin: '0px 0px -80px 0px', threshold: 0.05});
 document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el));
 
-/* v2: spine quote section removed */
-
-/* species strip: scroll-reactive drift — follows scroll direction, never freezes */
 (() => {
-  const track = document.getElementById('speciesTrack');
-  if (!track) return;
-  const setHTML = track.innerHTML, setW = track.scrollWidth;
-  while (track.scrollWidth < innerWidth * 2 + setW) track.insertAdjacentHTML('beforeend', setHTML);
-  if (reduced) return;
-  let x = 0, v = 0, ly = scrollY;
-  const tick = () => {
-    const dy = scrollY - ly; ly = scrollY;
-    v += dy * 0.4;          /* scroll pushes the line */
-    v *= 0.92;              /* friction */
-    x += v * 0.18 + 0.35;   /* plus gentle idle drift */
-    track.classList.toggle('walk-rev', v < -0.4);
-    x = ((x % setW) + setW) % setW;
-    track.style.transform = `translateX(${-x}px)`;
-    requestAnimationFrame(tick);
-  };
-  tick();
-})();
-
-/* mission tabs — swap copy, folded research stat, and device video */
-(() => {
-  const data = [
-    {h: 'The daily friction, minus the referee.',
-     b: 'Brushing teeth, getting dressed, bedtime, homework start. The routine becomes something the pet needs help to finish, so the follow-through comes from your child.',
-     r: 'Shaped with Dr. Steven Kurtz · Parent-child interaction',
-     sbig: '3× better', stxt: 'Kids with a consistent bedtime routine fell asleep faster, woke less, and had steadier daytime moods.', ssrc: 'Mindell et al., Sleep, 2009 · replicated across 10,000+ children',
-     vid: 'assets/videos/the-mission-engine-02.mp4'},
-    {h: 'Practising calm before the storm.',
-     b: 'Naming a big feeling, taking turtle-time, riding out a wobble. Low-stakes reps with the pet, so the skill is there when a real meltdown comes.',
-     r: 'Shaped with Dr. Susanne Denham · Emotional competence',
-     sbig: '2× more likely', stxt: 'Kindergartners who could manage big feelings were about twice as likely to earn a college degree by their mid-20s as peers who struggled.', ssrc: 'Jones, Greenberg & Crowley, AJPH, 2015 · 753 children tracked ~20 years',
-     vid: 'assets/videos/the-mission-engine-04.mp4'},
-    {h: 'Planning, focus, and finishing.',
-     b: 'Missions that ask your child to plan a few steps, hold attention, and see something through. The skills school leans on hardest.',
-     r: 'Shaped with Dr. Megan McClelland · Executive function',
-     sbig: '~50% likelier', stxt: 'Kids with stronger attention and persistence at age 4 were about 50% more likely to finish college by 25, regardless of early reading or maths.', ssrc: 'McClelland et al., 2013',
-     vid: 'assets/videos/the-mission-engine-03.mp4'}
-  ];
-  const tabs = [...document.querySelectorAll('.mtab[data-m]')];
-  if (!tabs.length) return;
-  const txt = document.getElementById('mText'), wrap = document.getElementById('mVidWrap'), vid = document.getElementById('mVid');
-  const head = document.getElementById('mHead'), body = document.getElementById('mBody'), real = document.getElementById('mReal'), stat = document.getElementById('mStat');
-  tabs.forEach(t => t.addEventListener('click', () => {
-    if (t.classList.contains('on')) return;
-    tabs.forEach(x => { x.classList.remove('on'); x.setAttribute('aria-selected', 'false'); });
-    t.classList.add('on'); t.setAttribute('aria-selected', 'true');
-    const d = data[+t.dataset.m];
-    const apply = () => {
-      head.textContent = d.h; body.textContent = d.b; real.textContent = d.r;
-      stat.querySelector('.big').textContent = d.sbig;
-      stat.querySelector('.txt').textContent = d.stxt;
-      stat.querySelector('.src').textContent = d.ssrc;
-      vid.src = d.vid;
-    };
-    if (reduced) { apply(); return; }
-    txt.classList.add('out'); wrap.classList.add('out');
-    setTimeout(() => { apply(); txt.classList.remove('out'); wrap.classList.remove('out'); }, 220);
-  }));
-})();
-
-/* spine quote: words brighten as it enters */
-(() => {
-  const q = document.getElementById('spineQuote');
-  if (!q) return;
-  const words = q.textContent.split(' ');
-  q.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
-  const ws = [...q.querySelectorAll('.w')];
-  const qio = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    ws.forEach((w, i) => setTimeout(() => w.classList.add('on'), reduced ? 0 : 80 * i));
-    qio.disconnect();
-  }), {threshold: 0.5});
-  qio.observe(q);
-})();
-
-/* egg hatch — rare-moment delight */
-(() => {
-  const card = document.getElementById('eggCard');
-  const pets = ['ollie','flori','puffin','nori-2','miko-1','taro-1','brim-1','nori-1'];
-  const names = {'ollie':'Ollie','flori':'Flori','puffin':'Puffin','nori-2':'Nori, Crystal form','miko-1':'Miko, Scholar form','taro-1':'Taro, Pilot form','brim-1':'Brim, Viking form','nori-1':'Nori, Coral form'};
-  let busy = false;
-  card.addEventListener('click', () => {
-    if (busy) return; busy = true;
-    if (card.classList.contains('hatched')) {
-      card.classList.remove('hatched');
-      document.getElementById('eggHead').textContent = 'It starts with an egg';
-      document.getElementById('eggSub').textContent = "Tap to hatch · your child won't know who's inside either";
-      setTimeout(() => busy = false, 350);
-      return;
-    }
-    const pick = pets[Math.floor(Math.random() * pets.length)];
-    document.getElementById('hatchPet').src = `assets/species/${pick}.png`;
-    card.classList.add('shaking');
-    setTimeout(() => {
-      card.classList.remove('shaking');
-      card.classList.add('hatched');
-      document.getElementById('eggHead').textContent = `It's ${names[pick]}!`;
-      document.getElementById('eggSub').textContent = 'Tap again to try another egg';
-      busy = false;
-    }, reduced ? 0 : 500);
-  });
-})();
-
-/* pet sound rotation in talk demo */
-(() => {
-  const sounds = ['♪ prrr… blip!', '~ wrrble?', '♪ pip pip !', '… mmrr ♥', '♪ boing~'];
-  const el = document.getElementById('petSound');
-  let i = 0;
-  setInterval(() => {
-    if (reduced) { el.textContent = sounds[++i % sounds.length]; return; }
-    el.style.opacity = '0'; el.style.transition = 'opacity 250ms ease';
-    setTimeout(() => { el.textContent = sounds[++i % sounds.length]; el.style.opacity = '1'; }, 260);
-  }, 3400);
-})();
-
-/* beta review rows: opposing scroll-reactive drift */
-(() => {
-  document.querySelectorAll('.rev-track').forEach(track => {
-    const setHTML = track.innerHTML;
-    const setW = track.scrollWidth;
-    while (track.scrollWidth < innerWidth * 2 + setW) track.insertAdjacentHTML('beforeend', setHTML);
-    if (reduced) return;
-    const dir = +track.dataset.dir || 1;
-    let x = 0, v = 0, ly = scrollY;
-    const tick = () => {
-      const dy = scrollY - ly; ly = scrollY;
-      v += dy * 0.4; v *= 0.92;
-      x += (v * 0.18 + 0.3) * dir;
-      x = ((x % setW) + setW) % setW;
-      track.style.transform = `translateX(${-x}px)`;
-      requestAnimationFrame(tick);
-    };
-    tick();
-  });
-})();
-
-/* library sample players — one at a time */
-(() => {
-  const audio = new Audio();
-  let cur = null;
-  document.querySelectorAll('.trk').forEach(t => {
-    t.querySelector('.pbtn').addEventListener('click', () => {
-      if (cur === t) {
-        if (audio.paused) { audio.play(); t.classList.add('playing'); }
-        else { audio.pause(); t.classList.remove('playing'); }
-        return;
-      }
-      document.querySelectorAll('.trk.playing').forEach(x => x.classList.remove('playing'));
-      document.querySelectorAll('.lib.active').forEach(x => x.classList.remove('active'));
-      cur = t;
-      audio.src = t.dataset.src;
-      audio.play();
-      t.classList.add('playing');
-      t.closest('.lib').classList.add('active');
-    });
-  });
-  audio.addEventListener('timeupdate', () => {
-    if (!cur || !audio.duration) return;
-    cur.closest('.lib').querySelector('.pbar i').style.width = (audio.currentTime / audio.duration * 100) + '%';
-  });
-  audio.addEventListener('ended', () => { if (cur) cur.classList.remove('playing'); });
-})();
-
-/* reading progress bar — snaps in 2% pixel steps */
-(() => {
-  const bar = document.querySelector('.readbar');
+  const bar = document.querySelector('.readbar'); if (!bar) return;
   let raf = null;
-  const update = () => {
-    raf = null;
-    const max = document.documentElement.scrollHeight - innerHeight;
-    const p = max > 0 ? Math.round((scrollY / max) * 50) / 50 * 100 : 0;
-    bar.style.width = p + '%';
-  };
-  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, {passive: true});
-  update();
+  const u = () => { raf = null; const max = document.documentElement.scrollHeight - innerHeight; bar.style.width = (max > 0 ? Math.round(scrollY / max * 50) / 50 * 100 : 0) + '%'; };
+  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(u); }, {passive: true}); u();
 })();
 
-/* marquee: pad each half until it covers any viewport (keeps -50% loop seamless) */
 (() => {
-  const track = document.querySelector('.marquee-track');
-  if (!track || track.children.length < 2) return;
-  const [a, b] = track.children;
-  const base = a.innerHTML;
-  while (a.scrollWidth < innerWidth) { a.innerHTML += base; b.innerHTML += base; }
-})();
-
-/* respect reduced motion for ambient video */
-if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
-
-/* chapter rail: active state + light-on-dark contrast */
-(() => {
-  const rail = document.querySelector('.rail');
+  const rail = document.querySelector('.rail'); if (!rail) return;
   const bgio = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
-    const themed = !!document.documentElement.dataset.theme;
-    const darkHere = e.target.tagName === 'FOOTER' || (e.target.classList.contains('dark') && (!themed || e.target.id === 'world'));
-    rail.classList.toggle('on-dark', darkHere);
+    rail.classList.toggle('on-dark', e.target.tagName === 'FOOTER' || e.target.classList.contains('dark'));
   }), {rootMargin: '-50% 0px -50% 0px'});
-  document.querySelectorAll('section, header.hero, footer').forEach(el => bgio.observe(el));
-})();
-(() => {
-  const map = {device: 'device', learnings: 'learnings', mechanic: 'mechanic', world: 'world', safety: 'safety', compare: 'compare', preorder: 'preorder'};
-  const links = [...document.querySelectorAll('.rail a')];
+  document.querySelectorAll('section, header.shero, footer').forEach(el => bgio.observe(el));
+  const links = [...rail.querySelectorAll('a')];
   const sio = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
     links.forEach(l => l.classList.toggle('active', l.dataset.ch === e.target.id));
   }), {rootMargin: '-40% 0px -50% 0px'});
-  Object.keys(map).forEach(id => { const s = document.getElementById(id); if (s) sio.observe(s); });
+  links.forEach(l => { const sec = document.getElementById(l.dataset.ch); if (sec) sio.observe(sec); });
 })();
 
-/* smooth momentum scroll (Lenis) — skipped under reduced-motion for accessibility */
 (() => {
   if (reduced || typeof Lenis === 'undefined') return;
   const lenis = new Lenis({ lerp: 0.17, wheelMultiplier: 1.1, smoothWheel: true });
   function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
-  /* route same-page anchors through Lenis for smooth glide */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      if (id.length < 2) return;
-      const target = document.querySelector(id);
-      if (!target) return;
+      const id = a.getAttribute('href'); if (id.length < 2) return;
+      const target = document.querySelector(id); if (!target) return;
       e.preventDefault();
       lenis.scrollTo(target, { offset: -20, duration: 0.65 });
     });
   });
 })();
-</script>
-<script>
-/* parent-app showcase carousel — one feature's screens at a time */
-(function(){
-  var stage=document.querySelector('#parent-app .papp-stage'); if(!stage) return;
-  var track=stage.querySelector('#pfTrack');
-  var all=[].slice.call(track.querySelectorAll('.pf-slide'));
-  var dotsWrap=stage.querySelector('#pfDots');
-  var feats=[].slice.call(document.querySelectorAll('#parent-app .papp-feat'));
-  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var dots=[];
-
-  function vis(){return all.filter(function(s){return !s.classList.contains('pf-hide');});}
-
-  /* each app screen self-styles for embedding (see html.embed rules in app-ui/new/*.html);
-     no cross-document injection here so it works on file:// too. just hide the loader. */
-  function ready(slide){var l=slide.querySelector('.pf-load');if(l)l.style.display='none';}
-  all.forEach(function(s){s.querySelector('iframe').addEventListener('load',function(){ready(s);});});
-
-  var PFV='?v='+Date.now(); /* showcase dev: always load the freshest screen (bypass local-server cache). Remove for production. */
-  function load(s){var f=s.querySelector('iframe');if(f&&!f.src)f.src=f.getAttribute('data-src')+PFV;}
-
-  function buildDots(){dotsWrap.innerHTML='';vis().forEach(function(s,i){var b=document.createElement('button');b.className='pf-dot';b.setAttribute('aria-label','Screen '+(i+1));b.addEventListener('click',function(){go(i);});dotsWrap.appendChild(b);});dots=[].slice.call(dotsWrap.children);}
-
-  function curIndex(){var v=vis(),idx=0,min=1e9;v.forEach(function(s,i){var d=Math.abs(s.offsetLeft-track.scrollLeft);if(d<min){min=d;idx=i;}});return idx;}
-  function go(i){var v=vis();i=Math.max(0,Math.min(v.length-1,i));track.scrollTo({left:v[i].offsetLeft,behavior:reduce?'auto':'smooth'});}
-  function syncDots(){var c=curIndex();dots.forEach(function(d,i){d.classList.toggle('on',i===c);});}
-
-  function setFeature(f){
-    all.forEach(function(s){s.classList.toggle('pf-hide',s.getAttribute('data-feature')!==f);});
-    feats.forEach(function(c){c.classList.toggle('on',c.getAttribute('data-feature')===f);});
-    buildDots();
-    track.scrollLeft=0;
-    vis().forEach(load);
-    syncDots();
-  }
-
-  stage.querySelector('.pf-prev').addEventListener('click',function(){go(curIndex()-1);});
-  stage.querySelector('.pf-next').addEventListener('click',function(){go(curIndex()+1);});
-
-  var raf;
-  track.addEventListener('scroll',function(){if(raf)cancelAnimationFrame(raf);raf=requestAnimationFrame(syncDots);});
-
-  feats.forEach(function(f){
-    function act(){setFeature(f.getAttribute('data-feature'));}
-    f.addEventListener('click',act);
-    f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
-  });
-
-  var down=false,sx=0,sl=0,moved=false;
-  track.addEventListener('pointerdown',function(e){down=true;moved=false;sx=e.clientX;sl=track.scrollLeft;track.style.scrollSnapType='none';try{track.setPointerCapture(e.pointerId);}catch(_){}});
-  track.addEventListener('pointermove',function(e){if(down){var dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;track.scrollLeft=sl-dx;}});
-  function up(){if(down){down=false;track.style.scrollSnapType='';if(moved)go(curIndex());}}
-  track.addEventListener('pointerup',up);
-  track.addEventListener('pointercancel',up);
-
-  setFeature('mission');
-})();
-</script>
-<script>
-/* FAQ category tabs */
-(function(){
-  const tabs = [...document.querySelectorAll('.faqtabs .mtab')];
-  if (!tabs.length) return;
-  const panels = [...document.querySelectorAll('.faqsec .faqpanel')];
-  tabs.forEach(t => t.addEventListener('click', () => {
-    if (t.classList.contains('on')) return;
-    tabs.forEach(x => { x.classList.remove('on'); x.setAttribute('aria-selected', 'false'); });
-    t.classList.add('on'); t.setAttribute('aria-selected', 'true');
-    const i = +t.dataset.faq;
-    panels.forEach(p => { p.hidden = (+p.dataset.panel !== i); });
-  }));
-})();
-
-/* device carousel */
-(() => {
-  const track = document.getElementById('dcTrack');
-  if (!track) return;
-  const dots = [...document.querySelectorAll('#dcDots .dc-dot')];
-  const slides = [...track.children];
-  const label = document.getElementById('dcLabel');
-  const total = slides.length;
-  let idx = 0;
-  function go(i) {
-    const next = (i + total) % total;
-    if (next === idx) return;
-    idx = next;
-    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-    dots.forEach((d, j) => d.classList.toggle('on', j === idx));
-    if (label) {
-      const html = slides[idx].dataset.label || '';
-      label.classList.add('is-swap');
-      setTimeout(() => { label.innerHTML = html; label.classList.remove('is-swap'); }, 200);
-    }
-  }
-  document.getElementById('dcPrev').addEventListener('click', () => go(idx - 1));
-  document.getElementById('dcNext').addEventListener('click', () => go(idx + 1));
-  dots.forEach((d, j) => d.addEventListener('click', () => go(j)));
-})();
-
-/* device specs — single-open accordion */
-(() => {
-  const specs = document.querySelectorAll('.device-specs .faq.pxcard');
-  specs.forEach(d => d.addEventListener('toggle', () => {
-    if (d.open) specs.forEach(o => { if (o !== d) o.open = false; });
-  }));
-})();
-
-/* V1 deal rows — tap a row to unfold its visual inline */
-(() => {
-  document.querySelectorAll('.deal-row').forEach(row => {
-    if (!row.querySelector('.deal-exp')) return;
-    row.setAttribute('role', 'button');
-    row.setAttribute('tabindex', '0');
-    row.setAttribute('aria-expanded', 'false');
-    const toggle = () => {
-      const open = row.classList.toggle('open');
-      row.setAttribute('aria-expanded', open ? 'true' : 'false');
-    };
-    row.addEventListener('click', e => { if (!e.target.closest('a')) toggle(); });
-    row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
-  });
-})();
-
-
 </script>
 </body>
 </html>
