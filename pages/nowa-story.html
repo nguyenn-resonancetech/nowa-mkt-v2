@@ -1176,9 +1176,11 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .defend .pets img{width:60px}
 
 /* ===== story page ===== */
-.letter-grid{display:grid;grid-template-columns:280px 1fr;gap:clamp(28px,4vw,56px);margin-top:var(--spacing-48);align-items:start}
+.shero .toc{grid-template-columns:repeat(3,1fr)}
+.tl,.progress-band .lead{max-width:880px}
+.letter-grid{display:grid;grid-template-columns:minmax(280px,360px) 1fr;gap:clamp(28px,4vw,56px);margin-top:var(--spacing-48);align-items:start}
 .letter-photo{margin:0;position:sticky;top:96px}
-.letter-photo img{width:100%;aspect-ratio:960/958;object-fit:cover;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px))}
+.letter-photo img{width:100%;height:auto;aspect-ratio:960/958;object-fit:cover;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px))}
 .letter-photo figcaption{margin-top:10px;font-family:var(--font-onest);font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--band-muted,var(--color-cloud-border))}
 .letter-body p{font-size:var(--text-subheading);line-height:1.7;color:var(--band-muted,var(--color-chalk-surface));max-width:58ch}
 .letter-body p+p,.letter-body ul+p{margin-top:1.1em}
@@ -1209,8 +1211,8 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .tl-body h3{font-size:var(--text-subheading);margin-bottom:8px}
 .tl-body>p{font-size:var(--text-body-sm);color:var(--color-slate-mid);line-height:1.6;max-width:62ch}
 .tl-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-.tl-photos figure{margin:0;overflow:hidden;border-radius:var(--radius-cards)}
-.tl-photos img{width:100%;height:100%;object-fit:cover;max-height:300px}
+.tl-photos figure{margin:0;overflow:hidden;border-radius:var(--radius-cards);aspect-ratio:3/2}
+.tl-photos img{width:100%;height:100%;object-fit:cover}
 .tl-cap{margin-top:10px;font-size:12.5px;color:var(--color-mist-body);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .tl-slot{margin-top:14px;min-height:96px}
 @media(max-width:700px){.tl{padding-left:0}.tl::before{display:none}.tl-item::after{display:none}.tl-photos{grid-template-columns:1fr}.tl-photos img{max-height:260px}}
@@ -1237,9 +1239,8 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   <div class="wrap">
     <a class="brand" href="index-permill-v2.html"><img src="assets/brand/logo-app-64.png" alt="Nowa logo" width="28" height="28" style="border-radius:7px">Nowa</a>
     <div class="navlinks">
-      <a href="#play">The play</a>
-      <a href="#missions">The missions</a>
-      <a href="#mirror">For parents</a>
+      <a href="#letter">The letter</a>
+      <a href="#progress">Where we are</a>
       <a href="index-permill-v2.html#preorder" class="btn">Pre-order</a>
     </div>
   </div>
