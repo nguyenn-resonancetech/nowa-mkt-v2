@@ -484,7 +484,7 @@ footer a:hover{color:#fff}
 .device-carousel .pxcard{--pxbg:var(--surface-ghost-white);overflow:hidden}
 .dc-track{display:flex;transition:transform 400ms var(--ease-out-strong)}
 .dc-slide{flex:none;width:100%}
-.dc-slide video,.dc-slide img{width:100%;display:block;object-fit:contain;transition:transform 300ms var(--ease-out-strong)}
+.dc-slide video,.dc-slide img{width:100%;aspect-ratio:1/1;display:block;object-fit:contain;transition:transform 300ms var(--ease-out-strong)}
 /* per-slide framing — source photos have inconsistent device size + centering;
    these scales/offsets normalize the apparent device size across the 5 slides.
    tuned visually 2026-06-25 against assets/device/{front,back,side-left,side-right}.* */
@@ -519,7 +519,7 @@ footer a:hover{color:#fff}
 /* pixel device frame for mission videos */
 .mission-art{position:relative;padding:18px;background:var(--surface-warm-parchment)}
 .device-frame{position:relative;margin:0 auto;max-width:none;background:var(--surface-pure-white);border:3px solid var(--color-deep-ink);padding:10px 10px 0}
-.device-frame video{width:100%;display:block;border:2px solid var(--color-ink-charcoal);background:var(--color-deep-ink)}
+.device-frame video{width:100%;aspect-ratio:16/9;display:block;border:2px solid var(--color-ink-charcoal);background:var(--color-deep-ink)}
 .df-buttons{display:flex;justify-content:center;gap:16px;padding:12px}
 .db{width:20px;height:20px;border-radius:50%}
 .db.y{background:var(--color-amber-signal)}
