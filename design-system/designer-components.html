@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nowa Design System — Designer Drop · July 2026</title>
+<link rel="stylesheet" href="tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--step8:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));
+  --step12:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px))}
+body{font-family:var(--font-noto-sans);color:var(--color-deep-ink);background-color:var(--surface-warm-parchment);
+  background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:var(--grid-cell) var(--grid-cell);line-height:var(--leading-body);-webkit-font-smoothing:antialiased;padding-bottom:80px}
+h1,h2,h3,h4{font-family:var(--font-onest);letter-spacing:-.025em;line-height:1.08}
+.wrap{max-width:var(--page-max-width);margin:0 auto;padding:0 var(--spacing-24)}
+header.top{background:var(--surface-deep-ink);color:#fff;padding:var(--spacing-48) 0 var(--spacing-32);margin-bottom:var(--spacing-48)}
+header.top .pill{font-family:var(--font-pixel);font-size:13px;letter-spacing:.08em;color:var(--color-coral-glow)}
+header.top h1{font-size:clamp(34px,5vw,56px);font-weight:900;margin:10px 0}
+header.top p{color:var(--color-chalk-surface);max-width:64ch}
+section.demo{padding:var(--spacing-48) 0;border-bottom:1px dashed var(--color-cloud-border)}
+.eyebrow{font-family:var(--font-pixel);font-size:14px;color:var(--color-coral-flame);letter-spacing:.06em;margin-bottom:6px}
+section.demo>.wrap>h2{font-size:var(--text-heading-lg);font-weight:800;margin-bottom:var(--spacing-24)}
+.note{font-size:var(--text-body-sm);color:var(--color-mist-body);margin-top:14px;max-width:70ch}
+.note code{font-size:12px;background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);padding:1px 5px}
+.row{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.px{image-rendering:pixelated}
+/* pixel card */
+.pxcard{position:relative;--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface);padding:var(--card-padding);filter:drop-shadow(var(--px-shadow))}
+.pxcard::before{content:"";position:absolute;inset:0;background:linear-gradient(var(--pxbg),var(--pxbg)) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat,var(--pxborder);clip-path:var(--step12);z-index:0}
+.pxcard>*{position:relative;z-index:1}
+.pxcard h3{font-size:var(--text-subheading);margin-bottom:6px}
+.pxcard p{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+/* icon specimen tiles */
+.icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:14px}
+.itile{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);padding:18px 12px 12px;text-align:center}
+.itile svg{width:40px;height:40px;display:block;margin:0 auto 10px}
+.itile img{display:block;margin:0 auto 10px}
+.itile small{font-family:var(--font-pixel);font-size:11px;letter-spacing:.05em;color:var(--color-mist-body)}
+.itile.dark{background:var(--color-ink-charcoal);color:#fff;border-color:rgba(255,255,255,.1)}
+/* library category chip (as used on the LP) */
+.licon{width:44px;height:44px;clip-path:var(--step8);display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.licon svg{width:18px;height:18px;margin:0}
+/* compare header specimen */
+.cmp-ic{width:34px;height:34px;display:block;margin:0 auto 8px}
+/* pastel fun cards — designer's restyle (white face + pastel border) */
+.fun-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;padding:6px 10px 12px 0}
+.fun.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface)}
+.fun.pxcard::before{background:linear-gradient(var(--pxbg),var(--pxbg)) 3px 3px/calc(100% - 6px) calc(100% - 6px) no-repeat,var(--pxborder)}
+.fun.pxcard h3{color:var(--color-deep-ink);font-size:var(--text-heading-sm);margin-bottom:8px}
+.fun.pxcard p{color:var(--color-slate-mid)}
+.ficon{width:80px;height:80px;margin-bottom:12px}
+/* device frame for mission videos */
+.frames{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.device-frame{position:relative;background:var(--surface-pure-white);border:3px solid var(--color-deep-ink);padding:10px 10px 0}
+.device-frame video{width:100%;aspect-ratio:16/9;display:block;border:2px solid var(--color-ink-charcoal);background:var(--color-deep-ink)}
+.df-buttons{display:flex;justify-content:center;gap:16px;padding:12px}
+.db{width:20px;height:20px;border-radius:50%}
+.db.y{background:var(--color-amber-signal)}
+.db.r{background:var(--color-coral-flame);width:34px;border-radius:10px}
+.db.b{background:#6c9bd2}
+.vlabel{font-family:var(--font-pixel);font-size:12px;letter-spacing:.06em;color:var(--color-mist-body);margin-top:8px}
+/* wordmark specimens */
+.wm{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.wm .card{border:1px solid var(--color-chalk-surface);padding:36px 28px;display:flex;align-items:center;justify-content:center;min-height:150px}
+.wm .light{background:var(--surface-warm-parchment)}
+.wm .dark{background:var(--surface-deep-ink);
+  background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell)}
+.wm img{width:min(340px,80%);height:auto;display:block}
+.wm figcaption{font-size:12px;color:var(--color-mist-body);padding:8px 2px;font-family:var(--font-pixel);letter-spacing:.05em}
+/* header usage demo */
+.navdemo{background:var(--surface-warm-parchment);border:1px solid var(--color-chalk-surface);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.navdemo img{width:107px;height:24px;display:block}
+.navdemo .links{display:flex;gap:18px;font-family:var(--font-onest);font-weight:600;font-size:14px;color:var(--color-slate-mid)}
+.footdemo{background:var(--surface-deep-ink);border:1px solid var(--color-chalk-surface);padding:34px 26px 22px;
+  background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell)}
+.footdemo img.wordmark{width:min(560px,85%);height:auto;display:block}
+.footdemo .pets{display:flex;gap:14px;justify-content:flex-end;margin-top:-40px}
+.footdemo .pets img{width:56px;height:56px}
+/* scene + deal imagery */
+.imgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;align-items:start}
+.imgs figure{background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);padding:16px;text-align:center}
+.imgs figcaption{font-family:var(--font-pixel);font-size:11px;letter-spacing:.05em;color:var(--color-mist-body);margin-top:10px}
+.imgs img{max-width:100%;height:auto}
+/* gif tiles sized */
+.g96 img{width:96px;height:96px}
+.g80 img{width:80px;height:80px}
+.dl{font-family:var(--font-pixel);font-size:12px;color:var(--color-mist-body);letter-spacing:.05em;margin:18px 0 10px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="pill">DESIGNER DROP · JULY 2026</div>
+    <h1>New components &amp; assets</h1>
+    <p>Everything Huy added in <b>nowa-mkt-v2</b>, now merged into the campaign homepage: the wordmark logo system, pixel-line spec icons, pastel compare &amp; library icons, the new pixel-art GIF set, pastel fun cards, and the compressed mission videos.</p>
+  </div>
+</header>
+
+<!-- 1 · WORDMARK LOGO SYSTEM -->
+<section class="demo">
+  <div class="wrap">
+    <div class="eyebrow">01 · BRAND</div>
+    <h2>Wordmark logo system</h2>
+    <div class="wm">
+      <figure>
+        <div class="card light"><img src="../pages/assets/brand/nowa-wordmark.svg" alt="Nowa wordmark, coral"></div>
+        <figcaption>nowa-wordmark.svg · #EF493D · light surfaces</figcaption>
+      </figure>
+      <figure>
+        <div class="card dark"><img src="../pages/assets/brand/nowa-wordmark-pastel.svg" alt="Nowa wordmark, pastel"></div>
+        <figcaption>nowa-wordmark-pastel.svg · #F3E1DB · ink surfaces</figcaption>
+      </figure>
+    </div>
+    <div class="dl">IN CONTEXT — NAV HEADER (CORAL) + FOOTER MARK (PASTEL)</div>
+    <div class="navdemo">
+      <img src="../pages/assets/brand/nowa-wordmark.svg" alt="Nowa">
+      <div class="links"><span>What it does</span><span>How it works</span><span>Compare</span></div>
+    </div>
+    <div class="footdemo" style="margin-top:14px">
+      <img class="wordmark" src="../pages/assets/brand/nowa-wordmark-pastel.svg" alt="Nowa">
+      <div class="pets">
+        <img class="px" src="../pages/assets/species/brim.png" alt="">
+        <img class="px" src="../pages/assets/species/nori.png" alt="">
+      </div>
+    </div>
+    <p class="note">The wordmark replaces the app-icon + text lockup in the LP header, and the giant typeset "Nowa." in the footer. Same drawn shape in both weights; only the fill changes per surface.</p>
+  </div>
+</section>
+
+<!-- 2 · PIXEL-LINE SPEC ICONS -->
+<section class="demo">
+  <div class="wrap">
+    <div class="eyebrow">02 · ICONS</div>
+    <h2>Pixel-line spec icons (Nucleo)</h2>
+    <div class="icons">
+      <div class="itile"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M9 18H15" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 6L13 6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M7 2H17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M7 22H17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M19 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><small>DISPLAY</small></div>
+      <div class="itile"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 10V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 6H18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 18H18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 10V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 15V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 8V9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><small>BATTERY</small></div>
+      <div class="itile"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M18 10L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 8L22 16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 6L8 6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 18L8 18.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 4L13 4L13 20L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 8L2 8V16H6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><small>AUDIO</small></div>
+      <div class="itile"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M6 5L18 5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 10L16 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 7L4 7.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20.01 7L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18.01 12L18 12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6.01001 12L6.00001 12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 9L2 9.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22.01 9L22 9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 15H13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 20H13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M15 17V18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 17V18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><small>CONNECTIVITY</small></div>
+      <div class="itile"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M5 21H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 14.01L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8.99988 16.01L8.99988 16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M7 14.01L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M15 12.01L15 15.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 10.01L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 10.01L13 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 9.01001L9 12.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M15 8.01001L15 8.00001" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 5L21 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M3 5L3 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 3H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><small>CONTROLS</small></div>
+      <div class="itile"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M6 3H18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8.01001 20L8.00001 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6.01001 18L6.00001 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16.01 20L16 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18.01 18L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 16V5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 16V5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 22H14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 14.01V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 12.01V12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 10.01V10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 8.01V8" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 12.01V12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><small>SAFETY</small></div>
+      <div class="itile"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M5 9L2 9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 9L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 19L4 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 5L4 5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 19L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 5L19 5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 21L7 21" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 11L7 11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 3L7 3" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 21L15 21" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 11L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 3L15 3" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 23L11 23" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 13L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 1L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><small>IN THE BOX</small></div>
+    </div>
+    <p class="note">Square-cap 2px strokes on a 24px grid — pixel-language line icons replacing the old rounded Lucide set in the device-spec accordions. Inline SVG, colored via <code>currentColor</code>.</p>
+  </div>
+</section>
+
+<!-- 3 · LIBRARY CATEGORY ICONS -->
+<section class="demo">
+  <div class="wrap">
+    <div class="eyebrow">03 · ICONS</div>
+    <h2>Library category icons</h2>
+    <div class="dl">SVG CHIPS — AS USED IN "MORE REWARDS AS YOUR PET GROWS"</div>
+    <div class="icons">
+      <div class="itile"><span class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M18 18V22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 18H20V12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 2H6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 4V20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 22H20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14.01 10L14 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10.01 10L10 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 6L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 12L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 8V8.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 2V2.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 4V4.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 6V6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 4V4.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><small>STORIES</small></div>
+      <div class="itile"><span class="licon" style="background:var(--color-chalk-surface);color:var(--color-deep-ink)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M16 15V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 22H11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 16H11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 20L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 20L16 15" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 4H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 6H22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 10H22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8.01001 6L8.00001 6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10.01 2L10 2" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2.01001 10L2.00001 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4.01001 6L4.00001 6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 2L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 8L6 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><small>SONGS</small></div>
+      <div class="itile"><span class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M12 19V22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 15H14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 19H16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 2H14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 4V13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 4V13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 15V10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 15V10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><rect width="2" height="2" transform="matrix(-1 0 0 1 19 16)" fill="currentColor"></rect><rect width="2" height="2" transform="matrix(-1 0 0 1 7 16)" fill="currentColor"></rect></svg></span><small>PODCASTS</small></div>
+    </div>
+    <div class="dl">PIXEL-ART PNG SET (128PX ART, FROM THE SAME FAMILY)</div>
+    <div class="icons">
+      <div class="itile"><img class="px" src="../pages/assets/pixels/lib-story.png" alt="" width="64" height="64"><small>LIB-STORY</small></div>
+      <div class="itile"><img class="px" src="../pages/assets/pixels/lib-song.png" alt="" width="64" height="64"><small>LIB-SONG</small></div>
+      <div class="itile"><img class="px" src="../pages/assets/pixels/lib-podcast.png" alt="" width="64" height="64"><small>LIB-PODCAST</small></div>
+      <div class="itile"><img class="px" src="../pages/assets/pixels/lib-soundfx.png" alt="" width="64" height="64"><small>LIB-SOUNDFX</small></div>
+    </div>
+    <p class="note">The SVG chips replaced the "St / So / Po" text placeholders on the LP. The pixel-art PNGs are the richer variants from the same drop — available for sections that want full-color art instead of line icons.</p>
+  </div>
+</section>
+
+<!-- 4 · COMPARE ICONS -->
+<section class="demo">
+  <div class="wrap">
+    <div class="eyebrow">04 · ICONS</div>
+    <h2>Compare-table category icons</h2>
+    <div class="dl">PASTEL-TINTED LINE ICONS — TABLE HEADER</div>
+    <div class="icons">
+      <div class="itile" style="color:#e59a90"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M22 12L20 12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 6L8 6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 18L8 18.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 16L18 16.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 6L20 6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 8L18 8.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 18L20 18.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 4L13 4L13 20L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 8L2 8V16H6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><small style="color:var(--color-mist-body)">AUDIO · #E59A90</small></div>
+      <div class="itile" style="color:#dcb35b"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M12 6V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 2H16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 14L14 14.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 12L6 12.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 12L10 12.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 9.99999L8 10.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 14L8 14.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 14L18 14.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 6H20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><small style="color:var(--color-mist-body)">PLAY KITS · #DCB35B</small></div>
+      <div class="itile" style="color:#8fbfe0"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M3 21L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M3 17L6 17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 17L21 17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 18L16 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M23.01 19L23 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M1.01001 19L1.00001 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M3 5L3 13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 5L21 13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M19 3L5 3" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><small style="color:var(--color-mist-body)">TABLETS · #8FBFE0</small></div>
+      <div class="itile"><img class="px cmp-ic" src="../pages/assets/species/miko-1.png" alt="" style="width:40px;height:40px"><small>NOWA · MIKO SPRITE</small></div>
+    </div>
+    <div class="dl">PIXEL-ART PNG VARIANTS (SAME CATEGORIES)</div>
+    <div class="icons">
+      <div class="itile"><img class="px" src="../pages/assets/compare/cmp-audio-permill.png" alt="" width="56" height="56"><small>CMP-AUDIO</small></div>
+      <div class="itile"><img class="px" src="../pages/assets/compare/cmp-play-permill.png" alt="" width="56" height="56"><small>CMP-PLAY</small></div>
+      <div class="itile"><img class="px" src="../pages/assets/compare/cmp-tablet-permill.png" alt="" width="56" height="56"><small>CMP-TABLET</small></div>
+    </div>
+    <p class="note">Competitor columns get muted pastel tints; the NOWA column keeps the live pet sprite so the winner reads at a glance.</p>
+  </div>
+</section>
+
+<!-- 5 · PIXEL GIF SET -->
+<section class="demo">
+  <div class="wrap">
+    <div class="eyebrow">05 · PIXEL ART</div>
+    <h2>Animated pixel GIF set</h2>
+    <div class="dl">96PX — GAME-LOOP STEPS</div>
+    <div class="icons g96">
+      <div class="itile"><img class="px" src="../pages/assets/pixels/pixel-pet-96.gif" alt="Pet expressing an emotion"><small>PIXEL-PET-96</small></div>
+      <div class="itile"><img class="px" src="../pages/assets/pixels/watering-can-96.gif" alt="Watering can"><small>WATERING-CAN-96</small></div>
+      <div class="itile"><img class="px" src="../pages/assets/pixels/pet-evolution-96.gif" alt="Pet evolving"><small>PET-EVOLUTION-96</small></div>
+      <div class="itile"><img class="px" src="../pages/assets/pixels/kid-star-96.gif" alt="Kid with star"><small>KID-STAR-96</small></div>
+    </div>
+    <div class="dl">80PX — FUN-CARD ICONS</div>
+    <div class="icons g80">
+      <div class="itile dark"><img class="px" src="../pages/assets/pixels/pet-loved-80.gif" alt="Pet glowing with a heart"><small style="color:rgba(255,255,255,.6)">PET-LOVED-80</small></div>
+      <div class="itile dark"><img class="px" src="../pages/assets/pixels/pet-evolution-80.gif" alt="Pet evolving"><small style="color:rgba(255,255,255,.6)">PET-EVOLUTION-80</small></div>
+      <div class="itile dark"><img class="px" src="../pages/assets/pixels/kid-star-80.gif" alt="Kid with star"><small style="color:rgba(255,255,255,.6)">KID-STAR-80</small></div>
+      <div class="itile dark"><img class="px" src="../pages/assets/pixels/pet-reading-80.gif" alt="Pet reading"><small style="color:rgba(255,255,255,.6)">PET-READING-80</small></div>
+    </div>
+    <p class="note">Replaces the older <code>miko_*_anim</code> GIFs at larger, consistent sizes: 96px in the game-loop steps, 80px in the fun cards.</p>
+  </div>
+</section>
+
+<!-- 6 · PASTEL FUN CARDS -->
+<section class="demo">
+  <div class="wrap">
+    <div class="eyebrow">06 · COMPONENTS</div>
+    <h2>Pastel fun cards</h2>
+    <div class="fun-grid">
+      <div class="fun pxcard" style="--pxborder:#f2a9a0"><img class="px ficon" src="../pages/assets/pixels/pet-loved-80.gif" alt=""><h3>Care for it like a real pet</h3><p>A real little creature to feed, wash, play with, and tuck in.</p></div>
+      <div class="fun pxcard" style="--pxborder:#f0cd83"><img class="px ficon" src="../pages/assets/pixels/pet-evolution-80.gif" alt=""><h3>Collect a world of creatures</h3><p>A whole planet of creatures to collect, each evolving with care.</p></div>
+      <div class="fun pxcard" style="--pxborder:#9fd4a3"><img class="px ficon" src="../pages/assets/pixels/kid-star-80.gif" alt=""><h3>Games to play side by side</h3><p>Mini-games and little quests, just for the fun of it.</p></div>
+      <div class="fun pxcard" style="--pxborder:#a8cceb"><img class="px ficon" src="../pages/assets/pixels/pet-reading-80.gif" alt=""><h3>A world that keeps opening up</h3><p>Caring unlocks stories, songs, and fun-fact podcasts.</p></div>
+    </div>
+    <p class="note">Restyled from dark ink-tinted fills to white faces with a 3px pastel pixel border — coral <code>#f2a9a0</code>, amber <code>#f0cd83</code>, leaf <code>#9fd4a3</code>, sky <code>#a8cceb</code> — matching the compare-icon tints.</p>
+  </div>
+</section>
+
+<!-- 7 · MISSION VIDEOS -->
+<section class="demo">
+  <div class="wrap">
+    <div class="eyebrow">07 · VIDEO</div>
+    <h2>Mission videos (compressed)</h2>
+    <div class="frames">
+      <div>
+        <div class="device-frame">
+          <video src="../pages/assets/videos/mission-emotional.mp4" autoplay muted loop playsinline aria-label="Emotional mission on the Nowa device"></video>
+          <div class="df-buttons" aria-hidden="true"><span class="db y"></span><span class="db r"></span><span class="db b"></span></div>
+        </div>
+        <div class="vlabel">MISSION-EMOTIONAL.MP4 · 0.56 MB (WAS 1.2 MB)</div>
+      </div>
+      <div>
+        <div class="device-frame">
+          <video src="../pages/assets/videos/mission-executive.mp4" autoplay muted loop playsinline aria-label="Executive-function mission on the Nowa device"></video>
+          <div class="df-buttons" aria-hidden="true"><span class="db y"></span><span class="db r"></span><span class="db b"></span></div>
+        </div>
+        <div class="vlabel">MISSION-EXECUTIVE.MP4 · 0.68 MB (WAS 5.7 MB)</div>
+      </div>
+    </div>
+    <p class="note">New compressed cuts for the "big feelings" and "planning &amp; focus" mission tabs, shown in the pixel device frame. The mission panel now runs a wider <code>1fr&nbsp;1.6fr</code> grid so the video frame reads bigger.</p>
+  </div>
+</section>
+
+<!-- 8 · SCENES & IMAGERY -->
+<section class="demo">
+  <div class="wrap">
+    <div class="eyebrow">08 · IMAGERY</div>
+    <h2>Scenes &amp; product imagery</h2>
+    <div class="imgs">
+      <figure>
+        <img class="px" src="../pages/assets/scenes/scene-care-permill.png" alt="Pixel scene of a child watering a sprout" style="width:128px;height:128px">
+        <figcaption>SCENE-CARE-PERMILL.PNG · PULL-QUOTE ART</figcaption>
+      </figure>
+      <figure>
+        <img src="../pages/assets/showcase/whatyouget-1.png" alt="What you get — Nowa device bundle">
+        <figcaption>WHATYOUGET-1.PNG · PRE-ORDER DEAL EXPAND</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

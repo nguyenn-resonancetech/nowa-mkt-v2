@@ -256,7 +256,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .mtab{--side:4px;--tab-top:var(--surface-pure-white);--tab-side:var(--color-cloud-border);font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);padding:11px 20px 15px;border-radius:0;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));border:0;background:linear-gradient(var(--tab-top),var(--tab-top)) no-repeat 0 0/100% calc(100% - var(--side)),var(--tab-side);color:var(--color-slate-mid);cursor:pointer;transition:color 150ms ease,transform 70ms steps(2)}
 .mtab:active{--side:2px;transform:translateY(2px)}
 .mtab.on{--side:2px;--tab-top:var(--color-deep-ink);--tab-side:var(--color-ink-charcoal);transform:translateY(2px);color:#fff}
-.mpanel{margin-top:var(--spacing-32);display:grid;grid-template-columns:1fr 1.15fr;gap:var(--spacing-48);align-items:center;background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards-lg);padding:clamp(28px,4vw,56px)}
+.mpanel{margin-top:var(--spacing-32);display:grid;grid-template-columns:1fr 1.6fr;gap:var(--spacing-32);align-items:center;background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-cards-lg);padding:clamp(28px,4vw,56px)}
 .mpanel h3{font-size:clamp(22px,2.4vw,30px);letter-spacing:-.015em;line-height:1.2}
 .mpanel p{margin-top:14px;color:var(--color-slate-mid)}
 .mpanel .mreal{margin-top:22px;font-size:var(--text-body-sm);font-weight:600;color:var(--color-deep-ink);display:flex;align-items:center;gap:10px}
@@ -370,6 +370,10 @@ footer a:hover{color:#fff}
 .pxcard>*{position:relative;z-index:1}
 .revcard{--pxbg:var(--surface-warm-parchment)}
 .talk-demo.pxcard,.egg-card,.fun.pxcard{--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.06)}
+.fun.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface)}
+.fun.pxcard::before{background:linear-gradient(var(--pxbg),var(--pxbg)) 3px 3px/calc(100% - 6px) calc(100% - 6px) no-repeat,var(--pxborder)}
+.fun.pxcard h3{color:var(--color-deep-ink)}
+.fun.pxcard p{color:var(--color-slate-mid)}
 .adv.pxcard{--pxbg:var(--surface-pure-white);--pxborder:var(--color-chalk-surface)}
 .dark .pullq{--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.08)}
 .blueprint{--pxbg:var(--surface-ghost-white)}
@@ -450,7 +454,7 @@ footer a:hover{color:#fff}
 .dark .pxslot{background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 8px,transparent 8px 16px),var(--color-ink-charcoal);border-color:var(--color-slate-mid)}
 .sicon{height:80px;margin-bottom:12px;border:1px solid var(--color-chalk-surface);border-radius:4px}
 .cicon{width:74px;height:74px;object-fit:contain;object-position:left center;margin-bottom:14px;display:block}
-.ficon{height:70px;margin-bottom:12px}
+.ficon{width:80px;height:80px;margin-bottom:12px}
 .ticon{width:13px;height:13px;border:2px dashed currentColor;display:inline-block;margin-right:8px;vertical-align:-2px;opacity:.55}
 /* marching pixels + care loopback */
 @keyframes march{to{background-position:12px 0}}
@@ -517,7 +521,7 @@ footer a:hover{color:#fff}
   .device-hybrid{grid-template-columns:1fr}
 }
 /* pixel device frame for mission videos */
-.mission-art{position:relative;padding:18px;background:var(--surface-warm-parchment)}
+.mission-art{position:relative;padding:0;background:var(--surface-warm-parchment);border-radius:0}
 .device-frame{position:relative;margin:0 auto;max-width:none;background:var(--surface-pure-white);border:3px solid var(--color-deep-ink);padding:10px 10px 0}
 .device-frame video{width:100%;aspect-ratio:16/9;display:block;border:2px solid var(--color-ink-charcoal);background:var(--color-deep-ink)}
 .df-buttons{display:flex;justify-content:center;gap:16px;padding:12px}
@@ -731,7 +735,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .gameloop .loop-rail{position:absolute;left:14px;top:12px;bottom:78px;width:6px;background:repeating-linear-gradient(180deg,var(--color-coral-flame) 0 6px,transparent 6px 12px);background-size:6px 12px;animation:marchY 700ms linear infinite}
 @keyframes marchY{to{background-position:0 12px}}
 .gameloop .step{position:relative;margin-bottom:var(--spacing-16);display:flex;gap:16px;align-items:flex-start;padding:clamp(20px,2.2vw,26px)}
-.gameloop .step .sicon{flex:none;height:58px;width:auto;max-width:64px;border:0;border-radius:0;margin:2px 0 0}
+.gameloop .step .sicon{flex:none;height:96px;width:96px;border:0;border-radius:0;margin:2px 0 0}
 .gameloop .step .step-body{flex:1;min-width:0}
 .gameloop .step .n{font-family:var(--font-pixel);font-size:18px;color:var(--color-coral-flame);margin-bottom:4px;line-height:1}
 .gameloop .step h3{font-size:var(--text-subheading);margin-bottom:6px;line-height:1.2}
@@ -806,6 +810,9 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 /* pixel category icons + NOWA pet on the header row */
 .cmptbl thead th{vertical-align:bottom}
 .cmptbl .cmp-ic{width:34px;height:34px;object-fit:contain;display:block;margin:0 auto 6px}
+.cmptbl thead th:nth-child(2) .cmp-ic{color:#e59a90}
+.cmptbl thead th:nth-child(3) .cmp-ic{color:#dcb35b}
+.cmptbl thead th:nth-child(4) .cmp-ic{color:#8fbfe0}
 .cmptbl .cmp-ic-pet{width:40px;height:40px;animation:pbob 1.6s steps(2) infinite}
 @media(prefers-reduced-motion:reduce){.cmptbl .cmp-ic-pet{animation:none}}
 /* frame the NOWA column in coral so the winner reads at a glance */
@@ -1036,7 +1043,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#"><img src="assets/brand/logo-app-64.png" alt="Nowa logo" width="28" height="28" style="border-radius:7px">Nowa</a>
+    <a class="brand" href="#"><img src="assets/brand/nowa-wordmark.svg" alt="Nowa" width="107" height="24" style="display:block"></a>
     <div class="navlinks">
       <a href="#learnings">What it does</a>
       <a href="#mechanic">How it works</a>
@@ -1131,31 +1138,31 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <!-- RIGHT: 6 spec accordions -->
       <div class="device-specs">
         <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="18" x2="15" y2="18"/></svg></span><span>Display</span><span class="fplus">+</span></summary>
+          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M9 18H15" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 6L13 6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M7 2H17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M7 22H17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M19 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Display</span><span class="fplus">+</span></summary>
           <div class="faq-a"><div><div class="dspec-val">320 × 240 color LCD</div><p>Scratch-resistant screen cover. Vivid colors built for pixel-art pet animations.</p></div></div>
         </details>
         <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="7" width="12" height="14" rx="2"/><line x1="10" y1="3" x2="10" y2="7"/><line x1="14" y1="3" x2="14" y2="7"/><line x1="10" y1="17" x2="14" y2="17"/></svg></span><span>Battery</span><span class="fplus">+</span></summary>
+          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 10V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 6H18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 18H18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 10V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 15V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 8V9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Battery</span><span class="fplus">+</span></summary>
           <div class="faq-a"><div><div class="dspec-val">2,000 mAh · 8–10 hours</div><p>USB-C fast charging. Lasts a full day of play on a single charge.</p></div></div>
         </details>
         <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg></span><span>Audio</span><span class="fplus">+</span></summary>
+          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M18 10L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 8L22 16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 6L8 6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 18L8 18.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 4L13 4L13 20L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 8L2 8V16H6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Audio</span><span class="fplus">+</span></summary>
           <div class="faq-a"><div><div class="dspec-val">Speaker + microphone + 3.5 mm jack</div><p>Clear audio up to 2 m. Push-to-talk mic for the child's voice. Plug in any kid headphones.</p></div></div>
         </details>
         <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg></span><span>Connectivity</span><span class="fplus">+</span></summary>
+          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M6 5L18 5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 10L16 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 7L4 7.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20.01 7L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18.01 12L18 12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6.01001 12L6.00001 12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 9L2 9.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22.01 9L22 9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 15H13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 20H13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M15 17V18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 17V18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Connectivity</span><span class="fplus">+</span></summary>
           <div class="faq-a"><div><div class="dspec-val">Wi-Fi 2.4 GHz · Bluetooth 5.0 LE · full offline play</div><p>Works offline. Stories, songs, and missions download to the device so your child can play anywhere. Connects when available for updates and new content.</p></div></div>
         </details>
         <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg></span><span>Controls</span><span class="fplus">+</span></summary>
+          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M5 21H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 14.01L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8.99988 16.01L8.99988 16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M7 14.01L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M15 12.01L15 15.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 10.01L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 10.01L13 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 9.01001L9 12.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M15 8.01001L15 8.00001" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 5L21 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M3 5L3 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 3H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Controls</span><span class="fplus">+</span></summary>
           <div class="faq-a"><div><div class="dspec-val">3 buttons + scroll wheel + motion sensor</div><p>Physical-only input, simple enough for age 3. Power, voice (push-to-talk), select/back. Scroll wheel for menus. Shake and tilt the device to play.</p></div></div>
         </details>
         <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span><span>Safety &amp; privacy</span><span class="fplus">+</span></summary>
+          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M6 3H18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8.01001 20L8.00001 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6.01001 18L6.00001 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16.01 20L16 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18.01 18L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 16V5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 16V5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 22H14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 14.01V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 12.01V12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 10.01V10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 8.01V8" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 12.01V12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Safety &amp; privacy</span><span class="fplus">+</span></summary>
           <div class="faq-a"><div><div class="dspec-val">Hardware mic mute switch</div><p>Physical circuit disconnect, not software. When the switch is off, no audio can be captured. FCC, CPSIA, and ASTM F963 toy-safety certified. Lead-free, phthalate-free materials.</p></div></div>
         </details>
         <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span><span>In the box</span><span class="fplus">+</span></summary>
+          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M5 9L2 9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 9L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 19L4 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 5L4 5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 19L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 5L19 5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 21L7 21" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 11L7 11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 3L7 3" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 21L15 21" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 11L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 3L15 3" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 23L11 23" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 13L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 1L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>In the box</span><span class="fplus">+</span></summary>
           <div class="faq-a"><div><div class="dspec-val">Device · USB-C cable · manual</div><p>2.9 × 3.2 in (7.3 × 8.0 cm). Fits a coat pocket or backpack pouch. ABS case with rounded, child-safe edges, built for small hands. Ships with a 0.5 m USB-C charging cable, quick-start manual, and safety booklet.</p></div></div>
         </details>
       </div>
@@ -1183,7 +1190,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <p class="mreal"><span class="cell"></span><span id="mReal">Shaped with Dr. Steven Kurtz · Parent-child interaction</span></p>
       </div>
       <div class="mission-art">
-        <div class="pxgrid graph"></div>
         <div class="device-frame mfade" id="mVidWrap">
           <video id="mVid" src="assets/videos/the-mission-engine-02.mp4" autoplay muted loop playsinline aria-label="A mission on the Nowa device screen"></video>
           <div class="df-buttons" aria-hidden="true"><span class="db y"></span><span class="db r"></span><span class="db b"></span></div>
@@ -1245,14 +1251,14 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <p class="lead reveal" style="margin-top:14px;max-width:54ch">No chores assigned, no behaviour graded. The pet just has needs and feelings, and the loop turns on its own.</p>
     <div class="gameloop reveal-group">
       <span class="loop-rail" aria-hidden="true"></span>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/miko_msg_anim.gif" alt="Nowa pet expressing an emotion" loading="lazy" decoding="async"><div class="step-body"><div class="n">01</div><h3>The pet feels</h3><p>Hungry, sleepy, or wobbly, shown in its own sounds and motion.</p></div></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/watering_can_anim_80px.gif" alt="Watering can caring for the pet" loading="lazy" decoding="async"><div class="step-body"><div class="n">02</div><h3>Your child cares</h3><p>Little needs, met with a tap. Big ones become missions, out in the real world.</p></div></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/miko_evolution_loop_80px.gif" alt="Nowa pet evolving from small to big" loading="lazy" decoding="async"><div class="step-body"><div class="n">03</div><h3>The pet grows</h3><p>It thrives and evolves. The reward your child can see.</p></div></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/kid_wave_anim_80px.gif" alt="Pixel child waving" loading="lazy" decoding="async"><div class="step-body"><div class="n">04</div><h3>Your child grows</h3><p>Calm and routines form on their own, out of the bond.</p></div></div>
+      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/pixel-pet-96.gif" alt="Nowa pet expressing an emotion" loading="lazy" decoding="async"><div class="step-body"><div class="n">01</div><h3>The pet feels</h3><p>Hungry, sleepy, or wobbly, shown in its own sounds and motion.</p></div></div>
+      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/watering-can-96.gif" alt="Watering can caring for the pet" loading="lazy" decoding="async"><div class="step-body"><div class="n">02</div><h3>Your child cares</h3><p>Little needs, met with a tap. Big ones become missions, out in the real world.</p></div></div>
+      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/pet-evolution-96.gif" alt="Nowa pet evolving from small to big" loading="lazy" decoding="async"><div class="step-body"><div class="n">03</div><h3>The pet grows</h3><p>It thrives and evolves. The reward your child can see.</p></div></div>
+      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/kid-star-96.gif" alt="Pixel child waving" loading="lazy" decoding="async"><div class="step-body"><div class="n">04</div><h3>Your child grows</h3><p>Calm and routines form on their own, out of the bond.</p></div></div>
       <div class="loopback again reveal" aria-hidden="true"><span class="lb-line"></span><span class="lb-txt"><span class="lb-words">AND AROUND AGAIN </span><span class="lb-rot">↻</span></span><span class="lb-line r"></span></div>
     </div>
     <figure class="pullq reveal pxcard" style="margin-top:var(--spacing-48)">
-      <img class="px" src="assets/scenes/scene-care-loop.png" alt="Pixel-art scene of a child watering a sprout" loading="lazy" decoding="async">
+      <img class="px" src="assets/scenes/scene-care-permill.png" alt="Pixel-art scene of a child watering a sprout" width="128" height="128" style="width:128px;height:128px" loading="lazy" decoding="async">
       <figcaption><p class="qt"><span class="qd ql" aria-hidden="true">“</span><b>Play beats being taught.</b> Across 17 studies of nearly 3,900 children, learning woven into play beat direct teaching for gains in early maths, focus, and task-switching.<span class="qd qr" aria-hidden="true">”</span></p><p class="who">Skene et al., Child Development, 2022 · meta-analysis of guided play</p></figcaption>
     </figure>
   </div>
@@ -1316,10 +1322,10 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <span class="esub" id="eggSub">Tap to hatch · your child won't know who's inside either</span>
       </button>
       <div class="fun-grid reveal-group">
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 66%,var(--color-coral-glow))"><img class="px ficon" src="assets/pixels/miko_heart_58x42.png" alt="Pet glowing with a heart" loading="lazy" decoding="async"><h3>Care for it like a real pet</h3><p>A real little creature to feed, wash, play with, and tuck in. Caring for someone other than themselves is where the bond starts.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 72%,var(--color-amber-signal))"><img class="px ficon" src="assets/pixels/miko_evolution_loop_80px.gif" alt="Pet evolving into a new form" loading="lazy" decoding="async"><h3>Collect a world of creatures</h3><p>A whole planet of creatures to collect, each evolving with your child's care, so no two journeys are ever the same.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 74%,var(--color-leaf-success))"><img class="px ficon" src="assets/pixels/kid_wave_anim_80px.gif" alt="Child playing alongside their pet" loading="lazy" decoding="async"><h3>Games to play side by side</h3><p>Mini-games and little quests your child and their pet take on together, just for the fun of it.</p></div>
-        <div class="fun pxcard" style="--pxbg:color-mix(in srgb,var(--color-ink-charcoal) 62%,var(--color-coral-blush))"><img class="px ficon" src="assets/pixels/miko_read_x3.png" alt="Pet with an open storybook" loading="lazy" decoding="async"><h3>A world that keeps opening up</h3><p>Caring unlocks more to enjoy: bedtime stories, songs, and fun-fact podcasts. The more they care, the bigger the world gets.</p></div>      </div>
+        <div class="fun pxcard" style="--pxborder:#f2a9a0"><img class="px ficon" src="assets/pixels/pet-loved-80.gif" alt="Pet glowing with a heart" loading="lazy" decoding="async"><h3>Care for it like a real pet</h3><p>A real little creature to feed, wash, play with, and tuck in. Caring for someone other than themselves is where the bond starts.</p></div>
+        <div class="fun pxcard" style="--pxborder:#f0cd83"><img class="px ficon" src="assets/pixels/pet-evolution-80.gif" alt="Pet evolving into a new form" loading="lazy" decoding="async"><h3>Collect a world of creatures</h3><p>A whole planet of creatures to collect, each evolving with your child's care, so no two journeys are ever the same.</p></div>
+        <div class="fun pxcard" style="--pxborder:#9fd4a3"><img class="px ficon" src="assets/pixels/kid-star-80.gif" alt="Child playing alongside their pet" loading="lazy" decoding="async"><h3>Games to play side by side</h3><p>Mini-games and little quests your child and their pet take on together, just for the fun of it.</p></div>
+        <div class="fun pxcard" style="--pxborder:#a8cceb"><img class="px ficon" src="assets/pixels/pet-reading-80.gif" alt="Pet with an open storybook" loading="lazy" decoding="async"><h3>A world that keeps opening up</h3><p>Caring unlocks more to enjoy: bedtime stories, songs, and fun-fact podcasts. The more they care, the bigger the world gets.</p></div>      </div>
     </div>
   </div>
   <div class="species-strip">
@@ -1342,15 +1348,15 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <p class="who reveal">Who might your child meet? Never a set to complete.</p>
     <p class="unlock-head reveal"><span class="ln"></span> MORE REWARDS AS YOUR PET GROWS <span class="ln"></span></p>
     <div class="libs reveal-group">
-      <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)">St</div><h3>Stories</h3><p>Classics retold, plus original tales from the Nowa universe.</p>
+      <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M18 18V22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 18H20V12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 2H6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 4V20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 22H20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14.01 10L14 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10.01 10L10 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 6L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 12L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 8V8.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 2V2.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 4V4.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 6V6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 4V4.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></div><h3>Stories</h3><p>Classics retold, plus original tales from the Nowa universe.</p>
         <div class="tracks">
           <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/027-the-lion-and-the-mouse-69yo-female.mp3"><button class="pbtn" aria-label="Play The Lion and the Mouse"><span class="pb-ico"></span></button><span class="ttl">The Lion and the Mouse</span><span class="dur">2:16</span></div>
         </div><div class="pbar"><i></i></div></div>
-      <div class="lib pxcard"><div class="licon" style="background:var(--color-chalk-surface);color:var(--color-deep-ink)">So</div><h3>Songs</h3><p>A morning anthem to start the day, a lullaby to end it.</p>
+      <div class="lib pxcard"><div class="licon" style="background:var(--color-chalk-surface);color:var(--color-deep-ink)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M16 15V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 22H11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 16H11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 20L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 20L16 15" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 4H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 6H22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 10H22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8.01001 6L8.00001 6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10.01 2L10 2" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2.01001 10L2.00001 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4.01001 6L4.00001 6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 2L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 8L6 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></div><h3>Songs</h3><p>A morning anthem to start the day, a lullaby to end it.</p>
         <div class="tracks">
           <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/015-yellow-duck.mp3"><button class="pbtn" aria-label="Play Yellow Duck"><span class="pb-ico"></span></button><span class="ttl">Yellow Duck</span><span class="dur">1:27</span></div>
         </div><div class="pbar"><i></i></div></div>
-      <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)">Po</div><h3>Podcasts</h3><p>A curious host and a real expert, on science, nature, and life.</p>
+      <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M12 19V22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 15H14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 19H16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 2H14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 4V13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 4V13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 15V10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 15V10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><rect width="2" height="2" transform="matrix(-1 0 0 1 19 16)" fill="currentColor"></rect><rect width="2" height="2" transform="matrix(-1 0 0 1 7 16)" fill="currentColor"></rect></svg></div><h3>Podcasts</h3><p>A curious host and a real expert, on science, nature, and life.</p>
         <div class="tracks">
           <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/001-why-do-planets-spin.mp3"><button class="pbtn" aria-label="Play Why Do Planets Spin?"><span class="pb-ico"></span></button><span class="ttl">Why Do Planets Spin?</span><span class="dur">10:57</span></div>
         </div><div class="pbar"><i></i></div></div>
@@ -1484,7 +1490,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <div class="cmptbl-scroll">
       <table>
         <thead>
-          <tr><th scope="col"></th><th scope="col"><img class="px cmp-ic" src="assets/compare/cmp-audio.png" alt="" loading="lazy" decoding="async"><span>Audio</span></th><th scope="col"><img class="px cmp-ic" src="assets/compare/cmp-play.png" alt="" loading="lazy" decoding="async"><span>Play kits</span></th><th scope="col"><img class="px cmp-ic" src="assets/compare/cmp-tablet.png" alt="" loading="lazy" decoding="async"><span>Tablets</span></th><th scope="col" class="col-us"><img class="px cmp-ic cmp-ic-pet" src="assets/species/miko-1.png" alt="" loading="lazy" decoding="async"><span>NOWA</span></th></tr>
+          <tr><th scope="col"></th><th scope="col"><svg class="cmp-ic" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M22 12L20 12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 6L8 6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 18L8 18.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 16L18 16.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 6L20 6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 8L18 8.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 18L20 18.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 4L13 4L13 20L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 8L2 8V16H6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><span>Audio</span></th><th scope="col"><svg class="cmp-ic" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M12 6V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 2H16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 14L14 14.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 12L6 12.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 12L10 12.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 9.99999L8 10.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 14L8 14.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 14L18 14.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 6H20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><span>Play kits</span></th><th scope="col"><svg class="cmp-ic" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M3 21L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M3 17L6 17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 17L21 17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 18L16 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M23.01 19L23 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M1.01001 19L1.00001 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M3 5L3 13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 5L21 13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M19 3L5 3" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><span>Tablets</span></th><th scope="col" class="col-us"><img class="px cmp-ic cmp-ic-pet" src="assets/species/miko-1.png" alt="" loading="lazy" decoding="async"><span>NOWA</span></th></tr>
         </thead>
         <tbody>
           <tr><th scope="row">Responds to your child</th><td class="n">✗</td><td class="n">✗</td><td class="p">~</td><td class="col-us y">✓</td></tr>
@@ -1543,7 +1549,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
             <span class="deal-ic deal-th" aria-hidden="true"><img src="assets/device/front.webp" alt="" loading="lazy" decoding="async"></span>
             <span class="deal-name">Nowa device (retail)</span>
             <span class="deal-val">$149</span>
-            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/device.webp" alt="" loading="lazy" decoding="async"></div></div>
+            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/whatyouget-1.png" alt="" loading="lazy" decoding="async"></div></div>
           </li>
           <li class="deal-row">
             <span class="deal-ic deal-th deal-th-zoom" aria-hidden="true"><img src="assets/showcase/nowa-plus.webp" alt="" style="object-position:38% 55%" loading="lazy" decoding="async"></span>
@@ -1674,17 +1680,13 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
 <footer>
   <div class="wrap foot-top">
-    <div>
-      <div class="brand" style="color:#fff"><img src="assets/brand/logo-app.png" alt="" width="28" height="28" style="border-radius:7px" loading="lazy" decoding="async">Nowa</div>
-      <p style="margin-top:10px;max-width:32ch">A pet that helps kids grow.<br>By Nowa Technologies.</p>
-    </div>
     <div style="display:flex;gap:48px;flex-wrap:wrap">
       <div style="display:flex;flex-direction:column;gap:8px"><a href="#mechanic">How it works</a><a href="#learnings">The science</a><a href="#compare">Compare</a></div>
       <div style="display:flex;flex-direction:column;gap:8px"><a href="#world">The world</a><a href="#preorder">Pre-order</a><a href="#safety">Safety &amp; privacy</a></div>
     </div>
   </div>
   <div class="wrap foot-mark graph-dark">
-    <div class="foot-word">Nowa<span>.</span></div>
+    <div class="foot-word"><img src="assets/brand/nowa-wordmark-pastel.svg" alt="Nowa" style="width:clamp(240px,55vw,680px);height:auto;display:block"></div>
     <div class="foot-pets" aria-hidden="true">
       <img class="px" src="assets/species/brim.png" alt="" width="72" height="72" loading="lazy" decoding="async">
       <img class="px" src="assets/species/nori.png" alt="" width="72" height="72" loading="lazy" decoding="async">
@@ -1746,12 +1748,12 @@ document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el))
      b: 'Naming a big feeling, taking turtle-time, riding out a wobble. Low-stakes reps with the pet, so the skill is there when a real meltdown comes.',
      r: 'Shaped with Dr. Susanne Denham · Emotional competence',
      sbig: '2× more likely', stxt: 'Kindergartners who could manage big feelings were about twice as likely to earn a college degree by their mid-20s as peers who struggled.', ssrc: 'Jones, Greenberg & Crowley, AJPH, 2015 · 753 children tracked ~20 years',
-     vid: 'assets/videos/the-mission-engine-04.mp4'},
+     vid: 'assets/videos/mission-emotional.mp4'},
     {h: 'Planning, focus, and finishing.',
      b: 'Missions that ask your child to plan a few steps, hold attention, and see something through. The skills school leans on hardest.',
      r: 'Shaped with Dr. Megan McClelland · Executive function',
      sbig: '~50% likelier', stxt: 'Kids with stronger attention and persistence at age 4 were about 50% more likely to finish college by 25, regardless of early reading or maths.', ssrc: 'McClelland et al., 2013',
-     vid: 'assets/videos/the-mission-engine-03.mp4'}
+     vid: 'assets/videos/mission-executive.mp4'}
   ];
   const tabs = [...document.querySelectorAll('.mtab[data-m]')];
   if (!tabs.length) return;
@@ -1928,7 +1930,7 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
 /* smooth momentum scroll (Lenis) — skipped under reduced-motion for accessibility */
 (() => {
   if (reduced || typeof Lenis === 'undefined') return;
-  const lenis = new Lenis({ lerp: 0.17, wheelMultiplier: 1.1, smoothWheel: true });
+  const lenis = new Lenis({ lerp: 0.07, wheelMultiplier: 1, smoothWheel: true });
   function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
   /* route same-page anchors through Lenis for smooth glide */
