@@ -1176,6 +1176,11 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .defend .pets img{width:60px}
 
 /* ===== story page ===== */
+.shero-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4.5vw,64px);align-items:center;margin-bottom:var(--spacing-32)}
+.hero-draw{margin:0;transform:rotate(-1.25deg)}
+.hero-draw img{width:100%;height:auto;background:#fff;border:1px solid var(--color-cloud-border);box-shadow:6px 6px 0 rgba(22,28,36,.14)}
+.hero-draw figcaption{margin-top:10px;font-family:var(--font-onest);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--color-slate-mid);text-align:right}
+@media(max-width:860px){.shero-grid{grid-template-columns:1fr;gap:28px}.hero-draw{transform:rotate(-1deg);max-width:520px}}
 .shero .toc{grid-template-columns:repeat(3,1fr)}
 .dark .btn-ghost{color:var(--band-muted,var(--color-chalk-surface))}
 .dark .btn-ghost:hover{border-bottom-color:var(--color-coral-glow)}
@@ -1222,7 +1227,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 </head>
 <body>
 
-<div class="note">NOWA STORY · sub-page draft for partner review. Timeline dates from the hardware plan (Jul 2026), pending sign-off; lifestyle photos are SAMPLE previews.</div>
+<div class="note">NOWA STORY · sub-page draft for partner review. Timeline dates from the hardware plan (Jul 2026), pending sign-off. All photos and drawings are real project artifacts.</div>
 
 <div class="readbar" aria-hidden="true"></div>
 
@@ -1259,9 +1264,17 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <header class="shero" id="top">
   <div class="wrap">
     <a class="backlink" href="index-permill-v2.html">← Back to Nowa</a>
-    <p class="hero-eyebrow">Our story · July 2026</p>
-    <h1>Built in the open.<br>For the families who asked.</h1>
-    <p class="lead">Why Dan built Nowa, who he built it with, and exactly where it stands today. No polish, no spin.</p>
+    <div class="shero-grid">
+      <div class="shero-txt">
+        <p class="hero-eyebrow">Our story · July 2026</p>
+        <h1>Built in the open.<br>For the families who asked.</h1>
+        <p class="lead">Why Dan built Nowa, who he built it with, and exactly where it stands today. No polish, no spin.</p>
+      </div>
+      <figure class="hero-draw reveal">
+        <img src="assets/story/part-line-drawing.webp" alt="NOWA device engineering drawing: six part line views with dimensions and the NOWA title block" width="1600" height="1236" decoding="async">
+        <figcaption>The part line drawing · from the tooling package, July 2026</figcaption>
+      </figure>
+    </div>
     <div class="toc reveal-group">
       <a class="pxcard" href="#letter"><span class="tn">01</span><h3>Why I built Nowa</h3><p>The letter, from a brand-new dad.</p></a>
       <a class="pxcard" href="#progress"><span class="tn">02</span><h3>Where we are</h3><p>Prototypes are in family homes. EVT starts late July.</p></a>
