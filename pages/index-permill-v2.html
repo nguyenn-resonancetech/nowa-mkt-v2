@@ -25,6 +25,9 @@
   --grid-line: rgba(22,28,36,.08);
   --grid-cell: 28px;
   --z-rail: 30; --z-nav: 40;
+  /* pastel accents (designer drop) — decorative only, never actions */
+  --color-pastel-coral:#f2a9a0; --color-pastel-amber:#f0cd83; --color-pastel-leaf:#9fd4a3; --color-pastel-sky:#a8cceb;
+  --color-tint-coral:#e59a90; --color-tint-amber:#dcb35b; --color-tint-sky:#8fbfe0;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font-noto-sans);color:var(--color-deep-ink);background-color:var(--surface-warm-parchment);background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:var(--grid-cell) var(--grid-cell);background-attachment:fixed;background-position:0 16px;font-size:var(--text-body);line-height:var(--leading-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
@@ -810,9 +813,9 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 /* pixel category icons + NOWA pet on the header row */
 .cmptbl thead th{vertical-align:bottom}
 .cmptbl .cmp-ic{width:34px;height:34px;object-fit:contain;display:block;margin:0 auto 6px}
-.cmptbl thead th:nth-child(2) .cmp-ic{color:#e59a90}
-.cmptbl thead th:nth-child(3) .cmp-ic{color:#dcb35b}
-.cmptbl thead th:nth-child(4) .cmp-ic{color:#8fbfe0}
+.cmptbl thead th:nth-child(2) .cmp-ic{color:var(--color-tint-coral)}
+.cmptbl thead th:nth-child(3) .cmp-ic{color:var(--color-tint-amber)}
+.cmptbl thead th:nth-child(4) .cmp-ic{color:var(--color-tint-sky)}
 .cmptbl .cmp-ic-pet{width:40px;height:40px;animation:pbob 1.6s steps(2) infinite}
 @media(prefers-reduced-motion:reduce){.cmptbl .cmp-ic-pet{animation:none}}
 /* frame the NOWA column in coral so the winner reads at a glance */
@@ -1322,10 +1325,10 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <span class="esub" id="eggSub">Tap to hatch · your child won't know who's inside either</span>
       </button>
       <div class="fun-grid reveal-group">
-        <div class="fun pxcard" style="--pxborder:#f2a9a0"><img class="px ficon" src="assets/pixels/pet-loved-80.gif" alt="Pet glowing with a heart" loading="lazy" decoding="async"><h3>Care for it like a real pet</h3><p>A real little creature to feed, wash, play with, and tuck in. Caring for someone other than themselves is where the bond starts.</p></div>
-        <div class="fun pxcard" style="--pxborder:#f0cd83"><img class="px ficon" src="assets/pixels/pet-evolution-80.gif" alt="Pet evolving into a new form" loading="lazy" decoding="async"><h3>Collect a world of creatures</h3><p>A whole planet of creatures to collect, each evolving with your child's care, so no two journeys are ever the same.</p></div>
-        <div class="fun pxcard" style="--pxborder:#9fd4a3"><img class="px ficon" src="assets/pixels/kid-star-80.gif" alt="Child playing alongside their pet" loading="lazy" decoding="async"><h3>Games to play side by side</h3><p>Mini-games and little quests your child and their pet take on together, just for the fun of it.</p></div>
-        <div class="fun pxcard" style="--pxborder:#a8cceb"><img class="px ficon" src="assets/pixels/pet-reading-80.gif" alt="Pet with an open storybook" loading="lazy" decoding="async"><h3>A world that keeps opening up</h3><p>Caring unlocks more to enjoy: bedtime stories, songs, and fun-fact podcasts. The more they care, the bigger the world gets.</p></div>      </div>
+        <div class="fun pxcard" style="--pxborder:var(--color-pastel-coral)"><img class="px ficon" src="assets/pixels/pet-loved-80.gif" alt="Pet glowing with a heart" loading="lazy" decoding="async"><h3>Care for it like a real pet</h3><p>A real little creature to feed, wash, play with, and tuck in. Caring for someone other than themselves is where the bond starts.</p></div>
+        <div class="fun pxcard" style="--pxborder:var(--color-pastel-amber)"><img class="px ficon" src="assets/pixels/pet-evolution-80.gif" alt="Pet evolving into a new form" loading="lazy" decoding="async"><h3>Collect a world of creatures</h3><p>A whole planet of creatures to collect, each evolving with your child's care, so no two journeys are ever the same.</p></div>
+        <div class="fun pxcard" style="--pxborder:var(--color-pastel-leaf)"><img class="px ficon" src="assets/pixels/kid-star-80.gif" alt="Child playing alongside their pet" loading="lazy" decoding="async"><h3>Games to play side by side</h3><p>Mini-games and little quests your child and their pet take on together, just for the fun of it.</p></div>
+        <div class="fun pxcard" style="--pxborder:var(--color-pastel-sky)"><img class="px ficon" src="assets/pixels/pet-reading-80.gif" alt="Pet with an open storybook" loading="lazy" decoding="async"><h3>A world that keeps opening up</h3><p>Caring unlocks more to enjoy: bedtime stories, songs, and fun-fact podcasts. The more they care, the bigger the world gets.</p></div>      </div>
     </div>
   </div>
   <div class="species-strip">
