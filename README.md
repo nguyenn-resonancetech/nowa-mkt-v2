@@ -26,7 +26,11 @@ blog/                 Article drafts
 ## Current state
 Content + structure phase. Pages are clean semantic HTML against `design/tokens.css`
 so they port directly into the frontend dev's framework when he merges his
-implementation in. `pages/index.html` is the first sample (homepage).
+implementation in. `pages/index-permill-v2.html` is the homepage for the pre-order
+campaign (the root `index.html` redirects to it). `pages/the-science.html` is its
+science sub-page; a Nowa Story page (founder story + progress) is planned.
+Earlier builds (`pages/index.html`, `pages/index-v2.html`, `pages/index-permill.html`)
+are kept for reference until the repo restructure archives them.
 
 ## Preview
 Open any file in `pages/` directly in a browser, or run a static server:
