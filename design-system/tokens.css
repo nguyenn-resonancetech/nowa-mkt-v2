@@ -28,6 +28,24 @@
 
   --color-amber-signal: #ffc107;   /* pixel sparkle, sample chip, device btn */
   --color-leaf-success: #54d62c;   /* beta chip, success */
+  --color-sky-button: #6c9bd2;     /* device blue button (.db.b) — hardware art only, never UI */
+
+  /* sage — the SAFETY / GUARANTEE / TRUST band (promoted 2026-07-02).
+     Use for: safety section, founder quote, guarantee & tally cards.
+     Ink/muted below are the ONLY approved text colors on sage. */
+  --color-sage-calm: #e2efdb;      /* sage band surface */
+  --color-sage-border: #c9dec3;    /* pxcard border on sage cards */
+  --color-sage-tint: #d3e7c9;      /* dither partner / subtle fill on sage */
+  --color-sage-ink: #1e3a2c;       /* headings/emphasis on sage */
+  --color-sage-muted: #4d6b58;     /* secondary text on sage */
+
+  /* warm bands */
+  --color-warm-sand: #fff3d6;      /* pre-order + mid-CTA trust band */
+  --color-bright-paper: #faf8f0;   /* "worklight" grid band (missions, compare) */
+
+  /* coral tints — committed / selected states */
+  --color-coral-mist: #fdecea;     /* committed card fill (.on / [open]) */
+  --color-coral-mist-soft: #fff5f4;/* table winner-column tint */
 
   /* original parchment retained for reference / theme switching */
   --color-parchment-original: #edeae2; /* 1a */
@@ -43,6 +61,11 @@
   --surface-pure-white: #ffffff;     /* Level 3 — card faces / floating */
   --surface-deep-ink: #161c24;       /* Level 4 — dark "night" sections */
   --surface-ember-darker: #7f241d;   /* Level 5 — brand dark accent */
+
+  /* named bands (section backgrounds with a semantic job) */
+  --surface-sage-calm: var(--color-sage-calm);     /* safety / guarantee / founder trust */
+  --surface-warm-sand: var(--color-warm-sand);     /* pre-order / conversion moments */
+  --surface-bright-paper: var(--color-bright-paper); /* "worklight" demo bands (missions, compare) */
 
   /* band tokens — set per-section to re-ink a dark band
      (.dark reads these; defaults below) */
@@ -140,11 +163,26 @@
   --grid-line: rgba(22, 28, 36, .08);  /* graph-paper line on light */
   --grid-line-dark: rgba(255, 255, 255, .06); /* graph-paper line on ink */
   --grid-cell: 28px;                    /* graph-paper module */
-  --px-step-sm: 8px;   /* stepped-corner notch — small (buttons, chips, 44px icons) */
-  --px-step-md: 12px;  /* stepped-corner notch — medium (cards, avatars) */
-  --px-shadow: 3px 3px 0 rgba(22, 28, 36, .12);      /* pixel drop shadow on light */
-  --px-shadow-dark: 3px 3px 0 rgba(0, 0, 0, .18);    /* pixel drop shadow on ink */
+  /* stepped-corner notch scale — one notch per element size class.
+     Rule of thumb: notch ≈ 1/8 of the element's short side, snapped to this scale.
+     (5px one-offs in older CSS fold into xs or sm going forward.) */
+  --px-step-dot: 2px;  /* dots, 24–32px arrows */
+  --px-step-2xs: 3px;  /* micro tags (.show-card-tag) */
+  --px-step-xs: 4px;   /* stamps, save badges */
+  --px-step-sm6: 6px;  /* small chips, switchers, thumbnails (.g-badge, .po-switch) */
+  --px-step-sm: 8px;   /* buttons, tabs, chips, 44px icons */
+  --px-step-md: 12px;  /* cards, avatars, photos */
+
+  /* pixel shadow scale — hard offsets only, never blur */
+  --px-shadow-1: 2px 2px 0 rgba(22, 28, 36, .10);    /* chips, micro elements */
+  --px-shadow: 3px 3px 0 rgba(22, 28, 36, .12);      /* default card (light) */
+  --px-shadow-dark: 3px 3px 0 rgba(0, 0, 0, .18);    /* default card (on ink) */
+  --px-shadow-3: 4px 4px 0 rgba(22, 28, 36, .14);    /* hero-weight cards (deal, gallery) */
+  --px-shadow-dark-3: 4px 4px 0 rgba(0, 0, 0, .28);  /* hero-weight cards on ink */
+  --px-shadow-hover: 6px 6px 0 var(--color-coral-blush);      /* Tier-2 clickable hover */
+  --px-shadow-committed: 5px 5px 0 rgba(239, 73, 61, .32);    /* selected / open state */
   --px-shadow-pop: 14px 14px 0 var(--color-coral-blush); /* hero stage offset */
+  --px-text-shadow-coral: 4px 4px 0 rgba(239, 73, 61, .18); /* display-price type treatment ($99) */
 
   /* =============================================
      MOTION
@@ -152,17 +190,31 @@
   --ease-default: cubic-bezier(.4, 0, .2, 1);
   --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);        /* reveals, entrances */
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);  /* UI transitions */
-  --duration-fast: 150ms;   /* hovers, color */
+  --duration-press: 70ms;   /* pixel press (steps(2)) — btn/tab/pbtn */
+  --duration-hover-2: 110ms;/* Tier-2 clickable-card hover */
+  --duration-fast: 150ms;   /* hovers, color, Tier-4 lift */
+  --duration-swap: 220ms;   /* content crossfade out-phase (mission tabs, labels) */
   --duration-base: 300ms;   /* UI state */
   --duration-reveal: 700ms; /* content entrance */
   --duration-reveal-lg: 900ms; /* hero line reveal */
-  /* pixel-press feel uses steps(2) timing, not a curve */
+  /* Motion laws (full spec in MOTION.md):
+     — pixel-press feel uses steps(2) timing, not a curve
+     — pet-world/organic motion is stepped/chunky; UI-chrome motion is smooth expo-out
+     — exits run ~75% of their entrance duration
+     — UI ceiling 300ms; entrances 500–900ms are landing-page-only */
 
   /* =============================================
-     Z-INDEX
+     Z-INDEX — semantic scale (never hardcode 999)
      ============================================= */
   --z-rail: 30;
   --z-nav: 40;
-  --z-picker: 60;
+  --z-picker: 60;     /* dev-only pickers/switchers */
   --z-readbar: 80;
+  --z-overlay: 90;    /* modal scrim / sheets (app UI) */
+  --z-modal: 95;
+  --z-toast: 100;
+  --z-tooltip: 110;
 }
+
+/* text selection is brand-carrying */
+::selection { background: var(--color-coral-flame); color: #fff; }

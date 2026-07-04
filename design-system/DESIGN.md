@@ -7,11 +7,17 @@ pixel/8-bit motif (graph paper, stepped corners, Tiny5 type) reserved for the
 pet world.
 
 - **Tokens:** [`tokens.css`](tokens.css) (authoring) · [`tokens.json`](tokens.json) (tooling)
-- **Components:** [`COMPONENTS.md`](COMPONENTS.md)
+- **Components:** [`COMPONENTS.md`](COMPONENTS.md) (§12+ = v3 additions)
+- **Motion:** [`MOTION.md`](MOTION.md) — easing/duration bands, signature moves, the two laws
+- **Brand mark:** [`BRAND-MARK.md`](BRAND-MARK.md) — logo system + usage
+- **App UI:** [`APP-UI.md`](APP-UI.md) — parent-app specs (living reference: `app-ui/new/`)
+- **Social & ads:** [`SOCIAL.md`](SOCIAL.md) — canvases, band recipes, type floors
+- **Graphics:** [`GRAPHICS.md`](GRAPHICS.md) — pixel art, photography, icons, infographics
 - **Rules (read before designing):** [`BRAND-RULES.md`](BRAND-RULES.md)
 - **Live library:** [`gallery.html`](gallery.html)
-- **Source pages:** `pages/index-v2.html`, `pages/index-permill.html`
-- **Locked variant:** canvas = **Sunlit cream `#fdf5dd`** (paper3), hero = **Stage** (option 1)
+- **Latest audit:** [`AUDIT-2026-07-02.md`](AUDIT-2026-07-02.md) — extraction, gaps, decisions
+- **Source pages:** `pages/index-permill-v2.html` (canon, Permill v3) · `pages/index-v2.html` (legacy)
+- **Locked:** canvas = **Sunlit cream `#fdf5dd`** (paper3, final — decision 2026-07-02), hero = **Stage** (option 1)
 
 ---
 
