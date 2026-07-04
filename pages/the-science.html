@@ -1223,6 +1223,17 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 @media(hover:hover) and (pointer:fine){.rulestamp{transition:transform 150ms var(--ease-out-strong)}.rulestamp:hover{transform:rotate(0deg) translateY(-2px)}}
 @media(prefers-reduced-motion:reduce){.rulestamp{transform:none}}
 @media(max-width:520px){.rulewall{gap:12px 10px}.rulestamp{padding:11px 16px 13px}}
+/* hero: text left, advisor wall right */
+.shero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(32px,5vw,72px);align-items:center}
+@media(max-width:900px){.shero-grid{grid-template-columns:1fr;gap:36px}.advwall{max-width:440px}}
+.advwall{display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-16);align-items:start;padding:6px 10px 24px 0}
+.advtile{margin:0;padding:12px 12px 14px;transform:rotate(var(--rot,0deg))}
+.advtile.pxcard{filter:drop-shadow(3px 3px 0 rgba(22,28,36,.12))}
+.advwall .advtile:nth-child(even){transform:translateY(16px) rotate(var(--rot,0deg))}
+.advtile img{width:100%;aspect-ratio:1/1;object-fit:cover;clip-path:polygon(0 12px,6px 12px,6px 6px,12px 6px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 6px,calc(100% - 6px) 6px,calc(100% - 6px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 6px) calc(100% - 12px),calc(100% - 6px) calc(100% - 6px),calc(100% - 12px) calc(100% - 6px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 6px),6px calc(100% - 6px),6px calc(100% - 12px),0 calc(100% - 12px))}
+.advtile b{display:block;margin-top:10px;font-family:var(--font-onest);font-weight:800;font-size:14px;line-height:1.2;color:var(--color-deep-ink)}
+.advtile span{display:block;margin-top:3px;font-family:"Departure Mono",monospace;font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:var(--color-mist-body);line-height:1.5}
+@media(max-width:520px){.advwall{gap:12px;padding-bottom:10px}.advwall .advtile:nth-child(even){transform:rotate(var(--rot,0deg))}}
 </style>
 </head>
 <body>
@@ -1267,17 +1278,37 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <header class="shero" id="top">
   <div class="wrap">
     <a class="backlink" href="index-permill-v2.html">← Back to Nowa</a>
-    <p class="hero-eyebrow">The science &amp; the scientists</p>
-    <h1>Why Nowa is built this way.</h1>
-    <p class="lead">The main page shows what Nowa is. This is the reasoning underneath: four deliberate decisions, and our advisors’ fingerprints on all four.</p>
+    <div class="shero-grid">
+      <div>
+        <p class="hero-eyebrow">The science &amp; the scientists</p>
+        <h1>Why Nowa is built this way.</h1>
+        <p class="lead">The main page shows what Nowa is. This is the reasoning underneath: four deliberate decisions, and our advisors’ fingerprints on all four.</p>
+      </div>
+      <div class="advwall reveal" aria-label="Our scientific advisors">
+        <figure class="advtile pxcard" style="--rot:-1.4deg">
+          <img src="assets/avatars/dr-susanne-denham.png" alt="Dr. Susanne Denham" decoding="async">
+          <figcaption><b>Dr. Susanne Denham</b><span>Emotional competence · George Mason University</span></figcaption>
+        </figure>
+        <figure class="advtile pxcard" style="--rot:1.2deg">
+          <img src="assets/avatars/dr-megan-mcclelland.png" alt="Dr. Megan McClelland" decoding="async">
+          <figcaption><b>Dr. Megan McClelland</b><span>Executive function · Oregon State University</span></figcaption>
+        </figure>
+        <figure class="advtile pxcard" style="--rot:1deg">
+          <img src="assets/avatars/dr-steven-kurtz.png" alt="Dr. Steven Kurtz" decoding="async">
+          <figcaption><b>Dr. Steven Kurtz</b><span>Parent-child interaction · Kurtz Psychology</span></figcaption>
+        </figure>
+        <figure class="advtile pxcard" style="--rot:-1.2deg">
+          <img src="assets/avatars/dr-david-mou.png" alt="Dr. David Mou" decoding="async">
+          <figcaption><b>Dr. David Mou</b><span>Mental-health systems · Benchmark Health</span></figcaption>
+        </figure>
+      </div>
+    </div>
     <div class="toc reveal-group">
       <a class="pxcard" href="#play"><span class="tn">01</span><h3>The play</h3><p>Why a pet, and why the loops are slow on purpose.</p></a>
       <a class="pxcard" href="#missions"><span class="tn">02</span><h3>The missions</h3><p>One mission, traced to the paper it came from.</p></a>
       <a class="pxcard" href="#mirror"><span class="tn">03</span><h3>The mirror</h3><p>What comes back to you, in plain language.</p></a>
       <a class="pxcard" href="#line"><span class="tn">04</span><h3>The line</h3><p>Why the pet will never chat, and why that matters.</p></a>
-    </div>
-    <div class="pxslot shero-vis reveal"><span class="t">PHOTO</span><span class="d">Real photograph: an advisor working session with marked-up mission pages on the table, or the device beside the printed studies.</span></div>
-  </div>
+    </div>  </div>
 </header>
 
 <div class="dither" aria-hidden="true"></div>
