@@ -244,8 +244,11 @@ section.
 ---
 
 ## §5. Navigation `nav`
-Sticky, blurred parchment bar. Brand wordmark (Onest 800) with a coral `.bcell`
-that rotates on hover; links (Onest 600 slate) + a primary `.btn`.
+Sticky, blurred parchment bar. Brand = the **coral drawn-wordmark SVG**
+(`assets/brand/nowa-wordmark.svg` at 107×24 — see BRAND-MARK.md v2, decision
+2026-07-04; replaces the old app-icon + Onest text lockup). Links (Onest 600
+slate) + a primary `.btn`. The coral `.bcell` cadence stays in
+eyebrows/chapters, not the nav brand.
 ```css
 nav{position:sticky;top:0;z-index:var(--z-nav);backdrop-filter:blur(12px);
   background:color-mix(in srgb,var(--color-warm-parchment) 85%,transparent);
@@ -296,12 +299,18 @@ optional Tiny5 number/icon.
   marching between steps. Grid of 4 → 2 → 1.
 - **`.mpanel`** — two-column mission panel (copy + `.mission-art` media), crossfades
   via `.mfade`/`.mfade.out`.
-- **`.lib`** — library card; `.licon` stepped pixel icon. Static `<div>` → Tier-4
-  lift only (see §2b); it is *not* clickable, so no coral line.
+- **`.lib`** — library card; `.licon` = stepped 44px chip holding an 18px
+  pixel-line SVG icon (2026-07-04 drop — was a Tiny5 text placeholder).
+  Static `<div>` → Tier-4 lift only (see §2b); it is *not* clickable, so no
+  coral line.
 - **`.seg`** — segment card (plain).
 - **`.adv`** — advisor card; stepped avatar (`‹STEP 12›`), name (Onest 800), role
   (ember), credentials list.
-- **`.fun`** — dark feature card (ink fill).
+- **`.fun`** — feature card. Current form (2026-07-04): **white face + 3px
+  pastel pixel border** — `--pxbg` white, `--pxborder` one of
+  `--color-pastel-coral/amber/leaf/sky`, drawn at 3px inset
+  (`::before … 3px 3px/calc(100% - 6px)`), 80px GIF `.ficon`. One pastel per
+  card, cycle the four. The old ink-fill variant is deprecated.
 - **`.faq`** — `<details>` accordion → Tier-2 clickable card: coral-line lift on
   hover, coral fill when `[open]` (see §2b). Tiny5 `.fplus` rotates 45° when open.
 - **`.pullq`** — advisor pull-quote (stepped avatar + Onest quote).
@@ -571,11 +580,18 @@ approved beta photos/quotes arrive.
 
 ---
 
-## Icon languages (INTERIM — final pixel-icon direction pending)
+## Icon languages (DECIDED 2026-07-04 — pixel-line set lands)
 
-Two icon systems currently coexist:
-1. **Pixel icons/sprites** (`.licon`, `.sicon`, species art) — the pet world.
-2. **Stroke SVGs** (Feather-style, stroke-width 1.8–2.6, round caps) — utility
-   & commerce (deal rows, spec accordions, trust chips, carousel arrows).
-Interim rule: **pixel = pet world; stroke = utility. Never both inside one
-component.** Final pixel-icon style TBD (Daniel deciding); revisit then.
+Two icon systems, both pixel-flavored:
+1. **Pixel art icons/sprites** (`.sicon` / `.ficon` GIFs, species art) — the
+   pet world. New-generation set at 80/96px, kebab-case names.
+2. **Pixel-line SVGs** (Nucleo-based: 24px grid, stroke-width 2,
+   **square caps**, `currentColor`, `fill:none`) — utility & commerce (spec
+   accordions, library `.licon` chips, compare-table headers). Replaces the
+   Feather round-cap set; swap remaining Feather icons on touch (deal rows,
+   trust chips, carousel arrows still carry old ones).
+Compare-table competitor columns tint their icons with
+`--color-tint-coral/amber/sky`; the NOWA column keeps the live pet sprite.
+Full spec in GRAPHICS.md §5; specimen sheet = `designer-components.html`.
+Rule unchanged: **pixel art = pet world; line = utility. Never both inside
+one component.**
