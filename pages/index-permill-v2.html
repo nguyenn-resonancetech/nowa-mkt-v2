@@ -84,7 +84,11 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .navlinks .btn{padding:11px 22px;font-size:var(--text-body-sm)}
 .navlinks a.btn{color:#fff}
 .navlinks a.btn:hover{color:#fff}
-@media(max-width:860px){.navlinks a:not(.btn){display:none}}
+.nav-story{color:var(--color-deep-ink)!important;font-weight:700}
+.nav-hl{position:relative;display:inline-block;padding:2px 7px;z-index:0}
+.nav-hl::before{content:"";position:absolute;inset:3px 0;z-index:-1;background:var(--color-amber-signal);transform:rotate(-1.4deg);clip-path:polygon(0 4px,4px 4px,4px 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px))}
+.nav-story:hover .nav-hl::before{transform:rotate(-1.4deg) scaleY(1.15)}
+@media(max-width:860px){.navlinks a:not(.btn):not(.nav-story){display:none}.navlinks{gap:16px}}
 
 /* ---- chapter rail ---- */
 .rail{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:var(--z-rail);display:flex;flex-direction:column;gap:8px}
@@ -1052,6 +1056,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <a href="#mechanic">How it works</a>
       <a href="#world">Why kids love it</a>
       <a href="#compare">Compare</a>
+      <a href="nowa-story.html" class="nav-story"><span class="nav-hl">Our story</span></a>
       <a href="#preorder" class="btn">Pre-order</a>
     </div>
   </div>
@@ -1676,8 +1681,8 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <footer>
   <div class="wrap foot-top">
     <div style="display:flex;gap:48px;flex-wrap:wrap">
-      <div style="display:flex;flex-direction:column;gap:8px"><a href="#mechanic">How it works</a><a href="#learnings">The science</a><a href="#compare">Compare</a></div>
-      <div style="display:flex;flex-direction:column;gap:8px"><a href="#world">The world</a><a href="#preorder">Pre-order</a><a href="#safety">Safety &amp; privacy</a></div>
+      <div style="display:flex;flex-direction:column;gap:8px"><a href="#mechanic">How it works</a><a href="#learnings">The science</a><a href="nowa-story.html">Our story</a></div>
+      <div style="display:flex;flex-direction:column;gap:8px"><a href="#world">The world</a><a href="#preorder">Pre-order</a><a href="#safety">Safety &amp; privacy</a><a href="#compare">Compare</a></div>
     </div>
   </div>
   <div class="wrap foot-mark graph-dark">
