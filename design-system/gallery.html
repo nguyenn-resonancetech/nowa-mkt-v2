@@ -308,8 +308,22 @@ section.demo>.wrap>h2{font-size:var(--text-heading-lg);font-weight:800;margin-bo
 </div></section>
 
 <!-- APP MAP -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">09</div><h2>Designer drop · July 2026</h2>
+  <div class="row" style="align-items:stretch">
+    <div style="background:var(--surface-warm-parchment);border:1px solid var(--color-chalk-surface);padding:22px 30px;display:flex;align-items:center"><img src="../pages/assets/brand/nowa-wordmark.svg" alt="Nowa wordmark, coral" style="width:180px;height:auto"></div>
+    <div style="background:var(--surface-deep-ink);border:1px solid var(--color-chalk-surface);padding:22px 30px;display:flex;align-items:center"><img src="../pages/assets/brand/nowa-wordmark-pastel.svg" alt="Nowa wordmark, pastel" style="width:180px;height:auto"></div>
+    <div style="background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);padding:18px 22px;display:flex;gap:18px;align-items:center;color:var(--color-deep-ink)">
+      <svg width="28" height="28" viewBox="0 0 24 24"><path d="M9 18H15" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M11 6L13 6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M7 2H17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M7 22H17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M5 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M19 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/></svg>
+      <svg width="28" height="28" viewBox="0 0 24 24" style="color:var(--color-tint-coral)"><path d="M18 10L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M22 8L22 16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M8 6L8 6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M8 18L8 18.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M10 4L13 4L13 20L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M6 8L2 8V16H6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/></svg>
+      <img class="px" src="../pages/assets/pixels/pet-loved-80.gif" alt="" width="56" height="56" style="image-rendering:pixelated">
+    </div>
+  </div>
+  <p class="note">The 2026-07-04 drop: drawn wordmark logo system (coral on light / pastel blush on ink — BRAND-MARK.md v2), the pixel-line icon set (square caps, 24px grid — GRAPHICS.md §5, direction now DECIDED), pastel accent tokens (<code>--color-pastel-*</code>, <code>--color-tint-*</code>), the 80/96px pixel GIF set, and the pastel-border fun-card variant. Full specimen sheet: <a href="designer-components.html" style="color:var(--color-coral-flame);font-weight:600">designer-components.html</a></p>
+</div></section>
+
 <section class="demo" style="border-bottom:0"><div class="wrap">
-  <div class="eyebrow">09</div><h2>Component → app-UI map</h2>
+  <div class="eyebrow">10</div><h2>Component → app-UI map</h2>
   <table class="app-map">
     <tr><th>Web component</th><th>App-UI role</th></tr>
     <tr><td>.btn / .btn-ghost</td><td>primary / secondary actions</td></tr>
@@ -345,6 +359,14 @@ const swatches = [
   ['Bright Paper','#faf8f0','worklight band'],
   ['Coral Mist','#fdecea','committed/selected fill'],
   ['Sky Button','#6c9bd2','device hardware only'],
+  ['Pastel Coral','#f2a9a0','fun-card border'],
+  ['Pastel Amber','#f0cd83','fun-card border'],
+  ['Pastel Leaf','#9fd4a3','fun-card border'],
+  ['Pastel Sky','#a8cceb','fun-card border'],
+  ['Tint Coral','#e59a90','icon tint on white'],
+  ['Tint Amber','#dcb35b','icon tint on white'],
+  ['Tint Sky','#8fbfe0','icon tint on white'],
+  ['Wordmark Blush','#f3e1db','footer wordmark on ink'],
 ];
 document.getElementById('swatches').innerHTML = swatches.map(([n,h,u])=>
   `<div class="sw"><div class="chip" style="background:${h}"></div><div class="meta"><b>${n}</b><code>${h}</code><div style="color:var(--color-mist-body);margin-top:2px">${u}</div></div></div>`

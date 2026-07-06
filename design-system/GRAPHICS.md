@@ -1,17 +1,24 @@
 # Nowa Graphics & Illustration
 
-Rules for the pixel-art world, photography, and illustration. Status: **v1 —
-codifies current asset practice**; the pixel-art palette audit (§2) and the
-final pixel-icon direction (§5) are open items owed by the graphics team.
+Rules for the pixel-art world, photography, and illustration. Status: **v2 —
+2026-07-04 designer drop lands the icon direction (§5, now decided)**; the
+pixel-art palette audit (§2) remains open.
 
 **Asset library today** (`pages/assets/`):
 - `species/` — 12 pet sprites (200×200 source, RGBA): 7 base species + 5
   evolved forms (`-1`/`-2` suffix = form, e.g. `miko-1` = Scholar).
-- `pixels/` — HUD/motif art: animated GIFs at 80px (`*_anim_80px.gif`),
-  multi-scale stills suffixed `_x2`/`_x3`, exact-size pieces (`58x42`).
-- `scenes/` — pixel scenes (288×288 sketches; `scene-care-loop` at 2048²).
+- `pixels/` — HUD/motif art. Two generations: legacy snake_case GIFs at 80px
+  (`*_anim_80px.gif`, `_x2`/`_x3` stills) and the 2026-07 kebab-case set at
+  80/96px (`pet-loved-80.gif`, `pixel-pet-96.gif`, `watering-can-96.gif`,
+  `pet-evolution-{80,96}.gif`, `kid-star-{80,96}.gif`, `pet-reading-80.gif`)
+  plus full-color library icons (`lib-story/song/podcast/soundfx.png`).
+  New art follows the kebab-case `{subject}-{action}-{size}` naming.
+- `scenes/` — pixel scenes (288×288 sketches; `scene-care-loop` at 2048²;
+  `scene-care-permill.png` = current pull-quote art).
+- `brand/` — logo system incl. the drawn wordmark SVGs (see BRAND-MARK.md).
 - `avatars/` — advisor photos. `device/` — hardware renders. `showcase/` —
-  offer illustrations. `compare/` — pixel category icons.
+  offer illustrations (`whatyouget-1.png` = deal expand). `compare/` — pixel
+  category icons (`cmp-*-permill.png` = 2026-07 full-color variants).
 
 ---
 
@@ -57,15 +64,22 @@ part of the drawing; don't wallpaper.
 - Photos never get pixel-art filters; the two worlds contrast on purpose
   (drawn pet world vs. real family world). That contrast IS the story.
 
-## 5. Icons (INTERIM — direction pending Daniel)
+## 5. Icons (DECIDED 2026-07-04 — pixel-line set)
 
-Two languages coexist (rule from COMPONENTS.md):
-1. **Pixel icons** — pet world (`.licon` wells, HUD, sprites).
-2. **Stroke icons** — utility/commerce: Feather-style, `stroke-width`
-   1.8–2.6, round caps/joins, `currentColor`, 16–24px grid, inline SVG.
-Never both in one component/canvas. The final pixel-icon style (and whether
-a custom stroke set replaces Feather) is an open decision — don't invest in
-new icon families until it lands.
+Two languages coexist, both now pixel-flavored:
+1. **Pixel art icons** — pet world: full-color sprites/GIFs (HUD, game loop,
+   fun cards, `lib-*.png` / `cmp-*-permill.png` variants).
+2. **Pixel-line icons** — utility/commerce: the Nucleo-based set from the
+   2026-07 designer drop. Spec: 24px grid, `stroke-width: 2`,
+   **`stroke-linecap="square"`** (the pixel tell — never round caps), no
+   joins/curves where a right angle works, `fill:none`, colored via
+   `currentColor`, inline SVG. Dotted/dashed detail is drawn as short 0.01
+   paths (renders as square dots). Live examples: device-spec accordions,
+   library chips, compare-table headers on the LP; specimen sheet =
+   `design-system/designer-components.html`.
+The old Feather-style round-cap icons are DEPRECATED — replace on touch.
+On white, competitor/neutral icons may tint with `--color-tint-*`; coral
+stays reserved for actions. Never mix the two languages in one component.
 
 ## 6. Infographics & data
 

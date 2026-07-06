@@ -47,6 +47,18 @@
   --color-coral-mist: #fdecea;     /* committed card fill (.on / [open]) */
   --color-coral-mist-soft: #fff5f4;/* table winner-column tint */
 
+  /* pastel accents (designer drop 2026-07-04) — DECORATIVE ONLY, never actions.
+     Borders: the fun-card 3px pixel borders (white face + pastel frame).
+     Tints: muted line-icon color on white (compare-table competitor columns). */
+  --color-pastel-coral: #f2a9a0;   /* fun-card border — coral family */
+  --color-pastel-amber: #f0cd83;   /* fun-card border — amber family */
+  --color-pastel-leaf: #9fd4a3;    /* fun-card border — leaf family */
+  --color-pastel-sky: #a8cceb;     /* fun-card border — sky family */
+  --color-tint-coral: #e59a90;     /* icon tint on white — coral family */
+  --color-tint-amber: #dcb35b;     /* icon tint on white — amber family */
+  --color-tint-sky: #8fbfe0;       /* icon tint on white — sky family */
+  --color-wordmark-blush: #f3e1db; /* pastel wordmark fill on ink (footer) */
+
   /* original parchment retained for reference / theme switching */
   --color-parchment-original: #edeae2; /* 1a */
   --color-parchment-ivory: #f6f0e1;    /* 1b paper2 */
