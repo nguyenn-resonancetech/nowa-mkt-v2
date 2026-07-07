@@ -33,3 +33,11 @@ partner**, never a treatment or a fix.
 Primary action is pre-order (ships September 2026). Coral Flame button, full pill.
 Reassuring over urgent — "Reserve yours / Pre-order Nowa," not "Buy now before it's gone."
 This audience is repelled by urgency-shaming.
+
+## Anti-references
+- The "tasteful warm parenting site" monoculture (Lovevery-adjacent cream + serif).
+- Chatbot-toy framing, "AI companion" leads, surveillance/obedience framing.
+- Gacha/FOMO collection pressure ("collect them all"), urgency-shaming countdowns.
+- Scroll-jacked cinematic intros that delay the value prop (units.gr's opening is
+  the named anti-pattern; we borrow its system, not its theater).
+- "Clinically proven" claims; we say "built with" the advisors.

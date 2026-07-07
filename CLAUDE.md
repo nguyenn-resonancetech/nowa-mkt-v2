@@ -10,7 +10,10 @@ pre-orders convert.
 
 It is **not** the product/app site. App, parent-app flows, and the device
 simulator live in the engineering repos. This repo moves at marketing speed and
-is owned by `@marketing`.
+is owned by `@marketing`. Exception: `app-ui/new/` holds marketing-owned
+**showcase copies** of parent-app screens, embedded as LP iframes for the
+"what the app looks like" section — they are display copies for the LP, not
+the engineering source of truth.
 
 ## Read first (in order)
 1. `docs/context/CUSTOMER.md` — who we're talking to (six segments, pain, language)
@@ -42,6 +45,9 @@ Tokens in `design/tokens.css` (mirrored from the Nowa design system). Rules:
 - Onest for display/headings; Noto Sans for body; Tiny5 (pixel) only inside pet UI.
 - "Storybook chapter" rhythm: alternate warm-parchment light sections and deep-ink dark sections.
 - Buttons are full pill radius; cards 16px. Let parchment + negative space do the work.
+- WCAG 2.1 AA: body contrast ≥4.5:1 on parchment and ink surfaces, full
+  prefers-reduced-motion alternatives (crossfade, no movement), hover effects
+  gated behind `(hover:hover)`, semantic HTML with keyboard-reachable nav/CTAs.
 
 ## How we work here
 - Content and structure first; the frontend dev merges his implementation in later.
