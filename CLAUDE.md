@@ -40,7 +40,8 @@ in the `nowa-mkt-customer-research` repo (`research/intelligence/index.html`).
 - "DFK" / "deeply feeling kid" is Good Inside's term — echo the *idea* (a child wired deeply), don't lift the trademarked phrase into copy.
 
 ## Design system
-Tokens in `design/tokens.css` (mirrored from the Nowa design system). Rules:
+Tokens in `design/tokens.css` — the single canonical source for every page,
+`app-ui/new/` screen, and the bundled design-system skill. Rules:
 - Coral Flame `#ef493d` is the **only** CTA / action color.
 - Onest for display/headings; Noto Sans for body; Tiny5 (pixel) only inside pet UI.
 - "Storybook chapter" rhythm: alternate warm-parchment light sections and deep-ink dark sections.
@@ -48,6 +49,20 @@ Tokens in `design/tokens.css` (mirrored from the Nowa design system). Rules:
 - WCAG 2.1 AA: body contrast ≥4.5:1 on parchment and ink surfaces, full
   prefers-reduced-motion alternatives (crossfade, no movement), hover effects
   gated behind `(hover:hover)`, semantic HTML with keyboard-reachable nav/CTAs.
+
+## Repo map
+| Live | Where |
+|---|---|
+| Campaign homepage | `pages/index-permill-v2.html` (repo-root `index.html` redirects here) |
+| Sub-pages | `pages/the-science.html`, `pages/nowa-story.html` |
+| Design tokens (canonical) | `design/tokens.css` |
+| Design system docs + gallery | `design-system/` (`DESIGN.md`, `COMPONENTS.md`, `MOTION.md`, `BRAND-MARK.md`, `gallery.html`) |
+| App-UI showcase copies (not source of truth) | `app-ui/new/` |
+| Strategy + content docs | `docs/` (see "Read first" above) |
+| Deploy target (partner content review) | `nowa-permill-review.pages.dev` — `npx wrangler pages deploy . --project-name nowa-permill-review --branch=main` |
+
+Superseded page variants and pre-Permill docs live in `pages/_archive/` and
+`docs/_archive/` — kept for history, not linked from the live site.
 
 ## How we work here
 - Content and structure first; the frontend dev merges his implementation in later.
