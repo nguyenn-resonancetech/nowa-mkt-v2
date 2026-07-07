@@ -53,11 +53,21 @@ guardrails (carried from `CLAUDE.md`).
 
 ---
 
-## Product facts (keep current — as of June 2026)
+## Product facts (keep current — as of July 2026; the live LP pre-order section is the freshest truth)
 
-- **$99** device, **pre-order** now, **ships September 2026**. Optional Nowa+ subscription.
+- **$99 pre-order** (retail **$149**), **ships September 2026**. Launch is **DTC**
+  (not Kickstarter — legacy references are wrong).
+- **Fully refundable**: cancel anytime before ship; **refunded automatically if
+  not shipped by Oct 31**.
+- Limited to **500 reservations** — when gone, price becomes $149 and the
+  pre-order extras are gone for good. State the limit plainly; never perform
+  urgency around it.
+- **The Day-One Bundle** (what $99 reserves): the device + **6 months of Nowa+**
+  + **the Nowa Handbooks** (three advisor-shaped parent guides) + Adventure Kit
+  (silicone cover + lanyard). Pre-order extras: exclusive starter pet, in-app
+  badge, Nowa+ price locked 2 years. Total value $294.
+- No "Founding Family" naming — that framing was dropped; it's plain pre-order.
 - Ages **3–10** platform claim; pull strongest at **6–9** — skew imagery to 6–8.
-- Launch is **DTC** (not Kickstarter — legacy references are wrong).
 - The pet **does not speak human language** — sounds, emotion, animation only.
   Never imply chatbot conversation. Don't lead with "AI companion."
 
