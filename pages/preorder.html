@@ -1046,8 +1046,18 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
 /* gallery — stage + thumb switcher on all viewports */
 .gal-stage{position:relative;aspect-ratio:4/3;width:100%}
-.gal-stage .ph{position:absolute;inset:0;display:none}
-.gal-stage .ph.on{display:flex}
+.gal-stage [data-slide]{position:absolute;inset:0;display:none}
+.gal-stage .ph[data-slide].on{display:flex}
+.gal-stage .gs[data-slide].on{display:block}
+.gs img,.gs video{width:100%;height:100%;object-fit:cover;display:block}
+.gs.fit img{object-fit:contain;background:var(--surface-ghost-white)}
+.gs-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;width:100%;height:100%;padding:10px;background:var(--surface-ghost-white)}
+.gs-grid img{width:100%;height:100%;object-fit:contain;min-height:0}
+/* real-media swaps in bundle rows, fact chips, advisor cards */
+.bimg{width:88px;height:88px;flex:none;object-fit:contain;background:var(--surface-ghost-white)}
+.bimg.pxart{image-rendering:pixelated;object-fit:contain;padding:12px}
+.fact .fimg{width:56px;height:56px;object-fit:contain;background:var(--surface-warm-parchment);padding:5px;margin-bottom:12px;image-rendering:pixelated}
+.advcard .aimg{aspect-ratio:1/1;width:100%;object-fit:cover;margin-bottom:12px;background:var(--surface-ghost-white);display:block}
 /* desktop: both columns pin below the header while the section scrolls,
    released when the next section arrives (Gruns behavior) */
 @media(min-width:961px){
@@ -1182,7 +1192,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 </head>
 <body>
 
-<div class="note">PREORDER PDP · DRAFT v2 · every image is a described placeholder · reservation counter is a demo value</div>
+<div class="note">PREORDER PDP · DRAFT v3 · real assets wired in (4 fact icons still placeholder) · reservation counter is a demo value</div>
 
 <a class="pdp-annc" href="#buy">Pre-order open<span class="ad">·</span>Ships September 2026<span class="ad">·</span>Fully refundable until it ships</a>
 
@@ -1206,13 +1216,18 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <!-- gallery -->
     <div>
       <div class="gal-stage pxcard" style="--pxbg:var(--surface-ghost-white)">
-        <div class="ph on" data-slide="0"><span class="ph-tag">PLACEHOLDER</span><span class="ph-kind">Hero photo</span><span class="ph-desc">The device, front on, held in two kid hands. The pet mid-cheer on screen, warm morning light. This is the money shot: real device, alive pet.</span></div>
-        <div class="ph" data-slide="1"><span class="ph-tag">PLACEHOLDER</span><span class="ph-kind">Video · 12s</span><span class="ph-desc">One full mission: pet perks up, narrator prompt plays, child answers out loud, pet cheers with sound. Use the-mission-engine-02/03/04.mp4 cutdown. Autoplay muted, replay button.</span></div>
-        <div class="ph" data-slide="2"><span class="ph-tag">PLACEHOLDER</span><span class="ph-kind">Lifestyle photo</span><span class="ph-desc">A 6–8 year old at the kitchen table, shoes half on, grinning at the device. Mom in soft focus behind, coffee in hand, not hovering.</span></div>
-        <div class="ph" data-slide="3"><span class="ph-tag">PLACEHOLDER</span><span class="ph-kind">Pet GIF</span><span class="ph-desc">Close crop of the screen: the pet yawns, curls up, falls asleep. The "play that ends" proof, 4 seconds, looping. Pixel art rendered crisp.</span></div>
-        <div class="ph" data-slide="4"><span class="ph-tag">PLACEHOLDER</span><span class="ph-kind">Bundle flat lay</span><span class="ph-desc">Everything in the $99 on one parchment surface: device, silicone case + lanyard, the three handbook covers, a gem/starter-pet card. Shot top down.</span></div>
-        <div class="ph" data-slide="5"><span class="ph-tag">PLACEHOLDER</span><span class="ph-kind">Parent app</span><span class="ph-desc">Phone frame showing the suggested-missions screen: age + temperament in, a reviewable mission list out, toggles visible. "You hold every dial" made visible.</span></div>
-        <div class="ph" data-slide="6"><span class="ph-tag">PLACEHOLDER</span><span class="ph-kind">Device angles</span><span class="ph-desc">Back and side of the device: the three buttons, the hardware mic switch clearly visible, USB-C port. Use existing side-left/side-right/back webp set.</span></div>
+        <div class="gs on" data-slide="0"><img src="assets/photos/life-hands-closeup.webp" alt="A child holds the Nowa device in both hands, finger on the talk button, the pet alive on screen"></div>
+        <div class="gs" data-slide="1"><video src="assets/videos/the-mission-engine-02.mp4" poster="assets/visuals/hero-poster.jpg" muted loop playsinline preload="metadata" aria-label="A full Nowa mission: the pet perks up, the narrator prompts, the child answers, the pet cheers"></video></div>
+        <div class="gs" data-slide="2"><img src="assets/photos/life-play-table.webp" alt="Two kids at a wooden table playing with the Nowa device together" loading="lazy"></div>
+        <div class="gs" data-slide="3"><img src="assets/photos/life-bedtime.webp" alt="The pet asleep on the Nowa screen on a nightstand while a child sleeps in bed behind it" loading="lazy"></div>
+        <div class="gs" data-slide="4"><div class="gs-grid">
+          <img src="assets/showcase/device.webp" alt="The Nowa device" loading="lazy">
+          <img src="assets/showcase/nowa-plus.webp" alt="6 months of Nowa+, the full parent app" loading="lazy">
+          <img src="assets/showcase/playbooks.webp" alt="The three Nowa Handbooks" loading="lazy">
+          <img src="assets/showcase/adventure-kit.webp" alt="Adventure Kit: silicone case and lanyard" loading="lazy">
+        </div></div>
+        <div class="gs fit" data-slide="5"><img src="assets/showcase/nowa-plus.webp" alt="The Nowa+ parent app: growth insights for calm, focus, and follow-through" loading="lazy"></div>
+        <div class="gs fit" data-slide="6"><img src="assets/device/side-right.webp" alt="Side of the Nowa device: the physical mic switch and the coral scroll wheel" loading="lazy"></div>
       </div>
       <div class="gal-thumbs" role="tablist" aria-label="Product gallery">
         <button class="gal-th on" data-th="0"><span class="tn">📷</span>Hero</button>
@@ -1279,23 +1294,23 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
     <div class="bitems reveal-group">
       <div class="bitem pxcard">
-        <div class="ph"><span class="ph-kind">Photo</span><span class="ph-desc">device, front 3/4</span></div>
+        <img class="bimg" src="assets/device/front.webp" alt="The Nowa device, front view" loading="lazy">
         <div><h3>The Nowa device <span class="val">$149 retail</span></h3><p>The pet, the missions, the Care Loop. Yours to keep, no subscription required to use it.</p></div>
       </div>
       <div class="bitem pxcard">
-        <div class="ph"><span class="ph-kind">Graphic</span><span class="ph-desc">Nowa+ app card, coral</span></div>
+        <img class="bimg" src="assets/showcase/nowa-plus.webp" alt="The Nowa+ parent app on a phone" loading="lazy">
         <div><h3>6 months of Nowa+ <span class="val">$120</span></h3><p>Advanced missions tuned to your child's growth phase, full growth insights, and guidance shaped by our child-development advisors.</p></div>
       </div>
       <div class="bitem pxcard">
-        <div class="ph"><span class="ph-kind">Photo</span><span class="ph-desc">3 handbook covers, fanned</span></div>
+        <img class="bimg" src="assets/showcase/playbooks.webp" alt="The three Nowa Handbooks, fanned" loading="lazy">
         <div><h3>The Nowa Handbooks <span class="val">yours the day you reserve</span></h3><p>Three advisor-shaped parent guides: Big Feelings, Routine, and a third that lands before your device ships. The first two arrive today.</p></div>
       </div>
       <div class="bitem pxcard">
-        <div class="ph"><span class="ph-kind">Photo</span><span class="ph-desc">case + lanyard on device</span></div>
+        <img class="bimg" src="assets/showcase/adventure-kit.webp" alt="Adventure Kit: silicone case and lanyard" loading="lazy">
         <div><h3>Adventure Kit <span class="val">$25</span></h3><p>A soft, drop-protective silicone case in swappable colors, plus a lanyard for walks, school, and the car.</p></div>
       </div>
       <div class="bitem pxcard">
-        <div class="ph"><span class="ph-kind">Pixel art</span><span class="ph-desc">exclusive starter pet sprite, crisp</span></div>
+        <img class="bimg pxart" src="assets/pixels/egg_hatch_x2.png" alt="A pixel-art egg: the exclusive starter pet, still a surprise" loading="lazy">
         <div><h3>Pre-order extras <span class="val">only now</span></h3><p>An exclusive starter pet found in no other Nowa, a badge in your parent app, and your Nowa+ price locked for two years.</p></div>
       </div>
     </div>
@@ -1323,7 +1338,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
     <div class="fgrid reveal-group" style="margin-top:var(--spacing-48)">
       <div class="fact pxcard">
-        <div class="ph ph-dark"><span class="ph-kind">icon: narrator + pet</span></div>
+        <img class="fimg" src="assets/pixels/pet-reading-80.gif" alt="" width="56" height="56" loading="lazy">
         <h3>2-minute missions</h3><p>A narrator reads each mission out loud, and the pet plays it with your child. Most take about two minutes.</p>
       </div>
       <div class="fact pxcard">
@@ -1343,7 +1358,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <h3>You set the limits</h3><p>Missions, time limits, and bedtime mode live in the parent app, next to a record of what your child practiced.</p>
       </div>
       <div class="fact pxcard">
-        <div class="ph ph-dark"><span class="ph-kind">icon: 3→10 growth steps</span></div>
+        <img class="fimg" src="assets/pixels/pet-evolution-80.gif" alt="" width="56" height="56" loading="lazy">
         <h3>Grows 3 to 10</h3><p>Missions re-tune to your child's age band, so the same pet fits a 4-year-old and a 9-year-old.</p>
       </div>
     </div>
@@ -1389,22 +1404,22 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
     <div class="advgrid reveal-group">
       <div class="advcard pxcard">
-        <div class="ph"><span class="ph-kind">Portrait</span><span class="ph-desc">Dr. Denham, warm headshot, parchment bg</span></div>
+        <img class="aimg" src="assets/avatars/dr-susanne-denham.png" alt="Dr. Susanne Denham" loading="lazy">
         <h3>Dr. Susanne Denham</h3>
         <p>Developmental psychologist, George Mason University. Her framework for children's emotional competence shapes the EQ missions.</p>
       </div>
       <div class="advcard pxcard">
-        <div class="ph"><span class="ph-kind">Portrait</span><span class="ph-desc">Dr. McClelland, warm headshot, parchment bg</span></div>
+        <img class="aimg" src="assets/avatars/dr-megan-mcclelland.png" alt="Dr. Megan McClelland" loading="lazy">
         <h3>Dr. Megan McClelland</h3>
         <p>Self-regulation researcher, Oregon State University. The focus and follow-through missions are inspired by her framework.</p>
       </div>
       <div class="advcard pxcard">
-        <div class="ph"><span class="ph-kind">Portrait</span><span class="ph-desc">Dr. Kurtz, warm headshot, parchment bg</span></div>
+        <img class="aimg" src="assets/avatars/dr-steven-kurtz.png" alt="Dr. Steven Kurtz" loading="lazy">
         <h3>Dr. Steven Kurtz</h3>
         <p>Clinical child psychologist. Advises on how the pet opens warmly and builds the relationship before it asks anything.</p>
       </div>
       <div class="advcard pxcard">
-        <div class="ph"><span class="ph-kind">Portrait</span><span class="ph-desc">Dr. Mou, warm headshot, parchment bg</span></div>
+        <img class="aimg" src="assets/avatars/dr-david-mou.png" alt="Dr. David Mou" loading="lazy">
         <h3>Dr. David Mou</h3>
         <p>Physician. Advises on bringing Nowa to families responsibly.</p>
       </div>
@@ -1476,12 +1491,18 @@ const io = new IntersectionObserver(es => es.forEach(e => {
 }), {threshold:.15});
 document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el));
 
-/* gallery switcher */
-const slides = [...document.querySelectorAll('.gal-stage .ph')];
+/* gallery switcher — plays a slide's video while active, pauses it on leave */
+const slides = [...document.querySelectorAll('.gal-stage [data-slide]')];
+const motionOK = !matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.querySelectorAll('.gal-th').forEach(btn => btn.addEventListener('click', () => {
   document.querySelectorAll('.gal-th').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
-  slides.forEach(s => s.classList.toggle('on', s.dataset.slide === btn.dataset.th));
+  slides.forEach(s => {
+    const on = s.dataset.slide === btn.dataset.th;
+    s.classList.toggle('on', on);
+    const v = s.querySelector('video');
+    if (v) { if (on && motionOK) { v.muted = true; v.play().catch(() => {}); } else v.pause(); }
+  });
 }));
 
 /* sticky bar: show once the buy CTA scrolls out of view; dismissible */
