@@ -39,7 +39,7 @@ pixel-art palette audit (§2) remains open.
 ## 2. Pixel palette (OPEN — owed by graphics)
 
 Sprites currently carry their own palettes and do **not** all sample from
-`tokens.css`. Needed: a pixel-art palette sheet — which token colors sprites
+`design/tokens.css`. Needed: a pixel-art palette sheet — which token colors sprites
 may use, plus the sanctioned skin/species ramps outside the UI palette.
 Until then: new HUD/motif art (hearts, sparks, meters, eggs) uses token
 colors only (coral family, amber, leaf, ink, parchment); species art is the
