@@ -6,7 +6,7 @@ pixel playfulness** — warm paper canvas, deep-ink night chapters, and a retro
 pixel/8-bit motif (graph paper, stepped corners, Tiny5 type) reserved for the
 pet world.
 
-- **Tokens:** [`tokens.css`](tokens.css) (authoring) · [`tokens.json`](tokens.json) (tooling)
+- **Tokens:** [`tokens.css`](../design/tokens.css) (authoring, single source of truth) · [`tokens.json`](tokens.json) (tooling)
 - **Components:** [`COMPONENTS.md`](COMPONENTS.md) (§12+ = v3 additions)
 - **Motion:** [`MOTION.md`](MOTION.md) — easing/duration bands, signature moves, the two laws
 - **Brand mark:** [`BRAND-MARK.md`](BRAND-MARK.md) — logo system + usage

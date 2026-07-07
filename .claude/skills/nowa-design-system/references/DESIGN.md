@@ -6,7 +6,7 @@ pixel playfulness** — warm paper canvas, deep-ink night chapters, and a retro
 pixel/8-bit motif (graph paper, stepped corners, Tiny5 type) reserved for the
 pet world.
 
-- **Tokens:** [`tokens.css`](tokens.css) (authoring) · [`tokens.json`](tokens.json) (tooling)
+- **Tokens:** [`tokens.css`](../assets/tokens.css) (authoring, synced from the repo's `design/tokens.css`) · [`tokens.json`](tokens.json) (tooling)
 - **Components:** [`COMPONENTS.md`](COMPONENTS.md)
 - **Rules (read before designing):** [`BRAND-RULES.md`](BRAND-RULES.md)
 - **Live library:** [`gallery.html`](gallery.html)

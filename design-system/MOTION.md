@@ -2,8 +2,8 @@
 
 How Nowa moves. Extracted from `pages/index-permill-v2.html` (Permill v3) and
 hardened with design-engineering practice (Emil Kowalski's animation framework,
-impeccable's motion register). Tokens live in `tokens.css`; component-specific
-CSS lives in `COMPONENTS.md`.
+impeccable's motion register). Tokens live in `../design/tokens.css`;
+component-specific CSS lives in `COMPONENTS.md`.
 
 ---
 
