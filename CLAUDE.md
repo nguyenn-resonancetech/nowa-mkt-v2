@@ -64,7 +64,7 @@ Tokens in `design/tokens.css` — the single canonical source for every page,
 | Design system docs + gallery | `design-system/` (`DESIGN.md`, `COMPONENTS.md`, `MOTION.md`, `BRAND-MARK.md`, `gallery.html`) |
 | App-UI showcase copies (not source of truth) | `app-ui/new/` |
 | Strategy + content docs | `docs/` (see "Read first" above) |
-| Deploy target (partner content review) | `nowa-permill-review.pages.dev` — `npx wrangler pages deploy . --project-name nowa-permill-review --branch=main` |
+| **Official source of truth (live preview)** | `nowa-homepage-preview.pages.dev` — `npx wrangler pages deploy . --project-name nowa-homepage-preview --branch=main --commit-dirty=true`. Deploy is a manual snapshot upload, not git-connected — merging to `main` does **not** redeploy. `nowa-permill-review.pages.dev` (the old review project) is retired; this is the one project + name everyone should use and share. |
 
 Superseded page variants and pre-Permill docs live in `pages/_archive/` and
 `docs/_archive/` — kept for history, not linked from the live site.
