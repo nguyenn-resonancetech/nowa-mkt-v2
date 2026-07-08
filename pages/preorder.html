@@ -1053,6 +1053,15 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .gs.fit img{object-fit:contain;background:var(--surface-ghost-white)}
 .gs-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;width:100%;height:100%;padding:10px;background:var(--surface-ghost-white)}
 .gs-grid img{width:100%;height:100%;object-fit:contain;min-height:0}
+/* "the kit" — brand-consistent flat lay: parchment ground, pxcard tiles, captioned */
+.kit-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;width:100%;height:100%;padding:16px;background:var(--surface-warm-parchment)}
+.kit-tile{display:flex;flex-direction:column;min-height:0}
+.kit-tile img{flex:1;width:100%;min-height:0;object-fit:cover;padding:10px 10px 0}
+.kit-tile.fit img{object-fit:contain;padding:14px 14px 0}
+.kit-cap{display:flex;align-items:center;gap:7px;font-family:var(--font-onest);font-weight:800;font-size:11.5px;letter-spacing:.03em;color:var(--color-deep-ink);padding:8px 10px 10px}
+.kit-cap .cell{width:6px;height:6px;background:var(--color-coral-flame);flex:none}
+/* outdoor closer — square source, keep the device (upper frame) in view on the 4:3 stage */
+.gs-hi img{object-position:center 18%}
 /* real-media swaps in bundle rows, fact chips, advisor cards */
 .bimg{width:88px;height:88px;flex:none;object-fit:contain;background:var(--surface-ghost-white)}
 .bimg.pxart{image-rendering:pixelated;object-fit:contain;padding:12px}
@@ -1192,7 +1201,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 </head>
 <body>
 
-<div class="note">PREORDER PDP · DRAFT v4 · 10-slide gallery, all real photos/renders (4 fact icons still placeholder) · reservation counter is a demo value</div>
+<div class="note">PREORDER PDP · DRAFT v5 · 8-slide gallery incl. designed "kit" flat lay (4 fact icons still placeholder) · reservation counter is a demo value</div>
 
 <a class="pdp-annc" href="#buy">Pre-order open<span class="ad">·</span>Ships September 2026<span class="ad">·</span>Fully refundable until it ships</a>
 
@@ -1219,30 +1228,26 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <div class="gs on" data-slide="0"><img src="assets/photos/life-hands-closeup.webp" alt="A child holds the Nowa device in both hands, finger on the talk button, the pet alive on screen"></div>
         <div class="gs" data-slide="1"><video src="assets/videos/the-mission-engine-02.mp4" poster="assets/visuals/hero-poster.jpg" muted loop playsinline preload="metadata" aria-label="A full Nowa mission: the pet perks up, the narrator prompts, the child answers, the pet cheers"></video></div>
         <div class="gs" data-slide="2"><img src="assets/photos/life-carseat-girl.webp" alt="A girl in a car seat, lit by low sun, smiling at the pet on her Nowa" loading="lazy"></div>
-        <div class="gs fit" data-slide="3"><img src="assets/adventure-kit/bundle-1.webp" alt="The Adventure Kit: silicone case and rainbow lanyard with charms" loading="lazy"></div>
-        <div class="gs fit" data-slide="4"><img src="assets/showcase/playbooks-v2.webp" alt="The three Nowa Handbooks: Calm Mornings, Big Feelings, Focus and Follow-Through" loading="lazy"></div>
-        <div class="gs" data-slide="5"><img src="assets/photos/life-livingroom-rug.webp" alt="A girl sitting on a living room rug, smiling at her Nowa device" loading="lazy"></div>
-        <div class="gs" data-slide="6"><div class="gs-grid">
-          <img src="assets/device/front.webp" alt="The Nowa device" loading="lazy">
-          <img src="assets/adventure-kit/case-red-3q.webp" alt="Adventure Kit case, red" loading="lazy">
-          <img src="assets/showcase/playbooks-v2.webp" alt="The three Nowa Handbooks" loading="lazy">
-          <img src="assets/showcase/nowa-plus-v2.webp" alt="6 months of Nowa+, the full parent app" loading="lazy">
+        <div class="gs" data-slide="3"><div class="kit-grid">
+          <div class="kit-tile pxcard"><img src="assets/adventure-kit/lanyard.webp" alt="Rainbow lanyard with dino, star, and cloud charms"><span class="kit-cap"><span class="cell"></span>Lanyard</span></div>
+          <div class="kit-tile pxcard"><img src="assets/adventure-kit/case-red-3q.webp" alt="The Nowa device in its silicone case"><span class="kit-cap"><span class="cell"></span>Device + case</span></div>
+          <div class="kit-tile pxcard fit"><img src="assets/showcase/nowa-plus-v2.webp" alt="6 months of Nowa+, the full parent app"><span class="kit-cap"><span class="cell"></span>6 months Nowa+</span></div>
+          <div class="kit-tile pxcard fit"><img src="assets/showcase/playbooks-v2.webp" alt="The three Nowa Handbooks"><span class="kit-cap"><span class="cell"></span>3 Handbooks</span></div>
         </div></div>
-        <div class="gs" data-slide="7"><img src="assets/photos/life-bedtime.webp" alt="The pet asleep on the Nowa screen on a nightstand while a child sleeps in bed behind it" loading="lazy"></div>
-        <div class="gs fit" data-slide="8"><img src="assets/showcase/nowa-plus-v2.webp" alt="The Nowa+ parent app: Mission Control, where you set the routines" loading="lazy"></div>
-        <div class="gs" data-slide="9"><img src="assets/photos/life-outdoor-girl.webp" alt="A girl outdoors, holding up her Nowa device and smiling at the camera" loading="lazy"></div>
+        <div class="gs" data-slide="4"><img src="assets/photos/life-livingroom-rug.webp" alt="A girl sitting on a living room rug, smiling at her Nowa device" loading="lazy"></div>
+        <div class="gs" data-slide="5"><img src="assets/photos/life-bedtime.webp" alt="The pet asleep on the Nowa screen on a nightstand while a child sleeps in bed behind it" loading="lazy"></div>
+        <div class="gs fit" data-slide="6"><img src="assets/showcase/nowa-plus-v2.webp" alt="The Nowa+ parent app: Mission Control, where you set the routines" loading="lazy"></div>
+        <div class="gs gs-hi" data-slide="7"><img src="assets/photos/life-outdoor-girl.webp" alt="A girl outdoors, holding up her Nowa device and smiling at the camera" loading="lazy"></div>
       </div>
       <div class="gal-thumbs" role="tablist" aria-label="Product gallery">
         <button class="gal-th on" data-th="0"><span class="tn">📷</span>Hero</button>
         <button class="gal-th" data-th="1"><span class="tn">🎬</span>Mission</button>
         <button class="gal-th" data-th="2"><span class="tn">📷</span>In the car</button>
-        <button class="gal-th" data-th="3"><span class="tn">📦</span>Bundle</button>
-        <button class="gal-th" data-th="4"><span class="tn">📖</span>Handbooks</button>
-        <button class="gal-th" data-th="5"><span class="tn">📷</span>At home</button>
-        <button class="gal-th" data-th="6"><span class="tn">🎁</span>In the box</button>
-        <button class="gal-th" data-th="7"><span class="tn">💤</span>It sleeps</button>
-        <button class="gal-th" data-th="8"><span class="tn">📱</span>Your app</button>
-        <button class="gal-th" data-th="9"><span class="tn">📷</span>Ready to go</button>
+        <button class="gal-th" data-th="3"><span class="tn">🎁</span>The kit</button>
+        <button class="gal-th" data-th="4"><span class="tn">📷</span>At home</button>
+        <button class="gal-th" data-th="5"><span class="tn">💤</span>It sleeps</button>
+        <button class="gal-th" data-th="6"><span class="tn">📱</span>Your app</button>
+        <button class="gal-th" data-th="7"><span class="tn">📷</span>Ready to go</button>
       </div>
     </div>
 
