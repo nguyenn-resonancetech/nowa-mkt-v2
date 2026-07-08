@@ -3,15 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nowa: the pet that turns routines into play</title>
-<meta name="description" content="Nowa is a pet your child looks after. Caring for it is how they practice calm, build routines, and grow kinder. Built with the scientists who wrote the science. Pre-order now, ships September 2026.">
+<title>Reserve your Nowa — $99 pre-order, ships September 2026</title>
+<meta name="description" content="Reserve the Day-One Bundle: the Nowa device, six months of Nowa+, the Nowa Handbooks, and the Adventure Kit. $294 of it, for $99. Fully refundable until it ships.">
 <link rel="stylesheet" href="../design/tokens.css">
 <link rel="icon" type="image/png" href="assets/brand/logo-app-64.png">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
 <style>@font-face{font-family:"Departure Mono";src:url("../fonts/DepartureMono-Regular.woff2") format("woff2"),url("../fonts/DepartureMono-Regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}</style>
-<!-- Lenis smooth scroll (momentum / inertia) -->
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-<style>html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:hidden}.lenis.lenis-smooth iframe{pointer-events:none}</style>
 <style>
 /* =========================================================
    Nowa v2 — storybook warmth + pixel playfulness
@@ -853,22 +850,11 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 @media(prefers-reduced-motion:reduce){.annc{text-align:center}.annc-track{animation:none;justify-content:center;width:100%}.annc-item:nth-child(n+2){display:none}}
 
 /* ---- preorder v3 — $99-as-hero rebuild ---- */
-/* big price headline — badge stacks under the price so the price stays the one big statement */
-.po-headline{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:14px}
-.po-price{font-family:var(--font-onest);font-weight:900;font-size:clamp(48px,7vw,96px);line-height:.96;letter-spacing:-.02em;color:var(--color-deep-ink);text-align:center;margin:0}
-/* .final h2 (generic section-heading rule) has higher specificity than .po-price alone and was re-adding margin:auto + max-width:16ch + a smaller font-size — neutralize it here */
-.po-headline .po-price{margin:0;max-width:none;font-size:clamp(48px,7vw,96px)}
+/* big price headline */
+.po-price{font-family:var(--font-onest);font-weight:900;font-size:clamp(48px,7vw,96px);line-height:.96;letter-spacing:-.02em;color:var(--color-deep-ink);text-align:center;margin-top:14px}
 .po-price .po-amt{color:var(--color-coral-flame)}
 .po-price .po-save{color:var(--color-deep-ink)}
 .po-sub{font-family:var(--font-onest);font-weight:600;font-size:clamp(15px,1.4vw,18px);color:var(--color-slate-mid);text-align:center;max-width:54ch;margin:14px auto 0;text-wrap:pretty}
-.po-sub-link{text-align:center;margin:8px auto 0}
-.po-sub-link a{color:var(--color-coral-flame);font-weight:700;font-size:var(--text-body-sm);text-decoration:underline;text-underline-offset:3px}
-/* savings badge — amber highlight, never coral (coral stays CTA-only); matches preorder.html buy box */
-.save-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-onest);font-weight:800;font-size:12.5px;letter-spacing:.02em;background:var(--color-amber-signal);color:var(--color-deep-ink);padding:4px 10px;margin:0}
-/* compact trust strip — pill badges, replacing the old stacked deal-trust list now that the itemized breakdown lives on the PDP */
-.po-trust-strip{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px;max-width:680px;margin:var(--spacing-32) auto 0;padding:0}
-.po-trust-strip li{display:inline-flex;align-items:flex-start;gap:7px;font-family:var(--font-onest);font-weight:700;font-size:13px;color:#1e3a2c;text-align:left;background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-full);padding:9px 16px;box-shadow:2px 2px 0 rgba(22,28,36,.1)}
-.po-trust-strip .deal-trust-ic{width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;color:var(--color-coral-flame);flex-shrink:0;margin-top:2px}
 
 /* the "deal block" — TWO sibling pxcards each with their own stepped corners */
 .deal{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;max-width:920px;margin:var(--spacing-48) auto 0;text-align:left}
@@ -910,6 +896,12 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .deal-trust-ic{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;color:var(--color-coral-flame);margin-top:1px}
 .deal-trust b{font-family:var(--font-onest);font-weight:800}
 
+/* honest scarcity line */
+.po-honest{font-family:var(--font-onest);font-weight:600;font-size:14px;color:var(--color-slate-mid);text-align:center;max-width:62ch;margin:var(--spacing-32) auto 0;text-wrap:pretty;line-height:1.55}
+.po-honest .po-honest-lead{color:var(--color-deep-ink);font-weight:700}
+.po-honest .po-honest-num{color:var(--color-coral-flame);font-weight:800}
+
+
 
 
 
@@ -940,6 +932,8 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .midcta .mc-more{font-size:var(--text-body-sm);color:var(--color-slate-mid);margin-top:18px}
 .midcta .mc-more a{color:var(--color-coral-flame);font-weight:700}
 
+/* FAQ category tabs */
+.faqtabs{margin-bottom:var(--spacing-24)}
 .faqsec .faqpanel{margin-top:0}
 .faqpanel[hidden]{display:none}
 
@@ -1027,579 +1021,464 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .deal-sub li::before{content:"";width:6px;height:6px;background:var(--color-coral-glow);top:7px}
 .deal-row:last-child .deal-sub li::before{content:"\2605";width:auto;height:auto;background:none;color:var(--color-amber-signal);top:0}
 </style>
+<style>
+/* =========================================================
+   PREORDER PDP layer — lean checkout page on the v2 system
+   5 sections: buy box · bundle · facts · Nowa+ · FAQ
+   ========================================================= */
+
+/* placeholder blocks — every one describes the asset that goes there */
+.ph{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:20px;background:repeating-linear-gradient(45deg,rgba(22,28,36,.05) 0 12px,transparent 12px 24px),var(--surface-ghost-white);outline:2px dashed var(--color-cloud-border);outline-offset:-2px;color:var(--color-slate-mid)}
+.ph .ph-kind{font-family:var(--font-onest);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-coral-flame)}
+.ph .ph-desc{font-family:var(--font-noto-sans);font-size:13px;line-height:1.5;max-width:36ch;text-wrap:pretty}
+.ph .ph-tag{position:absolute;top:8px;right:8px;font-family:var(--font-onest);font-weight:800;font-size:9px;letter-spacing:.1em;background:var(--color-amber-signal);color:var(--color-deep-ink);padding:2px 6px}
+.ph-dark{background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 12px,transparent 12px 24px),var(--color-ink-charcoal);outline-color:rgba(255,255,255,.18);color:var(--color-chalk-surface)}
+.ph-dark .ph-kind{color:var(--color-coral-glow)}
+
+/* static announcement line (calm, no marquee) */
+.pdp-annc{display:block;background:var(--surface-deep-ink);color:var(--color-warm-parchment);text-align:center;padding:10px 16px;font-family:var(--font-onest);font-weight:600;font-size:13.5px}
+.pdp-annc .ad{color:var(--color-coral-glow);margin:0 10px}
+
+/* ---- buy box ---- */
+.buy{padding:clamp(36px,5vw,64px) 0 clamp(56px,7vw,88px)}
+.buy-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(28px,4vw,52px);align-items:start}
+@media(max-width:960px){.buy-grid{grid-template-columns:1fr}}
+
+/* gallery — stage + thumb switcher on all viewports */
+.gal-stage{position:relative;aspect-ratio:4/3;width:100%}
+.gal-stage [data-slide]{position:absolute;inset:0;display:none}
+.gal-stage .ph[data-slide].on{display:flex}
+.gal-stage .gs[data-slide].on{display:block}
+.gs img,.gs video{width:100%;height:100%;object-fit:cover;display:block}
+.gs.fit img{object-fit:contain;background:var(--surface-ghost-white)}
+.gs-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;width:100%;height:100%;padding:10px;background:var(--surface-ghost-white)}
+.gs-grid img{width:100%;height:100%;object-fit:contain;min-height:0}
+/* "the kit" — brand-consistent flat lay: parchment ground, pxcard tiles, captioned */
+.kit-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;width:100%;height:100%;padding:16px;background:var(--surface-warm-parchment)}
+.kit-tile{display:flex;flex-direction:column;min-height:0}
+.kit-tile img{flex:1;width:100%;min-height:0;object-fit:contain;padding:12px 12px 0}
+.kit-cap{display:flex;align-items:center;gap:7px;font-family:var(--font-onest);font-weight:800;font-size:11.5px;letter-spacing:.03em;color:var(--color-deep-ink);padding:8px 10px 10px}
+.kit-cap .cell{width:6px;height:6px;background:var(--color-coral-flame);flex:none}
+/* outdoor closer — square source, keep the device (upper frame) in view on the 4:3 stage */
+.gs-hi img{object-position:center 18%}
+/* real-media swaps in bundle rows, fact chips, advisor cards */
+.bimg{width:88px;height:88px;flex:none;object-fit:contain;background:var(--surface-ghost-white)}
+.bimg.pxart{image-rendering:pixelated;object-fit:contain;padding:12px}
+.fact .fimg{width:52px;height:52px;object-fit:contain;background:var(--surface-warm-parchment);padding:7px;margin-bottom:10px;image-rendering:pixelated;clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px));filter:drop-shadow(2px 2px 0 rgba(0,0,0,.4))}
+.advcard .aimg{aspect-ratio:1/1;width:100%;object-fit:cover;margin-bottom:12px;background:var(--surface-ghost-white);display:block}
+/* desktop: both columns pin below the header while the section scrolls,
+   released when the next section arrives (Gruns behavior) */
+@media(min-width:961px){
+  .buy-grid>div:first-child,.buy-panel{position:sticky;top:76px}
+}
+.gal-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+.gal-th{appearance:none;border:0;cursor:pointer;background:var(--surface-pure-white);font-family:var(--font-onest);font-weight:700;font-size:10.5px;line-height:1.25;letter-spacing:.02em;color:var(--color-slate-mid);padding:10px 4px;clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px));filter:drop-shadow(2px 2px 0 rgba(22,28,36,.12));transition:transform 110ms var(--ease-out-strong)}
+.gal-th .tn{display:block;font-size:14px;margin-bottom:2px}
+.gal-th.on{background:var(--color-coral-flame);color:#fff}
+@media(hover:hover) and (pointer:fine){.gal-th:not(.on):hover{transform:translateY(-2px);color:var(--color-deep-ink)}}
+@media(max-width:560px){.gal-thumbs{grid-template-columns:repeat(4,1fr)}}
+
+/* panel */
+.buy-panel{padding:clamp(22px,3vw,32px)}
+.bp-eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--font-onest);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-slate-mid);margin-bottom:14px}
+.bp-eyebrow .cell{width:12px;height:12px;background:var(--color-coral-flame);flex:none}
+.buy-panel h1{font-size:clamp(30px,3.6vw,40px);font-weight:800;margin-bottom:4px}
+.bp-sub{font-family:var(--font-onest);font-weight:600;font-size:var(--text-subheading);color:var(--color-slate-mid);margin-bottom:12px}
+.bp-trust{font-size:var(--text-body-sm);color:var(--color-deep-ink);font-weight:600;border-left:3px solid var(--color-coral-flame);padding-left:10px;margin-bottom:20px}
+.bp-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.bp-price .now{font-family:var(--font-onest);font-weight:800;font-size:clamp(34px,4vw,44px);letter-spacing:-.02em}
+.bp-price .then{font-size:var(--text-body);color:var(--color-slate-mid)}
+.bp-price .then s{color:var(--color-slate-mid)}
+.bp-refund{font-size:var(--text-body-sm);color:var(--color-slate-mid);margin-bottom:18px}
+.rescount{margin-bottom:20px}
+.rescount .rc-label{font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);margin-bottom:8px}
+.rescount .rc-cells{display:flex;gap:4px}
+.rescount .rc{flex:1;height:12px;background:var(--color-chalk-surface)}
+.rescount .rc.full{background:var(--color-coral-flame)}
+.bp-incl{list-style:none;margin:0 0 8px;display:flex;flex-direction:column;gap:8px}
+.bp-incl li{display:flex;align-items:center;gap:10px;font-size:var(--text-body-sm)}
+.bp-incl img{width:34px;height:34px;object-fit:contain;background:var(--surface-ghost-white);flex:none}
+.bp-incl .val{margin-left:auto;font-family:var(--font-onest);font-weight:700;color:var(--color-slate-mid);white-space:nowrap}
+/* savings badge — amber highlight, never coral (coral stays CTA-only) */
+.save-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-onest);font-weight:800;font-size:12.5px;letter-spacing:.02em;background:var(--color-amber-signal);color:var(--color-deep-ink);padding:4px 10px;margin:6px 0 10px}
+.bp-see{display:inline-block;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);color:var(--color-deep-ink);border-bottom:2px solid var(--color-coral-flame);margin-bottom:22px}
+.buy-panel .btn{width:100%;justify-content:center;font-size:17px}
+.bp-badges{list-style:none;margin:16px 0 18px;display:flex;flex-direction:column;gap:8px}
+.bp-badges li{display:flex;gap:9px;font-size:var(--text-body-sm);color:var(--color-deep-ink)}
+.bp-badges li b{font-weight:700}
+.bp-badges .ck{color:var(--color-coral-flame);font-weight:800;flex:none}
+.bp-pay{border-top:1px dashed var(--color-cloud-border);padding-top:14px}
+.bp-paychips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.bp-paychips span{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-onest);font-weight:800;font-size:11px;letter-spacing:.01em;padding:5px 10px;border-radius:4px;border:1px solid transparent}
+.pay-shop{background:#5a31f4;color:#fff}
+.pay-apple{background:#000;color:#fff}
+.pay-google{background:#fff;color:#3c4043;border-color:#dadce0}
+.pay-paypal{background:#ffc439;color:#003087;font-style:italic}
+.pay-visa{background:#1a1f71;color:#fff;font-style:italic;letter-spacing:.06em}
+.pay-mc{background:#fff;color:#1f2937;border-color:#dadce0}
+.pay-mc .mc-c{display:inline-flex}
+.pay-mc .mc-c i{width:12px;height:12px;border-radius:50%;display:block}
+.pay-mc .mc-c i:first-child{background:#eb001b}
+.pay-mc .mc-c i:last-child{background:#f79e1b;margin-left:-5px;mix-blend-mode:multiply}
+.pay-amex{background:#016fd0;color:#fff}
+.bp-paynote{font-size:12.5px;color:var(--color-slate-mid)}
+
+/* ---- bundle band ---- */
+.bundle{background:var(--color-warm-sand,#fff3d6)}
+.bitems{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:var(--spacing-32) 0;padding-right:10px;padding-bottom:10px}
+@media(max-width:860px){.bitems{grid-template-columns:1fr}}
+.bitem{display:flex;gap:16px;align-items:flex-start;padding:18px}
+.bitem .ph{width:88px;height:88px;flex:none;padding:8px}
+.bitem .ph .ph-desc{font-size:9.5px;max-width:none}
+.bitem .ph .ph-kind{font-size:8px}
+.bitem h3{font-size:16.5px;margin-bottom:4px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.bitem .val{font-family:var(--font-onest);font-weight:800;font-size:13px;color:var(--color-coral-flame);white-space:nowrap}
+.bitem p{font-size:var(--text-body-sm);color:var(--color-slate-mid);text-wrap:pretty}
+.bmath{max-width:520px;padding:24px 26px}
+.bmath .mrow{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--font-onest);font-weight:600;font-size:var(--text-body);padding:7px 0}
+.bmath .mrow + .mrow{border-top:1px dashed var(--color-cloud-border)}
+.bmath .mrow.pay{font-weight:800;font-size:22px}
+.bmath .mrow.pay .n{color:var(--color-coral-flame)}
+.bmath .mrow.save .n{background:var(--color-amber-signal);padding:1px 8px;font-weight:800}
+.bmath .mrow .n s{text-decoration-color:var(--color-coral-flame);text-decoration-thickness:2px;color:var(--color-slate-mid)}
+.bterms{max-width:56ch;margin-top:var(--spacing-24);font-size:var(--text-body-sm);color:var(--color-slate-mid);text-wrap:pretty}
+.bcta{margin-top:var(--spacing-24);display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.bcta .sub{font-size:var(--text-body-sm);color:var(--color-slate-mid)}
+
+/* ---- facts band (night) ---- */
+.facts{--band:var(--surface-deep-ink)}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:var(--spacing-32);padding-right:10px;padding-bottom:10px}
+@media(max-width:960px){.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.fgrid{grid-template-columns:1fr}}
+.fact{--pxbg:var(--color-ink-charcoal);--pxborder:rgba(255,255,255,.08);padding:20px;color:var(--color-chalk-surface)}
+.fact .ph{width:48px;height:48px;padding:4px;margin-bottom:12px}
+.fact .ph .ph-kind{font-size:7px;letter-spacing:.04em}
+.fact .ph .ph-desc{display:none}
+.fact h3{font-size:16.5px;color:#fff;margin-bottom:6px}
+.fact p{font-size:var(--text-body-sm);color:var(--color-cloud-border);text-wrap:pretty}
+
+/* ---- nowa+ band ---- */
+.plus{background:var(--color-bright-paper,#faf8f0)}
+.plus-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3.5vw,48px);align-items:start;margin-top:var(--spacing-32);padding-right:10px;padding-bottom:10px}
+@media(max-width:860px){.plus-grid{grid-template-columns:1fr}}
+.plus-card{padding:22px 24px}
+.plus-card h3{font-size:17px;margin-bottom:12px}
+.plus-card ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0;margin:0}
+.plus-card li{display:flex;gap:10px;font-size:var(--text-body-sm)}
+.plus-card li::before{content:"";width:7px;height:7px;background:var(--color-coral-flame);flex:none;margin-top:6px}
+.plus-terms{font-size:var(--text-body-sm);color:var(--color-slate-mid);margin-top:14px;padding-top:12px;border-top:1px dashed var(--color-cloud-border)}
+.tbc{display:inline-block;font-family:var(--font-onest);font-weight:800;font-size:9px;letter-spacing:.08em;background:var(--color-amber-signal);color:var(--color-deep-ink);padding:2px 6px;text-transform:uppercase;position:relative;top:-1px}
+
+/* ---- sticky reserve bar (mobile) ---- */
+.stickybar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;align-items:center;gap:12px;background:color-mix(in srgb,var(--surface-deep-ink) 94%,transparent);backdrop-filter:blur(8px);color:#fff;padding:10px 14px;transform:translateY(110%);transition:transform 300ms var(--ease-out-strong)}
+.stickybar.show{transform:none}
+.stickybar .sb-price{font-family:var(--font-onest);font-weight:800;font-size:16px}
+.stickybar .sb-ship{font-size:11.5px;color:var(--color-cloud-border)}
+.stickybar .btn{margin-left:auto;padding:10px 20px 15px;font-size:14px;width:auto}
+.stickybar .sb-x{appearance:none;border:0;background:none;color:var(--color-cloud-border);font-size:16px;cursor:pointer;padding:4px}
+@media(max-width:960px){.stickybar{display:flex}}
+@media(prefers-reduced-motion:reduce){.stickybar{transition:none}}
+
+/* ---- advisors trust band (sage = trust/safety) ---- */
+.advband{background:var(--color-sage-calm,#e2efdb)}
+.advband h2{color:var(--color-sage-ink,#233a22)}
+.advband .lead{color:var(--color-sage-muted,#4a5f47)}
+.advband .geyebrow{color:var(--color-sage-ink,#233a22)}
+.advgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:var(--spacing-32);padding-right:10px;padding-bottom:10px}
+@media(max-width:960px){.advgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.advgrid{grid-template-columns:1fr}}
+.advcard{padding:16px}
+.advcard .ph{aspect-ratio:1/1;width:100%;padding:10px;margin-bottom:12px}
+.advcard .ph .ph-desc{font-size:10.5px}
+.advcard h3{font-size:15.5px;margin-bottom:5px}
+.advcard p{font-size:13px;color:var(--color-slate-mid);line-height:1.5;text-wrap:pretty}
+.adv-note{margin-top:var(--spacing-24);font-size:var(--text-body-sm);color:var(--color-sage-muted,#4a5f47)}
+.adv-note a{font-weight:700;color:var(--color-sage-ink,#233a22);border-bottom:2px solid var(--color-coral-flame)}
+
+/* faq spacing for the single-list page */
+.faqsec{padding-top:clamp(56px,7vw,88px)}
+</style>
 </head>
 <body>
 
-<div class="note">PERMILL LP v2 · restructured into the six question-groups. Real sprites + video; advisor and beta quotes are SAMPLE, pending approval.</div>
+<div class="note">PREORDER PDP · DRAFT v7 · 10-slide gallery incl. Adventure Kit + starter-pet reveal (4 fact icons still placeholder) · reservation counter is a demo value</div>
 
-<div class="readbar" aria-hidden="true"></div>
-
-<a class="annc" href="preorder.html#buy" aria-label="Nowa pre-order is open. Was $149, now $99. Fully refundable. Handbooks free the day you reserve. Reserve yours.">
-  <div class="annc-track" aria-hidden="true">
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-    <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
-  </div>
-</a>
+<a class="pdp-annc" href="#buy">Pre-order open<span class="ad">·</span>Ships September 2026<span class="ad">·</span>Fully refundable until it ships</a>
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#"><img src="assets/brand/nowa-wordmark.svg" alt="Nowa" width="107" height="24" style="display:block"></a>
+    <a class="brand" href="index-permill-v2.html"><img src="assets/brand/nowa-wordmark.svg" alt="Nowa" width="107" height="24" style="display:block"></a>
     <div class="navlinks">
-      <a href="#learnings">What it does</a>
-      <a href="#mechanic">How it works</a>
-      <a href="#world">Why kids love it</a>
-      <a href="#compare">Compare</a>
-      <a href="nowa-story.html" class="nav-story"><span class="nav-hl">Our story</span></a>
-      <a href="preorder.html#buy" class="btn">Pre-order</a>
+      <a href="#bundle">Everything included</a>
+      <a href="#facts">The details</a>
+      <a href="#faq">FAQ</a>
+      <a href="index-permill-v2.html" class="nav-story"><span class="nav-hl">Homepage</span></a>
+      <a href="#buy" class="btn">Reserve · $99</a>
     </div>
   </div>
 </nav>
 
-<!-- chapter rail -->
-<div class="rail" aria-label="Chapters">
-  <a href="#device" data-ch="device"><span class="rcell"></span><span class="rname">What Nowa is</span></a>
-  <a href="#learnings" data-ch="learnings"><span class="rcell"></span><span class="rname">What it does</span></a>
-  <a href="#mechanic" data-ch="mechanic"><span class="rcell"></span><span class="rname">How it works</span></a>
-  <a href="#world" data-ch="world"><span class="rcell"></span><span class="rname">Why it works</span></a>
-  <a href="#safety" data-ch="safety"><span class="rcell"></span><span class="rname">Safety &amp; control</span></a>
-  <a href="#compare" data-ch="compare"><span class="rcell"></span><span class="rname">Compare</span></a>
-  <a href="#preorder" data-ch="preorder"><span class="rcell"></span><span class="rname">Pre-order</span></a>
-</div>
+<!-- ============ P1 · BUY BOX ============ -->
+<section class="buy" id="buy">
+  <div class="wrap buy-grid">
 
-<!-- HERO -->
-<header class="hero" id="top">
-  <div class="wrap hero-grid">
+    <!-- gallery -->
     <div>
-      <p class="hero-eyebrow">less nagging, more follow-through</p>
-      <h1>
-        <span class="line"><span>The pet that turns</span></span>
-        <span class="line"><span>routines into play.</span></span>
-      </h1>
-      <p class="lead">Nowa is a virtual pet your child looks after. Caring for it is how they practice calm, build routines, and grow kinder. The follow-through comes from them, not from you repeating yourself.</p>
-      <div class="hero-cta">
-        <a href="preorder.html#buy" class="btn">Reserve your Nowa <span class="arr">→</span></a>
-        <a href="#mechanic" class="btn-ghost">See how it works →</a>
+      <div class="gal-stage pxcard" style="--pxbg:var(--surface-ghost-white)">
+        <div class="gs on" data-slide="0"><img src="assets/photos/life-hands-closeup.webp" alt="A child holds the Nowa device in both hands, finger on the talk button, the pet alive on screen"></div>
+        <div class="gs" data-slide="1"><video src="assets/videos/the-mission-engine-02.mp4" poster="assets/visuals/hero-poster.jpg" muted loop playsinline preload="metadata" aria-label="A full Nowa mission: the pet perks up, the narrator prompts, the child answers, the pet cheers"></video></div>
+        <div class="gs" data-slide="2"><img src="assets/photos/life-carseat-girl.webp" alt="A girl in a car seat, lit by low sun, smiling at the pet on her Nowa" loading="lazy"></div>
+        <div class="gs" data-slide="3"><div class="kit-grid">
+          <div class="kit-tile pxcard"><img src="assets/adventure-kit/lanyard.webp" alt="Rainbow lanyard with dino, star, and cloud charms"><span class="kit-cap"><span class="cell"></span>Lanyard</span></div>
+          <div class="kit-tile pxcard"><img src="assets/adventure-kit/case-red-3q.webp" alt="The Nowa device in its silicone case"><span class="kit-cap"><span class="cell"></span>Device + case</span></div>
+          <div class="kit-tile pxcard"><img src="assets/showcase/nowa-plus-v2.webp" alt="6 months of Nowa+, the full parent app"><span class="kit-cap"><span class="cell"></span>6 months Nowa+</span></div>
+          <div class="kit-tile pxcard"><img src="assets/showcase/playbooks-v2.webp" alt="The three Nowa Handbooks"><span class="kit-cap"><span class="cell"></span>3 Handbooks</span></div>
+        </div></div>
+        <div class="gs fit" data-slide="4"><img src="assets/adventure-kit/bundle-1.webp" alt="The Adventure Kit: silicone case and rainbow lanyard with charms" loading="lazy"></div>
+        <div class="gs fit" data-slide="5"><img src="assets/showcase/starter-pet.webp" alt="Exclusive starter pet: a mystery egg among the Nowa species, a pre-order extra" loading="lazy"></div>
+        <div class="gs" data-slide="6"><img src="assets/photos/life-livingroom-rug.webp" alt="A girl sitting on a living room rug, smiling at her Nowa device" loading="lazy"></div>
+        <div class="gs" data-slide="7"><img src="assets/photos/life-bedtime.webp" alt="The pet asleep on the Nowa screen on a nightstand while a child sleeps in bed behind it" loading="lazy"></div>
+        <div class="gs fit" data-slide="8"><img src="assets/showcase/nowa-plus-v2.webp" alt="The Nowa+ parent app: Mission Control, where you set the routines" loading="lazy"></div>
+        <div class="gs gs-hi" data-slide="9"><img src="assets/photos/life-outdoor-girl.webp" alt="A girl outdoors, holding up her Nowa device and smiling at the camera" loading="lazy"></div>
       </div>
-      <p class="ship"><s>$149</s> <b>$99</b> pre-order · Ages 3–10 · Ships September 2026 · Fully refundable</p>
-    </div>
-    <div class="hero-stage">
-      <div class="stage-inner">
-        <video class="stage-video" src="assets/videos/hero-main.mp4" preload="auto" autoplay muted loop playsinline aria-label="The Nowa device, alive on screen"></video>
+      <div class="gal-thumbs" role="tablist" aria-label="Product gallery">
+        <button class="gal-th on" data-th="0"><span class="tn">📷</span>Hero</button>
+        <button class="gal-th" data-th="1"><span class="tn">🎬</span>Mission</button>
+        <button class="gal-th" data-th="2"><span class="tn">📷</span>In the car</button>
+        <button class="gal-th" data-th="3"><span class="tn">🎁</span>The bundle</button>
+        <button class="gal-th" data-th="4"><span class="tn">🎒</span>Adventure Kit</button>
+        <button class="gal-th" data-th="5"><span class="tn">🥚</span>Starter Pet</button>
+        <button class="gal-th" data-th="6"><span class="tn">📷</span>At home</button>
+        <button class="gal-th" data-th="7"><span class="tn">💤</span>It sleeps</button>
+        <button class="gal-th" data-th="8"><span class="tn">📱</span>Your app</button>
+        <button class="gal-th" data-th="9"><span class="tn">📷</span>Ready to go</button>
       </div>
-      <span class="spark" style="right:-8px;top:-9px"></span><span class="spark s2" style="left:-10px;bottom:26%"></span><span class="spark s3" style="right:18%;bottom:-10px"></span>
-    </div>
-  </div>
-</header>
-
-<div class="dither" aria-hidden="true"></div>
-<!-- SPINE — the parent's line; gives the hero its own standalone beat -->
-<section class="spine dark" id="spine">
-  <div class="wrap">
-    <p class="quote" id="spineQuote">"I want to stay calm, and I want my kid to learn how, too."</p>
-    <p class="sub reveal">Every parent we built Nowa for said a version of this. So we started there.</p>
-  </div>
-</section>
-<div class="dither rev" aria-hidden="true"></div>
-
-<!-- DEVICE — its own section, after the quote -->
-<section id="device" class="device-blend">
-  <div class="wrap">
-    <div class="device-intro">
-      <p class="geyebrow"><span class="cell"></span>What Nowa is</p>
-      <h2 class="reveal" style="font-size:clamp(26px,3vw,40px);max-width:18ch">A pocket-sized pet, not a screen to scroll.</h2>
-      <p class="lead reveal" style="margin-top:14px">No tablet, no app for the kid. The pet lives in a handheld device built for small hands. Three chunky buttons and a screen just big enough for the pet it holds.</p>
     </div>
 
-    <div class="device-hybrid reveal-group">
-      <!-- LEFT: product carousel -->
-      <div class="device-carousel reveal">
-        <div class="pxcard blueprint" style="overflow:hidden;padding:clamp(8px,1.5vw,16px)">
-          <div class="dc-track" id="dcTrack">
-            <div class="dc-slide" data-label="<span class='dcl-tag'>01</span>Built for small hands"><video src="assets/videos/device-blueprint.mp4" autoplay muted loop playsinline aria-label="Technical blueprint of the Nowa device"></video></div>
-            <div class="dc-slide" data-label="<span class='dcl-tag'>02</span>Front · screen + buttons"><img src="assets/device/front.webp" alt="Nowa device front view showing the screen and three colorful buttons"></div>
-            <div class="dc-slide" data-label="<span class='dcl-tag'>03</span>Back · speaker"><img src="assets/device/back.webp" alt="Nowa device back view showing the speaker grille and Nowa logo"></div>
-            <div class="dc-slide" data-label="<span class='dcl-tag'>04</span>Side · scroll wheel + mute flip"><img src="assets/device/side-right.webp" alt="Nowa device angled view showing the scroll wheel and mute flip switch"></div>
-            <div class="dc-slide" data-label="<span class='dcl-tag'>05</span>Side · USB-C + headphone jack"><img src="assets/device/side-left.webp" alt="Nowa device side view showing the USB-C port and headphone jack"></div>
-          </div>
-          <div class="dc-arrows">
-            <button class="dc-arr" aria-label="Previous" id="dcPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-            <button class="dc-arr" aria-label="Next" id="dcNext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></button>
-          </div>
-        </div>
-        <div class="dc-dots" id="dcDots">
-          <button class="dc-dot on" aria-label="Slide 1"></button>
-          <button class="dc-dot" aria-label="Slide 2"></button>
-          <button class="dc-dot" aria-label="Slide 3"></button>
-          <button class="dc-dot" aria-label="Slide 4"></button>
-          <button class="dc-dot" aria-label="Slide 5"></button>
-        </div>
-        <p class="dc-label" id="dcLabel" aria-live="polite"><span class="dcl-tag">01</span>Built for small hands</p>
-      </div>
+    <!-- purchase panel -->
+    <div class="buy-panel pxcard">
+      <p class="bp-eyebrow"><span class="cell"></span>Pre-order · ships September 2026</p>
+      <h1>Nowa</h1>
+      <p class="bp-sub">The pet that turns routines into play.</p>
 
-      <!-- RIGHT: 6 spec accordions -->
-      <div class="device-specs">
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M9 18H15" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 6L13 6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M7 2H17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M7 22H17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M19 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Display</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">320 × 240 color LCD</div><p>Scratch-resistant screen cover. Vivid colors built for pixel-art pet animations.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 10V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 6H18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 18H18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 10V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 15V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 8V9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Battery</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">2,000 mAh · 8–10 hours</div><p>USB-C fast charging. Lasts a full day of play on a single charge.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M18 10L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 8L22 16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 6L8 6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 18L8 18.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 4L13 4L13 20L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 8L2 8V16H6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Audio</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">Speaker + microphone + 3.5 mm jack</div><p>Clear audio up to 2 m. Push-to-talk mic for the child's voice. Plug in any kid headphones.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M6 5L18 5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 10L16 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 7L4 7.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20.01 7L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18.01 12L18 12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6.01001 12L6.00001 12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 9L2 9.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22.01 9L22 9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 15H13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 20H13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M15 17V18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 17V18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Connectivity</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">Wi-Fi 2.4 GHz · Bluetooth 5.0 LE · full offline play</div><p>Works offline. Stories, songs, and missions download to the device so your child can play anywhere. Connects when available for updates and new content.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M5 21H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M11 14.01L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8.99988 16.01L8.99988 16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M7 14.01L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M15 12.01L15 15.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 10.01L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 10.01L13 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 9.01001L9 12.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M15 8.01001L15 8.00001" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 5L21 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M3 5L3 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 3H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Controls</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">3 buttons + scroll wheel + motion sensor</div><p>Physical-only input, simple enough for age 3. Power, voice (push-to-talk), select/back. Scroll wheel for menus. Shake and tilt the device to play.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M6 3H18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8.01001 20L8.00001 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6.01001 18L6.00001 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16.01 20L16 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18.01 18L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 16V5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 16V5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 22H14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 14.01V14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 12.01V12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 10.01V10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 8.01V8" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 12.01V12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>Safety &amp; privacy</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">Hardware mic mute switch</div><p>Physical circuit disconnect, not software. When the switch is off, no audio can be captured. FCC, CPSIA, and ASTM F963 toy-safety certified. Lead-free, phthalate-free materials.</p></div></div>
-        </details>
-        <details class="faq pxcard">
-          <summary><span class="dspec-ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M5 9L2 9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 9L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 19L4 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M5 5L4 5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 19L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 5L19 5" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 21L7 21" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 11L7 11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 3L7 3" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 21L15 21" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 11L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M17 3L15 3" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 23L11 23" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 13L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M13 1L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></span><span>In the box</span><span class="fplus">+</span></summary>
-          <div class="faq-a"><div><div class="dspec-val">Device · USB-C cable · manual</div><p>2.9 × 3.2 in (7.3 × 8.0 cm). Fits a coat pocket or backpack pouch. ABS case with rounded, child-safe edges, built for small hands. Ships with a 0.5 m USB-C charging cable, quick-start manual, and safety booklet.</p></div></div>
-        </details>
+      <div class="bp-price">
+        <span class="now">$99</span>
+        <span class="then">today · <s>$149</s> at retail</span>
       </div>
-    </div>
-  </div>
-</section>
-<div class="dither dith-soft" aria-hidden="true"></div>
-<!-- ░░ GROUP 2 · THE LEARNINGS & SCIENCE ░░ -->
-<!-- MISSIONS -->
-<section id="learnings" class="missions-band">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>What it does</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">All the learning runs through missions.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:60ch">The pet asks your child for help in missions: small, real-world acts of care. Each one grows one of three skills that decades of research tie to how well kids do later in life.</p>
-    <div class="mtabs reveal" role="tablist" aria-label="Mission types">
-      <button class="mtab on" role="tab" aria-selected="true" data-m="0">Habit &amp; routine</button>
-      <button class="mtab" role="tab" aria-selected="false" data-m="1">Emotional regulation</button>
-      <button class="mtab" role="tab" aria-selected="false" data-m="2">Executive function</button>
-    </div>
-    <div class="mpanel reveal pxcard">
-      <div class="mfade" id="mText">
-        <h3 id="mHead">The daily friction, minus the referee.</h3>
-        <p id="mBody">Brushing teeth, getting dressed, bedtime, homework start. The routine becomes something the pet needs help to finish, so the follow-through comes from your child.</p>
-        <div class="mstat" id="mStat"><span class="big">3× better</span><span class="txt">Kids with a consistent bedtime routine fell asleep faster, woke less, and had steadier daytime moods.</span><span class="src">Mindell et al., Sleep, 2009 · replicated across 10,000+ children</span></div>
-        <p class="mreal"><span class="cell"></span><span id="mReal">Shaped with Dr. Steven Kurtz · Parent-child interaction</span></p>
-      </div>
-      <div class="mission-art">
-        <div class="device-frame mfade" id="mVidWrap">
-          <video id="mVid" src="assets/videos/the-mission-engine-02.mp4" autoplay muted loop playsinline aria-label="A mission on the Nowa device screen"></video>
-          <div class="df-buttons" aria-hidden="true"><span class="db y"></span><span class="db r"></span><span class="db b"></span></div>
+      <span class="save-badge">Save 66% · $195 off the $294 day-one value</span>
+      <p class="bp-refund">Fully refundable until the day it ships.</p>
+
+      <div class="rescount" aria-label="317 of 500 reservations taken">
+        <div class="rc-label">317 of 500 reservations taken</div>
+        <div class="rc-cells" aria-hidden="true">
+          <span class="rc full"></span><span class="rc full"></span><span class="rc full"></span><span class="rc full"></span><span class="rc full"></span><span class="rc full"></span><span class="rc full"></span><span class="rc full"></span><span class="rc full"></span><span class="rc full"></span><span class="rc full"></span><span class="rc full"></span><span class="rc full"></span><span class="rc"></span><span class="rc"></span><span class="rc"></span><span class="rc"></span><span class="rc"></span><span class="rc"></span><span class="rc"></span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<div class="dither" aria-hidden="true" style="--dith-light:var(--surface-pure-white)"></div>
-<!-- CH 02 — SCIENCE -->
-<section class="dark" id="science">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>The learnings &amp; science</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">Built with the scientists who wrote the science.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:52ch">Those frameworks aren't borrowed second-hand. Nowa was shaped by the researchers behind them.</p>
-    <div class="adv-chips reveal-group">
-      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-susanne-denham.png" alt="Portrait of Dr. Susanne Denham" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. Susanne Denham</span><span class="role">Emotional competence</span><span class="ttl">George Mason University</span></div>
-      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-megan-mcclelland.png" alt="Portrait of Dr. Megan McClelland" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. Megan McClelland</span><span class="role">Executive function</span><span class="ttl">Oregon State University</span></div>
-      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-steven-kurtz.png" alt="Portrait of Dr. Steven Kurtz" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. Steven Kurtz</span><span class="role">Parent-child interaction</span><span class="ttl">Kurtz Psychology Consulting</span></div>
-      <div class="adv-chip pxcard"><img class="px" src="assets/avatars/dr-david-mou.png" alt="Portrait of Dr. David Mou" width="64" height="64" loading="lazy" decoding="async"><span class="nm">Dr. David Mou</span><span class="role">Mental-health systems</span><span class="ttl">Benchmark Health Group</span></div>
-    </div>
-    <details class="faq pxcard sci-faq reveal">
-      <summary>Their full credentials<span class="fplus">+</span></summary>
-      <div class="faq-a">
-        <p><b>Dr. Susanne Denham</b> · Professor Emerita, George Mason University. 40+ years researching how children process and manage emotions; creator of CAPSEL and the Affect Knowledge Test.</p>
-        <p style="margin-top:10px"><b>Dr. Megan McClelland</b> · Professor, Oregon State University. Co-creator of the HTKS self-regulation task, used in 31 countries; 116+ peer-reviewed publications, cited 23,000+ times.</p>
-        <p style="margin-top:10px"><b>Dr. Steven Kurtz</b> · President, Kurtz Psychology Consulting. ABPP board-certified child psychologist; one of only 21 certified global PCIT trainers worldwide.</p>
-        <p style="margin-top:10px"><b>Dr. David Mou</b> · CEO, Benchmark Health Group. Harvard-trained physician (MD and MBA); named "Top 10 Under 35 for Healthcare" by LinkedIn.</p>
+      <ul class="bp-incl">
+        <li><img src="assets/device/front.webp" alt="" loading="lazy">The Nowa device <span class="val">$149</span></li>
+        <li><img src="assets/showcase/nowa-plus-v2.webp" alt="" loading="lazy">6 months of Nowa+ <span class="val">$120</span></li>
+        <li><img src="assets/showcase/playbooks-v2.webp" alt="" loading="lazy">The three Nowa Handbooks <span class="val">day one</span></li>
+        <li><img src="assets/adventure-kit/bundle-1.webp" alt="" loading="lazy">Adventure Kit + pre-order extras <span class="val">$25+</span></li>
+      </ul>
+      <a class="bp-see" href="#bundle">See everything included ↓</a>
+
+      <a class="btn" id="buyCta" href="#" data-checkout="SHOPIFY_CART_PERMALINK">Reserve your Nowa for $99 <span class="arr">→</span></a>
+
+      <ul class="bp-badges">
+        <li><span class="ck">✓</span><span><b>Cancel anytime before ship.</b> Full refund, no reason needed.</span></li>
+        <li><span class="ck">✓</span><span><b>Refunded automatically</b> if we haven't shipped by October 31.</span></li>
+        <li><span class="ck">✓</span><span><b>Your price is locked.</b> It only goes up from here.</span></li>
+      </ul>
+
+      <div class="bp-pay">
+        <div class="bp-paychips"><span class="pay-shop">Shop Pay</span><span class="pay-apple"> Pay</span><span class="pay-google"><b style="color:#4285f4">G</b> Pay</span><span class="pay-paypal">PayPal</span><span class="pay-visa">VISA</span><span class="pay-mc"><span class="mc-c"><i></i><i></i></span>Mastercard</span><span class="pay-amex">AMEX</span></div>
+        <p class="bp-paynote">Secure checkout by Shopify. About a minute, start to done.</p>
       </div>
-    </details>
-    <p class="safe-trust reveal">See how we design each mission with our advisors · <a href="the-science.html">Inside the learning &amp; science →</a></p>
+    </div>
+
   </div>
+  <!-- v1 decision pending: optional one-line segment echo under the buy grid, driven by ?from= / ?type= -->
 </section>
 
-<div class="dither rev" aria-hidden="true"></div>
-
-<!-- ░░ GROUP 3 · THE GAME MECHANIC ░░ -->
-<section id="mechanic">
+<!-- ============ P2 · THE DAY-ONE BUNDLE ============ -->
+<section class="bundle" id="bundle">
   <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>How it works</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:18ch">Three parts. One loop.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:56ch">The app where you set the routines, the device where the pet lives, and the real world where your child follows through.</p>
-    <div class="steps sysrow reveal-group">
-      <div class="step pxcard"><div class="n">YOU</div><h3>Set the routine</h3><p>Mornings, homework, bedtime. Two minutes in the <a href="#parent-app">parent app</a>.</p></div>
-      <div class="step pxcard"><div class="n">THE PET</div><h3>Asks for help</h3><p>On <a href="#device">its device</a>, your routine becomes a mission the pet needs finished.</p></div>
-      <div class="step pxcard"><div class="n">YOUR CHILD</div><h3>Does it for real</h3><p>Shoes on, teeth brushed, calm practised. The pet celebrates; nobody nags.</p></div>
-      <div class="step pxcard"><div class="n">YOU</div><h3>See the growth</h3><p>Wins and progress land back in your app, day by day.</p></div>
-    </div>
-    <h3 class="reveal" style="font-size:clamp(22px,2.6vw,32px);margin-top:var(--spacing-64)">Why your child keeps choosing it: the care loop.</h3>
-    <p class="lead reveal" style="margin-top:14px;max-width:54ch">No chores assigned, no behaviour graded. The pet just has needs and feelings, and the loop turns on its own.</p>
-    <div class="gameloop reveal-group">
-      <span class="loop-rail" aria-hidden="true"></span>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/pixel-pet-96.gif" alt="Nowa pet expressing an emotion" loading="lazy" decoding="async"><div class="step-body"><div class="n">01</div><h3>The pet feels</h3><p>Hungry, sleepy, or wobbly, shown in its own sounds and motion.</p></div></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/watering-can-96.gif" alt="Watering can caring for the pet" loading="lazy" decoding="async"><div class="step-body"><div class="n">02</div><h3>Your child cares</h3><p>Little needs, met with a tap. Big ones become missions, out in the real world.</p></div></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/pet-evolution-96.gif" alt="Nowa pet evolving from small to big" loading="lazy" decoding="async"><div class="step-body"><div class="n">03</div><h3>The pet grows</h3><p>It thrives and evolves. The reward your child can see.</p></div></div>
-      <div class="step pxcard"><span class="node" aria-hidden="true"></span><img class="px sicon" src="assets/pixels/kid-star-96.gif" alt="Pixel child waving" loading="lazy" decoding="async"><div class="step-body"><div class="n">04</div><h3>Your child grows</h3><p>Calm and routines form on their own, out of the bond.</p></div></div>
-      <div class="loopback again reveal" aria-hidden="true"><span class="lb-line"></span><span class="lb-txt"><span class="lb-words">AND AROUND AGAIN </span><span class="lb-rot">↻</span></span><span class="lb-line r"></span></div>
-    </div>
-    <figure class="pullq reveal pxcard" style="margin-top:var(--spacing-48)">
-      <img class="px" src="assets/scenes/scene-care-permill.png" alt="Pixel-art scene of a child watering a sprout" width="128" height="128" style="width:128px;height:128px" loading="lazy" decoding="async">
-      <figcaption><p class="qt"><span class="qd ql" aria-hidden="true">“</span><b>Play beats being taught.</b> Across 17 studies of nearly 3,900 children, learning woven into play beat direct teaching for gains in early maths, focus, and task-switching.<span class="qd qr" aria-hidden="true">”</span></p><p class="who">Skene et al., Child Development, 2022 · meta-analysis of guided play</p></figcaption>
-    </figure>
-  </div>
-</section>
+    <p class="geyebrow"><span class="cell"></span>The Day-One Bundle</p>
+    <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:22ch">Everything the $99 unlocks.</h2>
+    <span class="save-badge reveal">Save 66% · $195 off $294 of value</span>
+    <p class="lead reveal">Every $99 reservation includes all of this.</p>
 
-<div class="dither dith-soft" aria-hidden="true"></div>
-<!-- LIFESTYLE PHOTOS — AI lifestyle previews (assets/photos/), swap for real family photos before public launch; 7 more processed shots in the same folder -->
-<section class="winbeat photo-sec" id="photos">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Nowa out in the world <span class="sample-chip">SAMPLE · REAL FAMILY PHOTOS AT LAUNCH</span></p>
-    <div class="photo-mosaic reveal-group">
-      <figure class="lifeshot lifeshot--wide"><div class="ph"><img src="assets/photos/life-play-table.webp" alt="Two young children at a play table, one turning the dial on the Nowa device while the other watches the pet on screen" loading="lazy" decoding="async" style="object-position:50% 45%"></div><figcaption>Big sister runs the mission. Little brother supervises.</figcaption></figure>
-      <figure class="lifeshot"><div class="ph"><img src="assets/photos/life-carseat-girl.webp" alt="A smiling girl in a car seat holding her Nowa device with both hands" loading="lazy" decoding="async"></div><figcaption>The backseat, without a tablet.</figcaption></figure>
-      <figure class="lifeshot"><div class="ph"><img src="assets/photos/life-bedtime.webp" alt="A child asleep with a teddy bear while the Nowa pet sleeps on its screen on the nightstand" loading="lazy" decoding="async" style="object-position:50% 62%"></div><figcaption>Bedtime: the pet gets tucked in too.</figcaption></figure>
-      <figure class="lifeshot lifeshot--tall"><div class="ph"><img src="assets/photos/life-hands-closeup.webp" alt="Close-up of a child's hands holding the Nowa device and pressing a button" loading="lazy" decoding="async"></div></figure>
-      <figure class="lifeshot lifeshot--tall"><div class="ph"><img src="assets/photos/life-hands-pointing.webp" alt="A child holding the Nowa device while a parent points at the pet on screen" loading="lazy" decoding="async"></div></figure>
-      <figure class="lifeshot lifeshot--tall"><div class="ph"><img src="assets/photos/life-carseat-boy-green.webp" alt="A boy in a car seat looking down at his Nowa pet" loading="lazy" decoding="async"></div></figure>
-      <figure class="lifeshot lifeshot--tall"><div class="ph"><img src="assets/photos/life-blanket.webp" alt="The Nowa device resting on a blanket beside a child" loading="lazy" decoding="async" style="object-position:38% 50%"></div></figure>
-      <figure class="lifeshot"><div class="ph"><img src="assets/photos/life-livingroom-rug.webp" alt="A girl sitting on the living-room rug, smiling at the Nowa device in her hands" loading="lazy" decoding="async"></div><figcaption>Checking in after school.</figcaption></figure>
-      <figure class="lifeshot"><div class="ph"><img src="assets/photos/life-carseat-boy.webp" alt="A boy playing with his Nowa pet on the back seat of a car" loading="lazy" decoding="async"></div><figcaption>Errands go easier with a pet along.</figcaption></figure>
+    <div class="bitems reveal-group">
+      <div class="bitem pxcard">
+        <img class="bimg" src="assets/device/front.webp" alt="The Nowa device, front view" loading="lazy">
+        <div><h3>The Nowa device <span class="val">$149 retail</span></h3><p>The pet, the missions, the Care Loop. Yours to keep, no subscription required to use it.</p></div>
+      </div>
+      <div class="bitem pxcard">
+        <img class="bimg" src="assets/showcase/nowa-plus-v2.webp" alt="The Nowa+ parent app: Mission Control" loading="lazy">
+        <div><h3>6 months of Nowa+ <span class="val">$120</span></h3><p>Advanced missions tuned to your child's growth phase, full growth insights, and guidance shaped by our child-development advisors.</p></div>
+      </div>
+      <div class="bitem pxcard">
+        <img class="bimg" src="assets/showcase/playbooks-v2.webp" alt="The three Nowa Handbooks, fanned" loading="lazy">
+        <div><h3>The Nowa Handbooks <span class="val">yours the day you reserve</span></h3><p>Three advisor-shaped parent guides: Big Feelings, Routine, and a third that lands before your device ships. The first two arrive today.</p></div>
+      </div>
+      <div class="bitem pxcard">
+        <img class="bimg" src="assets/adventure-kit/bundle-1.webp" alt="Adventure Kit: silicone case and lanyard" loading="lazy">
+        <div><h3>Adventure Kit <span class="val">$25</span></h3><p>A soft, drop-protective silicone case in swappable colors, plus a lanyard for walks, school, and the car.</p></div>
+      </div>
+      <div class="bitem pxcard">
+        <img class="bimg pxart" src="assets/pixels/egg_hatch_x2.png" alt="A pixel-art egg: the exclusive starter pet, still a surprise" loading="lazy">
+        <div><h3>Pre-order extras <span class="val">only now</span></h3><p>An exclusive starter pet found in no other Nowa, a badge in your parent app, and your Nowa+ price locked for two years.</p></div>
+      </div>
+    </div>
+
+    <div class="bmath pxcard reveal">
+      <div class="mrow"><span>Total value</span><span class="n"><s>$294</s></span></div>
+      <div class="mrow pay"><span>You pay today</span><span class="n">$99</span></div>
+      <div class="mrow save"><span>You save</span><span class="n">$195 · 66% off</span></div>
+    </div>
+
+    <p class="bterms reveal">This isn't a countdown. We won't pretend there's a timer. But these terms hold for 500 reservations only. When those are taken, they're taken. The price becomes $149 and the extras are gone for good.</p>
+
+    <div class="bcta reveal">
+      <a class="btn" href="#buy">Reserve your Nowa for $99 <span class="arr">→</span></a>
+      <p class="sub">Ships September 2026 · Fully refundable until it ships</p>
     </div>
   </div>
 </section>
 
-<div class="dither" aria-hidden="true" style="--dith-dark:#e2efdb;--dith-light:var(--surface-warm-parchment)"></div>
-<!-- FOUNDER MISSION QUOTE — spine-style centered display, mint band, deep forest text -->
-<section class="founder-quote">
+<!-- ============ P3 · SIX FACTS ============ -->
+<section class="dark facts graph-dark" id="facts">
   <div class="wrap">
-    <p class="founder-quote-text reveal">"Nowa's pet has feelings, not words. When the pet doesn't speak, your child does. That's how we rebuild imagination."</p>
-    <div class="founder-attribution reveal">
-      <img src="assets/brand/logo-app.png" alt="Daniel Nguyen" width="64" height="64" decoding="async">
-      <span class="founder-attribution-text">Daniel Nguyen · Dad and Co-founder, Nowa</span>
+    <p class="geyebrow"><span class="cell"></span>The details</p>
+    <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:22ch">Six things about how Nowa is built.</h2>
+
+    <div class="fgrid reveal-group" style="margin-top:var(--spacing-48)">
+      <div class="fact pxcard">
+        <img class="fimg" src="assets/pixels/reading.svg" alt="" width="52" height="52" loading="lazy">
+        <h3>2-minute missions</h3><p>A narrator reads each mission out loud, and the pet plays it with your child. Most take about two minutes.</p>
+      </div>
+      <div class="fact pxcard">
+        <img class="fimg" src="assets/pixels/clock-snooze.svg" alt="" width="52" height="52" loading="lazy">
+        <h3>Play that ends</h3><p>The pet gets tired and goes to sleep. Sessions close on their own, without a fight over one more tap.</p>
+      </div>
+      <div class="fact pxcard">
+        <img class="fimg" src="assets/pixels/scroll-vertical.svg" alt="" width="52" height="52" loading="lazy">
+        <h3>Nothing to scroll</h3><p>No feed, no autoplay, no open internet. The device runs the pet and its missions, and nothing else.</p>
+      </div>
+      <div class="fact pxcard">
+        <img class="fimg" src="assets/pixels/microphone-5.svg" alt="" width="52" height="52" loading="lazy">
+        <h3>A mic with a switch</h3><p>It listens only while your child holds the talk button. Speech is read on the device, the audio is deleted, and a physical switch turns the mic off.</p>
+      </div>
+      <div class="fact pxcard">
+        <img class="fimg" src="assets/pixels/forward-15-second.svg" alt="" width="52" height="52" loading="lazy">
+        <h3>You set the limits</h3><p>Missions, time limits, and bedtime mode live in the parent app, next to a record of what your child practiced.</p>
+      </div>
+      <div class="fact pxcard">
+        <img class="fimg" src="assets/pixels/happy-baby-2.svg" alt="" width="52" height="52" loading="lazy">
+        <h3>Grows 3 to 10</h3><p>Missions re-tune to your child's age band, so the same pet fits a 4-year-old and a 9-year-old.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="dither" aria-hidden="true" style="--dith-dark:var(--color-ink-charcoal);--dith-light:#e2efdb"></div>
-<!-- CH 04 — THE WORLD -->
-<section class="dark world" id="world">
+<!-- ============ P4 · NOWA+ ============ -->
+<section class="plus" id="plus">
   <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Why it works</p>
-    <h2 class="reveal">Kids follow through on what they love.</h2>
-    <p class="lead reveal">Charts and reminders get ignored. A pet they love gets looked after. So we made caring the whole game.</p>
-    <div class="world-row">
-      <button class="egg-card reveal pxcard" id="eggCard" type="button" aria-label="Tap the egg to hatch a surprise Nowa pet">
-        <div class="egg-wrap">
-          <div class="egg"><span class="spot" style="left:22px;top:38px"></span><span class="spot" style="right:20px;top:62px;width:9px;height:9px"></span><span class="q">?</span></div>
-          <span class="spark" style="right:-4px;top:6px"></span><span class="spark s3" style="left:-8px;bottom:18px"></span>
-          <img class="hatch px" id="hatchPet" src="assets/species/ollie.png" alt="" width="120" height="120" loading="lazy" decoding="async">
-          <span class="conf" style="--dx:-64px;--dy:-78px;background:var(--color-amber-signal)"></span>
-          <span class="conf" style="--dx:58px;--dy:-84px;background:var(--color-coral-glow)"></span>
-          <span class="conf" style="--dx:-86px;--dy:-20px;background:var(--color-leaf-success)"></span>
-          <span class="conf" style="--dx:84px;--dy:-26px;background:var(--color-coral-blush)"></span>
-          <span class="conf" style="--dx:-52px;--dy:48px;background:var(--color-coral-flame)"></span>
-          <span class="conf" style="--dx:56px;--dy:42px;background:var(--color-amber-signal)"></span>
-          <span class="conf" style="--dx:-20px;--dy:-96px;background:var(--color-coral-blush)"></span>
-          <span class="conf" style="--dx:22px;--dy:-60px;background:var(--color-leaf-success)"></span>
-          <span class="plusone" aria-hidden="true">+1 FRIEND!</span>
-        </div>
-        <span class="ehead" id="eggHead">It starts with an egg</span>
-        <span class="esub" id="eggSub">Tap to hatch · your child won't know who's inside either</span>
-      </button>
-      <div class="fun-grid reveal-group">
-        <div class="fun pxcard" style="--pxborder:var(--color-pastel-coral)"><img class="px ficon" src="assets/pixels/pet-loved-80.gif" alt="Pet glowing with a heart" loading="lazy" decoding="async"><h3>Care for it like a real pet</h3><p>A real little creature to feed, wash, play with, and tuck in. Caring for someone other than themselves is where the bond starts.</p></div>
-        <div class="fun pxcard" style="--pxborder:var(--color-pastel-amber)"><img class="px ficon" src="assets/pixels/pet-evolution-80.gif" alt="Pet evolving into a new form" loading="lazy" decoding="async"><h3>Collect a world of creatures</h3><p>A whole planet of creatures to collect, each evolving with your child's care, so no two journeys are ever the same.</p></div>
-        <div class="fun pxcard" style="--pxborder:var(--color-pastel-leaf)"><img class="px ficon" src="assets/pixels/kid-star-80.gif" alt="Child playing alongside their pet" loading="lazy" decoding="async"><h3>Games to play side by side</h3><p>Mini-games and little quests your child and their pet take on together, just for the fun of it.</p></div>
-        <div class="fun pxcard" style="--pxborder:var(--color-pastel-sky)"><img class="px ficon" src="assets/pixels/pet-reading-80.gif" alt="Pet with an open storybook" loading="lazy" decoding="async"><h3>A world that keeps opening up</h3><p>Caring unlocks more to enjoy: bedtime stories, songs, and fun-fact podcasts. The more they care, the bigger the world gets.</p></div>      </div>
-    </div>
-  </div>
-  <div class="species-strip">
-    <div class="species-track" id="speciesTrack">
-      <div class="sp"><img class="px" src="assets/species/brim.png" alt="Brim" width="128" height="128" loading="lazy" decoding="async"><span class="spname">BRIM</span></div>
-      <div class="sp"><img class="px" src="assets/species/nori.png" alt="Nori" width="128" height="128" loading="lazy" decoding="async"><span class="spname">NORI</span></div>
-      <div class="sp"><img class="px" src="assets/species/ollie.png" alt="Ollie" width="128" height="128" loading="lazy" decoding="async"><span class="spname">OLLIE</span></div>
-      <div class="sp"><img class="px" src="assets/species/flori.png" alt="Flori" width="128" height="128" loading="lazy" decoding="async"><span class="spname">FLORI</span></div>
-      <div class="sp"><img class="px" src="assets/species/miko.png" alt="Miko" width="128" height="128" loading="lazy" decoding="async"><span class="spname">MIKO</span></div>
-      <div class="sp"><img class="px" src="assets/species/puffin.png" alt="Puffin" width="128" height="128" loading="lazy" decoding="async"><span class="spname">PUFFIN</span></div>
-      <div class="sp"><img class="px" src="assets/species/taro.png" alt="Taro" width="128" height="128" loading="lazy" decoding="async"><span class="spname">TARO</span></div>
-      <div class="sp"><img class="px" src="assets/species/nori-2.png" alt="Nori, crystal form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">NORI · CRYSTAL</span></div>
-      <div class="sp"><img class="px" src="assets/species/miko-1.png" alt="Miko, scholar form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">MIKO · SCHOLAR</span></div>
-      <div class="sp"><img class="px" src="assets/species/taro-1.png" alt="Taro, pilot form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">TARO · PILOT</span></div>
-      <div class="sp"><img class="px" src="assets/species/brim-1.png" alt="Brim, viking form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">BRIM · VIKING</span></div>
-      <div class="sp"><img class="px" src="assets/species/nori-1.png" alt="Nori, coral form" width="128" height="128" loading="lazy" decoding="async"><span class="spname">NORI · CORAL</span></div>
-    </div>
-  </div>
-  <div class="wrap">
-    <p class="who reveal">Who might your child meet? Never a set to complete.</p>
-    <p class="unlock-head reveal"><span class="ln"></span> MORE REWARDS AS YOUR PET GROWS <span class="ln"></span></p>
-    <div class="libs reveal-group">
-      <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M18 18V22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 18H20V12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 2H6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 4V20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 22H20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14.01 10L14 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10.01 10L10 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 6L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M12 12L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 8V8.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 2V2.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 4V4.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 6V6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 4V4.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></div><h3>Stories</h3><p>Classics retold, plus original tales from the Nowa universe.</p>
-        <div class="tracks">
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/stories/027-the-lion-and-the-mouse-69yo-female.mp3"><button class="pbtn" aria-label="Play The Lion and the Mouse"><span class="pb-ico"></span></button><span class="ttl">The Lion and the Mouse</span><span class="dur">2:16</span></div>
-        </div><div class="pbar"><i></i></div></div>
-      <div class="lib pxcard"><div class="licon" style="background:var(--color-chalk-surface);color:var(--color-deep-ink)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M16 15V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 22H11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 16H11" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M9 20L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 20L16 15" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 4H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 6H22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 10H22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8.01001 6L8.00001 6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10.01 2L10 2" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2.01001 10L2.00001 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4.01001 6L4.00001 6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 2L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 8L6 10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg></div><h3>Songs</h3><p>A morning anthem to start the day, a lullaby to end it.</p>
-        <div class="tracks">
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/songs/015-yellow-duck.mp3"><button class="pbtn" aria-label="Play Yellow Duck"><span class="pb-ico"></span></button><span class="ttl">Yellow Duck</span><span class="dur">1:27</span></div>
-        </div><div class="pbar"><i></i></div></div>
-      <div class="lib pxcard"><div class="licon" style="background:var(--color-coral-blush);color:var(--color-ember-darker)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M12 19V22" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 15H14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 19H16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 2H14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M16 4V13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 4V13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 15V10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 15V10" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><rect width="2" height="2" transform="matrix(-1 0 0 1 19 16)" fill="currentColor"></rect><rect width="2" height="2" transform="matrix(-1 0 0 1 7 16)" fill="currentColor"></rect></svg></div><h3>Podcasts</h3><p>A curious host and a real expert, on science, nature, and life.</p>
-        <div class="tracks">
-          <div class="trk" data-src="https://rt-nowatoy.s3.us-east-1.amazonaws.com/audios/podcasts/001-why-do-planets-spin.mp3"><button class="pbtn" aria-label="Play Why Do Planets Spin?"><span class="pb-ico"></span></button><span class="ttl">Why Do Planets Spin?</span><span class="dur">10:57</span></div>
-        </div><div class="pbar"><i></i></div></div>
-    </div>
-    <p class="lib-note reveal" style="margin-top:var(--spacing-24);color:var(--color-cloud-border)">Tap play to hear real samples. Unlocks are part of the game.</p>
-    <details class="faq pxcard world-faq reveal">
-      <summary>Why songs, stories, and podcasts, and why they unlock?<span class="fplus">+</span></summary>
-      <div class="faq-a"><p>The rewards aren't filler. Stories build language and empathy, songs anchor routines and calm, and podcasts feed the curiosity that drives early learning. Every piece was chosen for its developmental value and shaped with our child-development advisors. Tying them to care turns showing up into something your child looks forward to: the better they look after their pet, the more of this world opens up. And you stay in control of what's available, always.</p></div>
-    </details>
-  </div>
-</section>
+    <p class="geyebrow"><span class="cell"></span>The subscription question</p>
+    <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:24ch">Nowa works without a subscription.</h2>
+    <p class="lead reveal">The pet, the Care Loop, routines, and the core missions come with the device. Nowa+ is optional, and your bundle starts with six months of it, free.</p>
 
-<!-- v2: Library merged into "Why it works" above -->
-
-<div class="dither" aria-hidden="true" style="--dith-dark:var(--color-ink-charcoal);--dith-light:#fff3d6"></div>
-<!-- MID-PAGE CTA (after Why kids love it) -->
-<section class="midcta" id="midcta-world">
-  <div class="wrap">
-    <p class="geyebrow reveal"><span class="cell"></span>Pre-order</p>
-    <h3 class="reveal">Reserve their first Nowa today.</h3>
-    <p class="mc-fine reveal"><s>$149</s> $99 today<span class="fdot">·</span>Ships September 2026<span class="fdot">·</span>Fully refundable</p>
-    <a href="preorder.html#buy" class="btn reveal">Lock in at $99 <span class="arr">→</span></a>
-  </div>
-</section>
-
-<div class="dither" aria-hidden="true" style="--dith-dark:#fff3d6;--dith-light:#e2efdb"></div>
-<!-- CH 06 — SAFETY BY DESIGN -->
-<section class="safety" id="safety">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Safety &amp; control</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:20ch">The safety isn't a setting. It's the design.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:60ch">Most kids' apps are built to hold attention. Nowa gives it back: short play that points to real life, and an AI that can't say anything you didn't choose.</p>
-    <div class="safety-grid reveal-group">
-      <div class="safe-col">
-        <h3>A natural part of the day, never the center of it.</h3>
-        <p>Like a real pet, Nowa fits into the day. Checked on here and there, never one long sitting.</p>
-        <ul class="safe-list">
-          <li><span class="cell"></span>A few short check-ins, about 10–15 minutes each</li>
-          <li><span class="cell"></span>No infinite scroll, autoplay, or notifications pulling them back</li>
-          <li><span class="cell"></span>Every check-in points back out: real routines, real people, real play</li>
+    <div class="plus-grid">
+      <div class="plus-card pxcard reveal">
+        <h3>With the device, always</h3>
+        <ul>
+          <li>The pet and the full Care Loop</li>
+          <li>Routine missions you pick or shape yourself</li>
+          <li>Core practice missions</li>
+          <li>Basic setup and routine tracking in the parent app</li>
         </ul>
-        <div class="day-rhythm pxcard reveal" role="img" aria-label="A day with Nowa: three short check-ins of about 10 to 15 minutes spread across the day, with the rest of the day free for real life">
-          <p class="dr-label">A day with Nowa</p>
-          <div class="dr-track" aria-hidden="true">
-            <span class="dr-line"></span>
-            <span class="dr-sun"></span>
-            <span class="dr-moon"></span>
-            <span class="dr-checkin" style="left:20%"><span class="dr-time">~12 min</span><span class="dr-dot" style="animation-delay:0s"></span><span class="dr-part">morning</span></span>
-            <span class="dr-checkin" style="left:52%"><span class="dr-time">~15 min</span><span class="dr-dot" style="animation-delay:.6s"></span><span class="dr-part">afternoon</span></span>
-            <span class="dr-checkin" style="left:82%"><span class="dr-time">~10 min</span><span class="dr-dot" style="animation-delay:1.2s"></span><span class="dr-part">evening</span></span>
-          </div>
-          <p class="dr-caption">A few small moments. The rest of the day stays theirs.</p>
-        </div>
       </div>
-      <div class="safe-col">
-        <h3>A pet, not an AI companion.</h3>
-        <p>Companion chatbots are built to be talked to, and needed. Nowa is the opposite: a pet your child looks after.</p>
-        <ul class="safe-list">
-          <li><span class="cell"></span>Speaks only in sound, motion, and feeling, never human words</li>
-          <li><span class="cell"></span>No open internet. Nothing it can say that you didn't choose</li>
-          <li><span class="cell"></span>Its walled AI has one job: bringing the pet to life. It learns from your child's care, never from conversations</li>
+      <div class="plus-card pxcard reveal">
+        <h3>What Nowa+ adds</h3>
+        <ul>
+          <li>Advanced missions tuned to your child's growth phase</li>
+          <li>Full growth insights: emotions, focus, follow-through</li>
+          <li>Guidance shaped by our child-development advisors</li>
         </ul>
-        <div class="talk-demo reveal pxcard">
-          <p class="bubble" id="petSound">♪ prrr… blip!</p>
-          <p class="label">Nowa speaks in sound, motion, and feeling. Your child does the understanding.</p>
-          <div class="pet-row">
-            <img class="px" src="assets/species/miko.png" alt="Miko, a pixel-art Nowa pet, listening" width="120" height="120" loading="lazy" decoding="async">
-            <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <figure class="pullq pxcard reveal">
-      <img src="assets/avatars/dr-david-mou.png" alt="Dr. David Mou" loading="lazy" decoding="async">
-      <figcaption><p class="qt">“The safest AI for a child is one with nothing to say, and everything to feel.”</p><p class="who">Dr. David Mou · Harvard-trained physician · CEO, Benchmark Health <span class="sample-chip">SAMPLE · PENDING APPROVAL</span></p></figcaption>
-    </figure>
-    <p class="safe-trust reveal">No open internet · COPPA · ASTM F963 · No ads, ever · <a href="safety.html">How we built Nowa safe →</a></p>
-  </div>
-</section>
-
-<div class="dither dith-papp" aria-hidden="true"></div>
-<!-- THE PARENT APP -->
-<section class="parent-app" id="parent-app">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Safety &amp; control</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.6vw,48px);max-width:18ch">The parent app: you hold every dial.</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:56ch">You set the routines and the limits. The app shows you how your child is growing: a picture, never a score.</p>
-    <div class="papp-grid reveal-group">
-      <div class="papp-stage">
-        <div class="pf-phone">
-          <span class="pf-btn r"></span><span class="pf-btn u"></span><span class="pf-btn d"></span>
-          <div class="pf-screen">
-            <div class="pf-track" id="pfTrack">
-              <div class="pf-slide" data-feature="mission"><div class="pf-load">loading…</div><iframe title="Mission Control" data-src="../app-ui/new/mission-control.html"></iframe></div>
-              <div class="pf-slide" data-feature="mission"><div class="pf-load">loading…</div><iframe title="Add mission" data-src="../app-ui/new/mission-edit.html"></iframe></div>
-              <div class="pf-slide" data-feature="mission"><div class="pf-load">loading…</div><iframe title="No missions yet" data-src="../app-ui/new/mission-empty.html"></iframe></div>
-              <div class="pf-slide" data-feature="growth"><div class="pf-load">loading…</div><iframe title="Growth insights" data-src="../app-ui/new/growth-insights.html"></iframe></div>
-              <div class="pf-slide" data-feature="growth"><div class="pf-load">loading…</div><iframe title="Growth detail" data-src="../app-ui/new/growth-domain.html"></iframe></div>
-              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Activity" data-src="../app-ui/new/activity.html"></iframe></div>
-              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Bedtime" data-src="../app-ui/new/bedtime.html"></iframe></div>
-              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Data & privacy" data-src="../app-ui/new/data-privacy.html"></iframe></div>
-              <div class="pf-slide" data-feature="loop"><div class="pf-load">loading…</div><iframe title="Safety alerts" data-src="../app-ui/new/safety-alerts.html"></iframe></div>
-            </div>
-          </div>
-        </div>
-        <div class="pf-nav">
-          <button class="pf-arrow pf-prev" aria-label="Previous screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-          <div class="pf-dots" id="pfDots" aria-label="App screens"></div>
-          <button class="pf-arrow pf-next" aria-label="Next screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-      <div class="papp-feats">
-        <div class="papp-feat" role="button" tabindex="0" data-feature="mission"><h3>Mission Control</h3><p>Pick the routines that matter in your house: mornings, homework, bedtime. Each one becomes a mission the pet needs your child's help to finish.</p><span class="papp-go">See it →</span></div>
-        <div class="papp-feat" role="button" tabindex="0" data-feature="growth"><h3>Growth insights</h3><p>See how the practice is adding up: feelings, focus, follow-through. Measured with frameworks <strong>shaped by our advisors</strong>, not metrics we invented.</p><span class="papp-go">See it →</span></div>
-        <div class="papp-feat" role="button" tabindex="0" data-feature="loop"><h3>Stay in the loop</h3><p>Each mission and how it went. The pet's bedtime, matched to your child's. And whatever the game collects is yours to view or delete, anytime.</p><span class="papp-go">See it →</span></div>
-      </div>
-    </div>
-    <p class="papp-trust reveal">Included with every Nowa. <a href="parent-app.html">Explore the parent app →</a></p>
-  </div>
-</section>
-
-<!-- v2: device moved into the opening; "hard parts" cut per sturdy-parent feedback -->
-
-<div class="dither dith-soft" aria-hidden="true"></div>
-<!-- ░░ COMPARE — a real comparison matrix ░░ -->
-<section id="compare" class="compare-band">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>Compare</p>
-    <h2 class="reveal" style="font-size:clamp(26px,3vw,40px);max-width:26ch">Calm like Yoto. Developmental like Lovevery. But alive.</h2>
-    <div class="cmptbl pxcard reveal">
-      <div class="cmptbl-scroll">
-      <table>
-        <thead>
-          <tr><th scope="col"></th><th scope="col"><svg class="cmp-ic" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M22 12L20 12" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 6L8 6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 18L8 18.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 16L18 16.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 6L20 6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 8L18 8.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M20 18L20 18.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 4L13 4L13 20L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 8L2 8V16H6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><span>Audio</span></th><th scope="col"><svg class="cmp-ic" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M12 6V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 2H16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M14 14L14 14.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M6 12L6 12.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M10 12L10 12.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 9.99999L8 10.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 14L8 14.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 14L18 14.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M4 6H20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M22 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M2 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><span>Play kits</span></th><th scope="col"><svg class="cmp-ic" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M3 21L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M3 17L6 17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M18 17L21 17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M8 18L16 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M23.01 19L23 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M1.01001 19L1.00001 19" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M3 5L3 13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M21 5L21 13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path><path d="M19 3L5 3" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"></path></svg><span>Tablets</span></th><th scope="col" class="col-us"><img class="px cmp-ic cmp-ic-pet" src="assets/species/miko-1.png" alt="" loading="lazy" decoding="async"><span>NOWA</span></th></tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Responds to your child</th><td class="n">✗</td><td class="n">✗</td><td class="p">~</td><td class="col-us y">✓</td></tr>
-          <tr><th scope="row">Builds a bond over time</th><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="col-us y">✓</td></tr>
-          <tr><th scope="row">Sends them back to real life</th><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="col-us y">✓</td></tr>
-          <tr><th scope="row">Built with scientists</th><td class="n">✗</td><td class="p">~</td><td class="n">✗</td><td class="col-us y">✓</td></tr>
-          <tr><th scope="row">No open internet, no ads</th><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="col-us y">✓</td></tr>
-        </tbody>
-      </table>
+        <p class="plus-terms">Six months free in your bundle. After that, $20 a month, and reserving now locks that price for two years. Cancel in the app, no hoops.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="dither dith-soft" aria-hidden="true"></div>
-<!-- MID-PAGE CTA (after Compare) -->
-<section class="midcta" id="midcta">
+<!-- ============ P4b · ADVISORS (trust) ============ -->
+<section class="advband" id="advisors">
   <div class="wrap">
-    <p class="geyebrow reveal"><span class="cell"></span>The Day-One Bundle</p>
-    <h3 class="reveal">$99 reserves the whole Day-One Bundle.</h3>
-    <p class="mc-fine reveal">The $149 device<span class="fdot">·</span>6 months of Nowa+ free<span class="fdot">·</span>The Handbooks, from the day you reserve<span class="fdot">·</span>Fully refundable</p>
-    <a href="preorder.html#buy" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
-    <p class="mc-more reveal"><a href="preorder.html#bundle">See the full breakdown ↓</a></p>
-  </div>
-</section>
+    <p class="geyebrow"><span class="cell"></span>Who's behind it</p>
+    <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:24ch">Built with the scientists who wrote the science.</h2>
+    <p class="lead reveal">The missions aren't inspired by parenting books. They were shaped and reviewed, mission by mission, with the researchers whose work they draw on.</p>
 
-<div class="dither dith-soft" aria-hidden="true"></div>
-<!-- BETA FAMILIES -->
-<section class="reviews">
-  <div class="wrap">
-    <p class="geyebrow"><span class="cell"></span>From beta families</p>
-    <h2 class="reveal" style="font-size:clamp(30px,3.4vw,46px);max-width:22ch">From the families who tested it first.</h2>
-    <p class="lead reveal" style="margin-top:16px">Real households, real mornings. Words from the beta program.</p>
-  </div>
-  <div class="rev-rows" aria-label="Beta family reviews">
-    <div class="rev-row"><div class="rev-track" data-dir="1"><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">My son used to fight me for 20 minutes every morning about his shoes. Now he's racing to get them on because he wants to tell his Nowa pet he's ready for the School Mission.</p><p class="rwho"><strong>Mark J.</strong> · Dad of a 6-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">She came downstairs and said 'I did turtle time so my pet could calm down.' Then she did it herself at dinner. Unprompted.</p><p class="rwho"><strong>Dana</strong> · Mom of a 5-year-old <span class="beta-chip">BETA FAMILY</span></p></div></div></div>
-    <div class="rev-row"><div class="rev-track" data-dir="-1"><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">It's the first screen I don't feel guilty about. Ten minutes, then he's off building a fort because his pet 'needed' one.</p><p class="rwho"><strong>Priya</strong> · Mom of a 6-year-old <span class="beta-chip">BETA FAMILY</span></p></div><div class="revcard pxcard"><span class="mark" aria-hidden="true">"</span><p class="rq">I expected another abandoned gadget. Six weeks in, the pet is still fed and my mornings are still quiet.</p><p class="rwho"><strong>Alex M.</strong> · Dad of an 8-year-old <span class="beta-chip">BETA FAMILY</span></p></div></div></div>
-  </div>
-</section>
-
-<div class="dither" aria-hidden="true" style="--dith-light:var(--color-pure-white)"></div>
-<!-- PRE-ORDER -->
-<section class="dark final" id="preorder">
-  <div class="wrap">
-    <p class="geyebrow" style="justify-content:center"><span class="cell"></span>Pre-order · 500 reservations</p>
-    <div class="po-headline reveal-group">
-      <h2 class="po-price reveal"><span class="po-amt">$99 today.</span></h2>
-      <span class="save-badge reveal">Save 66% · $195 off the $294 day-one value</span>
+    <div class="advgrid reveal-group">
+      <div class="advcard pxcard">
+        <img class="aimg" src="assets/avatars/dr-susanne-denham.png" alt="Dr. Susanne Denham" loading="lazy">
+        <h3>Dr. Susanne Denham</h3>
+        <p>Developmental psychologist, George Mason University. Her framework for children's emotional competence shapes the EQ missions.</p>
+      </div>
+      <div class="advcard pxcard">
+        <img class="aimg" src="assets/avatars/dr-megan-mcclelland.png" alt="Dr. Megan McClelland" loading="lazy">
+        <h3>Dr. Megan McClelland</h3>
+        <p>Self-regulation researcher, Oregon State University. The focus and follow-through missions are inspired by her framework.</p>
+      </div>
+      <div class="advcard pxcard">
+        <img class="aimg" src="assets/avatars/dr-steven-kurtz.png" alt="Dr. Steven Kurtz" loading="lazy">
+        <h3>Dr. Steven Kurtz</h3>
+        <p>Clinical child psychologist. Advises on how the pet opens warmly and builds the relationship before it asks anything.</p>
+      </div>
+      <div class="advcard pxcard">
+        <img class="aimg" src="assets/avatars/dr-david-mou.png" alt="Dr. David Mou" loading="lazy">
+        <h3>Dr. David Mou</h3>
+        <p>Physician. Advises on bringing Nowa to families responsibly.</p>
+      </div>
     </div>
-    <p class="po-sub reveal">The device, six months of Nowa+, the Handbooks, and pre-order extras.</p>
-    <p class="po-sub-link reveal"><a href="preorder.html#bundle">See what's included ↓</a></p>
 
-    <ul class="po-trust-strip reveal-group" aria-label="Pre-order guarantees">
-      <li>
-        <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
-        <span>Cancel anytime, full refund</span>
-      </li>
-      <li>
-        <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg></span>
-        <span>Refunded automatically if not shipped by Oct 31</span>
-      </li>
-      <li>
-        <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
-        <span>Price locked. Only goes up from here</span>
-      </li>
-    </ul>
-
-    <a href="preorder.html#buy" class="btn offer-cta reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
-    <p class="offer-fine reveal">Not a countdown — 500 reservations only, then it's $149<span class="fdot">·</span>Ships September 2026<span class="fdot">·</span>Fully refundable</p>
-
-    <div class="pets reveal-group" aria-hidden="true">
-      <img class="px" src="assets/species/flori.png" alt="" width="64" height="64" loading="lazy" decoding="async">
-      <img class="px" src="assets/species/puffin.png" alt="" width="64" height="64" loading="lazy" decoding="async">
-      <img class="px" src="assets/species/ollie.png" alt="" width="64" height="64" loading="lazy" decoding="async">
-    </div>
+    <p class="adv-note reveal">The full picture, papers included, is on <a href="the-science.html">the science page →</a></p>
   </div>
 </section>
 
-<div class="dither" aria-hidden="true" style="--dith-dark:#fff3d6;--dith-light:var(--surface-warm-parchment)"></div>
-<!-- FAQ (now after the offer: objection-handling) -->
+<!-- ============ P5 · FAQ ============ -->
 <section class="faqsec" id="faq">
   <div class="wrap">
     <p class="geyebrow"><span class="cell"></span>Before you ask</p>
-    <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:20ch">The questions every parent asks.</h2>
-    <div class="faqs faqpanel" data-panel="0">
-      <details class="faq pxcard"><summary>What age is Nowa designed for?<span class="fplus">+</span></summary><div class="faq-a"><p>Kids ages 3–10, the stage when routines, independence, and emotional habits develop fastest. The experience is age-scaffolded so it grows with your child.</p></div></details>
-      <details class="faq pxcard"><summary>How does Nowa build habits without nagging?<span class="fplus">+</span></summary><div class="faq-a"><p>Instead of you repeating instructions, daily routines become missions your child does to help their pet grow. The pet celebrates wins and encourages them through struggles, so habit-building feels like play, not punishment.</p></div></details>
-      <details class="faq pxcard"><summary>Is there AI in Nowa? Is it safe for young children?<span class="fplus">+</span></summary><div class="faq-a"><p>Yes. A closed, walled AI shapes how the pet feels, remembers care, and chooses missions. It never speaks to your child in human language, has no access to the open internet, and collects nothing beyond what personalizes the experience. It was built with our child-development researchers to support growth, not maximize engagement.</p></div></details>
-      <details class="faq pxcard"><summary>Is my child's experience safe and private?<span class="fplus">+</span></summary><div class="faq-a"><p>The pet doesn't converse, so there's nothing to monitor and nothing to leak. No open internet, content age-scaffolded for 3–10, built to meet COPPA and ASTM F963 standards. You stay in control through topic boundaries, bedtime modes, and usage limits in the parent app.</p></div></details>
-      <details class="faq pxcard"><summary>How much screen time does Nowa involve?<span class="fplus">+</span></summary><div class="faq-a"><p>Nowa is built to be put down. Check-ins run about 10–15 minutes each, a few times through the day. Short and active, with no infinite scroll, no autoplay, no engagement mechanics. The goal is always to send your child back into the real world.</p></div></details>
-      <details class="faq pxcard"><summary>What happens if my child misses a day?<span class="fplus">+</span></summary><div class="faq-a"><p>Real life happens. Missing a day doesn't erase progress or create punishment, and the pet never dies. Left alone for a long time it may get sad or gently return to its home world, but it can always come back.</p></div></details>
-      <details class="faq pxcard"><summary>How does the parent app work?<span class="fplus">+</span></summary><div class="faq-a"><p>Set routines, see progress, and get warm, narrative insights without more mental load. Basic setup and routine tracking come with the device; full insights, advanced missions, and expert guidance are part of the optional Nowa+ subscription.</p></div></details>
-      <details class="faq pxcard"><summary>When will Nowa be available?<span class="fplus">+</span></summary><div class="faq-a"><p>Pre-orders are open now at $99, shipping September 2026. You can cancel your reservation anytime before it ships.</p></div></details>
+    <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:20ch">Nine questions, straight answers.</h2>
+    <div class="faqs" style="margin-top:var(--spacing-32)">
+      <details class="faq pxcard"><summary>What exactly do I get for $99?<span class="fplus">+</span></summary><div class="faq-a"><p>The Day-One Bundle: the Nowa device ($149 retail), six months of Nowa+ ($120), the three Nowa Handbooks, the Adventure Kit ($25), and the pre-order extras: an exclusive starter pet, a parent-app badge, and your Nowa+ price locked for two years. Your benefits start the moment you reserve; the first two Handbooks arrive today.</p></div></details>
+      <details class="faq pxcard"><summary>When does it ship, and what if it's late?<span class="fplus">+</span></summary><div class="faq-a"><p>September 2026. If we don't ship by October 31, you're refunded automatically. You don't even have to ask.</p></div></details>
+      <details class="faq pxcard"><summary>Can I cancel my reservation?<span class="fplus">+</span></summary><div class="faq-a"><p>Anytime before your Nowa ships, for any reason, and we refund every cent. Your reservation is never a commitment to keep it.</p></div></details>
+      <details class="faq pxcard"><summary>Does it talk to my child?<span class="fplus">+</span></summary><div class="faq-a"><p>No. A narrator reads the missions; the pet answers in sound, motion, and feeling. It never speaks a sentence, and that's deliberate: your child does the imagining, and there's no chatbot to monitor.</p></div></details>
+      <details class="faq pxcard"><summary>Is this just another screen?<span class="fplus">+</span></summary><div class="faq-a"><p>It's a 2.4-inch, low-stimulation screen with no feed, no autoplay, and no open internet. Check-ins run a few minutes, and the pet gets tired and sleeps, so play ends on its own. The whole design points your child back to the real world.</p></div></details>
+      <details class="faq pxcard"><summary>What ages is it right for?<span class="fplus">+</span></summary><div class="faq-a"><p>Ages 3 to 10. Missions re-tune to your child's developmental band, so a 4-year-old and a 9-year-old get different versions of the same pet. It's built to be a multi-year companion.</p></div></details>
+      <details class="faq pxcard"><summary>Does it need a subscription?<span class="fplus">+</span></summary><div class="faq-a"><p>No. The pet, the Care Loop, routines, and core missions come with the device. Nowa+ is optional, adds advanced missions and full insights, and your bundle includes six months of it free. After that it's $20 a month, and reserving now locks that price for two years.</p></div></details>
+      <details class="faq pxcard"><summary>What about the microphone?<span class="fplus">+</span></summary><div class="faq-a"><p>It's push-to-talk: it listens only while your child holds the button. Speech is read on the device, the audio is deleted, and there's a physical switch that turns the mic off entirely. We built it so you never have to take our word for it.</p></div></details>
+      <details class="faq pxcard"><summary>What if my child doesn't take to it?<span class="fplus">+</span></summary><div class="faq-a"><p>Cancel before it ships and you get every cent back. <span class="tbc">policy pending</span> Post-delivery return window to be decided; this answer should end on that promise once it's set.</p></div></details>
     </div>
-    <p class="reveal" style="margin-top:24px;font-size:var(--text-body-sm);color:var(--color-slate-mid)">Questions about the pre-order itself — pricing, refunds, timing — are answered on the <a href="preorder.html#faq" style="color:var(--color-deep-ink);font-weight:700">pre-order page</a>.</p>
   </div>
 </section>
 
-<!-- CLOSING CTA — for readers who needed the FAQ first -->
+<!-- CLOSING CTA -->
 <section class="closing-cta" style="padding:clamp(40px,5vw,64px) 0;text-align:center">
   <div class="wrap">
-    <h3 class="reveal" style="font-family:var(--font-onest);font-weight:800;font-size:clamp(22px,2.8vw,34px);max-width:22ch;margin:0 auto 20px">Questions answered? Your spot is still open.</h3>
-    <a href="preorder.html#buy" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
-    <p class="reveal" style="margin-top:16px;font-size:var(--text-body-sm);color:var(--color-slate-mid)">Fully refundable until it ships<span class="fdot">·</span>500 reservations only</p>
+    <h3 class="reveal" style="font-family:var(--font-onest);font-weight:800;font-size:clamp(22px,2.8vw,34px);max-width:22ch;margin:0 auto 20px">Nothing left to ask? Your spot is still open.</h3>
+    <a href="#buy" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
+    <p class="reveal" style="margin-top:16px;font-size:var(--text-body-sm);color:var(--color-slate-mid)">Ships September 2026<span class="fdot">·</span>Fully refundable until it ships<span class="fdot">·</span>500 reservations only</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot-top">
     <div style="display:flex;gap:48px;flex-wrap:wrap">
-      <div style="display:flex;flex-direction:column;gap:8px"><a href="#mechanic">How it works</a><a href="#learnings">The science</a><a href="nowa-story.html">Our story</a></div>
-      <div style="display:flex;flex-direction:column;gap:8px"><a href="#world">The world</a><a href="#preorder">Pre-order</a><a href="#safety">Safety &amp; privacy</a><a href="#compare">Compare</a></div>
+      <div style="display:flex;flex-direction:column;gap:8px"><a href="index-permill-v2.html">Homepage</a><a href="the-science.html">The science</a><a href="nowa-story.html">Our story</a></div>
+      <div style="display:flex;flex-direction:column;gap:8px"><a href="#bundle">Everything included</a><a href="#facts">The details</a><a href="#faq">FAQ</a></div>
     </div>
   </div>
   <div class="wrap foot-mark graph-dark">
@@ -1612,367 +1491,55 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   </div>
 </footer>
 
-<!-- v2: dev preview pickers removed -->
+<!-- sticky reserve bar (mobile) -->
+<div class="stickybar" id="stickybar" aria-hidden="true">
+  <div><div class="sb-price">$99 · Nowa</div><div class="sb-ship">Ships Sept 2026 · refundable</div></div>
+  <a class="btn" href="#buy">Reserve</a>
+  <button class="sb-x" aria-label="Dismiss">✕</button>
+</div>
 
 <script>
 document.documentElement.classList.add('js');
-
-/* v2: preview pickers removed */
-const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* hero entrance */
 addEventListener('load', () => document.body.classList.add('loaded'));
-setTimeout(() => document.body.classList.add('loaded'), 600); /* safety: never gate hero on slow assets */
 
-/* scroll reveals (transitions, interruptible; content visible without JS) */
+/* reveal on scroll */
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-}), {rootMargin: '0px 0px -80px 0px', threshold: 0.05});
+}), {threshold:.15});
 document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el));
 
-/* v2: spine quote section removed */
-
-/* species strip: scroll-reactive drift — follows scroll direction, never freezes */
-(() => {
-  const track = document.getElementById('speciesTrack');
-  if (!track) return;
-  const setHTML = track.innerHTML, setW = track.scrollWidth;
-  while (track.scrollWidth < innerWidth * 2 + setW) track.insertAdjacentHTML('beforeend', setHTML);
-  if (reduced) return;
-  let x = 0, v = 0, ly = scrollY;
-  const tick = () => {
-    const dy = scrollY - ly; ly = scrollY;
-    v += dy * 0.4;          /* scroll pushes the line */
-    v *= 0.92;              /* friction */
-    x += v * 0.18 + 0.35;   /* plus gentle idle drift */
-    track.classList.toggle('walk-rev', v < -0.4);
-    x = ((x % setW) + setW) % setW;
-    track.style.transform = `translateX(${-x}px)`;
-    requestAnimationFrame(tick);
-  };
-  tick();
-})();
-
-/* mission tabs — swap copy, folded research stat, and device video */
-(() => {
-  const data = [
-    {h: 'The daily friction, minus the referee.',
-     b: 'Brushing teeth, getting dressed, bedtime, homework start. The routine becomes something the pet needs help to finish, so the follow-through comes from your child.',
-     r: 'Shaped with Dr. Steven Kurtz · Parent-child interaction',
-     sbig: '3× better', stxt: 'Kids with a consistent bedtime routine fell asleep faster, woke less, and had steadier daytime moods.', ssrc: 'Mindell et al., Sleep, 2009 · replicated across 10,000+ children',
-     vid: 'assets/videos/the-mission-engine-02.mp4'},
-    {h: 'Practising calm before the storm.',
-     b: 'Naming a big feeling, taking turtle-time, riding out a wobble. Low-stakes reps with the pet, so the skill is there when a real meltdown comes.',
-     r: 'Shaped with Dr. Susanne Denham · Emotional competence',
-     sbig: '2× more likely', stxt: 'Kindergartners who could manage big feelings were about twice as likely to earn a college degree by their mid-20s as peers who struggled.', ssrc: 'Jones, Greenberg & Crowley, AJPH, 2015 · 753 children tracked ~20 years',
-     vid: 'assets/videos/mission-emotional.mp4'},
-    {h: 'Planning, focus, and finishing.',
-     b: 'Missions that ask your child to plan a few steps, hold attention, and see something through. The skills school leans on hardest.',
-     r: 'Shaped with Dr. Megan McClelland · Executive function',
-     sbig: '~50% likelier', stxt: 'Kids with stronger attention and persistence at age 4 were about 50% more likely to finish college by 25, regardless of early reading or maths.', ssrc: 'McClelland et al., 2013',
-     vid: 'assets/videos/mission-executive.mp4'}
-  ];
-  const tabs = [...document.querySelectorAll('.mtab[data-m]')];
-  if (!tabs.length) return;
-  const txt = document.getElementById('mText'), wrap = document.getElementById('mVidWrap'), vid = document.getElementById('mVid');
-  const head = document.getElementById('mHead'), body = document.getElementById('mBody'), real = document.getElementById('mReal'), stat = document.getElementById('mStat');
-  tabs.forEach(t => t.addEventListener('click', () => {
-    if (t.classList.contains('on')) return;
-    tabs.forEach(x => { x.classList.remove('on'); x.setAttribute('aria-selected', 'false'); });
-    t.classList.add('on'); t.setAttribute('aria-selected', 'true');
-    const d = data[+t.dataset.m];
-    const apply = () => {
-      head.textContent = d.h; body.textContent = d.b; real.textContent = d.r;
-      stat.querySelector('.big').textContent = d.sbig;
-      stat.querySelector('.txt').textContent = d.stxt;
-      stat.querySelector('.src').textContent = d.ssrc;
-      vid.src = d.vid;
-    };
-    if (reduced) { apply(); return; }
-    txt.classList.add('out'); wrap.classList.add('out');
-    setTimeout(() => { apply(); txt.classList.remove('out'); wrap.classList.remove('out'); }, 220);
-  }));
-})();
-
-/* spine quote: words brighten as it enters */
-(() => {
-  const q = document.getElementById('spineQuote');
-  if (!q) return;
-  const words = q.textContent.split(' ');
-  q.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
-  const ws = [...q.querySelectorAll('.w')];
-  const qio = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    ws.forEach((w, i) => setTimeout(() => w.classList.add('on'), reduced ? 0 : 80 * i));
-    qio.disconnect();
-  }), {threshold: 0.5});
-  qio.observe(q);
-})();
-
-/* egg hatch — rare-moment delight */
-(() => {
-  const card = document.getElementById('eggCard');
-  const pets = ['ollie','flori','puffin','nori-2','miko-1','taro-1','brim-1','nori-1'];
-  const names = {'ollie':'Ollie','flori':'Flori','puffin':'Puffin','nori-2':'Nori, Crystal form','miko-1':'Miko, Scholar form','taro-1':'Taro, Pilot form','brim-1':'Brim, Viking form','nori-1':'Nori, Coral form'};
-  let busy = false;
-  card.addEventListener('click', () => {
-    if (busy) return; busy = true;
-    if (card.classList.contains('hatched')) {
-      card.classList.remove('hatched');
-      document.getElementById('eggHead').textContent = 'It starts with an egg';
-      document.getElementById('eggSub').textContent = "Tap to hatch · your child won't know who's inside either";
-      setTimeout(() => busy = false, 350);
-      return;
-    }
-    const pick = pets[Math.floor(Math.random() * pets.length)];
-    document.getElementById('hatchPet').src = `assets/species/${pick}.png`;
-    card.classList.add('shaking');
-    setTimeout(() => {
-      card.classList.remove('shaking');
-      card.classList.add('hatched');
-      document.getElementById('eggHead').textContent = `It's ${names[pick]}!`;
-      document.getElementById('eggSub').textContent = 'Tap again to try another egg';
-      busy = false;
-    }, reduced ? 0 : 500);
+/* gallery switcher — plays a slide's video while active, pauses it on leave */
+const slides = [...document.querySelectorAll('.gal-stage [data-slide]')];
+const motionOK = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('.gal-th').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.gal-th').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  slides.forEach(s => {
+    const on = s.dataset.slide === btn.dataset.th;
+    s.classList.toggle('on', on);
+    const v = s.querySelector('video');
+    if (v) { if (on && motionOK) { v.muted = true; v.play().catch(() => {}); } else v.pause(); }
   });
-})();
+}));
 
-/* pet sound rotation in talk demo */
-(() => {
-  const sounds = ['♪ prrr… blip!', '~ wrrble?', '♪ pip pip !', '… mmrr ♥', '♪ boing~'];
-  const el = document.getElementById('petSound');
-  let i = 0;
-  setInterval(() => {
-    if (reduced) { el.textContent = sounds[++i % sounds.length]; return; }
-    el.style.opacity = '0'; el.style.transition = 'opacity 250ms ease';
-    setTimeout(() => { el.textContent = sounds[++i % sounds.length]; el.style.opacity = '1'; }, 260);
-  }, 3400);
-})();
-
-/* beta review rows: opposing scroll-reactive drift */
-(() => {
-  document.querySelectorAll('.rev-track').forEach(track => {
-    const setHTML = track.innerHTML;
-    const setW = track.scrollWidth;
-    while (track.scrollWidth < innerWidth * 2 + setW) track.insertAdjacentHTML('beforeend', setHTML);
-    if (reduced) return;
-    const dir = +track.dataset.dir || 1;
-    let x = 0, v = 0, ly = scrollY;
-    const tick = () => {
-      const dy = scrollY - ly; ly = scrollY;
-      v += dy * 0.4; v *= 0.92;
-      x += (v * 0.18 + 0.3) * dir;
-      x = ((x % setW) + setW) % setW;
-      track.style.transform = `translateX(${-x}px)`;
-      requestAnimationFrame(tick);
-    };
-    tick();
-  });
-})();
-
-/* library sample players — one at a time */
-(() => {
-  const audio = new Audio();
-  let cur = null;
-  document.querySelectorAll('.trk').forEach(t => {
-    t.querySelector('.pbtn').addEventListener('click', () => {
-      if (cur === t) {
-        if (audio.paused) { audio.play(); t.classList.add('playing'); }
-        else { audio.pause(); t.classList.remove('playing'); }
-        return;
-      }
-      document.querySelectorAll('.trk.playing').forEach(x => x.classList.remove('playing'));
-      document.querySelectorAll('.lib.active').forEach(x => x.classList.remove('active'));
-      cur = t;
-      audio.src = t.dataset.src;
-      audio.play();
-      t.classList.add('playing');
-      t.closest('.lib').classList.add('active');
-    });
-  });
-  audio.addEventListener('timeupdate', () => {
-    if (!cur || !audio.duration) return;
-    cur.closest('.lib').querySelector('.pbar i').style.width = (audio.currentTime / audio.duration * 100) + '%';
-  });
-  audio.addEventListener('ended', () => { if (cur) cur.classList.remove('playing'); });
-})();
-
-/* reading progress bar — snaps in 2% pixel steps */
-(() => {
-  const bar = document.querySelector('.readbar');
-  let raf = null;
-  const update = () => {
-    raf = null;
-    const max = document.documentElement.scrollHeight - innerHeight;
-    const p = max > 0 ? Math.round((scrollY / max) * 50) / 50 * 100 : 0;
-    bar.style.width = p + '%';
-  };
-  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, {passive: true});
-  update();
-})();
-
-/* marquee: pad each half until it covers any viewport (keeps -50% loop seamless) */
-(() => {
-  const track = document.querySelector('.marquee-track');
-  if (!track || track.children.length < 2) return;
-  const [a, b] = track.children;
-  const base = a.innerHTML;
-  while (a.scrollWidth < innerWidth) { a.innerHTML += base; b.innerHTML += base; }
-})();
-
-/* respect reduced motion for ambient video */
-if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
-
-/* chapter rail: active state + light-on-dark contrast */
-(() => {
-  const rail = document.querySelector('.rail');
-  const bgio = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    const themed = !!document.documentElement.dataset.theme;
-    const darkHere = e.target.tagName === 'FOOTER' || (e.target.classList.contains('dark') && (!themed || e.target.id === 'world'));
-    rail.classList.toggle('on-dark', darkHere);
-  }), {rootMargin: '-50% 0px -50% 0px'});
-  document.querySelectorAll('section, header.hero, footer').forEach(el => bgio.observe(el));
-})();
-(() => {
-  const map = {device: 'device', learnings: 'learnings', mechanic: 'mechanic', world: 'world', safety: 'safety', compare: 'compare', preorder: 'preorder'};
-  const links = [...document.querySelectorAll('.rail a')];
+/* sticky bar: show once the buy CTA scrolls out of view; dismissible */
+const bar = document.getElementById('stickybar');
+const cta = document.getElementById('buyCta');
+let dismissed = false;
+if (bar && cta) {
   const sio = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    links.forEach(l => l.classList.toggle('active', l.dataset.ch === e.target.id));
-  }), {rootMargin: '-40% 0px -50% 0px'});
-  Object.keys(map).forEach(id => { const s = document.getElementById(id); if (s) sio.observe(s); });
-})();
+    bar.classList.toggle('show', !dismissed && !e.isIntersecting && e.boundingClientRect.top < 0);
+    bar.setAttribute('aria-hidden', String(!bar.classList.contains('show')));
+  }), {threshold:0});
+  sio.observe(cta);
+  bar.querySelector('.sb-x').addEventListener('click', () => { dismissed = true; bar.classList.remove('show'); });
+}
 
-/* smooth momentum scroll (Lenis) — skipped under reduced-motion for accessibility */
-(() => {
-  if (reduced || typeof Lenis === 'undefined') return;
-  const lenis = new Lenis({ lerp: 0.17, wheelMultiplier: 1.1, smoothWheel: true });
-  function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
-  requestAnimationFrame(raf);
-  /* route same-page anchors through Lenis for smooth glide */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      if (id.length < 2) return;
-      const target = document.querySelector(id);
-      if (!target) return;
-      e.preventDefault();
-      lenis.scrollTo(target, { offset: -20, duration: 0.65 });
-    });
-  });
-})();
-</script>
-<script>
-/* parent-app showcase carousel — one feature's screens at a time */
-(function(){
-  var stage=document.querySelector('#parent-app .papp-stage'); if(!stage) return;
-  var track=stage.querySelector('#pfTrack');
-  var all=[].slice.call(track.querySelectorAll('.pf-slide'));
-  var dotsWrap=stage.querySelector('#pfDots');
-  var feats=[].slice.call(document.querySelectorAll('#parent-app .papp-feat'));
-  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var dots=[];
-
-  function vis(){return all.filter(function(s){return !s.classList.contains('pf-hide');});}
-
-  /* each app screen self-styles for embedding (see html.embed rules in app-ui/new/*.html);
-     no cross-document injection here so it works on file:// too. just hide the loader. */
-  function ready(slide){var l=slide.querySelector('.pf-load');if(l)l.style.display='none';}
-  all.forEach(function(s){s.querySelector('iframe').addEventListener('load',function(){ready(s);});});
-
-  var PFV='?v='+Date.now(); /* showcase dev: always load the freshest screen (bypass local-server cache). Remove for production. */
-  function load(s){var f=s.querySelector('iframe');if(f&&!f.src)f.src=f.getAttribute('data-src')+PFV;}
-
-  function buildDots(){dotsWrap.innerHTML='';vis().forEach(function(s,i){var b=document.createElement('button');b.className='pf-dot';b.setAttribute('aria-label','Screen '+(i+1));b.addEventListener('click',function(){go(i);});dotsWrap.appendChild(b);});dots=[].slice.call(dotsWrap.children);}
-
-  function curIndex(){var v=vis(),idx=0,min=1e9;v.forEach(function(s,i){var d=Math.abs(s.offsetLeft-track.scrollLeft);if(d<min){min=d;idx=i;}});return idx;}
-  function go(i){var v=vis();i=Math.max(0,Math.min(v.length-1,i));track.scrollTo({left:v[i].offsetLeft,behavior:reduce?'auto':'smooth'});}
-  function syncDots(){var c=curIndex();dots.forEach(function(d,i){d.classList.toggle('on',i===c);});}
-
-  function setFeature(f){
-    all.forEach(function(s){s.classList.toggle('pf-hide',s.getAttribute('data-feature')!==f);});
-    feats.forEach(function(c){c.classList.toggle('on',c.getAttribute('data-feature')===f);});
-    buildDots();
-    track.scrollLeft=0;
-    vis().forEach(load);
-    syncDots();
-  }
-
-  stage.querySelector('.pf-prev').addEventListener('click',function(){go(curIndex()-1);});
-  stage.querySelector('.pf-next').addEventListener('click',function(){go(curIndex()+1);});
-
-  var raf;
-  track.addEventListener('scroll',function(){if(raf)cancelAnimationFrame(raf);raf=requestAnimationFrame(syncDots);});
-
-  feats.forEach(function(f){
-    function act(){setFeature(f.getAttribute('data-feature'));}
-    f.addEventListener('click',act);
-    f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
-  });
-
-  var down=false,sx=0,sl=0,moved=false;
-  track.addEventListener('pointerdown',function(e){down=true;moved=false;sx=e.clientX;sl=track.scrollLeft;track.style.scrollSnapType='none';try{track.setPointerCapture(e.pointerId);}catch(_){}});
-  track.addEventListener('pointermove',function(e){if(down){var dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;track.scrollLeft=sl-dx;}});
-  function up(){if(down){down=false;track.style.scrollSnapType='';if(moved)go(curIndex());}}
-  track.addEventListener('pointerup',up);
-  track.addEventListener('pointercancel',up);
-
-  setFeature('mission');
-})();
-</script>
-<script>
-/* device carousel */
-(() => {
-  const track = document.getElementById('dcTrack');
-  if (!track) return;
-  const dots = [...document.querySelectorAll('#dcDots .dc-dot')];
-  const slides = [...track.children];
-  const label = document.getElementById('dcLabel');
-  const total = slides.length;
-  let idx = 0;
-  function go(i) {
-    const next = (i + total) % total;
-    if (next === idx) return;
-    idx = next;
-    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-    dots.forEach((d, j) => d.classList.toggle('on', j === idx));
-    if (label) {
-      const html = slides[idx].dataset.label || '';
-      label.classList.add('is-swap');
-      setTimeout(() => { label.innerHTML = html; label.classList.remove('is-swap'); }, 200);
-    }
-  }
-  document.getElementById('dcPrev').addEventListener('click', () => go(idx - 1));
-  document.getElementById('dcNext').addEventListener('click', () => go(idx + 1));
-  dots.forEach((d, j) => d.addEventListener('click', () => go(j)));
-})();
-
-/* device specs — single-open accordion */
-(() => {
-  const specs = document.querySelectorAll('.device-specs .faq.pxcard');
-  specs.forEach(d => d.addEventListener('toggle', () => {
-    if (d.open) specs.forEach(o => { if (o !== d) o.open = false; });
-  }));
-})();
-
-/* V1 deal rows — tap a row to unfold its visual inline */
-(() => {
-  document.querySelectorAll('.deal-row').forEach(row => {
-    if (!row.querySelector('.deal-exp')) return;
-    row.setAttribute('role', 'button');
-    row.setAttribute('tabindex', '0');
-    row.setAttribute('aria-expanded', 'false');
-    const toggle = () => {
-      const open = row.classList.toggle('open');
-      row.setAttribute('aria-expanded', open ? 'true' : 'false');
-    };
-    row.addEventListener('click', e => { if (!e.target.closest('a')) toggle(); });
-    row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
-  });
-})();
-
-
+/* checkout stub — wire to the Shopify cart permalink from 08-shopify-setup (PR #11) */
+document.querySelectorAll('[data-checkout]').forEach(a => a.addEventListener('click', e => {
+  e.preventDefault();
+  alert('DRAFT: this button fires the Shopify cart permalink (08-shopify-setup, PR #11).');
+}));
 </script>
 </body>
 </html>
