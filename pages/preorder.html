@@ -1096,10 +1096,12 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .rescount .rc-cells{display:flex;gap:4px}
 .rescount .rc{flex:1;height:12px;background:var(--color-chalk-surface)}
 .rescount .rc.full{background:var(--color-coral-flame)}
-.bp-incl{list-style:none;margin:0 0 8px;display:flex;flex-direction:column;gap:7px}
-.bp-incl li{display:flex;align-items:baseline;gap:10px;font-size:var(--text-body-sm)}
-.bp-incl li::before{content:"";width:7px;height:7px;background:var(--color-coral-flame);flex:none;position:relative;top:-1px}
+.bp-incl{list-style:none;margin:0 0 8px;display:flex;flex-direction:column;gap:8px}
+.bp-incl li{display:flex;align-items:center;gap:10px;font-size:var(--text-body-sm)}
+.bp-incl img{width:34px;height:34px;object-fit:contain;background:var(--surface-ghost-white);flex:none}
 .bp-incl .val{margin-left:auto;font-family:var(--font-onest);font-weight:700;color:var(--color-slate-mid);white-space:nowrap}
+/* savings badge — amber highlight, never coral (coral stays CTA-only) */
+.save-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-onest);font-weight:800;font-size:12.5px;letter-spacing:.02em;background:var(--color-amber-signal);color:var(--color-deep-ink);padding:4px 10px;margin:6px 0 10px}
 .bp-see{display:inline-block;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);color:var(--color-deep-ink);border-bottom:2px solid var(--color-coral-flame);margin-bottom:22px}
 .buy-panel .btn{width:100%;justify-content:center;font-size:17px}
 .bp-badges{list-style:none;margin:16px 0 18px;display:flex;flex-direction:column;gap:8px}
@@ -1260,6 +1262,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
         <span class="now">$99</span>
         <span class="then">today · <s>$149</s> at retail</span>
       </div>
+      <span class="save-badge">Save 66% · $195 off the $294 day-one value</span>
       <p class="bp-refund">Fully refundable until the day it ships.</p>
 
       <div class="rescount" aria-label="317 of 500 reservations taken">
@@ -1270,10 +1273,10 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       </div>
 
       <ul class="bp-incl">
-        <li>The Nowa device <span class="val">$149</span></li>
-        <li>6 months of Nowa+ <span class="val">$120</span></li>
-        <li>The three Nowa Handbooks <span class="val">day one</span></li>
-        <li>Adventure Kit + pre-order extras <span class="val">$25+</span></li>
+        <li><img src="assets/device/front.webp" alt="" loading="lazy">The Nowa device <span class="val">$149</span></li>
+        <li><img src="assets/showcase/nowa-plus-v2.webp" alt="" loading="lazy">6 months of Nowa+ <span class="val">$120</span></li>
+        <li><img src="assets/showcase/playbooks-v2.webp" alt="" loading="lazy">The three Nowa Handbooks <span class="val">day one</span></li>
+        <li><img src="assets/adventure-kit/bundle-1.webp" alt="" loading="lazy">Adventure Kit + pre-order extras <span class="val">$25+</span></li>
       </ul>
       <a class="bp-see" href="#bundle">See everything included ↓</a>
 
@@ -1300,6 +1303,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   <div class="wrap">
     <p class="geyebrow"><span class="cell"></span>The Day-One Bundle</p>
     <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:22ch">Everything the $99 unlocks.</h2>
+    <span class="save-badge reveal">Save 66% · $195 off $294 of value</span>
     <p class="lead reveal">Every $99 reservation includes all of this.</p>
 
     <div class="bitems reveal-group">
@@ -1328,7 +1332,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <div class="bmath pxcard reveal">
       <div class="mrow"><span>Total value</span><span class="n"><s>$294</s></span></div>
       <div class="mrow pay"><span>You pay today</span><span class="n">$99</span></div>
-      <div class="mrow save"><span>You save</span><span class="n">$195</span></div>
+      <div class="mrow save"><span>You save</span><span class="n">$195 · 66% off</span></div>
     </div>
 
     <p class="bterms reveal">This isn't a countdown. We won't pretend there's a timer. But these terms hold for 500 reservations only. When those are taken, they're taken. The price becomes $149 and the extras are gone for good.</p>
