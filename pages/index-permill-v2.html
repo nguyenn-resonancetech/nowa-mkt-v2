@@ -853,11 +853,22 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 @media(prefers-reduced-motion:reduce){.annc{text-align:center}.annc-track{animation:none;justify-content:center;width:100%}.annc-item:nth-child(n+2){display:none}}
 
 /* ---- preorder v3 — $99-as-hero rebuild ---- */
-/* big price headline */
-.po-price{font-family:var(--font-onest);font-weight:900;font-size:clamp(48px,7vw,96px);line-height:.96;letter-spacing:-.02em;color:var(--color-deep-ink);text-align:center;margin-top:14px}
+/* big price headline — badge stacks under the price so the price stays the one big statement */
+.po-headline{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:14px}
+.po-price{font-family:var(--font-onest);font-weight:900;font-size:clamp(48px,7vw,96px);line-height:.96;letter-spacing:-.02em;color:var(--color-deep-ink);text-align:center;margin:0}
+/* .final h2 (generic section-heading rule) has higher specificity than .po-price alone and was re-adding margin:auto + max-width:16ch + a smaller font-size — neutralize it here */
+.po-headline .po-price{margin:0;max-width:none;font-size:clamp(48px,7vw,96px)}
 .po-price .po-amt{color:var(--color-coral-flame)}
 .po-price .po-save{color:var(--color-deep-ink)}
 .po-sub{font-family:var(--font-onest);font-weight:600;font-size:clamp(15px,1.4vw,18px);color:var(--color-slate-mid);text-align:center;max-width:54ch;margin:14px auto 0;text-wrap:pretty}
+.po-sub-link{text-align:center;margin:8px auto 0}
+.po-sub-link a{color:var(--color-coral-flame);font-weight:700;font-size:var(--text-body-sm);text-decoration:underline;text-underline-offset:3px}
+/* savings badge — amber highlight, never coral (coral stays CTA-only); matches preorder.html buy box */
+.save-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-onest);font-weight:800;font-size:12.5px;letter-spacing:.02em;background:var(--color-amber-signal);color:var(--color-deep-ink);padding:4px 10px;margin:0}
+/* compact trust strip — pill badges, replacing the old stacked deal-trust list now that the itemized breakdown lives on the PDP */
+.po-trust-strip{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px;max-width:680px;margin:var(--spacing-32) auto 0;padding:0}
+.po-trust-strip li{display:inline-flex;align-items:flex-start;gap:7px;font-family:var(--font-onest);font-weight:700;font-size:13px;color:#1e3a2c;text-align:left;background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);border-radius:var(--radius-full);padding:9px 16px;box-shadow:2px 2px 0 rgba(22,28,36,.1)}
+.po-trust-strip .deal-trust-ic{width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;color:var(--color-coral-flame);flex-shrink:0;margin-top:2px}
 
 /* the "deal block" — TWO sibling pxcards each with their own stepped corners */
 .deal{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;max-width:920px;margin:var(--spacing-48) auto 0;text-align:left}
@@ -899,12 +910,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .deal-trust-ic{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;color:var(--color-coral-flame);margin-top:1px}
 .deal-trust b{font-family:var(--font-onest);font-weight:800}
 
-/* honest scarcity line */
-.po-honest{font-family:var(--font-onest);font-weight:600;font-size:14px;color:var(--color-slate-mid);text-align:center;max-width:62ch;margin:var(--spacing-32) auto 0;text-wrap:pretty;line-height:1.55}
-.po-honest .po-honest-lead{color:var(--color-deep-ink);font-weight:700}
-.po-honest .po-honest-num{color:var(--color-coral-flame);font-weight:800}
-
-
 
 
 
@@ -935,8 +940,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .midcta .mc-more{font-size:var(--text-body-sm);color:var(--color-slate-mid);margin-top:18px}
 .midcta .mc-more a{color:var(--color-coral-flame);font-weight:700}
 
-/* FAQ category tabs */
-.faqtabs{margin-bottom:var(--spacing-24)}
 .faqsec .faqpanel{margin-top:0}
 .faqpanel[hidden]{display:none}
 
@@ -1031,7 +1034,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
 <div class="readbar" aria-hidden="true"></div>
 
-<a class="annc" href="#preorder" aria-label="Nowa pre-order is open. Was $149, now $99. Fully refundable. Handbooks free the day you reserve. Reserve yours.">
+<a class="annc" href="preorder.html#buy" aria-label="Nowa pre-order is open. Was $149, now $99. Fully refundable. Handbooks free the day you reserve. Reserve yours.">
   <div class="annc-track" aria-hidden="true">
     <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
     <span class="annc-item"><strong>Nowa pre-order is open</strong><span class="ad">·</span><s>$149</s> <strong>$99</strong><span class="ad">·</span>Fully refundable<span class="ad">·</span>Handbooks free the day you reserve<span class="ad">·</span><span class="annc-go">Reserve yours →</span><span class="ad">·</span></span>
@@ -1051,7 +1054,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <a href="#world">Why kids love it</a>
       <a href="#compare">Compare</a>
       <a href="nowa-story.html" class="nav-story"><span class="nav-hl">Our story</span></a>
-      <a href="#preorder" class="btn">Pre-order</a>
+      <a href="preorder.html#buy" class="btn">Pre-order</a>
     </div>
   </div>
 </nav>
@@ -1078,7 +1081,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       </h1>
       <p class="lead">Nowa is a virtual pet your child looks after. Caring for it is how they practice calm, build routines, and grow kinder. The follow-through comes from them, not from you repeating yourself.</p>
       <div class="hero-cta">
-        <a href="#preorder" class="btn">Reserve your Nowa <span class="arr">→</span></a>
+        <a href="preorder.html#buy" class="btn">Reserve your Nowa <span class="arr">→</span></a>
         <a href="#mechanic" class="btn-ghost">See how it works →</a>
       </div>
       <p class="ship"><s>$149</s> <b>$99</b> pre-order · Ages 3–10 · Ships September 2026 · Fully refundable</p>
@@ -1372,7 +1375,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <p class="geyebrow reveal"><span class="cell"></span>Pre-order</p>
     <h3 class="reveal">Reserve their first Nowa today.</h3>
     <p class="mc-fine reveal"><s>$149</s> $99 today<span class="fdot">·</span>Ships September 2026<span class="fdot">·</span>Fully refundable</p>
-    <a href="#preorder" class="btn reveal">Lock in at $99 <span class="arr">→</span></a>
+    <a href="preorder.html#buy" class="btn reveal">Lock in at $99 <span class="arr">→</span></a>
   </div>
 </section>
 
@@ -1506,8 +1509,8 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
     <p class="geyebrow reveal"><span class="cell"></span>The Day-One Bundle</p>
     <h3 class="reveal">$99 reserves the whole Day-One Bundle.</h3>
     <p class="mc-fine reveal">The $149 device<span class="fdot">·</span>6 months of Nowa+ free<span class="fdot">·</span>The Handbooks, from the day you reserve<span class="fdot">·</span>Fully refundable</p>
-    <a href="#preorder" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
-    <p class="mc-more reveal"><a href="#preorder">See the full breakdown ↓</a></p>
+    <a href="preorder.html#buy" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
+    <p class="mc-more reveal"><a href="preorder.html#bundle">See the full breakdown ↓</a></p>
   </div>
 </section>
 
@@ -1530,100 +1533,30 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <section class="dark final" id="preorder">
   <div class="wrap">
     <p class="geyebrow" style="justify-content:center"><span class="cell"></span>Pre-order · 500 reservations</p>
-    <h2 class="po-price reveal"><span class="po-amt">$99 today.</span> <span class="po-save">Save $195.</span></h2>
-    <p class="po-sub reveal">The Day-One Bundle: the device, six months of Nowa+, the Handbooks, and pre-order extras you only get now.</p>
-
-    <!-- ===== the deal block ===== -->
-    <!-- DEAL BLOCK: WHAT YOU GET (light pxcard) | WHAT YOU PAY (mint pxcard) -->
-    <div class="deal reveal-group">
-      <div class="deal-get pxcard">
-        <p class="deal-h">The Day-One Bundle</p>
-        <ul class="deal-list">
-          <li class="deal-row">
-            <span class="deal-ic deal-th" aria-hidden="true"><img src="assets/device/front.webp" alt="" loading="lazy" decoding="async"></span>
-            <span class="deal-name">Nowa device (retail)</span>
-            <span class="deal-val">$149</span>
-            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/whatyouget-1.png" alt="" loading="lazy" decoding="async"></div></div>
-          </li>
-          <li class="deal-row">
-            <span class="deal-ic deal-th deal-th-zoom" aria-hidden="true"><img src="assets/showcase/nowa-plus.webp" alt="" style="object-position:38% 55%" loading="lazy" decoding="async"></span>
-            <span class="deal-name">6 months of Nowa+</span>
-            <span class="deal-val">$120</span>
-            <ul class="deal-sub">
-              <li>Advanced missions tuned to your child's growth phase</li>
-              <li>Full growth insights: emotions, focus, follow-through</li>
-              <li>Expert-shaped guidance from our PCIT, EQ, and EF advisors</li>
-            </ul>
-            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/nowa-plus.webp" alt="" loading="lazy" decoding="async"></div></div>
-          </li>
-          <li class="deal-row">
-            <span class="deal-ic deal-th deal-th-zoom" aria-hidden="true"><img src="assets/showcase/playbooks.webp" alt="" style="object-position:50% 62%" loading="lazy" decoding="async"></span>
-            <span class="deal-name">The Nowa Handbooks <span class="deal-name-sub">three parent guides, advisor-shaped</span></span>
-            <span class="deal-val deal-val-tag">★ Day 1</span>
-            <ul class="deal-sub">
-              <li><b>Big Feelings</b> · when the feeling is bigger than the kid</li>
-              <li><b>Routine</b> · stop being the narrator of every morning</li>
-              <li><b>Raising a Kid Who Can Stop</b> · third guide, lands before your device ships</li>
-            </ul>
-            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/playbooks.webp" alt="" loading="lazy" decoding="async"></div></div>
-          </li>
-          <li class="deal-row">
-            <span class="deal-ic deal-th deal-th-zoom" aria-hidden="true"><img src="assets/showcase/adventure-kit.webp" alt="" style="transform-origin:30% 55%" loading="lazy" decoding="async"></span>
-            <span class="deal-name">Adventure Kit <span class="deal-name-sub">silicone cover + lanyard</span></span>
-            <span class="deal-val">$25</span>
-            <ul class="deal-sub">
-              <li>Silicone case in swappable colors, soft and drop-protective</li>
-              <li>Lanyard for hands-free carry: walks, school, the car</li>
-            </ul>
-            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><img src="assets/showcase/adventure-kit.webp" alt="" loading="lazy" decoding="async"></div></div>
-          </li>
-          <li class="deal-row">
-            <span class="deal-ic deal-th deal-th-pet" aria-hidden="true"><img class="px" src="assets/species/flori.png" alt="" loading="lazy" decoding="async"></span>
-            <span class="deal-name">Pre-order extras</span>
-            <span class="deal-val deal-val-tag">★ Exclusive</span>
-            <ul class="deal-sub">
-              <li>An exclusive starter pet, found in no other Nowa</li>
-              <li>An exclusive badge in your parent app</li>
-              <li>Your Nowa+ price locked for 2 years</li>
-            </ul>
-            <div class="deal-exp" aria-hidden="true"><div class="deal-exp-in"><div class="deal-exp-bonus"><img class="px" src="assets/species/nori-2.png" alt="" width="100" height="100" loading="lazy" decoding="async"><span class="deal-bonus-cap">EXCLUSIVE STARTER PET</span></div></div></div>
-          </li>
-        </ul>
-      </div>
-      <div class="deal-pay pxcard">
-        <p class="deal-h">What you pay</p>
-        <div class="deal-pay-body">
-          <p class="deal-totalv">Total value</p>
-          <p class="deal-total">$294</p>
-          <hr class="deal-div" aria-hidden="true">
-          <p class="deal-todayl">You pay today</p>
-          <p class="deal-today">$99</p>
-          <span class="deal-save">Save $195</span>
-        </div>
-        <ul class="deal-trust" aria-label="Pre-order guarantees">
-          <li>
-            <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
-            <span><b>Cancel anytime</b> before ship · full refund</span>
-          </li>
-          <li>
-            <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg></span>
-            <span><b>Refunded automatically</b> if not shipped by Oct 31</span>
-          </li>
-          <li>
-            <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
-            <span><b>Price locked.</b> Only goes up from here</span>
-          </li>
-        </ul>
-      </div>
+    <div class="po-headline reveal-group">
+      <h2 class="po-price reveal"><span class="po-amt">$99 today.</span></h2>
+      <span class="save-badge reveal">Save 66% · $195 off the $294 day-one value</span>
     </div>
+    <p class="po-sub reveal">The device, six months of Nowa+, the Handbooks, and pre-order extras.</p>
+    <p class="po-sub-link reveal"><a href="preorder.html#bundle">See what's included ↓</a></p>
 
+    <ul class="po-trust-strip reveal-group" aria-label="Pre-order guarantees">
+      <li>
+        <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+        <span>Cancel anytime, full refund</span>
+      </li>
+      <li>
+        <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg></span>
+        <span>Refunded automatically if not shipped by Oct 31</span>
+      </li>
+      <li>
+        <span class="deal-trust-ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+        <span>Price locked. Only goes up from here</span>
+      </li>
+    </ul>
 
-
-    <!-- honest scarcity line — kept per Daniel's call -->
-    <p class="po-honest reveal"><span class="po-honest-lead">This isn't a countdown. We won't pretend there's a timer.</span> But these terms hold for <span class="po-honest-num">500 reservations only</span>. When those are taken, they're taken. The price becomes $149 and the extras are gone for good.</p>
-
-    <a href="#" class="btn offer-cta reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
-    <p class="offer-fine reveal">Ships September 2026<span class="fdot">·</span>500 reservations only<span class="fdot">·</span>Fully refundable</p>
+    <a href="preorder.html#buy" class="btn offer-cta reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
+    <p class="offer-fine reveal">Not a countdown — 500 reservations only, then it's $149<span class="fdot">·</span>Ships September 2026<span class="fdot">·</span>Fully refundable</p>
 
     <div class="pets reveal-group" aria-hidden="true">
       <img class="px" src="assets/species/flori.png" alt="" width="64" height="64" loading="lazy" decoding="async">
@@ -1639,10 +1572,6 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
   <div class="wrap">
     <p class="geyebrow"><span class="cell"></span>Before you ask</p>
     <h2 class="reveal" style="font-size:clamp(28px,3.2vw,44px);max-width:20ch">The questions every parent asks.</h2>
-    <div class="mtabs faqtabs reveal" role="tablist" aria-label="FAQ categories">
-      <button class="mtab on" role="tab" aria-selected="true" data-faq="0">About the product</button>
-      <button class="mtab" role="tab" aria-selected="false" data-faq="1">Pre-order</button>
-    </div>
     <div class="faqs faqpanel" data-panel="0">
       <details class="faq pxcard"><summary>What age is Nowa designed for?<span class="fplus">+</span></summary><div class="faq-a"><p>Kids ages 3–10, the stage when routines, independence, and emotional habits develop fastest. The experience is age-scaffolded so it grows with your child.</p></div></details>
       <details class="faq pxcard"><summary>How does Nowa build habits without nagging?<span class="fplus">+</span></summary><div class="faq-a"><p>Instead of you repeating instructions, daily routines become missions your child does to help their pet grow. The pet celebrates wins and encourages them through struggles, so habit-building feels like play, not punishment.</p></div></details>
@@ -1653,13 +1582,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
       <details class="faq pxcard"><summary>How does the parent app work?<span class="fplus">+</span></summary><div class="faq-a"><p>Set routines, see progress, and get warm, narrative insights without more mental load. Basic setup and routine tracking come with the device; full insights, advanced missions, and expert guidance are part of the optional Nowa+ subscription.</p></div></details>
       <details class="faq pxcard"><summary>When will Nowa be available?<span class="fplus">+</span></summary><div class="faq-a"><p>Pre-orders are open now at $99, shipping September 2026. You can cancel your reservation anytime before it ships.</p></div></details>
     </div>
-    <div class="faqs faqpanel" data-panel="1" hidden>
-      <details class="faq pxcard"><summary>Why is it full price now instead of a small deposit?<span class="fplus">+</span></summary><div class="faq-a"><p>Because your reservation is fully refundable, paying now and paying a deposit carry the same risk to you: none. Reserving in full simply locks your pre-order price, starts your benefits today, and means there's nothing to remember or re-confirm later. Cancel anytime before your Nowa ships and you're refunded in full.</p></div></details>
-      <details class="faq pxcard"><summary>What if I change my mind?<span class="fplus">+</span></summary><div class="faq-a"><p>Cancel anytime before your Nowa ships and we refund every cent, no questions asked. Your reservation is never a commitment to keep it.</p></div></details>
-      <details class="faq pxcard"><summary>What if Nowa ships late?<span class="fplus">+</span></summary><div class="faq-a"><p>If we don't ship by October 31, you're refunded automatically. You don't even have to ask. We're targeting September, and we've built in time so a normal delay never costs you.</p></div></details>
-      <details class="faq pxcard"><summary>When do my benefits start?<span class="fplus">+</span></summary><div class="faq-a"><p>The moment you reserve. Your Nowa Handbooks arrive right away, and your 6 months of Nowa+ begins when your device is set up, so you get the full experience from day one.</p></div></details>
-      <details class="faq pxcard"><summary>Why reserve now instead of waiting?<span class="fplus">+</span></summary><div class="faq-a"><p>Reserving now locks the $99 price below the $149 retail, and includes an exclusive starter pet you can't get later, an in-app badge, and your Nowa+ price held for 2 years. These extras are limited to 500 reservations and never sold later. Your reservation stays fully refundable until your Nowa ships.</p></div></details>
-    </div>
+    <p class="reveal" style="margin-top:24px;font-size:var(--text-body-sm);color:var(--color-slate-mid)">Questions about the pre-order itself — pricing, refunds, timing — are answered on the <a href="preorder.html#faq" style="color:var(--color-deep-ink);font-weight:700">pre-order page</a>.</p>
   </div>
 </section>
 
@@ -1667,7 +1590,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 <section class="closing-cta" style="padding:clamp(40px,5vw,64px) 0;text-align:center">
   <div class="wrap">
     <h3 class="reveal" style="font-family:var(--font-onest);font-weight:800;font-size:clamp(22px,2.8vw,34px);max-width:22ch;margin:0 auto 20px">Questions answered? Your spot is still open.</h3>
-    <a href="#preorder" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
+    <a href="preorder.html#buy" class="btn reveal">Reserve your Nowa for $99 <span class="arr">→</span></a>
     <p class="reveal" style="margin-top:16px;font-size:var(--text-body-sm);color:var(--color-slate-mid)">Fully refundable until it ships<span class="fdot">·</span>500 reservations only</p>
   </div>
 </section>
@@ -1999,20 +1922,6 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
 })();
 </script>
 <script>
-/* FAQ category tabs */
-(function(){
-  const tabs = [...document.querySelectorAll('.faqtabs .mtab')];
-  if (!tabs.length) return;
-  const panels = [...document.querySelectorAll('.faqsec .faqpanel')];
-  tabs.forEach(t => t.addEventListener('click', () => {
-    if (t.classList.contains('on')) return;
-    tabs.forEach(x => { x.classList.remove('on'); x.setAttribute('aria-selected', 'false'); });
-    t.classList.add('on'); t.setAttribute('aria-selected', 'true');
-    const i = +t.dataset.faq;
-    panels.forEach(p => { p.hidden = (+p.dataset.panel !== i); });
-  }));
-})();
-
 /* device carousel */
 (() => {
   const track = document.getElementById('dcTrack');
