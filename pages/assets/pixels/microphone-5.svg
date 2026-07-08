@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="66px" height="66px" viewBox="0 0 28.285714285714285 28.285714285714285"><g transform="translate(2.142857142857143 2.142857142857143)"><path d="M14 2L18 2" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
-<path d="M14 14L18 14" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
-<path d="M22 6L22 10" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
-<path d="M10 6L10 10" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
-<path d="M12 4.01V4" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
-<path d="M14 6.01V6" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
-<path d="M16 8.01V8" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
-<path d="M18 10.01V10" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
-<path d="M20 4.01V4" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
-<path d="M20 12.01V12" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
-<path d="M12 12.01V12" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
-<path d="M8 13.01V13" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
-<path d="M6 15.01V15" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
-<path d="M4 17.01V17" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
-<path d="M9 18.01V18" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
-<path d="M7 20.01V20" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
-<path d="M11 16.01V16" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
-<path d="M5 22H4" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
-<path d="M2 19V20" stroke="rgba(229, 154, 144, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="66px" height="66px" viewBox="0 0 28.285714285714285 28.285714285714285"><g transform="translate(2.142857142857143 2.142857142857143)"><path d="M14 2L18 2" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
+<path d="M14 14L18 14" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
+<path d="M22 6L22 10" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
+<path d="M10 6L10 10" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
+<path d="M12 4.01V4" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
+<path d="M14 6.01V6" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
+<path d="M16 8.01V8" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
+<path d="M18 10.01V10" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
+<path d="M20 4.01V4" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
+<path d="M20 12.01V12" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
+<path d="M12 12.01V12" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" fill="none"></path>
+<path d="M8 13.01V13" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
+<path d="M6 15.01V15" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
+<path d="M4 17.01V17" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
+<path d="M9 18.01V18" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
+<path d="M7 20.01V20" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
+<path d="M11 16.01V16" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
+<path d="M5 22H4" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path>
+<path d="M2 19V20" stroke="rgba(159, 212, 163, 1)" stroke-width="2" stroke-linecap="square" data-color="color-2" fill="none"></path></g></svg>
