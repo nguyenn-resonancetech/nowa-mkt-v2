@@ -1847,7 +1847,7 @@ if (reduced) document.querySelectorAll('video[autoplay]').forEach(v => { v.remov
 /* smooth momentum scroll (Lenis) — skipped under reduced-motion for accessibility */
 (() => {
   if (reduced || typeof Lenis === 'undefined') return;
-  const lenis = new Lenis({ lerp: 0.17, wheelMultiplier: 1.1, smoothWheel: true });
+  const lenis = new Lenis({ lerp: 0.07, wheelMultiplier: 1, smoothWheel: true });
   function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
   /* route same-page anchors through Lenis for smooth glide */

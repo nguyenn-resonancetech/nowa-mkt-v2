@@ -9,6 +9,9 @@
 <link rel="icon" type="image/png" href="assets/brand/logo-app-64.png">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
 <style>@font-face{font-family:"Departure Mono";src:url("../fonts/DepartureMono-Regular.woff2") format("woff2"),url("../fonts/DepartureMono-Regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}</style>
+<!-- Lenis smooth scroll (momentum / inertia) -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<style>html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:hidden}.lenis.lenis-smooth iframe{pointer-events:none}</style>
 <style>
 /* =========================================================
    Nowa v2 — storybook warmth + pixel playfulness
@@ -1041,7 +1044,7 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
 /* ---- buy box ---- */
 .buy{padding:clamp(36px,5vw,64px) 0 clamp(56px,7vw,88px)}
-.buy-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(28px,4vw,52px);align-items:start}
+.buy-grid{display:grid;grid-template-columns:1.32fr .82fr;gap:16px;align-items:start}
 @media(max-width:960px){.buy-grid{grid-template-columns:1fr}}
 
 /* gallery — stage + thumb switcher on all viewports */
@@ -1049,22 +1052,43 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 .gal-stage [data-slide]{position:absolute;inset:0;display:none}
 .gal-stage .ph[data-slide].on{display:flex}
 .gal-stage .gs[data-slide].on{display:block}
-.gs img,.gs video{width:100%;height:100%;object-fit:cover;display:block}
-.gs.fit img{object-fit:contain;background:var(--surface-ghost-white)}
+.gal-stage .gs{padding:clamp(14px,2.2vw,26px);box-sizing:border-box}
+.gs>img,.gs>video{width:100%;height:100%;object-fit:contain;display:block;border-radius:8px}
+@media(hover:hover) and (pointer:fine){
+  .gal-stage .gs{overflow:hidden}
+  .gal-stage.pxcard:hover{transform:none}
+  .gal-stage .gs>img{cursor:zoom-in;transition:transform .3s var(--ease-out-strong)}
+  .gal-stage .gs.zoom>img{transition:transform .06s linear}
+}
+.gs.fit>img{object-fit:contain;background:transparent}
 .gs-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;width:100%;height:100%;padding:10px;background:var(--surface-ghost-white)}
 .gs-grid img{width:100%;height:100%;object-fit:contain;min-height:0}
 /* "the kit" — brand-consistent flat lay: parchment ground, pxcard tiles, captioned */
-.kit-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;width:100%;height:100%;padding:16px;background:var(--surface-warm-parchment)}
+.kit-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;width:100%;height:100%;padding:16px;background:#ffffff}
 .kit-tile{display:flex;flex-direction:column;min-height:0}
-.kit-tile img{flex:1;width:100%;min-height:0;object-fit:contain;padding:12px 12px 0}
-.kit-cap{display:flex;align-items:center;gap:7px;font-family:var(--font-onest);font-weight:800;font-size:11.5px;letter-spacing:.03em;color:var(--color-deep-ink);padding:8px 10px 10px}
+.kit-tile img{flex:1;width:100%;min-height:0;object-fit:contain;object-position:left center;padding:8px 10px 0 22px;border-radius:4px}
+.kit-cap{display:flex;align-items:center;gap:7px;font-family:var(--font-onest);font-weight:800;font-size:11.5px;letter-spacing:.03em;color:var(--color-deep-ink);padding:8px 10px 10px 22px}
 .kit-cap .cell{width:6px;height:6px;background:var(--color-coral-flame);flex:none}
+@media(hover:hover) and (pointer:fine){
+  .kit-tile{position:relative}
+  .kit-tile img{cursor:zoom-in;transition:transform .3s var(--ease-out-strong)}
+  .kit-tile.zoom{z-index:3}
+  .kit-tile.zoom img{transition:transform .06s linear}
+}
 /* outdoor closer — square source, keep the device (upper frame) in view on the 4:3 stage */
 .gs-hi img{object-position:center 18%}
 /* real-media swaps in bundle rows, fact chips, advisor cards */
 .bimg{width:88px;height:88px;flex:none;object-fit:contain;background:var(--surface-ghost-white)}
 .bimg.pxart{image-rendering:pixelated;object-fit:contain;padding:12px}
-.fact .fimg{width:52px;height:52px;object-fit:contain;background:var(--surface-warm-parchment);padding:7px;margin-bottom:10px;image-rendering:pixelated;clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px));filter:drop-shadow(2px 2px 0 rgba(0,0,0,.4))}
+.fact .fimg{position:relative;display:block;width:64px;height:64px;box-sizing:border-box;margin-bottom:12px;background:var(--mb-bg,#F88D2E);box-shadow:inset -4px -4px 0 var(--mb-dark,#965117),inset 4px 4px 0 var(--mb-light,#FAB89B)}
+.fact .fimg img{position:absolute;inset:0;margin:auto;width:36px;height:36px;object-fit:contain;z-index:1;filter:brightness(0) invert(1)}
+.fact .fimg .mb-dot{display:none}
+.fgrid .fact:nth-child(1) .fimg{--mb-bg:#F88D2E;--mb-dark:#965117;--mb-light:#FAB89B}
+.fgrid .fact:nth-child(2) .fimg{--mb-bg:#E5533D;--mb-dark:#8F2E20;--mb-light:#F6A99B}
+.fgrid .fact:nth-child(3) .fimg{--mb-bg:#5FB85C;--mb-dark:#357033;--mb-light:#B6E0B0}
+.fgrid .fact:nth-child(4) .fimg{--mb-bg:#4A90D9;--mb-dark:#275684;--mb-light:#A9CEF0}
+.fgrid .fact:nth-child(5) .fimg{--mb-bg:#9B6FC9;--mb-dark:#5E3E86;--mb-light:#D3BEEC}
+.fgrid .fact:nth-child(6) .fimg{--mb-bg:#E0B33A;--mb-dark:#8A6A18;--mb-light:#F3DDA0}
 .advcard .aimg{aspect-ratio:1/1;width:100%;object-fit:cover;margin-bottom:12px;background:var(--surface-ghost-white);display:block}
 /* desktop: both columns pin below the header while the section scrolls,
    released when the next section arrives (Gruns behavior) */
@@ -1224,15 +1248,15 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
     <!-- gallery -->
     <div>
-      <div class="gal-stage pxcard" style="--pxbg:var(--surface-ghost-white)">
+      <div class="gal-stage pxcard" style="--pxbg:var(--surface-pure-white)">
         <div class="gs on" data-slide="0"><img src="assets/photos/life-hands-closeup.webp" alt="A child holds the Nowa device in both hands, finger on the talk button, the pet alive on screen"></div>
         <div class="gs" data-slide="1"><video src="assets/videos/the-mission-engine-02.mp4" poster="assets/visuals/hero-poster.jpg" muted loop playsinline preload="metadata" aria-label="A full Nowa mission: the pet perks up, the narrator prompts, the child answers, the pet cheers"></video></div>
         <div class="gs" data-slide="2"><img src="assets/photos/life-carseat-girl.webp" alt="A girl in a car seat, lit by low sun, smiling at the pet on her Nowa" loading="lazy"></div>
         <div class="gs" data-slide="3"><div class="kit-grid">
-          <div class="kit-tile pxcard"><img src="assets/adventure-kit/lanyard.webp" alt="Rainbow lanyard with dino, star, and cloud charms"><span class="kit-cap"><span class="cell"></span>Lanyard</span></div>
-          <div class="kit-tile pxcard"><img src="assets/adventure-kit/case-red-3q.webp" alt="The Nowa device in its silicone case"><span class="kit-cap"><span class="cell"></span>Device + case</span></div>
-          <div class="kit-tile pxcard"><img src="assets/showcase/nowa-plus-v2.webp" alt="6 months of Nowa+, the full parent app"><span class="kit-cap"><span class="cell"></span>6 months Nowa+</span></div>
-          <div class="kit-tile pxcard"><img src="assets/showcase/playbooks-v2.webp" alt="The three Nowa Handbooks"><span class="kit-cap"><span class="cell"></span>3 Handbooks</span></div>
+          <div class="kit-tile"><img src="assets/adventure-kit/lanyard-2-1.png" alt="Rainbow lanyard with dino, star, and cloud charms"><span class="kit-cap"><span class="cell"></span>Lanyard</span></div>
+          <div class="kit-tile"><img src="assets/adventure-kit/silicone-case-red-1.png" alt="The Nowa device in its silicone case"><span class="kit-cap"><span class="cell"></span>Device + case</span></div>
+          <div class="kit-tile"><img src="assets/showcase/nowa-plus-v2.webp" alt="6 months of Nowa+, the full parent app"><span class="kit-cap"><span class="cell"></span>6 months Nowa+</span></div>
+          <div class="kit-tile"><img src="assets/showcase/playbooks-v2.webp" alt="The three Nowa Handbooks"><span class="kit-cap"><span class="cell"></span>3 Handbooks</span></div>
         </div></div>
         <div class="gs fit" data-slide="4"><img src="assets/adventure-kit/bundle-1.webp" alt="The Adventure Kit: silicone case and rainbow lanyard with charms" loading="lazy"></div>
         <div class="gs fit" data-slide="5"><img src="assets/showcase/starter-pet.webp" alt="Exclusive starter pet: a mystery egg among the Nowa species, a pre-order extra" loading="lazy"></div>
@@ -1355,27 +1379,27 @@ html[data-hero="billboard"] .hero-stage{max-width:none}
 
     <div class="fgrid reveal-group" style="margin-top:var(--spacing-48)">
       <div class="fact pxcard">
-        <img class="fimg" src="assets/pixels/reading.svg" alt="" width="52" height="52" loading="lazy">
+        <span class="fimg" aria-hidden="true"><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><img src="assets/pixels/reading.svg" alt="" loading="lazy"></span>
         <h3>2-minute missions</h3><p>A narrator reads each mission out loud, and the pet plays it with your child. Most take about two minutes.</p>
       </div>
       <div class="fact pxcard">
-        <img class="fimg" src="assets/pixels/clock-snooze.svg" alt="" width="52" height="52" loading="lazy">
+        <span class="fimg" aria-hidden="true"><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><img src="assets/pixels/clock-snooze.svg" alt="" loading="lazy"></span>
         <h3>Play that ends</h3><p>The pet gets tired and goes to sleep. Sessions close on their own, without a fight over one more tap.</p>
       </div>
       <div class="fact pxcard">
-        <img class="fimg" src="assets/pixels/scroll-vertical.svg" alt="" width="52" height="52" loading="lazy">
+        <span class="fimg" aria-hidden="true"><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><img src="assets/pixels/scroll-vertical.svg" alt="" loading="lazy"></span>
         <h3>Nothing to scroll</h3><p>No feed, no autoplay, no open internet. The device runs the pet and its missions, and nothing else.</p>
       </div>
       <div class="fact pxcard">
-        <img class="fimg" src="assets/pixels/microphone-5.svg" alt="" width="52" height="52" loading="lazy">
+        <span class="fimg" aria-hidden="true"><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><img src="assets/pixels/microphone-5.svg" alt="" loading="lazy"></span>
         <h3>A mic with a switch</h3><p>It listens only while your child holds the talk button. Speech is read on the device, the audio is deleted, and a physical switch turns the mic off.</p>
       </div>
       <div class="fact pxcard">
-        <img class="fimg" src="assets/pixels/forward-15-second.svg" alt="" width="52" height="52" loading="lazy">
+        <span class="fimg" aria-hidden="true"><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><img src="assets/pixels/forward-15-second.svg" alt="" loading="lazy"></span>
         <h3>You set the limits</h3><p>Missions, time limits, and bedtime mode live in the parent app, next to a record of what your child practiced.</p>
       </div>
       <div class="fact pxcard">
-        <img class="fimg" src="assets/pixels/happy-baby-2.svg" alt="" width="52" height="52" loading="lazy">
+        <span class="fimg" aria-hidden="true"><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><i class="mb-dot"></i><img src="assets/pixels/happy-baby-2.svg" alt="" loading="lazy"></span>
         <h3>Grows 3 to 10</h3><p>Missions re-tune to your child's age band, so the same pet fits a 4-year-old and a 9-year-old.</p>
       </div>
     </div>
@@ -1511,6 +1535,25 @@ document.querySelectorAll('.reveal,.reveal-group').forEach(el => io.observe(el))
 /* gallery switcher — plays a slide's video while active, pauses it on leave */
 const slides = [...document.querySelectorAll('.gal-stage [data-slide]')];
 const motionOK = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* Amazon-style cursor-follow zoom on gallery images */
+if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
+  document.querySelectorAll('.gal-stage .gs > img, .gal-stage .kit-tile img').forEach(img => {
+    const gs = img.closest('.kit-tile') || img.parentElement;
+    img.addEventListener('mousemove', e => {
+      const r = img.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width) * 100;
+      const y = ((e.clientY - r.top) / r.height) * 100;
+      img.style.transformOrigin = x + '% ' + y + '%';
+      img.style.transform = 'scale(2.4)';
+      gs.classList.add('zoom');
+    });
+    img.addEventListener('mouseleave', () => {
+      gs.classList.remove('zoom');
+      img.style.transform = '';
+      img.style.transformOrigin = '';
+    });
+  });
+}
 document.querySelectorAll('.gal-th').forEach(btn => btn.addEventListener('click', () => {
   document.querySelectorAll('.gal-th').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
@@ -1540,6 +1583,24 @@ document.querySelectorAll('[data-checkout]').forEach(a => a.addEventListener('cl
   e.preventDefault();
   alert('DRAFT: this button fires the Shopify cart permalink (08-shopify-setup, PR #11).');
 }));
+
+/* smooth momentum scroll (Lenis) — skipped under reduced-motion */
+(() => {
+  if (!motionOK || typeof Lenis === 'undefined') return;
+  const lenis = new Lenis({ lerp: 0.07, wheelMultiplier: 1, smoothWheel: true });
+  function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -20, duration: 1.1 });
+    });
+  });
+})();
 </script>
 </body>
 </html>
