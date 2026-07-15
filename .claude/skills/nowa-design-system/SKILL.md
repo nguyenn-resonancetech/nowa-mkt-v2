@@ -177,6 +177,12 @@ these rules:
   radius-sm square, 2px cloud-border; **coral only when selected** (10px coral
   dot / coral fill + white `icon/check`). Labels Noto 15.
 - Text area adds a `0/200` counter (Noto 11, mist) bottom-right inside the box.
+- **Ranger (range slider)** — native rounded control. Track 8px full-radius:
+  unfilled = chalk-surface; filled = pastel gradient low→high
+  `pastel-leaf #9fd4a3 → pastel-amber #f0cd83 → coral-flame #ef493d` (gradient
+  stops can't bind variables — those hexes ARE the tokens). Thumb = 20px white,
+  2px coral (cloud-border when disabled). Label + value readout on top,
+  Low/High captions (Noto 11) below.
 
 ## Component → app-UI map
 
