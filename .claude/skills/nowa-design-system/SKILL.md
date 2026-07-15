@@ -154,6 +154,30 @@ in code and Figma (`icon/<name>`):
   `heart-2`=heart, `export`=upload…) and add/regenerate steps:
   `references/ICONS.md`. Figma mirror: Nowa Design System v2 → page "Icon".
 
+## Forms (Input form kit — Figma-first, 2026-07-15)
+
+Masters live in Figma: **Nowa Design System v2 → page "Input form"** (Text
+Field, Text Area, Radio, Checkbox + a composed sample form). No shipped CSS
+yet — when a real page needs a form, reconcile from Figma into
+`design-system/COMPONENTS.md` per the round-trip flow. Until then, build to
+these rules:
+
+- **Text inputs are SOFT, not stepped** — `--radius-inputs` (8px), 1px
+  `--color-cloud-border`, white fill, no shadow. (DS law: soft radii only for
+  photos / inputs / nav.) Anatomy: label (Onest 600 14) above → input box with
+  optional left/right icon slots (pixel-line `icon/*`, 20px, slate) → helper
+  text (Noto 12, mist-body) below.
+- **States:** Focus = 2px `--color-coral-flame` border + coral caret (active
+  state — sanctioned coral). Error = 2px `--color-error` border +
+  `triangle-warning` icon + message in `--color-error`. Disabled = ghost-white
+  fill at ~60%, cloud-border text.
+- **`--color-error`** (→ ember-deep) is THE validation color — never coral for
+  errors, never amber (that's the sample/signal chip).
+- **Radio & checkbox go native** (control layer): 20px circle / 20px
+  radius-sm square, 2px cloud-border; **coral only when selected** (10px coral
+  dot / coral fill + white `icon/check`). Labels Noto 15.
+- Text area adds a `0/200` counter (Noto 11, mist) bottom-right inside the box.
+
 ## Component → app-UI map
 
 When taking the system to app screens, reach for these first:
