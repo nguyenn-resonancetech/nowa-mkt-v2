@@ -27,6 +27,7 @@
 
   --color-amber-signal: #ffc107;   /* pixel sparkle, sample chip, device btn */
   --color-leaf-success: #54d62c;   /* beta chip, success */
+  --color-error: var(--color-ember-deep); /* form/validation error — semantic alias (added 2026-07-15, Input form kit). NOT coral: coral stays action-only */
   --color-sky-button: #6c9bd2;     /* device blue button (.db.b) — hardware art only, never UI */
 
   /* sage — the SAFETY / GUARANTEE / TRUST band (promoted 2026-07-02).
