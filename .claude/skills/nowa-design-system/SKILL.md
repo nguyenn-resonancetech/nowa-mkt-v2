@@ -10,7 +10,8 @@ description: >-
   design system, or when someone says "make this on-brand / match Nowa / use our
   design system / our colors / our tokens." Trigger even if the user doesn't say
   "design system" — any Nowa-branded pixels are in scope. It supplies the tokens
-  (colors, type, spacing, radius, motion), the component vocabulary, and the
+  (colors, type, spacing, radius, motion), the component vocabulary, the
+  pixel-line icon set (114 named Nucleo icons, call-by-name), and the
   non-negotiable brand rules (coral-only CTA, Tiny5 pet-world-only, stepped
   pixel corners, hard offset shadows, Sunlit cream #fdf5dd canvas).
 ---
@@ -51,9 +52,10 @@ world. This skill makes new work look like it belongs.
 
 > Full references (read when you need detail): `references/DESIGN.md` (complete
 > token + system reference), `references/COMPONENTS.md` (every component + CSS),
-> `references/BRAND-RULES.md` (all guardrails + copy rules). The canonical,
-> editable source lives in the repo at `design-system/`; if tokens change there,
-> re-sync this skill's bundled copies.
+> `references/BRAND-RULES.md` (all guardrails + copy rules), `references/ICONS.md`
+> (the 114-name pixel-line icon set + usage). The canonical, editable source
+> lives in the repo at `design-system/`; if tokens change there, re-sync this
+> skill's bundled copies.
 
 ## Brand rules cheat sheet (the ones people break)
 
@@ -127,6 +129,30 @@ Drawn surfaces use a notched `clip-path` polygon instead of `border-radius`, pai
 with a hard offset shadow. Two notch sizes — small (8px) for buttons/chips/icons,
 medium (12px) for cards/avatars. The exact polygons and the `.pxcard` pattern that
 draws a 1px border + fill behind them are in `references/COMPONENTS.md §0–§2`.
+
+## Icons — two languages, call by name
+
+1. **Pixel art** (full-color sprites/GIFs) = **pet world only** — HUD, game loop,
+   fun cards, species.
+2. **Pixel-line** (Nucleo, 24px grid · stroke 2 · **square caps** · `fill:none` ·
+   `currentColor`) = **utility & commerce** — spec accordions, `.licon` chips,
+   list rows, compare headers. Never mix both inside one component.
+
+The pixel-line set ships as **114 named icons** — the name IS the id, identical
+in code and Figma (`icon/<name>`):
+
+- In the website repo: `pages/assets/icons/<name>.svg` + sprite
+  `pages/assets/icons/icons.svg` →
+  `<svg width="24" height="24"><use href="assets/icons/icons.svg#gear"></use></svg>`
+- Bundled here for work outside the repo: `assets/icons.svg` (same symbol ids —
+  copy the needed `<symbol>` inline, or ship the sprite with the page).
+- Color via CSS `color:` (slate on light, cloud-border on ink, `--color-tint-*`
+  for neutral/competitor tints). **Coral only when the icon IS the action.**
+- Scale proportionally (18/24/36/48) so the 2px stroke scales with the grid;
+  external `<use>` needs http(s), not `file://`.
+- Full name list, groups, aliases (`magnifier`=search, `xmark`=close,
+  `heart-2`=heart, `export`=upload…) and add/regenerate steps:
+  `references/ICONS.md`. Figma mirror: Nowa Design System v2 → page "Icon".
 
 ## Component → app-UI map
 
