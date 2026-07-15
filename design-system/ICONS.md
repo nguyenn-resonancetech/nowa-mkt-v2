@@ -1,7 +1,8 @@
 # Nowa Icons — pixel-line set (Nucleo)
 
-The utility/commerce icon language (GRAPHICS.md §5). 108 most-used icons from
-the Nucleo pixel set, synced 2026-07-15 from the designer drop
+The utility/commerce icon language (GRAPHICS.md §5). 114 icons from the Nucleo
+pixel set (108 most-used + the 6 preorder fact icons), synced 2026-07-15 from
+the designer drop
 (`nucleo_pixel_svg_v1.2.1`) and mirrored in Figma (**Nowa Design System v2 →
 page "Icon"**, components named `icon/<name>`).
 
@@ -40,10 +41,11 @@ Rules (unchanged from GRAPHICS.md §5):
 - Scale proportionally only (24 → 18/20/36/48); stroke scales with it.
 - Coral = actions only. Competitor/neutral tints on white = `--color-tint-*`.
 - Pixel ART = pet world; pixel LINE = utility. Never both in one component.
-- `<img src>` does NOT inherit currentColor — use sprite `<use>` or inline SVG
-  (old `assets/pixels/*.svg` `<img>`+invert-filter usage is the legacy pattern).
+- `<img src>` does NOT inherit currentColor — use sprite `<use>` or inline SVG.
+  The old `assets/pixels/*.svg` `<img>`+invert-filter pattern was migrated off
+  `preorder.html` on 2026-07-15 — don't reintroduce it.
 
-## The 108 names
+## The 114 names
 
 **UI & navigation:** house · magnifier · gear · menu · dots · sliders · toggle ·
 check · xmark · plus · minus · arrow-up · arrow-down · arrow-left · arrow-right ·
@@ -71,6 +73,9 @@ tag · gift · truck · bag · calculator · chart · chart-line · repeat · ro
 **Places & things:** globe · map-pin · compass · bookmark · monitor · laptop ·
 wifi · battery · code · square-terminal · rocket · lightbulb · book ·
 graduation-cap · moon · door
+
+**Preorder facts (migrated from `assets/pixels/` 2026-07-15):** reading ·
+clock-snooze · scroll-vertical · microphone-5 · forward-15-second · happy-baby-2
 
 Nucleo aliases to know: `magnifier` = search · `xmark` = close · `heart-2` = heart ·
 `media-play/pause` = play/pause · `paper-plane-2` = send · `export` = upload ·

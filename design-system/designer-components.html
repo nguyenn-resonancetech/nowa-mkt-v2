@@ -152,7 +152,7 @@ section.demo>.wrap>h2{font-size:var(--text-heading-lg);font-weight:800;margin-bo
 <section class="demo">
   <div class="wrap">
     <div class="eyebrow">02b · ICONS</div>
-    <h2>Pixel-line icon set — all 108, from the sprite</h2>
+    <h2>Pixel-line icon set — all 114, from the sprite</h2>
     <div class="dl">CALL BY NAME — <span style="text-transform:none"><code>&lt;use href="assets/icons/icons.svg#&lt;name&gt;"&gt;</code></span> · FULL LIST IN ICONS.MD</div>
     <div class="icons" id="icon-sprite-grid"><!-- tiles injected below --></div>
     <div class="dl" style="margin-top:28px">SIZES &amp; SURFACE COLORS — SCALE PROPORTIONALLY, COLOR VIA CURRENTCOLOR</div>
@@ -181,7 +181,7 @@ section.demo>.wrap>h2{font-size:var(--text-heading-lg);font-weight:800;margin-bo
 </section>
 <script>
 (function(){
-  var NAMES = ['house','magnifier','gear','menu','dots','sliders','toggle','check','xmark','plus','minus','arrow-up','arrow-down','arrow-left','arrow-right','chevron-up','chevron-down','chevron-left','chevron-right','expand','external-link','circle-info','circle-question','triangle-warning','ban','user','users-2','circle-user','heart-2','star','bell','envelope','message','paper-plane-2','phone','calendar','clock','watch','hourglass','stopwatch','camera','photo','image','film','media-play','media-pause','music-note','volume','microphone','headphones-2','download','export','share-up-right','link','copy','clipboard','trash','pencil','pen','eraser','brush','folder','file','filter','sort-arrows','grid-layout','list-todo','lock','lock-open','key','shield','eye','eye-slash','circle-logout','repeat','rotate','cart-shopping','credit-card','wallet','money','percentage','receipt','tag','gift','truck','bag','calculator','chart','chart-line','globe','map-pin','compass','bookmark','monitor','laptop','wifi','battery','code','square-terminal','rocket','lightbulb','book','graduation-cap','face-smile','thumbs-up','moon','print','door'];
+  var NAMES = ['house','magnifier','gear','menu','dots','sliders','toggle','check','xmark','plus','minus','arrow-up','arrow-down','arrow-left','arrow-right','chevron-up','chevron-down','chevron-left','chevron-right','expand','external-link','circle-info','circle-question','triangle-warning','ban','user','users-2','circle-user','heart-2','star','bell','envelope','message','paper-plane-2','phone','calendar','clock','watch','hourglass','stopwatch','camera','photo','image','film','media-play','media-pause','music-note','volume','microphone','headphones-2','download','export','share-up-right','link','copy','clipboard','trash','pencil','pen','eraser','brush','folder','file','filter','sort-arrows','grid-layout','list-todo','lock','lock-open','key','shield','eye','eye-slash','circle-logout','repeat','rotate','cart-shopping','credit-card','wallet','money','percentage','receipt','tag','gift','truck','bag','calculator','chart','chart-line','globe','map-pin','compass','bookmark','monitor','laptop','wifi','battery','code','square-terminal','rocket','lightbulb','book','graduation-cap','face-smile','thumbs-up','moon','print','door','reading','clock-snooze','scroll-vertical','microphone-5','forward-15-second','happy-baby-2'];
   var grid = document.getElementById('icon-sprite-grid');
   grid.innerHTML = NAMES.map(function(n){
     return '<div class="itile" style="color:var(--color-deep-ink)">'
