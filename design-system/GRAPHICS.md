@@ -77,6 +77,11 @@ Two languages coexist, both now pixel-flavored:
    paths (renders as square dots). Live examples: device-spec accordions,
    library chips, compare-table headers on the LP; specimen sheet =
    `design-system/designer-components.html`.
+   **The set ships in-repo (2026-07-15): `pages/assets/icons/<name>.svg` +
+   sprite `pages/assets/icons/icons.svg` — call any icon by name via
+   `<use href="assets/icons/icons.svg#<name>">`. Full name list + usage +
+   regeneration steps: `design-system/ICONS.md`. Figma mirror: Nowa Design
+   System v2 → page "Icon" (`icon/<name>`).**
 The old Feather-style round-cap icons are DEPRECATED — replace on touch.
 On white, competitor/neutral icons may tint with `--color-tint-*`; coral
 stays reserved for actions. Never mix the two languages in one component.
