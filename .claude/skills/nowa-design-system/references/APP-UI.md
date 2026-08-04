@@ -67,8 +67,9 @@ this doc and those screens disagree, flag it; don't silently fork.
    | Control / icon / touch size | 16 · 20 · 24 · 40 · 44 · 48 |
 
    **Narrow exceptions** — proportional or hairline scales, not layout:
-   the notch scale `--px-step-*` (2 · 3 · 4 · 6 · 8 · 12 — sized as ⅛ of the
-   element's short side), border/stroke widths (1 · 2 · 3 · 4, including the
+   the notch scale `--px-step-*` (2 · 3 · 4 · 6 · 8 · 12 — **picked by element
+   class, not arithmetic**: chips/tags/buttons/tabs take 8 even at 20–24px so
+   the notch stays visible), border/stroke widths (1 · 2 · 3 · 4, including the
    Nucleo icon stroke of 2 on a 24px grid), and hard-shadow offsets
    (2 · 3 · 4 · 5 · 6 · 14).
 

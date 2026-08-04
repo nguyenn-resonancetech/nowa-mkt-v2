@@ -89,7 +89,10 @@ Semantic aliases (variables that point to the above): `surface-warm-parchment`�
 sm 4 · md 8 · lg 12 · xl 16 · 2xl 24 · 3xl 32 · cards 16 · cards-lg 24 · buttons 9999 · full 9999.
 
 ### Collection: `notch` (number) — stepped-corner scale (the signature)
-dot 2 · 2xs 3 · xs 4 · sm6 6 · sm 8 · md 12. Rule: notch ≈ ⅛ of the short side.
+dot 2 · 2xs 3 · xs 4 · sm6 6 · sm 8 · md 12. Rule: pick by element class —
+chips/tags/buttons/tabs = sm 8 (even at 20–24px), cards/avatars/photos = md 12,
+2xs/xs only for sub-20px micro elements. (⅛ of the short side is a sanity check
+for large surfaces, not the selector — decided 2026-07-15.)
 
 ### Collection: `shadow` (effect styles — hard offset, ZERO blur)
 | Style | X Y Blur Color |

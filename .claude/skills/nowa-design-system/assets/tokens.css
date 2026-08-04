@@ -187,7 +187,12 @@
   --grid-line-dark: rgba(255, 255, 255, .06); /* graph-paper line on ink */
   --grid-cell: 28px;                    /* graph-paper module */
   /* stepped-corner notch scale — one notch per element size class.
-     Rule of thumb: notch ≈ 1/8 of the element's short side, snapped to this scale.
+     PICK BY ELEMENT CLASS, not by arithmetic (decided 2026-07-15). The class
+     assignments below are the rule; 1/8-of-the-short-side is only a sanity
+     check for large surfaces that no class covers.
+     Chips, tags, buttons and tabs take sm (8) even at 20-24px tall — the notch
+     must stay VISIBLE at small size; that is the pixel tell. 2xs/xs are for
+     genuinely micro elements (sub-20px) only.
      (5px one-offs in older CSS fold into xs or sm going forward.) */
   --px-step-dot: 2px;  /* dots, 24–32px arrows */
   --px-step-2xs: 3px;  /* micro tags (.show-card-tag) */

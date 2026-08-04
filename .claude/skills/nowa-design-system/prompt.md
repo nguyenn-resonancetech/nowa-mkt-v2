@@ -130,9 +130,11 @@ App line-height: any ratio whose **computed px is ÷4** — 16/24 = 1.5,
 an accessibility win).
 
 **Narrow exceptions, both surfaces** — proportional or hairline scales, never
-layout: the notch scale `--px-step-*` (2·3·4·6·8·12, sized ⅛ of the element's
-short side), border/stroke widths (1·2·3·4 — the Nucleo icon stroke is 2 on a
-24px grid), and hard-shadow offsets (2·3·4·5·6·14).
+layout: the notch scale `--px-step-*` (2·3·4·6·8·12 — **picked by element class,
+not arithmetic**: chips/tags/buttons/tabs take 8 even at 20–24px tall so the
+notch stays visible, cards/avatars/photos take 12, and 2xs/xs are for sub-20px
+micro elements only), border/stroke widths (1·2·3·4 — the Nucleo icon stroke is
+2 on a 24px grid), and hard-shadow offsets (2·3·4·5·6·14).
 
 ⚠️ The 15 screens in `assets/app-ui/` predate the app rule and aren't compliant
 yet — **migrate on touch, never rewrite all 15 in one pass.** Swap table in
