@@ -199,6 +199,23 @@ these rules:
   2px coral (cloud-border when disabled). Label + value readout on top,
   Low/High captions (Noto 11) below.
 
+## App component catalogue
+
+Beyond the marketing vocabulary, the app surface has **12 components of its own**,
+extracted from the 15 built screens and normalised to the 4px grid — Icon Button ·
+Segmented Item · Status Badge · Stepper · Media Row · Lock Row · Insight Card ·
+Alert Card · Empty State · Bottom Sheet · Heat Grid · Legend. Full specs (sizes,
+type, the "was" value each one migrates from) in `references/APP-UI.md` §11;
+Figma masters on the **App UI** page.
+
+Two of these supersede older notes: the **empty state** and the **bottom sheet**
+are marked "to build" in APP-UI.md §5/§6 but are in fact built. The sheet's built
+version uses `border-radius` — **the spec wins: stepped top corners.**
+
+Status colours are now tokens (`--color-success-*`, `--color-info-*`,
+`--color-warning-*`, `--color-error*`) — never hardcode the old hexes, and
+**never use coral for status**; coral is action only.
+
 ## Component → app-UI map
 
 When taking the system to app screens, reach for these first:

@@ -70,6 +70,17 @@ Changes land there first (PR'd with the site work), then get re-synced into
 this skill folder and version-bumped here. Don't edit this copy directly for
 design decisions — propose them in the website repo.
 
+v2.3.0 (2026-07-15): **app component catalogue** — audited the 15 screens and
+extracted 12 app-only components (Icon Button, Segmented Item, Status Badge,
+Stepper, Media Row, Lock Row, Insight Card, Alert Card, Empty State, Bottom
+Sheet, Heat Grid, Legend) into `APP-UI.md` §11, every value normalised to the
+4px grid with the "was" noted for migration. **Status colour tokens** —
+success/info/warning surface+ink promoted from hexes already shipping in the
+screens (this also retires the "EF blue INTERIM" flag). Figma gains an **App
+UI** page with all 12 as masters. Flags two spec divergences: the empty state
+and bottom sheet were marked "to build" but are built, and the built sheet uses
+`border-radius` where the spec calls for stepped top corners.
+
 v2.2.0 (2026-07-15): **pixel-line icon set** — 114 named Nucleo icons shipped
 as `assets/icons.svg` + per-icon SVGs in the website repo, callable by name
 (`ICONS.md`); the legacy `<img>`+invert pattern is migrated off. **Input form

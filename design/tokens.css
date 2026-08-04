@@ -27,7 +27,18 @@
 
   --color-amber-signal: #ffc107;   /* pixel sparkle, sample chip, device btn */
   --color-leaf-success: #54d62c;   /* beta chip, success */
-  --color-error: var(--color-ember-deep); /* form/validation error — semantic alias (added 2026-07-15, Input form kit). NOT coral: coral stays action-only */
+  /* status set — semantic. Added 2026-07-15 by tokenizing hexes already shipping
+     in app-ui screens (safety-alerts, data-privacy, activity, growth-*).
+     Surfaces are muted card fills; inks are the only approved text color on them.
+     Coral is NEVER a status color — it stays action-only. */
+  --color-error: var(--color-ember-deep);   /* validation/error ink */
+  --color-error-surface: var(--color-coral-mist); /* #fdecea — error card fill */
+  --color-success-surface: #e7f6df;  /* done chips, verified badges */
+  --color-success-ink: #3f7a23;      /* text/icon on success-surface */
+  --color-info-surface: #e2eef7;     /* info badges, Executive-Function domain */
+  --color-info-ink: #2c5a7a;         /* text/icon on info-surface (was the "EF blue INTERIM") */
+  --color-warning-surface: #fff8e8;  /* alert card fill */
+  --color-warning-border: #f3dca0;   /* alert card 1px border (accent bar = amber-signal) */
   --color-sky-button: #6c9bd2;     /* device blue button (.db.b) — hardware art only, never UI */
 
   /* sage — the SAFETY / GUARANTEE / TRUST band (promoted 2026-07-02).

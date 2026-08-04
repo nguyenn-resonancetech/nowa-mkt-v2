@@ -1,7 +1,7 @@
 ---
 name: nowa-design-system
 scope: product/nowa
-version: 2.2.0
+version: 2.3.0
 description: Apply NOWA's official design system to any Nowa visual or UI work so it carries the brand. Use whenever you build, restyle, or review anything for Nowa — app UI screens, the parent-app feature showcase, landing pages, marketing sections, banners, social/ad creative, emails, slides, icons, or any component (buttons, cards, navs, lists, modals, forms, badges). Use ESPECIALLY when converting existing app UI screens or mockups to the design system, or when someone says "make this on-brand / match Nowa / use our design system / our colors / our tokens". Trigger even if the user doesn't say "design system" — any Nowa-branded pixels are in scope. Supplies the tokens (colors, type, spacing, notch/shadow scales, motion), the component vocabulary (26 documented components + the Input form kit), the 114-icon pixel-line set (call-by-name), the mobile app-UI spec with 15 real reference screens, the LP-fluid vs app-4px-grid sizing law, the motion laws, the brand-mark rules, and the surface guides for landing pages, social/ads, graphics, and app UI.
 allowed_tools:
   - Read

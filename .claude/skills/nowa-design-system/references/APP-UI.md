@@ -89,7 +89,7 @@ this doc and those screens disagree, flag it; don't silently fork.
   | Domain | bg / text |
   |---|---|
   | Habit & Routine | chalk / slate-mid |
-  | Executive Function | `#e2eef7` / `#2c5a7a` *(EF blue — INTERIM, not yet in tokens; promote or replace when the domain-color set is decided)* |
+  | Executive Function | `--color-info-surface` / `--color-info-ink` *(the old "EF blue INTERIM" — promoted to tokens 2026-07-15)* |
   | Emotional Regulation | coral-mist / ember-deep |
   Nowa+ locked chips carry the tiny padlock glyph (`currentColor`, opacity .7).
 
@@ -114,7 +114,7 @@ this doc and those screens disagree, flag it; don't silently fork.
 - **Destructive** — ember-deep fill, same construction; always paired with a
   confirm. Never optimistic (MOTION.md perceived-performance rules).
 
-## 5. Sheets, modals, toasts (to build — specs)
+## 5. Sheets, modals, toasts (sheet BUILT — see §11.11)
 
 - **Sheet** — slides from bottom, `translateY(100%)` → 0, 300–400ms
   `--ease-out-strong` (drawer curve ok), exit ~75% of enter; scrim =
@@ -130,7 +130,7 @@ this doc and those screens disagree, flag it; don't silently fork.
 - **Popover/menu** — `transform-origin` at the trigger; 150–200ms;
   first tooltip delayed, adjacent tooltips instant.
 
-## 6. States (to build — specs)
+## 6. States (empty BUILT — see §11.4)
 
 - **Empty** — a pet-world moment, not a gray void: small sprite or egg +
   one warm Onest line + one primary action. (See `mission-empty.html`,
@@ -186,3 +186,121 @@ scripting.
 | care meter / egg / eq / bubble | direct reuse | COMPONENTS.md §10 |
 | expandable row | `.faq` grid-rows pattern | COMPONENTS.md §21 |
 | screen mockup in marketing | `.pf-phone` + embed mode | COMPONENTS.md §18, §9 above |
+
+---
+
+## 11. App component catalogue (extracted 2026-07-15)
+
+Mined from the 15 screens in `app-ui/new/`. **Every value below is normalised
+to the 4px grid** (§0 directive 3) — where a screen currently ships an off-grid
+number the "was" is noted, and the screen migrates on touch. Figma masters:
+**Nowa Design System v2 → page "App UI"**.
+
+All of these use the existing pixel language: `--px-step-sm` (8) notch for
+controls/chips, `--px-step-md` (12) for cards, hard offset `--px-shadow`,
+tokens for every colour. Status colours come from the token set added
+2026-07-15 (`--color-success-*`, `--color-info-*`, `--color-warning-*`,
+`--color-error*`).
+
+### 11.1 Icon Button `.iconbtn`
+Unifies today's `.backbtn` (8 screens), `.iconbtn` (2) and `.addbtn` (2) — one
+construction, three variants.
+- **40×40** *(was 38)*, notch-8, icon 20px pixel-line, centred. Hit area padded
+  to ≥44 without growing the art (§8).
+- `Neutral` — `--surface-pure-white` face + `--px-shadow`. Back, overflow, filter.
+- `Primary` — coral extruded (the `.btn` construction at icon size, `--side: 4px`),
+  white glyph. **One per screen** (it is the `.addcta` at bar scale).
+- `Ghost` — transparent, ink glyph, no shadow. Dense toolbars only.
+- Press `translateY(2px)` + side collapse, `70ms steps(2)`.
+
+### 11.2 Segmented control `.seg`
+Container `display:flex; gap:8` *(was 6)* wrapping app-size `.mtab`s.
+- `.mtab` app size: Onest 700 **12/16**, padding **8px 16px 12px** *(was 7/14/9)*,
+  notch-8, `--side: 4px`. Marketing keeps the 14px size (COMPONENTS.md §7).
+- Active `.on` = ink face, white text, pressed 4px *(was 2)*.
+
+### 11.3 Media row `.track`
+Compact row for content lists (library tracks, stories, podcasts).
+- `gap:12`, `padding:12px 0`, 1px `--color-chalk-surface` top border.
+- Thumb `.pic` **36×36** *(was 34)*, notch-8, `--color-coral-blush` fill,
+  icon 16px *(was 15)* in `--color-ember-deep`.
+- Title Onest 600 **16/24** *(was 15)*, meta Noto 12/16 `--color-mist-body`.
+- Differs from `.row` (§2): no pxcard shell, no chevron — it is a list item
+  inside a card, not a standalone card.
+
+### 11.4 Empty state `.empty`
+**Built in 3 screens** (`activity-empty`, `mission-empty`, `growth-early`) — this
+supersedes the "to build" note in §6.
+- Centred column, `padding: 0 36px 40px`, `gap:8` *(was 6)*.
+- `.illus` **160×160** *(was 160×150)*: notch-12 pad filled with a 45° hatch
+  (`rgba(22,28,36,.045)` 8px stripes) over white, pixel sprite **88px** *(was 90)*
+  centred, `image-rendering:pixelated`. Margin-bottom **16** *(was 18)*.
+- Eyebrow `.ek` Tiny5 **12/16**, `.06em`, `--color-coral-flame`.
+- Headline Onest 800 **24/32** *(was 22)*, max 17ch. Body Noto 14/20 slate.
+- Exactly one primary action below. Never a grey void (§6).
+
+### 11.5 Stepper `.stepper`
+Native-layer ± control (§3). Today two sizes ship (44 in `controls-home`, 46 in
+`bedtime`) — **unify at 44**.
+- Buttons `.st` **44×44**, transparent, Onest 800 **24**, ink. Press
+  `translateY(2px)`, `70ms steps(2)`. Disabled at bounds = `--color-cloud-border`.
+- `gap:12` *(was 10/16)*. Value display Onest 800 **32/40**, tabular.
+- Used by the bedtime time-setter (`.timeset`) and any numeric control.
+
+### 11.6 Status badge `.badge`
+Small state pill. Replaces the hardcoded hexes in `data-privacy` / `activity`.
+- Onest 700 **12/16** *(was 10–11)*, padding **4px 8px** *(was 3/8 and 5/10)*,
+  notch-8, optional 8×8 square dot.
+- `Success` — `--color-success-surface` / `--color-success-ink`
+- `Info` — `--color-info-surface` / `--color-info-ink`
+- `Warning` — `--color-warning-surface` / `--color-deep-ink`
+- `Neutral` — `--color-chalk-surface` / `--color-slate-mid`
+- Distinct from `.lvlchip` / `.tchip`: those are pet-world (Tiny5) and domain
+  labels; this one is system state and uses Onest.
+
+### 11.7 Alert card `.alert`
+Attention card for safety/permission notices.
+- Notch-12 pxcard, fill `--color-warning-surface`, 1px `--color-warning-border`,
+  `--px-shadow`. Padding **20** *(was 18/22)*.
+- Left accent bar **4px** *(was 5)* in `--color-amber-signal`, inset 16 top/bottom
+  *(was 14)*.
+- Header: badge well **32×32** *(was 30)* notch-8 amber + Onest 700 16/24 title.
+  Body Noto 14/20 slate. Actions right-aligned below.
+- Swap the surface/border/bar triple for the error or info set to re-skin;
+  **never coral** — coral is action only.
+
+### 11.8 Insight card `.insight`
+Icon + text callout ("you're on a 5-day streak").
+- Notch-12 pxcard white, `--px-shadow`, padding **20** *(was 18/16)*, `gap:16`
+  *(was 14)*.
+- Icon well `.ic` **40×40** *(was 42)*, notch-8, tinted surface, 20px glyph.
+- Title Onest 700 16/24, body Noto 14/20 slate.
+
+### 11.9 Lock row `.lockrow`
+Nowa+ gated content line at the foot of a card.
+- `gap:12` *(was 10)*, `padding:12px 0 4px` *(was 0 2)*, 1px chalk top border,
+  Noto **12/16** `--color-slate-mid`, padlock glyph at 70% opacity.
+- Trailing unlock button **28×28** *(was 26)*, notch-8, parchment fill.
+
+### 11.10 Heat grid `.heat-grid` + Legend `.legend`
+Weekly habit data-viz.
+- Grid `96px repeat(3, 1fr)`, `gap:8`. Column heads Onest 700 14/20 slate;
+  row heads Noto 500 14/20 ink.
+- `.cellbar` height **28** *(was 26)*, notch-8 clip. Done =
+  `--color-leaf-success`, missed = `--color-chalk-surface`, partial = 50% tint.
+- Legend: `gap:16`, margin-top **16** *(was 14)*, dot **12×12** *(was 13)*,
+  label Onest 600 14/20 ink, hint Noto 14/20 mist.
+- Charts follow GRAPHICS.md §6: hard edges, no gradients, coral only for THE
+  data point.
+
+### 11.11 Bottom sheet `.sheet`
+**Built in `mission-edit`** — supersedes the "to build" note in §5.
+- ⚠️ **The built version diverges from the §5 spec**: it uses
+  `border-radius: 24px 24px 0 0`. **The spec wins — top corners are notch-12
+  stepped, bottom edges square** against the screen edge. Migrate on touch.
+- Padding **12px 20px 28px** *(was 10)*, max-height 92%, white surface.
+- Drag handle **44×4** *(was 44×5)*, full radius, `--color-cloud-border`,
+  margin **8px auto 16px** *(was 6/14)*.
+- Backdrop `rgba(22,28,36,.55)` fading in; sheet enters `translateY(100%)`→0 in
+  300–400ms `--ease-out-strong`, exit ~75%. Drag-to-dismiss per §5.
+- Header `.shead`: title Onest 800 20/28 + close Icon Button (§11.1 Ghost).
