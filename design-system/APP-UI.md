@@ -16,6 +16,37 @@ this doc and those screens disagree, flag it; don't silently fork.
    *operating controls*: switches, steppers, sliders, checkboxes — with
    **coral as the "on" color** so they still feel Nowa. Never pixel-ify a
    30px toggle.
+   **Shape law — what is stepped, what is not** *(confirmed 2026-07-15):*
+
+   | Stepped (identity layer) | Not stepped |
+   |---|---|
+   | **Buttons** — primary, icon, segmented, unlock | Toggle, radio, checkbox (native rounded) |
+   | **Tags** — status badge, level chip, domain chip | Stepper buttons (no surface — hit area only) |
+   | **Cards / panels** — pxcard, row, alert, insight, sheet (top corners), illus pad, toast | Text inputs, slider track (`--radius-inputs` / full) |
+   | Icon wells, thumbs, cellbars | Photos inside a card (soft radius — the card stays stepped) |
+
+   A card holding a photo is **stepped on the card, soft on the photo** — the two
+   corner systems nest, they don't fight.
+
+   **Icons are always the Nucleo pixel-line set** (`ICONS.md`, 114 names,
+   24px grid · stroke 2 · **square caps**). Never round caps — a rounded cap
+   kills the 8-bit tell. Never emoji, never a text glyph standing in for an
+   icon (`+`/`–` come from `icon/plus` / `icon/minus`).
+   **The one exception: pixel ART.** Pet sprites, eggs and species art in
+   pet-world moments (empty states, HUD, hatch) stay pixel art — they are not
+   icons. `GRAPHICS.md` §5: pixel art = pet world, line = utility, never both
+   inside one component.
+
+   ⚠️ **Icon migration backlog** (audited 2026-07-15) — the 15 screens predate
+   the Nucleo set and use **zero** of it: 63 inline SVGs, **0** with square
+   caps, **20 with `stroke-linecap="round"`** (the deprecated Feather set) across
+   11 screens — mission-control ×7, data-privacy ×3, safety-alerts ×2, and one
+   each in bedtime, content-library, controls-home, growth-domain,
+   habit-heatmap, mission-edit, mission-empty, parent-portal. Plus **4 emoji
+   standing in as icons**: 🌙 `bedtime .moon`, and 🌞 💡 🌟 `habit-heatmap
+   .insight .ic`. Replace with `<use href="assets/icons/icons.svg#name">` on
+   touch — same migrate-on-touch rule as the 4px grid.
+
 2. **The frequency test governs motion.** App chrome is seen 100×/day → no
    animation on tab switches, toggles snap in 200ms, never animate
    keyboard/system actions. Spend delight only on pet-world moments (hatch,
