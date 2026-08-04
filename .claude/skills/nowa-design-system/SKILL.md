@@ -1,211 +1,71 @@
 ---
 name: nowa-design-system
-description: >-
-  Nowa's official design system — apply it to any Nowa visual or UI work so it
-  carries the brand. Use this skill whenever you build, restyle, or review
-  anything for Nowa: app UI screens, the parent-app feature showcase, landing
-  pages, marketing sections, banners, social/ad creative, emails, slides, icons,
-  or any component (buttons, cards, navs, lists, modals, forms, badges). Use it
-  ESPECIALLY when converting existing app UI screens or mockups to the new
-  design system, or when someone says "make this on-brand / match Nowa / use our
-  design system / our colors / our tokens." Trigger even if the user doesn't say
-  "design system" — any Nowa-branded pixels are in scope. It supplies the tokens
-  (colors, type, spacing, radius, motion), the component vocabulary, the
-  pixel-line icon set (114 named Nucleo icons, call-by-name), and the
-  non-negotiable brand rules (coral-only CTA, Tiny5 pet-world-only, stepped
-  pixel corners, hard offset shadows, Sunlit cream #fdf5dd canvas).
+scope: product/nowa
+version: 2.2.0
+description: Apply NOWA's official design system to any Nowa visual or UI work so it carries the brand. Use whenever you build, restyle, or review anything for Nowa — app UI screens, the parent-app feature showcase, landing pages, marketing sections, banners, social/ad creative, emails, slides, icons, or any component (buttons, cards, navs, lists, modals, forms, badges). Use ESPECIALLY when converting existing app UI screens or mockups to the design system, or when someone says "make this on-brand / match Nowa / use our design system / our colors / our tokens". Trigger even if the user doesn't say "design system" — any Nowa-branded pixels are in scope. Supplies the tokens (colors, type, spacing, notch/shadow scales, motion), the component vocabulary (26 documented components + the Input form kit), the 114-icon pixel-line set (call-by-name), the mobile app-UI spec with 15 real reference screens, the LP-fluid vs app-4px-grid sizing law, the motion laws, the brand-mark rules, and the surface guides for landing pages, social/ads, graphics, and app UI.
+allowed_tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+owners:
+  - Linhnguyen18388
+  - GracefromRT
+triggers:
+  - /nowa-design-system
+dependencies: []
 ---
 
 # Nowa Design System
 
-Nowa is a $99 screen-free emotional-companion device for kids 6–9 (platform 3–10),
-pre-ordering now, shipping Sept 2026. The visual language is **storybook warmth +
-pixel playfulness**: a warm paper canvas, deep-ink "night" chapters, and a retro
-8-bit pixel motif (graph paper, stepped corners, Tiny5 font) reserved for the pet
-world. This skill makes new work look like it belongs.
+Nowa's visual language — **storybook warmth + pixel playfulness** — packaged
+so any member (or Claude) produces on-brand Nowa pixels: warm Sunlit-cream
+canvas, deep-ink night chapters, coral-only CTAs, stepped pixel corners, hard
+offset shadows, Tiny5 reserved for the pet world.
 
-## How to use this skill
+## When to use
 
-1. **Always start from the tokens.** Link or inline `assets/tokens.css` and build
-   with the CSS variables — never hardcode hex values that have a token. The
-   canvas is **Sunlit cream `#fdf5dd`**.
-2. **Reuse the component vocabulary** before inventing new components. The full
-   catalog with real CSS is in `references/COMPONENTS.md`.
-3. **Obey the brand rules** in `references/BRAND-RULES.md` — they're the difference
-   between on-brand and off-brand. The most-violated ones are in the cheat sheet
-   below.
-4. **For app UI specifically:** carry over tokens + the pixel HUD elements
-   (care meter, egg, equalizer, sound bubble, level chips — these are *already*
-   pet-app UI), `.pxcard` surfaces, and `.btn`/`.mtab` actions. Build the screen
-   chrome the marketing system lacks (tab bar, list rows, nav header, modals,
-   forms, empty/loading/error states) **on these same tokens and the
-   stepped-corner + hard-shadow language** — do not import a generic UI kit.
-   **But brand the identity layer, go native on the control layer:** use the
-   pixel/stepped treatment for cards, headers, CTAs, the pet HUD, and level chips;
-   use familiar **native patterns** (rounded iOS-style switches, standard
-   steppers/sliders) for small operating controls — keep coral as the "on" color
-   so they still feel Nowa. Don't pixel-ify a 30px toggle. And keep big dark
-   "night" surfaces sparing in-app (heavy on small screens) — prefer light/warm
-   cards for settings; reserve full ink for real pet-world moments.
-5. **Verify** against the live component library `assets/gallery.html` and, when
-   the change is visible, render it in the browser preview.
+- Building or restyling ANY Nowa surface: landing pages, marketing sections,
+  app UI screens, social posts, ads, banners, emails, slides, icons.
+- Reviewing/auditing a design for brand compliance.
+- Converting old mockups or app screens to the current system.
+- Someone says "make this on-brand", "our colors", "match Nowa".
 
-> Full references (read when you need detail): `references/DESIGN.md` (complete
-> token + system reference), `references/COMPONENTS.md` (every component + CSS),
-> `references/BRAND-RULES.md` (all guardrails + copy rules), `references/ICONS.md`
-> (the 114-name pixel-line icon set + usage). The canonical, editable source
-> lives in the repo at `design-system/`; if tokens change there, re-sync this
-> skill's bundled copies.
+## Inputs
 
-## Brand rules cheat sheet (the ones people break)
+- The artifact to build/restyle/review (file, mockup, description).
+- Target surface (landing page / social / graphic / app UI) — routes which
+  reference applies, and which sizing regime governs (see below).
 
-These are non-negotiable. Why they matter is in `references/BRAND-RULES.md`.
+## Output
 
-- **Coral Flame `#ef493d` is the ONLY action color.** CTAs, active/selected
-  states, key accents. Never decorative, never a large fill. One coral per view.
-- **Tiny5 (pixel font) is pet-world ONLY** — pet sounds, care meters, level/XP
-  tags, numbers, species names. Never body copy or general UI chrome. Onest does
-  headings/labels; Noto Sans does body.
-- **Two corner systems, on purpose:** stepped pixel corners (notched `clip-path`)
-  for drawn surfaces — cards, buttons, avatars, chips; soft radii only for photos
-  and text inputs. Don't round a pixel card; don't step a photo inconsistently.
-- **Hard offset shadows, not soft blur:** `3px 3px 0` (or `14px 14px 0`
-  coral-blush on the hero stage). No Material-style elevation.
-- **Storybook rhythm:** alternate warm-parchment "day" and deep-ink "night"
-  sections; don't stack three of the same.
-- **Motion:** expo-out entrances (`translateY + opacity`, never `scale(0)`);
-  pixel presses use chunky `steps(2)`; hover only on fine pointers; always a
-  `prefers-reduced-motion` instant fallback.
-- **Pixel art renders crisp** (`image-rendering: pixelated`); photos render normal.
-- **Hover strength follows interactivity.** Only clickable things get a strong
-  hover; static content stays quiet. Never make a non-interactive element look
-  clickable. Wire real semantics so the right tier applies automatically.
+On-brand HTML/CSS (built on `assets/tokens.css`), a styled asset, or a
+brand-compliance review — always grounded in the token set and the
+non-negotiable brand rules.
 
-## Hover & interaction hierarchy
+## The five things people get wrong
 
-The page stays calm because hover ≠ decoration; hover = affordance. Full spec +
-CSS + specificity traps in `references/COMPONENTS.md §2b`. The short version:
+1. **Coral `#ef493d` is the only action color.** One per view, never decorative.
+2. **Tiny5 is pet-world only.** Onest headings, Noto Sans body.
+3. **Two corner systems:** stepped pixel corners on drawn surfaces; soft radii
+   only for photos, inputs and nav. Never round a pixel card.
+4. **Hard offset shadows, never soft blur.**
+5. **Two sizing regimes:** landing pages run fluid `clamp()` type; **app UI is
+   strict 4px grid for everything** — spacing, padding, radius, font-size and
+   computed line-height. Details in `prompt.md` and `references/APP-UI.md` §0.3.
 
-| Tier | What | Hover | Lift / speed |
-|---|---|---|---|
-| 1 | primary controls (`.btn`, `.mtab`, `.pbtn`) | extruded coral press | `-3px` / `70ms steps(2)` |
-| 2 | **clickable** cards (`<a>/<button>/<details>/[role=button]` `.pxcard`) | 4px coral line traced all around (corners incl.) | `-5px` / `110ms` |
-| 3 | links | coral color / underline | — |
-| 4 | **static** cards (plain `<div>` `.pxcard`) | clear lift, **no** coral line | `-3px` / `150ms` |
-| 5 | pet sprites | playful lift + scale | delight |
+## Detailed logic
 
-Committed state (selected `.on` / open `[open]`): **coral fill + settled lift, no
-line** — hover invites, the click commits. To add a card: static → plain `<div>`;
-clickable → real `<a>/<button>/<details>`/`role=button` (Tier 2 is automatic);
-selected → add `.on`. Never hand-roll a one-off hover — extend a tier.
+Read **`prompt.md`** — the full instructions. Deep references in `references/`:
+DESIGN · COMPONENTS · **APP-UI** (mobile spec) · MOTION · BRAND-RULES ·
+**ICONS** (114-name pixel-line set) · GRAPHICS · BRAND-MARK · SOCIAL ·
+AUDIT-2026-07-02 (decision log).
 
-## Token quick reference
+Assets in `assets/`: `tokens.css` / `tokens.json`, `gallery.html` (live
+component library), `icons.svg` (114-icon sprite — call by name), `brand/`
+(wordmarks), and **`app-ui/` — 15 self-contained parent-app screens that open
+directly in a browser; start app design work from these.**
 
-Full set in `assets/tokens.css`. The load-bearing ones:
-
-| Token | Value | Use |
-|---|---|---|
-| `--color-coral-flame` | `#ef493d` | the only action color |
-| `--color-coral-glow` | `#f87a71` | coral on dark / hover |
-| `--color-coral-blush` | `#fececa` | pixel offset shadow |
-| `--color-ember-deep` | `#b9271c` | button side face |
-| `--color-deep-ink` | `#161c24` | text / night canvas |
-| `--color-slate-mid` | `#454f5b` | secondary text |
-| `--color-warm-parchment` | `#fdf5dd` | CANVAS (Sunlit cream) |
-| `--color-pure-white` | `#ffffff` | card faces |
-| `--color-amber-signal` | `#ffc107` | signal / sample chip |
-| `--color-leaf-success` | `#54d62c` | success / beta chip |
-| `--font-onest` | Onest | display, headings, UI labels |
-| `--font-noto-sans` | Noto Sans | body |
-| `--font-pixel` | Tiny5 | pet-world only |
-| `--grid-cell` / `--grid-line` | 28px / `rgba(22,28,36,.08)` | graph paper |
-| `--px-shadow` | `3px 3px 0 rgba(22,28,36,.12)` | pixel drop shadow |
-| `--ease-expo` | `cubic-bezier(0.19,1,0.22,1)` | reveals |
-| `--ease-out-strong` | `cubic-bezier(0.23,1,0.32,1)` | UI transitions |
-
-## The signature shape (stepped corners)
-
-Drawn surfaces use a notched `clip-path` polygon instead of `border-radius`, paired
-with a hard offset shadow. Two notch sizes — small (8px) for buttons/chips/icons,
-medium (12px) for cards/avatars. The exact polygons and the `.pxcard` pattern that
-draws a 1px border + fill behind them are in `references/COMPONENTS.md §0–§2`.
-
-## Icons — two languages, call by name
-
-1. **Pixel art** (full-color sprites/GIFs) = **pet world only** — HUD, game loop,
-   fun cards, species.
-2. **Pixel-line** (Nucleo, 24px grid · stroke 2 · **square caps** · `fill:none` ·
-   `currentColor`) = **utility & commerce** — spec accordions, `.licon` chips,
-   list rows, compare headers. Never mix both inside one component.
-
-The pixel-line set ships as **114 named icons** — the name IS the id, identical
-in code and Figma (`icon/<name>`):
-
-- In the website repo: `pages/assets/icons/<name>.svg` + sprite
-  `pages/assets/icons/icons.svg` →
-  `<svg width="24" height="24"><use href="assets/icons/icons.svg#gear"></use></svg>`
-- Bundled here for work outside the repo: `assets/icons.svg` (same symbol ids —
-  copy the needed `<symbol>` inline, or ship the sprite with the page).
-- Color via CSS `color:` (slate on light, cloud-border on ink, `--color-tint-*`
-  for neutral/competitor tints). **Coral only when the icon IS the action.**
-- Scale proportionally (18/24/36/48) so the 2px stroke scales with the grid;
-  external `<use>` needs http(s), not `file://`.
-- Full name list, groups, aliases (`magnifier`=search, `xmark`=close,
-  `heart-2`=heart, `export`=upload…) and add/regenerate steps:
-  `references/ICONS.md`. Figma mirror: Nowa Design System v2 → page "Icon".
-
-## Forms (Input form kit — Figma-first, 2026-07-15)
-
-Masters live in Figma: **Nowa Design System v2 → page "Input form"** (Text
-Field, Text Area, Radio, Checkbox + a composed sample form). No shipped CSS
-yet — when a real page needs a form, reconcile from Figma into
-`design-system/COMPONENTS.md` per the round-trip flow. Until then, build to
-these rules:
-
-- **Text inputs are SOFT, not stepped** — `--radius-inputs` (8px), 1px
-  `--color-cloud-border`, white fill, no shadow. (DS law: soft radii only for
-  photos / inputs / nav.) Anatomy: label (Onest 600 14) above → input box with
-  optional left/right icon slots (pixel-line `icon/*`, 20px, slate) → helper
-  text (Noto 12, mist-body) below.
-- **States:** Focus = 2px `--color-coral-flame` border + coral caret (active
-  state — sanctioned coral). Error = 2px `--color-error` border +
-  `triangle-warning` icon + message in `--color-error`. Disabled = ghost-white
-  fill at ~60%, cloud-border text.
-- **`--color-error`** (→ ember-deep) is THE validation color — never coral for
-  errors, never amber (that's the sample/signal chip).
-- **Radio & checkbox go native** (control layer): 20px circle / 20px
-  radius-sm square, 2px cloud-border; **coral only when selected** (10px coral
-  dot / coral fill + white `icon/check`). Labels Noto 15.
-- Text area adds a `0/200` counter (Noto 11, mist) bottom-right inside the box.
-- **Ranger (range slider)** — native rounded control. Track 8px full-radius:
-  unfilled = chalk-surface; filled = pastel gradient low→high
-  `pastel-leaf #9fd4a3 → pastel-amber #f0cd83 → coral-flame #ef493d` (gradient
-  stops can't bind variables — those hexes ARE the tokens). Thumb = 20px white,
-  2px coral (cloud-border when disabled). Label + value readout on top,
-  Low/High captions (Noto 11) below.
-
-## Component → app-UI map
-
-When taking the system to app screens, reach for these first:
-
-| Need | Use |
-|---|---|
-| primary / secondary action | `.btn` / `.btn-ghost` |
-| tab bar, segmented control | `.mtab` (active = ink) |
-| top app bar | `nav` (blur + rotating coral cell) |
-| list row, content card, sheet | `.pxcard` |
-| level / XP badge, status pill | `.lvlchip` / `.beta-chip` |
-| pet care/health/XP bar | `.meter` (8-bit cells) |
-| hatch / unlock flow | `.egg` / `.egg-card` |
-| pet-sound feedback | `.eq` + `.bubble` |
-| in-showcase screen mockup | `.device-frame` |
-| settings accordion / expandable row | `.faq` (`<details>`) |
-| section divider / background | `.dither` / `.graph` |
-
-## Copy guardrails (when the work includes words)
-
-- "built with" / "shaped by" advisors — **never** "clinically proven."
-- Magical pet, not a chatbot toy; the pet doesn't speak human language.
-- No surveillance / behavior-control / obedience framing.
-- Don't use "empathy-based dependency"; don't lift "deeply feeling kid" verbatim.
-- Full list in `references/BRAND-RULES.md`.
+> Canonical editable source: `design-system/` + `design/tokens.css` in the
+> `nowa-technologies/nowa-mkt-website` repo. Design decisions land there first,
+> then re-sync into this skill folder and bump the version here.

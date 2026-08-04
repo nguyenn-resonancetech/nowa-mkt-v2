@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nowa Design System — Component Library</title>
-<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="../design/tokens.css">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700&family=Tiny5&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -109,6 +109,28 @@ section.demo>.wrap>h2{font-size:var(--text-heading-lg);font-weight:800;margin-bo
 .app-map{width:100%;border-collapse:collapse;margin-top:8px;font-size:var(--text-body-sm)}
 .app-map td,.app-map th{border:1px solid var(--color-chalk-surface);padding:8px 10px;text-align:left;background:var(--surface-pure-white)}
 .app-map th{font-family:var(--font-onest);background:var(--surface-ghost-white)}
+/* ---- v3 additions ---- */
+.geyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-onest);font-weight:700;font-size:var(--text-body-sm);letter-spacing:.08em;text-transform:uppercase;color:var(--color-mist-body)}
+.geyebrow .cell,.chapter .cell{width:14px;height:14px;background:var(--color-coral-flame)}
+.mstat{max-width:420px;padding:14px 16px;background:var(--surface-pure-white);border-left:3px solid var(--color-coral-flame)}
+.mstat .big{display:block;font-family:var(--font-onest);font-weight:900;font-size:22px;color:var(--color-coral-flame);letter-spacing:-.02em;line-height:1.05}
+.mstat .txt{display:block;margin-top:6px;font-size:var(--text-body-sm);color:var(--color-slate-mid);line-height:1.45}
+.mstat .src{display:block;margin-top:8px;font-size:var(--text-caption);color:var(--color-mist-body);font-style:italic}
+.show-card-tag{display:inline-flex;align-items:center;font-family:var(--font-onest);font-weight:800;font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:var(--color-coral-flame);background:var(--color-coral-blush);padding:4px 9px 5px;clip-path:polygon(0 3px,3px 3px,3px 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px))}
+.show-card-stamp{display:inline-flex;align-items:center;font-family:var(--font-onest);font-weight:900;font-size:13px;letter-spacing:.08em;color:#fff;background:var(--color-coral-flame);padding:5px 12px 6px;text-transform:uppercase;clip-path:polygon(0 4px,4px 4px,4px 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px))}
+.show-card-price{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-onest)}
+.show-card-orig{font-weight:700;font-size:16px;color:var(--color-slate-mid);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(22,28,36,.4)}
+.show-card-arrow{color:var(--color-slate-mid);font-weight:700}
+.show-card-new{font-weight:900;font-size:22px;color:var(--color-coral-flame)}
+.po-chip{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;color:var(--color-deep-ink);padding:10px 16px}
+.po-chip.pxcard{filter:drop-shadow(var(--px-shadow-1))}
+.po-chip b{font-family:var(--font-onest);font-weight:800}
+.po-chip-ic{width:18px;height:18px;display:inline-flex;color:var(--color-coral-flame);flex:none}
+.band-strip{padding:22px 24px;margin-top:12px}
+.band-strip b{font-family:var(--font-onest);font-weight:800;display:block}
+.band-strip small{font-size:12.5px;display:block;margin-top:3px}
+.notch-demo{display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap}
+.notch-demo .nd{background:var(--color-coral-flame);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-pixel);font-size:12px}
 </style>
 </head>
 <body>
@@ -161,6 +183,49 @@ section.demo>.wrap>h2{font-size:var(--text-heading-lg);font-weight:800;margin-bo
     <span class="sample-chip">SAMPLE</span>
     <span class="chapter"><span class="cell"></span><span class="cnum">02</span> The care loop</span>
   </div>
+</div></section>
+
+<!-- EYEBROWS / SECTION LABELS -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">04b</div><h2>Section labels — two systems, two jobs</h2>
+  <div class="row" style="gap:40px">
+    <span class="chapter"><span class="cell"></span><span class="cnum">02</span> The care loop</span>
+    <span class="geyebrow"><span class="cell"></span>What it does</span>
+  </div>
+  <p class="note"><b>.chapter</b> (coral cell + Tiny5 number) = storybook-paged surfaces. <b>.geyebrow</b> (coral cell + uppercase Onest) = question-group LPs. Never both on one page. Decision 2026-07-02: the eyebrow must stay distinctly Nowa — the coral pixel cell is mandatory, and sequenced surfaces get the Tiny5 number back. Full rules: COMPONENTS.md §13.</p>
+</div></section>
+
+<!-- STAT CALLOUT -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">04c</div><h2>Research-stat callout <code style="font-size:13px;color:var(--color-mist-body)">.mstat</code></h2>
+  <div class="mstat"><span class="big">2× more likely</span><span class="txt">Kindergartners who could share, cooperate, and manage big feelings were about twice as likely to earn a college degree by their mid-20s.</span><span class="src">Jones, Greenberg &amp; Crowley, AJPH, 2015 · 753 children tracked ~20 years</span></div>
+  <p class="note">The "receipts" block — one per benefit claim, stat verified before publish. Spec: COMPONENTS.md §16.</p>
+</div></section>
+
+<!-- CONVERSION ATOMS -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">04d</div><h2>Conversion atoms</h2>
+  <div class="row">
+    <span class="show-card-tag">Pre-order locked</span>
+    <span class="show-card-stamp">Free · Day 1</span>
+    <span class="show-card-price"><span class="show-card-orig">$149</span><span class="show-card-arrow">→</span><span class="show-card-new">$99</span></span>
+    <span class="po-chip pxcard" style="padding:10px 16px"><span class="po-chip-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span><span><b>Cancel anytime</b> before ship</span></span>
+  </div>
+  <p class="note">Tag chip (3px notch) · stamp (4px notch) · price morph · trust chip. From the pre-order kit, COMPONENTS.md §23.</p>
+</div></section>
+
+<!-- NOTCH SCALE -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">04e</div><h2>Stepped-corner notch scale</h2>
+  <div class="notch-demo">
+    <div class="nd" style="width:32px;height:32px;clip-path:polygon(0 2px,2px 2px,2px 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px))">2</div>
+    <div class="nd" style="width:44px;height:26px;clip-path:polygon(0 3px,3px 3px,3px 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px))">3</div>
+    <div class="nd" style="width:56px;height:32px;clip-path:polygon(0 4px,4px 4px,4px 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px))">4</div>
+    <div class="nd" style="width:72px;height:44px;clip-path:polygon(0 6px,3px 6px,3px 3px,6px 3px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 3px) calc(100% - 6px),calc(100% - 3px) calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 6px),0 calc(100% - 6px))">6</div>
+    <div class="nd" style="width:96px;height:56px;clip-path:var(--step8)">8</div>
+    <div class="nd" style="width:128px;height:80px;clip-path:var(--step12)">12</div>
+  </div>
+  <p class="note">Notch ≈ ⅛ of the element's short side, snapped to 2 / 3 / 4 / 6 / 8 / 12. Dots &amp; arrows → 2 · micro tags → 3 · stamps → 4 · small chips &amp; thumbs → 6 · buttons &amp; tabs → 8 · cards &amp; avatars → 12. Tokens: <code>--px-step-*</code>.</p>
 </div></section>
 
 <!-- CARDS -->
@@ -233,9 +298,32 @@ section.demo>.wrap>h2{font-size:var(--text-heading-lg);font-weight:800;margin-bo
 <div style="background:var(--surface-deep-ink);color:#fff;padding:32px 0"><div class="wrap"><h3 style="font-size:24px">Night chapter — deep ink band</h3><p style="color:var(--color-chalk-surface);font-size:14px;margin-top:6px">Day↔night storybook rhythm, bridged by the checkerboard dither.</p></div></div>
 </section>
 
+<!-- NAMED BANDS -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">08b</div><h2>Named bands — each has a job</h2>
+  <div class="band-strip" style="background:var(--surface-sage-calm)"><b style="color:var(--color-sage-ink)">Sage Calm</b><small style="color:var(--color-sage-muted)">safety · guarantee · founder trust — text only in sage-ink / sage-muted (+ coral accents)</small></div>
+  <div class="band-strip" style="background:var(--surface-warm-sand)"><b style="color:var(--color-deep-ink)">Warm Sand</b><small style="color:var(--color-slate-mid)">the pre-order / conversion moment — eyebrows go deep ink here, never pale grey</small></div>
+  <div class="band-strip" style="background:var(--surface-bright-paper)"><b style="color:var(--color-deep-ink)">Bright Paper</b><small style="color:var(--color-slate-mid)">the "worklight" demo band (missions, compare) — carries the graph-paper grid</small></div>
+  <p class="note">Plus the two originals: Sunlit-cream day canvas and deep-ink night. Don't stack three of the same in a row; bridge light↔dark with the dither.</p>
+</div></section>
+
 <!-- APP MAP -->
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">09</div><h2>Designer drop · July 2026</h2>
+  <div class="row" style="align-items:stretch">
+    <div style="background:var(--surface-warm-parchment);border:1px solid var(--color-chalk-surface);padding:22px 30px;display:flex;align-items:center"><img src="../pages/assets/brand/nowa-wordmark.svg" alt="Nowa wordmark, coral" style="width:180px;height:auto"></div>
+    <div style="background:var(--surface-deep-ink);border:1px solid var(--color-chalk-surface);padding:22px 30px;display:flex;align-items:center"><img src="../pages/assets/brand/nowa-wordmark-pastel.svg" alt="Nowa wordmark, pastel" style="width:180px;height:auto"></div>
+    <div style="background:var(--surface-pure-white);border:1px solid var(--color-chalk-surface);padding:18px 22px;display:flex;gap:18px;align-items:center;color:var(--color-deep-ink)">
+      <svg width="28" height="28" viewBox="0 0 24 24"><path d="M9 18H15" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M11 6L13 6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M7 2H17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M7 22H17" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M5 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M19 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/></svg>
+      <svg width="28" height="28" viewBox="0 0 24 24" style="color:var(--color-tint-coral)"><path d="M18 10L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M22 8L22 16" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M8 6L8 6.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M8 18L8 18.01" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M10 4L13 4L13 20L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M6 8L2 8V16H6" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/></svg>
+      <img class="px" src="../pages/assets/pixels/pet-loved-80.gif" alt="" width="56" height="56" style="image-rendering:pixelated">
+    </div>
+  </div>
+  <p class="note">The 2026-07-04 drop: drawn wordmark logo system (coral on light / pastel blush on ink — BRAND-MARK.md v2), the pixel-line icon set (square caps, 24px grid — GRAPHICS.md §5, direction now DECIDED), pastel accent tokens (<code>--color-pastel-*</code>, <code>--color-tint-*</code>), the 80/96px pixel GIF set, and the pastel-border fun-card variant. Full specimen sheet: <a href="designer-components.html" style="color:var(--color-coral-flame);font-weight:600">designer-components.html</a></p>
+</div></section>
+
 <section class="demo" style="border-bottom:0"><div class="wrap">
-  <div class="eyebrow">09</div><h2>Component → app-UI map</h2>
+  <div class="eyebrow">10</div><h2>Component → app-UI map</h2>
   <table class="app-map">
     <tr><th>Web component</th><th>App-UI role</th></tr>
     <tr><td>.btn / .btn-ghost</td><td>primary / secondary actions</td></tr>
@@ -264,6 +352,21 @@ const swatches = [
   ['Pure White','#ffffff','cards'],
   ['Amber Signal','#ffc107','sparkle/sample'],
   ['Leaf Success','#54d62c','beta/success'],
+  ['Sage Calm','#e2efdb','safety/guarantee band'],
+  ['Sage Ink','#1e3a2c','headings on sage'],
+  ['Sage Muted','#4d6b58','body on sage'],
+  ['Warm Sand','#fff3d6','pre-order band'],
+  ['Bright Paper','#faf8f0','worklight band'],
+  ['Coral Mist','#fdecea','committed/selected fill'],
+  ['Sky Button','#6c9bd2','device hardware only'],
+  ['Pastel Coral','#f2a9a0','fun-card border'],
+  ['Pastel Amber','#f0cd83','fun-card border'],
+  ['Pastel Leaf','#9fd4a3','fun-card border'],
+  ['Pastel Sky','#a8cceb','fun-card border'],
+  ['Tint Coral','#e59a90','icon tint on white'],
+  ['Tint Amber','#dcb35b','icon tint on white'],
+  ['Tint Sky','#8fbfe0','icon tint on white'],
+  ['Wordmark Blush','#f3e1db','footer wordmark on ink'],
 ];
 document.getElementById('swatches').innerHTML = swatches.map(([n,h,u])=>
   `<div class="sw"><div class="chip" style="background:${h}"></div><div class="meta"><b>${n}</b><code>${h}</code><div style="color:var(--color-mist-body);margin-top:2px">${u}</div></div></div>`

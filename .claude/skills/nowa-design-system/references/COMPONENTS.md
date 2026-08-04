@@ -244,8 +244,11 @@ section.
 ---
 
 ## §5. Navigation `nav`
-Sticky, blurred parchment bar. Brand wordmark (Onest 800) with a coral `.bcell`
-that rotates on hover; links (Onest 600 slate) + a primary `.btn`.
+Sticky, blurred parchment bar. Brand = the **coral drawn-wordmark SVG**
+(`assets/brand/nowa-wordmark.svg` at 107×24 — see BRAND-MARK.md v2, decision
+2026-07-04; replaces the old app-icon + Onest text lockup). Links (Onest 600
+slate) + a primary `.btn`. The coral `.bcell` cadence stays in
+eyebrows/chapters, not the nav brand.
 ```css
 nav{position:sticky;top:0;z-index:var(--z-nav);backdrop-filter:blur(12px);
   background:color-mix(in srgb,var(--color-warm-parchment) 85%,transparent);
@@ -296,12 +299,18 @@ optional Tiny5 number/icon.
   marching between steps. Grid of 4 → 2 → 1.
 - **`.mpanel`** — two-column mission panel (copy + `.mission-art` media), crossfades
   via `.mfade`/`.mfade.out`.
-- **`.lib`** — library card; `.licon` stepped pixel icon. Static `<div>` → Tier-4
-  lift only (see §2b); it is *not* clickable, so no coral line.
+- **`.lib`** — library card; `.licon` = stepped 44px chip holding an 18px
+  pixel-line SVG icon (2026-07-04 drop — was a Tiny5 text placeholder).
+  Static `<div>` → Tier-4 lift only (see §2b); it is *not* clickable, so no
+  coral line.
 - **`.seg`** — segment card (plain).
 - **`.adv`** — advisor card; stepped avatar (`‹STEP 12›`), name (Onest 800), role
   (ember), credentials list.
-- **`.fun`** — dark feature card (ink fill).
+- **`.fun`** — feature card. Current form (2026-07-04): **white face + 3px
+  pastel pixel border** — `--pxbg` white, `--pxborder` one of
+  `--color-pastel-coral/amber/leaf/sky`, drawn at 3px inset
+  (`::before … 3px 3px/calc(100% - 6px)`), 80px GIF `.ficon`. One pastel per
+  card, cycle the four. The old ink-fill variant is deprecated.
 - **`.faq`** — `<details>` accordion → Tier-2 clickable card: coral-line lift on
   hover, coral fill when `[open]` (see §2b). Tiny5 `.fplus` rotates 45° when open.
 - **`.pullq`** — advisor pull-quote (stepped avatar + Onest quote).
@@ -399,3 +408,190 @@ optional Tiny5 number/icon.
 | `.device-frame` | in-showcase screen mockup |
 | `.faq` (`<details>`) | settings accordions, expandable rows |
 | `.dither` / `.graph` | screen section dividers, backgrounds |
+
+---
+
+# v3 ADDITIONS (2026-07-02)
+
+Mined from `pages/index-permill-v2.html` @ `de1d273` (Permill v3). Source of the
+load-bearing CSS is that page unless a snippet is shown; render checks belong in
+`gallery.html`. Token names below refer to `tokens.css` v2 (notch scale, shadow
+scale, sage/sand/bright-paper bands, coral-mist states).
+
+---
+
+## §12. Announcement bar `.annc`
+
+Ink ticker strip **above** the nav (scrolls away; nav stays sticky). One repeated
+`.annc-item` set inside `.annc-track`, `anncScroll` 34s linear, **pauses on
+hover**. Coral `·` separators (`.ad`), coral bold "go" link. Whole bar is one
+`<a href="#preorder">`.
+- **Reduced motion:** animation off, single centered item, rest hidden.
+- **Use for:** pre-order terms, shipping windows. One message per bar.
+
+## §13. Group eyebrow `.geyebrow` (+ `.hero-eyebrow`)
+
+The v2 section label: coral 14px `.cell` + Onest 700 uppercase, tracking .08em.
+`.hero-eyebrow` is the coral hero variant (tracking .14em).
+
+> **DECISION (2026-07-02, Daniel): keep the eyebrow, make it distinctly Nowa.**
+> A plain uppercase eyebrow is generic AI-scaffold grammar. The Nowa treatment
+> keeps the coral pixel cell **and reintroduces a pet-world tag**: pair the cell
+> with a Tiny5 group glyph/number when the surface has a sequence (storybook
+> pages), or let the cell carry it alone on question-group LPs. `.chapter`
+> (coral cell + Tiny5 `CH.0x`) remains the canon for storybook-paged surfaces;
+> `.geyebrow` is the canon for question-group LPs. Don't mix on one page.
+- On dark: `--color-cloud-border`; on sage: `--color-sage-muted`; on warm-sand:
+  deep ink (contrast floor).
+
+## §14. Spine quote `.spine`
+
+Dark standalone beat holding one parent-voice line. Onest 800,
+`clamp(28px,4vw,52px)`, max-width `22ch`. Words wrapped in `.w` spans at
+opacity .18; IntersectionObserver (threshold .5) adds `.on` per word at
+**80ms stagger** → words brighten as the section enters. Sub-line in
+`--band-accent`. Reduced motion: all words on instantly.
+
+## §15. Day-rhythm infographic `.day-rhythm` (`.dr-*`)
+
+The anti-engagement visual: ink pxcard with a sun→moon gradient day-line,
+pulsing coral check-in dots (`drPulse` 2.6s), Tiny5 `~12 min` time tags above,
+muted day-part labels below. `role="img"` + full `aria-label` (the DOM art is
+`aria-hidden`). **Template for future infographics:** ink card + one drawn
+diagram + Tiny5 data tags + a warm caption.
+
+## §16. Research-stat callout `.mstat` / `.mcard .stat`
+
+The "receipts" block for the sturdy parent — every benefit claim carries one:
+- `.big` — Onest 900 coral stat ("3× better")
+- `.txt` — plain-language finding (Noto Sans, body-sm)
+- `.src` — italic caption citation (authors, journal, year, N)
+Two skins: white card + 3px coral `border-left` (inside `.mpanel`), or
+parchment inset (inside `.mcard`). **Every stat verified before publish**
+(BRAND-RULES). One stat per card, never a stat wall.
+
+## §17. Game loop `.gameloop`
+
+The care-loop as a real loop:
+- **Mobile:** vertical rail of steps beside a marching-pixel line
+  (`marchY` 700ms linear), plus-shaped coral nodes.
+- **Desktop (≥861px):** closed 2×2 ring (`grid-template-areas "s1 s2" "s4 s3"`),
+  numbered clockwise; directional pixel-arrow nodes (`nudgeR/D/L/U`,
+  1.2s `steps(2)`) hug the inner edges; center hub is a coral stepped medallion
+  with a spinning ↻ (`spin` 6s linear).
+- Steps are `.step.pxcard` with pixel-gif `.sicon`, Tiny5 `.n`, no row arrow
+  (`.gameloop .step::after{display:none}`).
+Use when a process genuinely loops; numbered sequence = the one sanctioned use
+of numbers-as-labels.
+
+## §18. Phone showcase `.pf-phone` / `.pf-*`
+
+The app-showcase shell (marketing ↔ app-UI bridge):
+- `.pf-phone` — gradient shell `#3a3f47→#0b0e13`, 50px radius, side buttons
+  (fixed art, not tokens). `.pf-screen` 300×611 crops a 393×800 iframe at
+  `scale(.76336)` (app pages self-style via `html.embed`).
+- `.pf-track` — scroll-snap x + pointer-drag (snap disabled during drag,
+  re-snap on release), slides filtered per feature via `.pf-hide`.
+- `.pf-nav` — stepped `.pf-arrow` buttons (steps(2) press) + square `.pf-dots`.
+- Feature cards `.papp-feat` (Tier-2 clickable pxcards, `role="button"`,
+  `tabindex="0"`, Enter/Space) drive which slides show; committed card takes
+  the coral-mist fill.
+- Lazy: iframes get `src` only when their feature is active.
+
+## §19. Comparison surfaces (two, on purpose)
+
+1. **Category matrix `.cmptbl`** — "us vs the category": pxcard-wrapped table,
+   pixel category icons + bobbing pet (`pbob`, steps(2)) in the header, NOWA
+   column framed in 2px coral with Tiny5 header on coral, `✓/✗/~` glyph marks,
+   horizontal scroll wrapper on mobile.
+2. **Offer table `.po-vs`** — "pre-order vs retail": semantic table, `is-mine`
+   column tinted `--color-coral-mist-soft` with coral header underline,
+   stroke-SVG ✓/✗ icons, `is-them-no` at 38% ink.
+Matrix = product proof (pet in header, pixel icons); offer table = commerce
+(stroke icons, quiet). Don't swap their skins.
+
+## §20. Device carousel `.dc-*`
+
+Product-view carousel inside a `.blueprint` pxcard: `.dc-track` translateX
+(400ms `--ease-out-strong`), per-slide `data-fit` scale corrections for
+non-uniform renders, stepped 2px-notch dots + white arrows, `aria-live`
+caption `.dc-label` with 220ms opacity swap and coral `.dcl-tag` number.
+
+## §21. Spec accordions `.device-specs`
+
+`.faq.pxcard` variant for hardware specs: stroke icon + label + Tiny5-free
+`.dspec-val` emphasis line + body. **The canonical height animation:**
+`.faq-a { display:grid; grid-template-rows:0fr; transition:grid-template-rows
+300ms var(--ease-out-strong) }` → `[open]` sets `1fr`; inner div
+`overflow:hidden`. (`interpolate-size:allow-keywords` where supported.)
+Single-open behavior via JS `toggle` listener. Never animate `height`.
+
+## §22. Founder quote `.founder-quote`
+
+Sage band (`--surface-sage-calm`), centered display quote (Onest 800) +
+avatar/attribution row. The founder-voice moment; one per page max.
+
+## §23. Pre-order kit (`.po-*`, `.deal-*`, `.show-card-*`)
+
+The conversion-section subsystem. Reusable atoms:
+- **Tag chip `.show-card-tag`** — 10px Onest 800 uppercase, coral on
+  coral-blush, 3px notch. ("Pre-order locked", "Free with pre-order")
+- **Price morph `.show-card-price`** — struck `$149` → arrow → coral 900 `$99`
+  or a `.show-card-stamp` (white-on-coral, 4px notch, uppercase).
+- **Trust chip `.po-chip.pxcard`** — stroke icon + `<b>`-led line, shadow-1.
+- **Tally `.po-tally`** — sage stepped card: struck total value → giant coral
+  `$99` (Onest 900, `clamp(96–180px)`, `--px-text-shadow-coral`) → uppercase
+  sub → coral save badge.
+- **Deal block `.deal`** — 1.35fr/1fr split: white GET pxcard (icon rows,
+  amber ★ sub-bullets, values right) + sage PAY pxcard (math + trust list).
+  Mobile: PAY stacks first (`order:-1`).
+- **Gallery `.po-gallery`** — 120px thumb rail (6px-notch thumbs; selected =
+  coral outline + blush fill + coral label) + main panel (1:1 image well +
+  body). `:has(img)` panels go image-only full-width. Mobile: rail flips to
+  horizontal scroll on top.
+- **Honest scarcity `.po-honest`** — the no-countdown scarcity paragraph;
+  ink lead + coral number. Language rules live in the content skill.
+- **Unlock timeline `.po-tl`** — 3-step coral-line timeline, stepped number
+  squares (`content:attr(data-n)`), mobile flips to left-rail list.
+- `.po-switch` A/B toggle is **DEV-ONLY** (as are `.theme-picker`,
+  `.hero-picker`) — never ships.
+
+## §24. Mid-page CTA `.midcta`
+
+Compact warm-sand conversion beat: eyebrow → one-line H3 → `·`-separated fine
+terms (`.fdot` coral dots) → `.btn` → optional soft "full details" link.
+Drop after a proof section (compare, world). Eyebrow reads deep-ink on sand.
+
+## §25. Win-moment beat `.winbeat`
+
+**Documented-ahead component (markup currently unused; keep — decision
+2026-07-02).** Coral-blush pxcard holding the highest-resonance beta story:
+Onest 800 quote (max 26ch) + Tiny5 `UNPROMPTED` tag + attribution, above a
+3-photo `.photo-strip` (pxslots until real beta photos land). Deploy when
+approved beta photos/quotes arrive.
+
+## §26. Small dressing
+
+- **`.unlock-head`** — Tiny5 coral-glow header flanked by dashed coral lines
+  (`.ln`, marching-gradient pattern, static).
+- **FAQ tabs `.faqtabs`** — `.mtab` row switching `.faqpanel[hidden]` groups.
+  Reuse for any content-category switch.
+- **`::selection`** — coral/white (in tokens.css). Brand-carrying.
+
+---
+
+## Icon languages (DECIDED 2026-07-04 — pixel-line set lands)
+
+Two icon systems, both pixel-flavored:
+1. **Pixel art icons/sprites** (`.sicon` / `.ficon` GIFs, species art) — the
+   pet world. New-generation set at 80/96px, kebab-case names.
+2. **Pixel-line SVGs** (Nucleo-based: 24px grid, stroke-width 2,
+   **square caps**, `currentColor`, `fill:none`) — utility & commerce (spec
+   accordions, library `.licon` chips, compare-table headers). Replaces the
+   Feather round-cap set; swap remaining Feather icons on touch (deal rows,
+   trust chips, carousel arrows still carry old ones).
+Compare-table competitor columns tint their icons with
+`--color-tint-coral/amber/sky`; the NOWA column keeps the live pet sprite.
+Full spec in GRAPHICS.md §5; specimen sheet = `designer-components.html`.
+Rule unchanged: **pixel art = pet world; line = utility. Never both inside
+one component.**

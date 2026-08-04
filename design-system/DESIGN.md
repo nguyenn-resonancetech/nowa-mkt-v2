@@ -85,6 +85,14 @@ Body uses `line-height: 1.6` and `text-wrap: pretty`. Leads cap at `60ch`.
 
 Fluid display sizing in source: `clamp(38px, 6.2vw, 84px)` for hero H1.
 
+**Two sizing regimes — decided 2026-07-15:**
+- **Landing pages = fluid.** Type scales with the viewport via `clamp()` (275
+  uses across `pages/`). Intermediate viewports produce fractional px *by
+  design*; a 4px type grid is not enforceable here and is not attempted.
+- **App UI = fixed, strict 4px.** `app-ui/new/` uses zero `clamp()`. Font size,
+  computed line-height and every layout value are multiples of 4 — allowed
+  ladders in `APP-UI.md` §0 directive 3.
+
 ---
 
 ## 3. Spacing & layout
@@ -102,6 +110,10 @@ Fluid display sizing in source: `clamp(38px, 6.2vw, 84px)` for hero H1.
 
 Sections use fluid vertical rhythm: `padding: clamp(72px, 9vw, 128px) 0`.
 Content centers in `.wrap` (max-width + 24px side padding).
+
+**Grid regime:** spacing, padding, gap and radius are 4px-based on **both**
+surfaces. What differs is type and vertical rhythm — LP fluid (`clamp`), app UI
+strict 4px for *everything* incl. font-size (`APP-UI.md` §0.3).
 
 ---
 

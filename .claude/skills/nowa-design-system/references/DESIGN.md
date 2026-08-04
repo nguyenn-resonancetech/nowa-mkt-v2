@@ -6,12 +6,18 @@ pixel playfulness** — warm paper canvas, deep-ink night chapters, and a retro
 pixel/8-bit motif (graph paper, stepped corners, Tiny5 type) reserved for the
 pet world.
 
-- **Tokens:** [`tokens.css`](../assets/tokens.css) (authoring, synced from the repo's `design/tokens.css`) · [`tokens.json`](tokens.json) (tooling)
-- **Components:** [`COMPONENTS.md`](COMPONENTS.md)
+- **Tokens:** [`tokens.css`](../design/tokens.css) (authoring, single source of truth) · [`tokens.json`](tokens.json) (tooling)
+- **Components:** [`COMPONENTS.md`](COMPONENTS.md) (§12+ = v3 additions)
+- **Motion:** [`MOTION.md`](MOTION.md) — easing/duration bands, signature moves, the two laws
+- **Brand mark:** [`BRAND-MARK.md`](BRAND-MARK.md) — logo system + usage
+- **App UI:** [`APP-UI.md`](APP-UI.md) — parent-app specs (living reference: `app-ui/new/`)
+- **Social & ads:** [`SOCIAL.md`](SOCIAL.md) — canvases, band recipes, type floors
+- **Graphics:** [`GRAPHICS.md`](GRAPHICS.md) — pixel art, photography, icons, infographics
 - **Rules (read before designing):** [`BRAND-RULES.md`](BRAND-RULES.md)
 - **Live library:** [`gallery.html`](gallery.html)
-- **Source pages:** `pages/index-v2.html`, `pages/index-permill.html`
-- **Locked variant:** canvas = **Sunlit cream `#fdf5dd`** (paper3), hero = **Stage** (option 1)
+- **Latest audit:** [`AUDIT-2026-07-02.md`](AUDIT-2026-07-02.md) — extraction, gaps, decisions
+- **Source pages:** `pages/index-permill-v2.html` (canon, Permill v3) · `pages/index-v2.html` (legacy)
+- **Locked:** canvas = **Sunlit cream `#fdf5dd`** (paper3, final — decision 2026-07-02), hero = **Stage** (option 1)
 
 ---
 
@@ -79,6 +85,14 @@ Body uses `line-height: 1.6` and `text-wrap: pretty`. Leads cap at `60ch`.
 
 Fluid display sizing in source: `clamp(38px, 6.2vw, 84px)` for hero H1.
 
+**Two sizing regimes — decided 2026-07-15:**
+- **Landing pages = fluid.** Type scales with the viewport via `clamp()` (275
+  uses across `pages/`). Intermediate viewports produce fractional px *by
+  design*; a 4px type grid is not enforceable here and is not attempted.
+- **App UI = fixed, strict 4px.** `app-ui/new/` uses zero `clamp()`. Font size,
+  computed line-height and every layout value are multiples of 4 — allowed
+  ladders in `APP-UI.md` §0 directive 3.
+
 ---
 
 ## 3. Spacing & layout
@@ -96,6 +110,10 @@ Fluid display sizing in source: `clamp(38px, 6.2vw, 84px)` for hero H1.
 
 Sections use fluid vertical rhythm: `padding: clamp(72px, 9vw, 128px) 0`.
 Content centers in `.wrap` (max-width + 24px side padding).
+
+**Grid regime:** spacing, padding, gap and radius are 4px-based on **both**
+surfaces. What differs is type and vertical rhythm — LP fluid (`clamp`), app UI
+strict 4px for *everything* incl. font-size (`APP-UI.md` §0.3).
 
 ---
 
